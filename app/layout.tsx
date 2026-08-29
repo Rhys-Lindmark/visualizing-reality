@@ -6,18 +6,18 @@ const sans = DM_Sans({ variable: '--font-sans', subsets: ['latin'] });
 const serif = Cormorant_Garamond({ variable: '--font-serif', subsets: ['latin'], weight: ['500', '600'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://quantifying-reality.rhyslindmark.chatgpt.site'),
-  title: 'Quantifying Reality — A public atlas of measurable history',
-  description: 'Evidence, estimates, and uncertainty about how humans have lived—from the first cities to today.',
+  metadataBase: new URL('https://visualizing-reality.rhyslindmark.chatgpt.site'),
+  title: 'Rome — Visualizing Reality',
+  description: 'Five evidence-led arguments about how Rome expanded, worked, fell, and endured.',
   openGraph: {
-    title: 'Quantifying Reality',
-    description: 'A public atlas of measurable history.',
-    images: [{ url: '/og.png', width: 1731, height: 909, alt: 'Quantifying Reality — A public atlas of measurable history' }],
+    title: 'Visualizing Reality',
+    description: 'Rome: five arguments about how an empire worked.',
+    images: [{ url: '/og.png', width: 1730, height: 909, alt: 'Visualizing Reality — Rome: five arguments about how an empire worked' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Quantifying Reality',
-    description: 'A public atlas of measurable history.',
+    title: 'Visualizing Reality',
+    description: 'Rome: five arguments about how an empire worked.',
     images: ['/og.png'],
   },
 };
