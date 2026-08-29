@@ -6,7 +6,7 @@ const sans = DM_Sans({ variable: '--font-sans', subsets: ['latin'] });
 const serif = Cormorant_Garamond({ variable: '--font-serif', subsets: ['latin'], weight: ['500', '600'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://quantifying-reality.chatgpt.site'),
+  metadataBase: new URL('https://quantifying-reality.rhyslindmark.chatgpt.site'),
   title: 'Quantifying Reality — A public atlas of measurable history',
   description: 'Evidence, estimates, and uncertainty about how humans have lived—from the first cities to today.',
   openGraph: {
