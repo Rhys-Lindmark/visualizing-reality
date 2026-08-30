@@ -17,17 +17,27 @@
     "evidence_type": "historical_model",
     "source_key_field": "source_keys",
     "time_resolution": "irregular historical anchors and reconstructions",
-    "notes": "Army size and equipment loads are central estimates. Low and high fields document the model range but are intentionally not drawn as uncertainty bands."
+    "notes": "Central army-size estimates connect heterogeneous ancient anchors, unit-count models, and modern reconstructions. Low and high fields retain the stated model ranges even though the chart intentionally does not draw uncertainty bands."
   },
   {
-    "id": "rival-military-capacity",
-    "title": "Military capacity of Roman rivals",
+    "id": "rival-campaign-forces",
+    "title": "Reported and reconstructed rival campaign forces",
     "path": "/data/comparison-forces.csv",
     "schema": "modeled_series",
-    "evidence_type": "historical_model",
+    "evidence_type": "historical_observations",
     "source_key_field": "source_keys",
-    "time_resolution": "50-year modeled points plus dated campaign anchors",
-    "notes": "Lines connect modeled capacity estimates. Outlined points are campaign-specific force estimates and are not estimates of total state manpower."
+    "time_resolution": "dated campaign observations only",
+    "notes": "Each row is one reported, reconstructed, or modern-minimum campaign force. The dataset deliberately contains no interpolated state-capacity series."
+  },
+  {
+    "id": "republican-equipment-index",
+    "title": "Republican Roman worked-metal comparison",
+    "path": "/data/equipment-comparison.csv",
+    "schema": "modeled_series",
+    "evidence_type": "published_relative_model",
+    "source_keys": ["ACOU_METAL"],
+    "time_resolution": "third and second centuries BCE only",
+    "notes": "Relative index with the nearest comparator normalized to 100. The public source supports the 25% comparison but not absolute kilograms for every army."
   },
   {
     "id": "natural-earth-basemap",

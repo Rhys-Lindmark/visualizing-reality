@@ -67,30 +67,41 @@ function validateKeys(keys, context) {
 }
 
 const rome = csv('public/data/roman-military-capacity.csv');
+const romanYears = new Set();
 for (const [index, row] of rome.entries()) {
   const context = `roman-military-capacity.csv row ${index + 2}`;
-  requireFields(row, ['year', 'display_year', 'army_mid_thousands', 'iron_mid_kg_per_soldier', 'combat_iron_mid_tonnes', 'estimate_type', 'source_keys', 'notes'], context);
-  numeric(row, ['year', 'army_mid_thousands', 'army_low_thousands', 'army_high_thousands', 'iron_mid_kg_per_soldier', 'iron_low_kg_per_soldier', 'iron_high_kg_per_soldier', 'combat_iron_mid_tonnes'], context);
+  requireFields(row, ['year', 'display_year', 'army_mid_thousands', 'army_low_thousands', 'army_high_thousands', 'estimate_type', 'source_keys', 'notes'], context);
+  numeric(row, ['year', 'army_mid_thousands', 'army_low_thousands', 'army_high_thousands'], context);
   validateKeys(sourceKeys(row.source_keys), context);
-  const expected = Number(row.army_mid_thousands) * Number(row.iron_mid_kg_per_soldier);
-  if (Math.abs(expected - Number(row.combat_iron_mid_tonnes)) > 0.11) fail(`${context} has inconsistent manpower × iron total`);
+  if (romanYears.has(row.year)) fail(`${context} duplicates year ${row.year}`); romanYears.add(row.year);
+  if (!['reconstruction', 'ancient_anchor', 'modeled_from_units', 'ancient_plus_modern', 'modern_estimate'].includes(row.estimate_type)) fail(`${context} has unsupported estimate type ${row.estimate_type}`);
   if (!(Number(row.army_low_thousands) <= Number(row.army_mid_thousands) && Number(row.army_mid_thousands) <= Number(row.army_high_thousands))) fail(`${context} army estimate is not low ≤ mid ≤ high`);
-  if (!(Number(row.iron_low_kg_per_soldier) <= Number(row.iron_mid_kg_per_soldier) && Number(row.iron_mid_kg_per_soldier) <= Number(row.iron_high_kg_per_soldier))) fail(`${context} equipment estimate is not low ≤ mid ≤ high`);
 }
 
 const rivals = csv('public/data/comparison-forces.csv');
-const modeledByPolity = new Map();
+const rivalObservations = new Set();
 for (const [index, row] of rivals.entries()) {
   const context = `comparison-forces.csv row ${index + 2}`;
-  requireFields(row, ['polity', 'year', 'display_year', 'soldiers_thousands', 'iron_kg_per_soldier', 'combat_iron_tonnes', 'observation', 'event', 'source_keys', 'notes'], context);
-  numeric(row, ['year', 'soldiers_thousands', 'iron_kg_per_soldier', 'combat_iron_tonnes'], context);
+  requireFields(row, ['polity', 'year', 'display_year', 'soldiers_thousands', 'evidence_grade', 'event', 'source_keys', 'notes'], context);
+  numeric(row, ['year', 'soldiers_thousands'], context);
   validateKeys(sourceKeys(row.source_keys), context);
-  const expected = Number(row.soldiers_thousands) * Number(row.iron_kg_per_soldier);
-  if (Math.abs(expected - Number(row.combat_iron_tonnes)) > 0.11) fail(`${context} has inconsistent manpower × iron total`);
-  if (!['modeled series', 'campaign anchor'].includes(row.observation)) fail(`${context} has unsupported observation type ${row.observation}`);
-  if (row.observation === 'modeled series') modeledByPolity.set(row.polity, (modeledByPolity.get(row.polity) ?? 0) + 1);
+  const observationKey = `${row.polity}|${row.year}|${row.event}`;
+  if (rivalObservations.has(observationKey)) fail(`${context} duplicates ${observationKey}`); rivalObservations.add(observationKey);
+  if (!['modern_minimum', 'ancient_report_with_modern_synthesis', 'ancient_report', 'ancient_report_disputed'].includes(row.evidence_grade)) fail(`${context} has unsupported evidence grade ${row.evidence_grade}`);
 }
-for (const [polity, count] of modeledByPolity) if (count < 2) fail(`${polity} needs at least two modeled points to draw a series`);
+
+const equipment = csv('public/data/equipment-comparison.csv');
+for (const [index, row] of equipment.entries()) {
+  const context = `equipment-comparison.csv row ${index + 2}`;
+  requireFields(row, ['profile', 'from_year', 'to_year', 'worked_metal_index', 'index_basis', 'source_keys', 'notes'], context);
+  numeric(row, ['from_year', 'to_year', 'worked_metal_index'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (row.index_basis !== 'nearest_comparator_equals_100') fail(`${context} has unsupported index basis ${row.index_basis}`);
+  if (Number(row.from_year) > Number(row.to_year)) fail(`${context} starts after it ends`);
+}
+const romanEquipment = equipment.find(row => row.profile === 'Roman heavy infantry');
+const benchmarkEquipment = equipment.find(row => row.profile === 'Nearest comparator benchmark');
+if (!romanEquipment || !benchmarkEquipment || Number(romanEquipment.worked_metal_index) / Number(benchmarkEquipment.worked_metal_index) !== 1.25) fail('Equipment comparison must preserve the cited 25% Roman-to-nearest-comparator relationship');
 
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
@@ -142,4 +153,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length + rivals.length} modeled rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman estimate rows, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${geo.features.length} boundary features.`);

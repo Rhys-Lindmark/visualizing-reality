@@ -53,10 +53,10 @@ graphics that explain the claim without decorative clutter.
 
 Immediate Rome work:
 
-- Check every live quantitative statement and CSV source key against its cited source.
+- Replace remaining broad Roman reconstruction points with published point estimates where scholarship permits; split eastern and western force estimates after 395.
 - Add polity hover/click readouts and expose the dated source interval behind each annual map frame.
 - Check 395, 410, 439, and 476 against specialist maps and Seshat geometry.
-- Document each rival military interpolation rule and directly label lines where useful.
+- Build insight 03, **How Rome paid for empire**, only after its tax, revenue, pay, grain, and customs observations have source-keyed units and definitions.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -173,8 +173,9 @@ when the evidence supports independent urban/state formation.
 
 ## Completed
 
-- 2026-08-29 — Built the shared evidence and visual-data standard. Added canonical source, dataset, and claim registries; public JSON Schemas for observations, modeled series, boundaries, citations, and notes; and an automated validator that rejects malformed CSV/JSON, missing files and source keys, inconsistent manpower × iron calculations, invalid estimate ranges, unsupported claim statuses, and malformed boundary intervals. Rome now exposes an on-page evidence ledger distinguishing source observations, historical reconstructions, and model outputs, with claim-to-dataset-to-source provenance, source filtering, and fourteen direct downloads. Verified 36 sources, 4 datasets, 2 live claims, 87 modeled rows, 442 boundary features, the five-source Devereaux filter result, every evidence download link, metadata, lint, and the production build.
+- 2026-08-29 — Audited every visible quantitative claim and data row in Rome’s two live insights. Removed the unsupported “largest empire Europe had ever known” superlative, 53 invented rival/interpolation rows, every unsourced kilogram-per-soldier value, and every derived iron-tonnage claim. The revised military visual directly labels Rome as a heterogeneous central-estimate series, shows rivals only as dated campaign observations, preserves disputed ancient reports as disputed rather than silently adjusting them, and confines Devereaux’s equipment argument to a sourced third–second-century BCE relative index (Rome 125, nearest comparator 100). Added a durable audit explaining each inclusion and removal. Validation now checks 23 Roman estimate rows, 11 rival campaign observations, 2 equipment-index rows, 36 source keys, 5 datasets, 2 claims, and 442 boundary features. Verified the readout interaction, five changed downloads, metadata, lint, and the production build in the isolated `codex/rome-evidence-audit` worktree.
+- 2026-08-29 — Built the shared evidence and visual-data standard. Added canonical source, dataset, and claim registries; public JSON Schemas for observations, modeled series, boundaries, citations, and notes; and an automated validator for malformed CSV/JSON, missing files and source keys, invalid estimate ranges, unsupported claim statuses, and malformed boundary intervals. Rome now exposes an on-page evidence ledger distinguishing source observations, historical reconstructions, and model outputs, with claim-to-dataset-to-source provenance, source filtering, and direct downloads. The subsequent military audit supersedes the initial modeled-row contents while preserving and tightening this evidence system.
 - 2026-08-29 — Built the reusable atlas and page-routing system. The new homepage states the project thesis, filters eleven queued pages by era/region/system, and labels research/draft/reviewed status. Rome moved to `/rome` through a reusable Introduction → Key Insights → Methods/Sources shell, retaining both interactive modules and naming insights 03–05. Verified both production routes, the Mediterranean filter, atlas-to-Rome navigation, annual map stepping, military metric toggle, metadata, lint, and the production build.
 - 2026-08-29 — Annual 500 BCE–476 CE Roman map with sourced persistent geometry, neighboring polities, event jumps, and corrected late-imperial states. Verified with lint, production build, browser stepping, and 293/395/410/439/476 data checks.
-- 2026-08-29 — Rome-versus-rivals manpower and manpower × iron chart with 50-year modeled rival series, separate campaign anchors, metric toggle, and downloadable CSVs. Verified with lint, production build, CSV parsing, and browser interaction.
+- 2026-08-29 — Built the initial Rome-versus-rivals chart. Its unsupported 50-year rival interpolations and absolute iron-mass model were subsequently removed by the live-evidence audit above.
 - 2026-08-29 — Project renamed from Visualizing Reality to How Everything Evolved.

@@ -3,22 +3,22 @@
     "id": "rome-01-territorial-scale",
     "page": "rome",
     "insight": 1,
-    "claim": "Rome became the largest empire Europe had yet known and remained a Mediterranean-scale state through repeated political reorganizations.",
+    "claim": "At its height, Rome governed territory across Europe, North Africa, and western Asia and remained a Mediterranean-scale state through repeated political reorganizations.",
     "status": "working_synthesis",
     "evidence_type": "historical_reconstruction",
     "dataset_ids": ["rome-territorial-boundaries", "natural-earth-basemap"],
     "source_keys": ["CLIOPATRIA"],
-    "note": "The map supports territorial extent and political-form chronology. 'Largest' is a comparative synthesis, not a precise area ranking, and will be tightened during the Rome map audit."
+    "note": "The map supports continental reach and political-form chronology without asserting an unsupported cross-empire area ranking."
   },
   {
     "id": "rome-02-military-capacity",
     "page": "rome",
     "insight": 2,
-    "claim": "Rome's military advantage combined unusually deep mobilization with a comparatively iron-intensive infantry system.",
+    "claim": "Rome's military advantage combined unusually deep mobilization with a comparatively metal-intensive heavy-infantry system.",
     "status": "modeled_argument",
     "evidence_type": "historical_model",
-    "dataset_ids": ["rome-military-capacity", "rival-military-capacity"],
+    "dataset_ids": ["rome-military-capacity", "rival-campaign-forces", "republican-equipment-index"],
     "source_keys": ["POLYBIUS2_24", "BRUNT1971", "ACOU_SOCII", "ACOU_MAIL", "ACOU_METAL", "ACOU_PILUM", "ACOU_GLADIUS"],
-    "note": "The chart is an explicit comparison model, not a census. Rival lines and equipment loads combine heterogeneous evidence and should be read as scale comparisons."
+    "note": "Rome's line is an explicit estimate series, not a census. Rival points are particular campaign forces and are not joined or treated as state capacity. The equipment comparison is a third–second-century BCE relative index; the public evidence does not support absolute kilograms or tonnes across the full timeline."
   }
 ]
