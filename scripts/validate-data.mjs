@@ -264,6 +264,36 @@ if (!urukWater.some(row => row.measure === 'developed_irrigation_terminology' &&
 for (const asset of ['public/images/mesopotamia-palaeochannels.webp', 'public/images/eridu-irrigation-network.webp']) if (!existsSync(path.join(root, asset))) fail(`Missing Uruk water-map asset: ${asset}`);
 read('public/images/uruk-water-map-LICENSE.md');
 
+const urukGrain = csv('public/data/uruk-grain-state-evidence.csv');
+const urukGrainSlugs = new Set();
+const grainResourceClasses = new Set(['model_and_direct_archive', 'model_counterfactual', 'mixed_direct_and_later_comparison', 'mixed_landscape_and_archive', 'direct_late_uruk_archive']);
+const grainTestClasses = new Set(['published_model', 'published_critique', 'direct_archive', 'regional_synthesis', 'methodological_counterexample']);
+for (const [index, row] of urukGrain.entries()) {
+  const context = `uruk-grain-state-evidence.csv row ${index + 2}`;
+  requireFields(row, ['row_type', 'slug', 'label', 'role', 'model_claim', 'uruk_evidence', 'chronology', 'evidence_class', 'source_keys', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!['resource', 'test'].includes(row.row_type)) fail(`${context} has unsupported row type ${row.row_type}`);
+  if (urukGrainSlugs.has(row.slug)) fail(`${context} duplicates slug ${row.slug}`); urukGrainSlugs.add(row.slug);
+  if (row.row_type === 'resource' && !grainResourceClasses.has(row.evidence_class)) fail(`${context} has unsupported resource evidence class ${row.evidence_class}`);
+  if (row.row_type === 'test' && !grainTestClasses.has(row.evidence_class)) fail(`${context} has unsupported test evidence class ${row.evidence_class}`);
+  if (Object.keys(row).some(key => /score|rank|weight|index/i.test(key))) fail(`${context} introduces an unsupported aggregate score field`);
+  const claimText = `${row.model_claim} ${row.uruk_evidence}`;
+  if (/grain alone caused (uruk'?s )?(state|hierarchy)/i.test(claimText) && !/(not|does not|cannot|no evidence)/i.test(claimText)) fail(`${context} presents grain causation as established`);
+}
+if (urukGrain.length !== 10) fail(`Expected ten Uruk grain-state evidence rows, found ${urukGrain.length}`);
+if (urukGrain.filter(row => row.row_type === 'resource').length !== 5 || urukGrain.filter(row => row.row_type === 'test').length !== 5) fail('Uruk grain-state evidence must retain five resource rows and five claim-test rows');
+for (const slug of ['cereal-grain', 'roots-and-tubers', 'herd-animals', 'fish-and-wetlands', 'fruit-orchards', 'original-study', 'published-comment', 'uruk-archive', 'deltaic-economy', 'archive-bias']) if (!urukGrainSlugs.has(slug)) fail(`Uruk grain-state evidence is missing ${slug}`);
+const originalGrainStudy = urukGrain.find(row => row.slug === 'original-study');
+if (!originalGrainStudy || !sourceKeys(originalGrainStudy.source_keys).includes('MAYSHAR_MOAV_PASCALI2022') || originalGrainStudy.evidence_class !== 'published_model') fail('Uruk grain-state evidence is missing the 2022 published model');
+const grainComment = urukGrain.find(row => row.slug === 'published-comment');
+if (!grainComment || !sourceKeys(grainComment.source_keys).includes('COOK_ET_AL2026') || grainComment.evidence_class !== 'published_critique' || !grainComment.chronology.includes('2026')) fail('Uruk grain-state evidence is missing the 2026 published challenge');
+const rootCounterfactual = urukGrain.find(row => row.slug === 'roots-and-tubers');
+if (!rootCounterfactual || !/not a recovered Uruk staple comparison/i.test(rootCounterfactual.uruk_evidence)) fail('Roots and tubers must remain a model counterfactual rather than invented Uruk evidence');
+const archiveTest = urukGrain.find(row => row.slug === 'uruk-archive');
+if (!archiveTest || !/archive is selected by institutions/i.test(archiveTest.limits) || !/diet survey/i.test(archiveTest.limits)) fail('Uruk archive evidence must preserve the institutional-selection and diet-survey limits');
+const laterBias = urukGrain.find(row => row.slug === 'archive-bias');
+if (!laterBias || !/later Ur III/i.test(laterBias.chronology) || !/not a direct reconstruction of Uruk/i.test(laterBias.limits)) fail('The archive-bias comparison must remain explicitly later than Uruk');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -329,4 +359,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${geo.features.length} boundary features.`);

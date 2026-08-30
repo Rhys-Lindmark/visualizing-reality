@@ -128,5 +128,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "irregular proxy and evidence intervals from 9700 to 1000 BCE plus one explicitly undated mixed-age palaeochannel layer",
     "notes": "Local borehole evidence, regional climate synthesis, Uruk's urban interval, later directly dated canals, textual evidence, and the multi-period Eridu network remain distinct. The palaeochannel map is not a fourth-millennium time slice, and the canal counts are not simultaneous."
+  },
+  {
+    "id": "uruk-grain-state-evidence",
+    "title": "Competing evidence for cereal appropriability and Uruk's mixed resource economy",
+    "path": "/data/uruk-grain-state-evidence.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_model_published_critique_direct_archive_regional_synthesis_and_later_methodological_comparison",
+    "source_key_field": "source_keys",
+    "time_resolution": "five qualitative resource comparisons plus five claim-test observations spanning direct Late Uruk evidence global comparative studies and an explicitly later Ur III methodological comparison",
+    "notes": "No numeric legibility or causal score is computed. The original global model, its 2026 published challenge, direct Late Uruk records, regional deltaic ecology, and later evidence of institutional archive bias remain separate. Archive visibility is not treated as dietary or economic share."
   }
 ]

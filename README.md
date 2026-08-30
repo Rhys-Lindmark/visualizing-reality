@@ -23,7 +23,7 @@ npm install
 npm run dev
 ```
 
-Then open the local URL printed by the development server. The main routes are `/` and `/rome`.
+Then open the local URL printed by the development server. The main routes are `/`, `/rome`, and `/uruk`.
 
 ## Verify a change
 
@@ -59,6 +59,6 @@ Rome has all five planned insights live:
 4. A selectable 395–476 CE chronology of the western court's contraction, paired with a published African fiscal-equivalent model and Valentinian III's one-eighth assessment for the two named remaining provinces.
 5. A four-lane chronology of Roman afterlives—eastern state continuity, Latin-to-Romance change, Justinianic-law reception, and conditional road persistence—with an auditable Itiner-e road profile.
 
-Uruk and the first states is now a draft page with three of five insights live. The first separates urban scale, public institutions, record-keeping, and political interpretation into four evidence clocks, with published settlement footprints kept distinct from population or a precise state-birth date. The second combines a CC BY palaeochannel map, an early local borehole sequence, later canal dating, and textual evidence to explain a moving freshwater–marsh ecology without fabricating one fourth-millennium river layer or a hydraulic-state monocause. The writing insight shows the administrative composition of the earliest proto-cuneiform archives, how lexical lists grew in the following phase, and the filtering behind a 2020 CDLI corpus snapshot. Grain and state fragility remain visibly under evidence review.
+Uruk and the first states is now a draft page with four of five insights live. The first separates urban scale, public institutions, record-keeping, and political interpretation into four evidence clocks, with published settlement footprints kept distinct from population or a precise state-birth date. The second combines a CC BY palaeochannel map, an early local borehole sequence, later canal dating, and textual evidence to explain a moving freshwater–marsh ecology without fabricating one fourth-millennium river layer or a hydraulic-state monocause. The third tests cereal appropriability against a 2026 published statistical challenge, direct Late Uruk records, deltaic ecology, herds, fish, fruit, and archive bias without assigning a causal score. The writing insight shows the administrative composition of the earliest proto-cuneiform archives, how lexical lists grew in the following phase, and the filtering behind a 2020 CDLI corpus snapshot. State fragility remains visibly under evidence review.
 
-Next is a competing-evidence test of the grain-state hypothesis, followed by early-state fragility. The cradles of civilization, Bronze Age, and Iron Age pages follow.
+Next is Uruk's final insight on early-state concentration and fragility. The cradles of civilization, Bronze Age, and Iron Age pages follow.

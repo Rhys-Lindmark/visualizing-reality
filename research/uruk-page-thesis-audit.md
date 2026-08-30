@@ -2,7 +2,7 @@
 
 ## Decision
 
-Three claims now meet the evidence threshold:
+Four claims now meet the evidence threshold:
 
 1. **Uruk did not become a city and a state in one leap.** Settlement scale,
    public institutions, record-keeping, and political power changed on different
@@ -15,9 +15,12 @@ Three claims now meet the evidence threshold:
    field mosaic—but current evidence cannot be collapsed into one clean
    fourth-millennium river map.** The visual publishes a real open map while
    keeping its mixed chronology visible.
+4. **Cereals fit institutional appropriation unusually well, but that mechanism
+   does not establish that grain alone caused Uruk's state.** The visual keeps
+   the original global model, its 2026 published challenge, direct Late Uruk
+   records, regional ecology, and a later archive-bias comparison distinct.
 
-The grain and fragility claims remain visible as research commitments, not live
-findings.
+The fragility claim remains visible as a research commitment, not a live finding.
 
 ## 01 — Four clocks, not one state birthday — publish
 
@@ -102,16 +105,54 @@ Limits:
 - Water management enabled and amplified concentration. The evidence does not
   show that hydraulic control alone created the state.
 
-## 03 — Test the grain-state hypothesis
+## 03 — Cereals fit appropriation; archives are not diets — publish
 
-Working claim: cereals have properties attractive to institutions—visibility,
-measurability, divisibility, storability, and transportability—but crop properties
-alone do not demonstrate why states formed.
+Live claim: cereals fit institutional appropriation unusually well, but the direct
+evidence for Uruk shows a mixed grain, animal, fish, wetland, and orchard economy
+and does not establish that grain alone caused the state.
 
-- Scott is a hypothesis seed, not sufficient evidence.
-- Needed: archaeological crop/subsistence evidence, institutional records, and serious counterarguments covering dates, fish, animals, wetlands, and pastoralism.
-- Risk: turning a comparative mechanism into a universal causal law.
-- Status: hold pending competing-evidence matrix.
+Evidence retained in the public dataset:
+
+- Mayshar, Moav, and Pascali's 2022 *Journal of Political Economy* study argues
+  across several global datasets that cereal advantage over roots and tubers
+  predicts hierarchy more strongly than land productivity. Their mechanism is
+  harvest visibility, divisibility, portability, and storage.
+- The original paper explicitly calls its cereal-versus-root classification too
+  simple and notes that it omits pulses, fruit, vegetables, fish, and animals.
+  The public visual therefore shows the binary as a model, not a resource census.
+- Cook, Duprey, Heyes, and Pelli's 2026 published comment reproduces the main
+  result but reports that it holds for the tribe-or-chiefdom to state transition,
+  not hierarchy broadly. They also report that modest trimming or winsorization
+  of a small set of outliers removes statistical significance.
+- Alivernini, Greco, and Widell document archaic herd accounts, Uruk IV accounts
+  totaling strings of dried fruit, fresh and dried fish categories, and an Uruk
+  III Tree List that includes date palm, grapevine, fig, and apple. These are
+  direct signs of institutional legibility outside cereal grain.
+- Pournelle and Algaze reconstruct the southern alluvium as a deltaic economy in
+  which grain agriculture, livestock husbandry, and marsh exploitation supplied
+  complementary food, fodder, material, transport, and labor systems.
+- Corcoran-Tadd, Price, and Caramanica's later Ur III comparison shows that animal
+  economies could finance states while mobility and informal production limited
+  surveillance. Its contrast between state texts and zooarchaeology supplies a
+  methodological warning: institutional visibility is not economic share.
+
+Limits:
+
+- The 2022 and 2026 papers test global comparative data, not an Uruk-specific
+  archaeological counterfactual.
+- The resource comparison is qualitative and source-keyed. It assigns no numeric
+  legibility, appropriability, causal, or state-formation score.
+- Roots and tubers are the original model's counterfactual, not a documented
+  staple choice recovered at Uruk.
+- Direct Late Uruk records are institutional archives shaped by ancient selection,
+  excavation, preservation, publication, and decipherment. They are not a diet or
+  production survey.
+- Regional deltaic evidence establishes a mixed ecology but not the caloric or tax
+  share of grain, fish, herds, or orchards at Uruk.
+- Detailed Ur III livestock evidence is roughly a millennium later and remains an
+  explicitly labeled methodological comparison, not a direct reconstruction.
+- The best-supported result is a grain–institution fit. It is not a demonstrated
+  single cause of Uruk's urbanism, hierarchy, or state formation.
 
 ## 04 — Writing began as administration — publish
 
@@ -153,3 +194,8 @@ non-state peripheries must be considered together.
 - Mark Altaweel et al., “New Insights on the Role of Environmental Dynamics Shaping Southern Mesopotamia: From the Pre-Ubaid to the Early Islamic Period,” *Iraq* 81 (2019), DOI: 10.1017/irq.2019.2.
 - Jaafar Jotheri et al., “Identifying the preserved network of irrigation canals in the Eridu region, southern Mesopotamia,” *Antiquity* 99 (2025), DOI: 10.15184/aqy.2025.19.
 - Ella Egberts et al., “Dating Ancient Canal Systems Using Radiocarbon Dating and Archaeological Evidence at Tello/Girsu, Southern Mesopotamia, Iraq,” *Radiocarbon* 65 (2023), DOI: 10.1017/RDC.2023.40.
+- Joram Mayshar, Omer Moav, and Luigi Pascali, “The Origin of the State: Land Productivity or Appropriability?,” *Journal of Political Economy* 130 (2022), DOI: 10.1086/718372.
+- Nikolai Cook, Thibaut Duprey, Anthony Heyes, and Martino Pelli, “The Origin of the State: Land Productivity or Appropriability? A Comment,” *Journal of Political Economy* 134 (2026), DOI: 10.1086/740225.
+- Jennifer R. Pournelle and Guillermo Algaze, “Travels in Edin: Deltaic Resilience and Early Urbanism in Greater Mesopotamia,” in *Preludes to Urbanism* (2014), pp. 7–34.
+- Sergio Alivernini, Angela Greco, and Magnus Widell, “The Natural Environment of Southern Mesopotamia: Animals, Plants, and Landscape in Cuneiform Texts,” *Environmental Archaeology* (2026), DOI: 10.1080/14614103.2026.2680740.
+- Noa Corcoran-Tadd, Max Price, and Ari Caramanica, “The Political Economy of Livestock in Early States,” *Cambridge Archaeological Journal* 33 (2023), DOI: 10.1017/S095977432200021X.
