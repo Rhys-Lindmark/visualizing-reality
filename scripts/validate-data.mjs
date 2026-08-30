@@ -389,6 +389,53 @@ if (!andesCrops || !sourceKeys(andesCrops.source_keys).includes('HAAS_ET_AL2013'
 const cradleEcologySnapshot = read('public/data/cradles/20260830-ecology1/cradles-ecology-profiles.csv');
 if (cradleEcologySnapshot !== readFileSync(path.join(root, 'public/data/cradles-ecology-profiles.csv'), 'utf8')) fail('Cradles ecology immutable client snapshot diverges from the canonical dataset');
 
+const cradleSequences = csv('public/data/cradles-sequence-clocks.csv');
+const cradleMilestones = new Set(['urban_scale', 'political_centralization', 'durable_notation', 'monumental_building', 'bronze']);
+const cradleSequenceKeys = new Set();
+for (const [index, row] of cradleSequences.entries()) {
+  const context = `cradles-sequence-clocks.csv row ${index + 2}`;
+  requireFields(row, ['region', 'region_slug', 'milestone', 'display_date', 'place', 'observation', 'evidence_status', 'source_keys', 'interpretation', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!cradleRegions.has(row.region_slug)) fail(`${context} has unsupported region ${row.region_slug}`);
+  if (!cradleMilestones.has(row.milestone)) fail(`${context} has unsupported milestone ${row.milestone}`);
+  const key = `${row.region_slug}|${row.milestone}`;
+  if (cradleSequenceKeys.has(key)) fail(`${context} duplicates ${key}`); cradleSequenceKeys.add(key);
+  if (row.evidence_status === 'evidence_gap') {
+    if (row.start_year || row.end_year) fail(`${context} plots an evidence gap at a numeric date`);
+  } else {
+    numeric(row, ['start_year', 'end_year'], context);
+    if (Number(row.start_year) > Number(row.end_year)) fail(`${context} starts after it ends`);
+    if (Number(row.start_year) < -4000 || Number(row.end_year) > 1521) fail(`${context} falls outside the declared comparison window`);
+  }
+  if (row.limits.length < 55) fail(`${context} does not preserve a substantive inference limit`);
+}
+if (cradleSequences.length !== 30) fail(`Expected thirty cradles sequence rows, found ${cradleSequences.length}`);
+for (const region of cradleRegions) for (const milestone of cradleMilestones) if (!cradleSequenceKeys.has(`${region}|${milestone}`)) fail(`Cradles sequence clocks are missing ${region}|${milestone}`);
+if (cradleSequences.filter(row => row.evidence_status === 'evidence_gap').length !== 1) fail('Cradles sequence clocks must contain exactly one explicit evidence gap');
+if (!cradleSequences.some(row => row.region_slug === 'andes' && row.milestone === 'durable_notation' && row.evidence_status === 'evidence_gap' && !row.start_year && !row.end_year)) fail('The Andean notation sequence must remain an undated evidence gap');
+for (const base of cradles) {
+  const reused = cradleSequences.find(row => row.region_slug === base.region_slug && row.milestone === base.clock);
+  for (const field of ['start_year', 'end_year', 'display_date', 'observation', 'evidence_status', 'source_keys', 'interpretation', 'limits']) if (!reused || reused[field] !== base[field]) fail(`Cradles sequence clocks alter audited ${base.region_slug}|${base.clock} field ${field}`);
+}
+for (const region of cradleRegions) {
+  const dated = cradleSequences.filter(row => row.region_slug === region && row.start_year);
+  const bronze = dated.find(row => row.milestone === 'bronze');
+  const earliestNonBronze = Math.min(...dated.filter(row => row.milestone !== 'bronze').map(row => Number(row.start_year)));
+  if (!bronze || Number(bronze.start_year) < earliestNonBronze) fail(`${region} incorrectly makes bronze precede every non-bronze clock`);
+}
+const egyptBronze = cradleSequences.find(row => row.region_slug === 'egypt' && row.milestone === 'bronze');
+if (!egyptBronze || egyptBronze.evidence_status !== 'rare_attestation' || !/common only from the New Kingdom/i.test(egyptBronze.limits)) fail('Egyptian bronze must remain a rare Second Dynasty attestation rather than common adoption');
+const mesoBronze = cradleSequences.find(row => row.region_slug === 'mesoamerica' && row.milestone === 'bronze');
+if (!mesoBronze || Number(mesoBronze.start_year) !== 1200 || !sourceKeys(mesoBronze.source_keys).includes('HOSLER1988') || !/not a date for all Mesoamerica/i.test(mesoBronze.limits)) fail('Mesoamerican bronze must preserve Hosler\'s late West Mexican phase and regional limit');
+const andesBronze = cradleSequences.find(row => row.region_slug === 'andes' && row.milestone === 'bronze');
+if (!andesBronze || Number(andesBronze.start_year) !== 600 || Number(andesBronze.end_year) !== 1150 || !/not the invention of Andean metalworking/i.test(andesBronze.limits)) fail('Andean bronze must remain a regional Middle Horizon scaling clock rather than a metalworking invention date');
+const indusMonument = cradleSequences.find(row => row.region_slug === 'indus' && row.milestone === 'monumental_building');
+if (!indusMonument || !sourceKeys(indusMonument.source_keys).includes('GREEN_ALAM_PETRIE2026') || !/does not identify .*palace.*king.*centralized ruling class/i.test(indusMonument.limits)) fail('Indus monument evidence must preserve public-scale construction without inventing rulers');
+const mesoMonument = cradleSequences.find(row => row.region_slug === 'mesoamerica' && row.milestone === 'monumental_building');
+if (!mesoMonument || Number(mesoMonument.start_year) !== -1000 || Number(mesoMonument.end_year) !== -800 || !sourceKeys(mesoMonument.source_keys).includes('INOMATA_ET_AL2020')) fail('Mesoamerican monument evidence must preserve the Aguada Fénix 1000–800 BCE phase');
+const cradleSequenceSnapshot = read('public/data/cradles/20260830-sequence1/cradles-sequence-clocks.csv');
+if (cradleSequenceSnapshot !== readFileSync(path.join(root, 'public/data/cradles-sequence-clocks.csv'), 'utf8')) fail('Cradles sequence immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -454,4 +501,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${geo.features.length} boundary features.`);

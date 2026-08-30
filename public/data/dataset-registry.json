@@ -168,5 +168,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "thirty region-dimension observations with source-specific places and phase or synthesis windows",
     "notes": "The six-by-five matrix computes no hydraulic, aridity, productivity, legibility, density, or state-causation score. Every cell preserves its evidence class and inference limit. Settlement form replaces a numeric density comparison because survey coverage, preservation, phase length, and population models are not commensurable."
+  },
+  {
+    "id": "cradles-sequence-clocks",
+    "title": "Cities states notation monumental building and bronze evidence clocks across six regions",
+    "path": "/data/cradles-sequence-clocks.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_archaeological_chronology_and_regional_metallurgical_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "thirty region-milestone observations from 4000 BCE to 1521 CE including one explicitly undated Andean notation gap",
+    "notes": "The existing city state and notation clocks are reused without changing their evidence status. Monument and bronze rows preserve regional thresholds: rare attestation sustained use analytical assemblage or regional scaling. Ordinal order is derived only from phase starts; bronze is not treated as a civilization score or prerequisite and the Andean notation gap is not plotted at year zero."
   }
 ]

@@ -130,5 +130,16 @@
     "dataset_ids": ["cradles-ecology-profiles"],
     "source_keys": ["ALTAWEEL_ET_AL2019", "JOTHERI_ET_AL2025", "POURNELLE_ALGAZE2014", "ALIVERNINI_GRECO_WIDELL2026", "MOELLER2015", "PETRIE_ET_AL2017", "MADELLA_FULLER2006", "GREEN_PETRIE2018", "LIU_HUNT_JONES2009", "ZHUANG2024", "NICHOLAS_FEINMAN2022", "SHADY_ET_AL2001", "GONZALEZ_GARCIA_ET_AL2021", "SANDWEISS_ET_AL2009", "HAAS_ET_AL2013"],
     "note": "Thirty qualitative cells remain unlike observations rather than a common scale. The visual blocks one hydraulic score, a climate monocause, crop-share invention, traffic-volume invention, and a shared settlement-density number. Later Mesopotamian texts and multi-period canals retain explicit chronological limits."
+  },
+  {
+    "id": "cradles-03-no-technology-package",
+    "page": "cradles",
+    "insight": 3,
+    "claim": "Across six regional sequences the bronze clock never precedes every city state notation or monument clock and the five milestones do not arrive in one universal order.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_archaeological_chronology_and_regional_metallurgical_synthesis",
+    "dataset_ids": ["cradles-sequence-clocks"],
+    "source_keys": ["SPENCER2010", "MOELLER2015", "REGULSKI2016", "GREEN_PETRIE2018", "GREEN2020", "WELLS2015", "HE2018", "XU2018", "DEMATTE2022", "SPENCER_REDMOND2004", "POHL_ET_AL2002", "SHADY_ET_AL2001", "MILLAIRE2010", "URTON2017", "WILLIAMS_ET_AL2025", "UCL_DIGITAL_EGYPT_METAL", "PARK_SHINDE2014", "LIN_LIU2017", "INOMATA_ET_AL2020", "HOSLER1988", "GUEDRON_ET_AL2021", "GREEN_ALAM_PETRIE2026"],
+    "note": "Thirty rows preserve phase evidence and one explicit gap rather than annual series or first-invention dates. Bronze means a source-defensible regional threshold and never a civilization score. Tied ordinal positions share a rank; missing evidence stays undated; the extended axis makes late American alloy clocks visible without implying continuity or causation."
   }
 ]
