@@ -669,6 +669,34 @@ if (!egyptCollapse || egyptCollapse.anchor_value !== 'Year 8' || !sourceKeys(egy
 const bronzeCollapseSnapshot = read('public/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv');
 if (bronzeCollapseSnapshot !== readFileSync(path.join(root, 'public/data/bronze-collapse-windows.csv'), 'utf8')) fail('Bronze collapse immutable client snapshot diverges from the canonical dataset');
 
+const ironAdoptionWindows = csv('public/data/iron-adoption-windows.csv');
+const ironAdoptionCases = new Map();
+for (const [index, row] of ironAdoptionWindows.entries()) {
+  const context = `iron-adoption-windows.csv row ${index + 2}`;
+  requireFields(row, ['case_id', 'place', 'region', 'first_start', 'first_end', 'adoption_start', 'adoption_end', 'first_window', 'adoption_window', 'evidence_kind', 'prior_metal', 'resource_and_fuel', 'production_system', 'skill_and_product', 'institutional_context', 'interpretation', 'source_keys', 'limits'], context);
+  numeric(row, ['first_start', 'first_end', 'adoption_start', 'adoption_end'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (ironAdoptionCases.has(row.case_id)) fail(`${context} duplicates ${row.case_id}`);
+  ironAdoptionCases.set(row.case_id, row);
+  if (Number(row.first_start) > Number(row.first_end) || Number(row.adoption_start) > Number(row.adoption_end)) fail(`${context} contains a reversed evidence window`);
+  if (Object.keys(row).some(field => /adoption_score|hardness_score|superiority_score|diffusion_speed|annual_output|market_share|fuel_ratio|forest_loss|military_power|civilization_rank/i.test(field))) fail(`${context} introduces an unsupported adoption or superiority model field`);
+  if (row.limits.length < 120) fail(`${context} does not preserve substantive chronology and inference limits`);
+}
+for (const caseId of ['anatolia-near-east', 'cyprus', 'aegean', 'central-europe', 'north-china']) if (!ironAdoptionCases.has(caseId)) fail(`Iron adoption comparison is missing ${caseId}`);
+if (ironAdoptionWindows.length !== 5 || ironAdoptionCases.size !== 5) fail(`Iron adoption comparison requires five unique regional windows, found ${ironAdoptionWindows.length}`);
+const anatoliaIron = ironAdoptionCases.get('anatolia-near-east');
+if (!anatoliaIron || anatoliaIron.first_start !== '-2000' || anatoliaIron.adoption_start !== '-1200' || !sourceKeys(anatoliaIron.source_keys).includes('ERB_SATULLO2019') || !sourceKeys(anatoliaIron.source_keys).includes('PARE2025') || !/not a named inventor.*not annual production.*diffusion speed.*market share.*collapse caused adoption/i.test(anatoliaIron.limits)) fail('Anatolia must preserve the early-attestation and much later adoption clocks without inventor output diffusion market or collapse inference');
+const cyprusIron = ironAdoptionCases.get('cyprus');
+if (!cyprusIron || cyprusIron.first_start !== '-1200' || cyprusIron.adoption_end !== '-1000' || !/bronze production remains substantial/i.test(cyprusIron.production_system) || !/does not establish Cyprus as sole inventor.*bronze shortage.*adoption percentage/i.test(cyprusIron.limits)) fail('Cyprus must remain an early adopter with continuing bronze and no sole-inventor shortage or share inference');
+const aegeanIron = ironAdoptionCases.get('aegean');
+if (!aegeanIron || aegeanIron.first_start !== '-1200' || aegeanIron.adoption_start !== '-1100' || !sourceKeys(aegeanIron.source_keys).includes('IONIA_IRON2022') || !/not total production.*single transmission route/i.test(aegeanIron.limits)) fail('Aegean evidence must preserve its local visibility and route limits');
+const centralEuropeIron = ironAdoptionCases.get('central-europe');
+if (!centralEuropeIron || centralEuropeIron.first_start !== '-1000' || centralEuropeIron.adoption_start !== '-850' || !/transition horizon.*not a technological birthday/i.test(centralEuropeIron.interpretation) || !/does not measure metal supply.*prove iron caused social change/i.test(centralEuropeIron.limits)) fail('Central Europe must preserve the broad Hallstatt transition without one birthday or bronze-hoard causality');
+const northChinaIron = ironAdoptionCases.get('north-china');
+if (!northChinaIron || northChinaIron.first_start !== '-800' || northChinaIron.adoption_start !== '-600' || !sourceKeys(northChinaIron.source_keys).includes('QIAN_HUNG2021') || !sourceKeys(northChinaIron.source_keys).includes('WOOD2025') || !/not mass production across China.*simple one-direction diffusion/i.test(northChinaIron.limits)) fail('North China must preserve early cast-iron attestation and later utilitarian expansion without mass-production or simple-diffusion inference');
+const ironAdoptionSnapshot = read('public/data/iron-age/20260830-adoption1/iron-adoption-windows.csv');
+if (ironAdoptionSnapshot !== readFileSync(path.join(root, 'public/data/iron-adoption-windows.csv'), 'utf8')) fail('Iron adoption immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -734,4 +762,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${geo.features.length} boundary features.`);

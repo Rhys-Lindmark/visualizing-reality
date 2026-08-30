@@ -254,5 +254,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "six non-synchronous windows from approximately 1250 to 1100 BCE including one explicitly comparative regional frame",
     "notes": "Environmental context conflict testimony institutional change and persistence remain prose evidence rather than additive variables. Date bands are orientation windows not annual measurements or uncertainty distributions. No shared collapse year cause score resilience score population loss or common attacker is inferred."
+  },
+  {
+    "id": "iron-adoption-windows",
+    "title": "Five regional windows separating first iron evidence from wider adoption",
+    "path": "/data/iron-adoption-windows.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_archaeometallurgical_artifact_production_and_institutional_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "five broad regional phase windows from the early second millennium through 500 BCE",
+    "notes": "First evidence and wider adoption are separate synthesis windows. Five production dependencies remain prose evidence rather than scores. The dataset does not estimate annual output market share diffusion speed hardness fuel efficiency military power or a universal Iron Age threshold."
   }
 ]
