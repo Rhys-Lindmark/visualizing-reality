@@ -371,5 +371,23 @@
       "HUMPHRIS_ET_AL2018"
     ],
     "note": "Five unlike cases are displayed as institutional circuits rather than ranked by output or centralization. Direct observations and published interpretations remain labelled; no slag heap inventory workshop date or monopoly record is converted into a shared scale score."
+  },
+  {
+    "id": "persia-01-distance-became-relay-problem",
+    "page": "persia",
+    "insight": 1,
+    "claim": "Achaemenid roads did not abolish imperial distance; staffed stages, stores, authorizations, and fresh carriers let messages move as a relay while ordinary journeys remained long.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_literary_itinerary_relay_description_and_administrative_archive",
+    "dataset_ids": [
+      "persian-roads-relays"
+    ],
+    "source_keys": [
+      "HERODOTUS_5_52_54",
+      "HERODOTUS_8_98",
+      "HALLOCK1969_PFT",
+      "DANDAMAYEV2002_PFT"
+    ],
+    "note": "Herodotus's 111 stages 450 parasangs and ninety-day arithmetic remain one literary itinerary. His relay description supplies no end-to-end courier time. Persepolis provisioning records demonstrate administrative practice but remain a regional surviving archive."
   }
 ]

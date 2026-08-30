@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260830-iron-institutions1';
+const releaseId='20260830-persia-roads1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -8,6 +8,7 @@ const routes=new Map([
   ['/cradles','<title>The cradles of civilization — How Everything Evolved</title>'],
   ['/bronze-age','<title>The Bronze Age world system — How Everything Evolved</title>'],
   ['/iron-age','<title>The Iron Age transformation — How Everything Evolved</title>'],
+  ['/persia','<title>Persia and territorial empire — How Everything Evolved</title>'],
 ]);
 // Every asset fetched by a live visualization. A release is unhealthy when even
 // one URL returns the app's HTML 404 shell instead of its data payload.
@@ -46,6 +47,8 @@ const assets=[
   ['csv','/data/iron-age/20260830-quality1/iron-quality-experiments.csv'],
   ['csv','/data/iron-age/20260830-mobilization1/iron-mobilization-cases.csv'],
   ['csv','/data/iron-age/20260830-institutions1/iron-production-institutions.csv'],
+  ['csv','/data/persia/20260830-roads1/persian-royal-road-segments.csv'],
+  ['csv','/data/persia/20260830-roads1/persian-road-evidence.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],

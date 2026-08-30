@@ -810,6 +810,45 @@ if (!hanInstitution || Number(hanInstitution.start_year) !== -119 || !/no tiegua
 const meroeInstitution = ironInstitutionIndex.get('meroe_landscape');
 if (!meroeInstitution || !/97 radiocarbon dates from nine slag mounds/i.test(meroeInstitution.visible_anchor) || !/more than one thousand years/i.test(meroeInstitution.visible_anchor) || !sourceKeys(meroeInstitution.source_keys).includes('HUMPHRIS_SCHEIBNER2017') || !/slag volume is not metal output/i.test(meroeInstitution.limits)) fail('Meroe must preserve the 97-date nine-mound chronology without an output or royal-control inference');
 
+const persianRoadSegments = csv('public/data/persian-royal-road-segments.csv');
+const persianRoadIndex = new Map();
+for (const [index, row] of persianRoadSegments.entries()) {
+  const context = `persian-royal-road-segments.csv row ${index + 2}`;
+  requireFields(row, ['segment_id', 'sort_order', 'region', 'start_label', 'end_label', 'stages', 'parasangs', 'terrain_and_control', 'source_keys', 'limits'], context);
+  numeric(row, ['sort_order', 'stages', 'parasangs'], context); validateKeys(sourceKeys(row.source_keys), context);
+  if (persianRoadIndex.has(row.segment_id)) fail(`${context} duplicates ${row.segment_id}`); persianRoadIndex.set(row.segment_id, row);
+  if (Object.keys(row).some(field => /kilomet|latitude|longitude|traffic|speed_score|station_spacing|route_geometry/i.test(field))) fail(`${context} introduces a prohibited route reconstruction field`);
+}
+const expectedPersianSegments = new Map([
+  ['lydia_phrygia',[20,94.5]],['cappadocia',[28,104]],['cilicia',[3,15.5]],['armenia',[15,56.5]],['matiene',[34,137]],['cissia',[11,42.5]],
+]);
+if (persianRoadSegments.length !== 6 || persianRoadIndex.size !== 6) fail(`Persian itinerary requires six unique segments, found ${persianRoadSegments.length}`);
+for (const [id,[stages,parasangs]] of expectedPersianSegments) { const row=persianRoadIndex.get(id); if (!row || Number(row.stages)!==stages || Number(row.parasangs)!==parasangs || row.source_keys!=='HERODOTUS_5_52_54') fail(`${id} does not preserve Herodotus's stage and parasang values`); }
+if (persianRoadSegments.reduce((sum,row)=>sum+Number(row.stages),0)!==111 || persianRoadSegments.reduce((sum,row)=>sum+Number(row.parasangs),0)!==450) fail('Persian itinerary must total 111 stages and 450 parasangs');
+const persianRoadSnapshot = read('public/data/persia/20260830-roads1/persian-royal-road-segments.csv');
+if (persianRoadSnapshot !== readFileSync(path.join(root, 'public/data/persian-royal-road-segments.csv'), 'utf8')) fail('Persian road immutable snapshot diverges from the canonical dataset');
+
+const persianRoadEvidence = csv('public/data/persian-road-evidence.csv');
+const persianEvidenceIndex = new Map();
+for (const [index, row] of persianRoadEvidence.entries()) {
+  const context = `persian-road-evidence.csv row ${index + 2}`;
+  requireFields(row, ['evidence_id', 'sort_order', 'evidence_class', 'date_label', 'title', 'anchor_unit', 'observation', 'source_keys', 'interpretation', 'limits'], context);
+  numeric(row, ['sort_order'], context); if (row.anchor_value !== '') numeric(row, ['anchor_value'], context); validateKeys(sourceKeys(row.source_keys), context);
+  if (persianEvidenceIndex.has(row.evidence_id)) fail(`${context} duplicates ${row.evidence_id}`); persianEvidenceIndex.set(row.evidence_id, row);
+  if (Object.keys(row).some(field => /kilomet|courier_days|traffic|speed_score|postal_census|route_geometry/i.test(field))) fail(`${context} introduces a prohibited derived field`);
+}
+if (persianRoadEvidence.length !== 4 || persianEvidenceIndex.size !== 4) fail(`Persian road comparison requires four evidence lenses, found ${persianRoadEvidence.length}`);
+const itineraryEvidence=persianEvidenceIndex.get('herodotus_itinerary');
+if (!itineraryEvidence || Number(itineraryEvidence.anchor_value)!==111 || itineraryEvidence.anchor_unit!=='stations' || !/450 parasangs/i.test(itineraryEvidence.observation)) fail('Persian itinerary lens must preserve 111 stages and 450 parasangs');
+const ordinaryJourney=persianEvidenceIndex.get('ordinary_journey');
+if (!ordinaryJourney || Number(ordinaryJourney.anchor_value)!==90 || ordinaryJourney.anchor_unit!=='days' || !/not a measured average/i.test(ordinaryJourney.limits)) fail('Persian traveler clock must preserve Herodotus\'s ninety-day arithmetic without treating it as a measured mean');
+const courierRelay=persianEvidenceIndex.get('courier_relay');
+if (!courierRelay || courierRelay.anchor_value!=='' || courierRelay.anchor_unit!=='no end-to-end time stated' || !sourceKeys(courierRelay.source_keys).includes('HERODOTUS_8_98') || !/seven-day claims.*not plotted/i.test(courierRelay.limits)) fail('Persian relay lens must retain unknown end-to-end duration and exclude later seven-day claims');
+const fortificationArchive=persianEvidenceIndex.get('fortification_archive');
+if (!fortificationArchive || !sourceKeys(fortificationArchive.source_keys).includes('HALLOCK1969_PFT') || !sourceKeys(fortificationArchive.source_keys).includes('DANDAMAYEV2002_PFT') || !/regional fragment.*not a complete empire-wide postal ledger/i.test(fortificationArchive.limits)) fail('Persepolis archive must remain a regional administrative window rather than a postal census');
+const persianEvidenceSnapshot = read('public/data/persia/20260830-roads1/persian-road-evidence.csv');
+if (persianEvidenceSnapshot !== readFileSync(path.join(root, 'public/data/persian-road-evidence.csv'), 'utf8')) fail('Persian evidence immutable snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -875,4 +914,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${ironSmeltingExperiments.length} Iron fuel experiments, ${ironQualityExperiments.length} Iron quality samples, ${ironMobilizationCases.length} Iron mobilization cases, ${ironInstitutionCases.length} Iron production institutions, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${ironSmeltingExperiments.length} Iron fuel experiments, ${ironQualityExperiments.length} Iron quality samples, ${ironMobilizationCases.length} Iron mobilization cases, ${ironInstitutionCases.length} Iron production institutions, ${persianRoadSegments.length} Persian itinerary segments, ${persianRoadEvidence.length} Persian road evidence lenses, ${geo.features.length} boundary features.`);

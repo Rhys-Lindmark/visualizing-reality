@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Open Page 06, Persia and territorial empire, with a bounded road-and-relay comparison that does not turn estimated travel times into one imperial-speed score.
+- Build Persia insight 02: compare satrapal appointment, local political forms, royal oversight, and negotiated extraction without one centralization score.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -112,7 +112,7 @@ when the evidence supports independent urban/state formation.
 
 ## P1 — Page 06: Persia and territorial empire — ready
 
-1. Roads and relays compressed imperial distance.
+1. **Distance became a relay problem:** live; Herodotus's six-segment itinerary, ninety-day traveler arithmetic, relay mechanism, and the regional Persepolis provisioning archive remain separate evidence classes with no kilometre conversion, route geometry, courier-duration estimate, or imperial-speed score.
 2. Satrapies combined local rule with imperial extraction.
 3. Tribute was a political system, not simply a tax rate.
 4. Imperial armies were coalitions of distinct peoples and military systems.
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Opened Persia and territorial empire with insight 01, **Distance became a relay problem**. Herodotus's Sardis–Susa itinerary is rendered as six proportional textual segments preserving 111 stages and 450 parasangs; his ninety-day traveler arithmetic, the successive-horse-and-rider relay description, and the 509–494 BCE Persepolis Fortification provisioning archive remain four separately selectable evidence lenses. Courier duration stays “not stated,” later seven-day claims are excluded, and the Fortification archive remains a regional window rather than an empire-wide postal census. Added four source records, two public CSVs, one registered dataset, one registered claim, immutable client snapshots, a durable audit, a live `/persia` route, and automated guards against kilometre conversion, route geometry, equal station spacing, traffic, courier-time, postal-census, and speed-score invention. Verified six itinerary selections, four evidence lenses, five outer insight tabs, 70 checked data files, 180 sources, 31 datasets, 26 claims, zero exact loading/404/`undefined`/`NaN` states, zero horizontal overflow at 1280 × 900 and 390 × 844, 54-pixel mobile insight controls, 72-pixel segment controls, 100-pixel evidence controls, a clean browser console, lint, the production build, and 84 byte-identical built assets. Next: compare satrapal appointment, local political forms, royal oversight, and negotiated extraction without one centralization score.
 
 - 2026-08-30 — Tightened the shared Key Insights module against the current Our World in Data poverty-page composition. The selector, active argument, and visualization now share a 1220-pixel editorial frame; the five choices are shorter, the active panel begins sooner, the visualization receives roughly twice the horizontal weight of the explanatory column, and insight prose uses a calmer sans-serif reading treatment. Methods remain collapsed beneath the argument. Applied the change to Rome, Uruk, Cradles, Bronze Age, and Iron Age. Verified the fifth selector on all five routes at 1280 × 900, the third Cradles selector at 390 × 844, five 54-pixel mobile controls, one active shared panel, zero exact loading/404/`undefined`/`NaN` states, zero horizontal overflow, 66 historical data files, 176 sources, 30 datasets, 25 claims, lint, the production build, and 80 byte-identical built assets. Next: open Persia with a bounded road-and-relay comparison.
 

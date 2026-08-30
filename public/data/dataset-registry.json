@@ -304,5 +304,18 @@
     "source_key_field": "source_keys",
     "time_resolution": "five unlike institutional cases from the ninth century BCE through the fifth century CE",
     "notes": "Inputs making coordination distribution and visible evidence remain separate. The rows do not calculate output centralization market integration state capacity productivity labor totals or a universal development sequence."
+  },
+  {
+    "id": "persian-roads-relays",
+    "title": "Herodotus's Sardis–Susa itinerary and four bounded road-and-relay evidence classes",
+    "paths": [
+      "/data/persian-royal-road-segments.csv",
+      "/data/persian-road-evidence.csv"
+    ],
+    "schema": "observation",
+    "evidence_type": "primary_literary_itinerary_relay_description_and_administrative_archive",
+    "source_key_field": "source_keys",
+    "time_resolution": "six itinerary segments and four source-bounded evidence windows from 509 to 480 BCE and mid-fifth-century reporting",
+    "notes": "The itinerary preserves stages and parasangs without kilometre conversion. Ninety days is Herodotus's arithmetic; the relay description has no end-to-end duration; the Persepolis archive is regional. No imperial-speed score route geometry traffic estimate or universal travel model is produced."
   }
 ]
