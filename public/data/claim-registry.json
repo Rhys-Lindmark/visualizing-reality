@@ -152,5 +152,16 @@
     "dataset_ids": ["cradles-coordination-routes"],
     "source_keys": ["ENGLUND2011", "ORACC_DCCLT", "GLATZ_ET_AL2025", "POURNELLE_ALGAZE2014", "ALIVERNINI_GRECO_WIDELL2026", "CHAZAN_LEHNER1990", "MOELLER2015", "GREEN2020", "GREEN_ALAM_PETRIE2026", "HE2018", "XU2018", "NICHOLAS_FEINMAN2022", "INOMATA_ET_AL2020", "SHADY_ET_AL2001", "SANDWEISS_ET_AL2009", "HAAS_ET_AL2013", "GONZALEZ_GARCIA_ET_AL2021"],
     "note": "Twenty-four input to institution to outcome routes remain unlike observations and are not counted or ranked. The visual blocks inferred quantities coercion or centralized control from archives workshops weights streets water works and monuments. Four rows per region are an inspectable portfolio rather than proof of equal evidence or institutional diversity."
+  },
+  {
+    "id": "cradles-05-different-afterlives",
+    "page": "cradles",
+    "insight": 5,
+    "claim": "The end of a capital or urban form did not produce one shared kind of collapse: early systems dispersed relocated deurbanized fragmented continued in altered form or left their reorganization unresolved by current evidence.",
+    "status": "working_synthesis",
+    "evidence_type": "qualitative_comparative_archaeological_transition_synthesis",
+    "dataset_ids": ["cradles-afterlives"],
+    "source_keys": ["CRAWFORD_ET_AL2023", "GLATZ_ET_AL2025", "CHARLOUX_ET_AL2021", "PETRIE_ET_AL2017", "MADELLA_FULLER2006", "DIXIT_ET_AL2018", "HE2018", "KOWALEWSKI_ET_AL2025", "SANDWEISS_ET_AL2009", "SHADY_ET_AL2001"],
+    "note": "Six cases remain unlike pathways rather than a common time series or score. The visual distinguishes site occupation from population political and institutional continuity; blocks climate monocausality; and does not infer destinations dynastic identities or direct successor lines where the evidence cannot establish them."
   }
 ]

@@ -475,6 +475,35 @@ if (!andesComplementarity || !sourceKeys(andesComplementarity.source_keys).inclu
 const cradleCoordinationSnapshot = read('public/data/cradles/20260830-coordination1/cradles-coordination-routes.csv');
 if (cradleCoordinationSnapshot !== readFileSync(path.join(root, 'public/data/cradles-coordination-routes.csv'), 'utf8')) fail('Cradles coordination immutable client snapshot diverges from the canonical dataset');
 
+const cradleAfterlives = csv('public/data/cradles-afterlives.csv');
+const afterlifeRegions = new Set();
+const afterlifePathways = new Set();
+for (const [index, row] of cradleAfterlives.entries()) {
+  const context = `cradles-afterlives.csv row ${index + 2}`;
+  requireFields(row, ['region', 'region_slug', 'pathway', 'pathway_label', 'before', 'transition', 'afterlife', 'place', 'time_window', 'evidence_status', 'source_keys', 'interpretation', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!cradleRegions.has(row.region_slug)) fail(`${context} has unsupported region ${row.region_slug}`);
+  if (afterlifeRegions.has(row.region_slug)) fail(`${context} duplicates region ${row.region_slug}`); afterlifeRegions.add(row.region_slug);
+  if (afterlifePathways.has(row.pathway)) fail(`${context} duplicates pathway ${row.pathway}`); afterlifePathways.add(row.pathway);
+  if (Object.keys(row).some(field => /score|rank|index|population_loss|collapse_value|resilience_value|continuity_value/i.test(field))) fail(`${context} introduces an unsupported common-scale field`);
+  if (row.limits.length < 100) fail(`${context} does not preserve a substantive inference limit`);
+}
+if (cradleAfterlives.length !== 6 || afterlifeRegions.size !== 6 || afterlifePathways.size !== 6) fail(`Cradles afterlives require six unique regional pathways, found ${cradleAfterlives.length} rows, ${afterlifeRegions.size} regions, and ${afterlifePathways.size} pathways`);
+const mesopotamiaAfterlife = cradleAfterlives.find(row => row.region_slug === 'mesopotamia');
+if (!mesopotamiaAfterlife || !sourceKeys(mesopotamiaAfterlife.source_keys).includes('GLATZ_ET_AL2025') || !/rather than the fate of all Mesopotamia/i.test(mesopotamiaAfterlife.limits)) fail('Mesopotamian afterlife must remain a bounded Upper Diyala dispersal case');
+const egyptAfterlife = cradleAfterlives.find(row => row.region_slug === 'egypt');
+if (!egyptAfterlife || !sourceKeys(egyptAfterlife.source_keys).includes('CHARLOUX_ET_AL2021') || !/not uninterrupted national government/i.test(egyptAfterlife.limits)) fail('Egyptian afterlife must preserve the limit between Theban relocation and national continuity');
+const indusAfterlife = cradleAfterlives.find(row => row.region_slug === 'indus');
+if (!indusAfterlife || !sourceKeys(indusAfterlife.source_keys).includes('MADELLA_FULLER2006') || !/does not supply a single cause/i.test(indusAfterlife.limits) || !/not evidence that the population disappeared/i.test(indusAfterlife.interpretation)) fail('Indus afterlife must block climate monocausality and population disappearance');
+const chinaAfterlife = cradleAfterlives.find(row => row.region_slug === 'northern-china');
+if (!chinaAfterlife || !sourceKeys(chinaAfterlife.source_keys).includes('HE2018') || !/does not identify a conqueror prove a dynasty or draw a direct line to Erlitou/i.test(chinaAfterlife.limits.replaceAll(',', ''))) fail('Taosi afterlife must not invent a conqueror dynasty or direct Erlitou succession');
+const mesoAfterlife = cradleAfterlives.find(row => row.region_slug === 'mesoamerica');
+if (!mesoAfterlife || !sourceKeys(mesoAfterlife.source_keys).includes('KOWALEWSKI_ET_AL2025') || !/secondary centers did not simply switch off/i.test(mesoAfterlife.interpretation)) fail('Oaxaca afterlife must preserve uneven secondary-center change');
+const andesAfterlife = cradleAfterlives.find(row => row.region_slug === 'andes');
+if (!andesAfterlife || !sourceKeys(andesAfterlife.source_keys).includes('SANDWEISS_ET_AL2009') || !/testable hypothesis/i.test(andesAfterlife.limits) || !/does not prove a monocause/i.test(andesAfterlife.limits)) fail('Andean afterlife must preserve the hazard sequence as a non-monocausal hypothesis');
+const cradleAfterlivesSnapshot = read('public/data/cradles/20260830-afterlives1/cradles-afterlives.csv');
+if (cradleAfterlivesSnapshot !== readFileSync(path.join(root, 'public/data/cradles-afterlives.csv'), 'utf8')) fail('Cradles afterlives immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -540,4 +569,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${geo.features.length} boundary features.`);
