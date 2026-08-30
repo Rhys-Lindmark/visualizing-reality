@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="#top"><span>Visualizing</span><b>Reality</b></a>
+        <a className="wordmark" href="#top"><span>How Everything</span><b>Evolved</b></a>
         <nav aria-label="Primary"><a href="#introduction">Introduction</a><a href="#key-insights">Key Insights</a></nav>
         <button className="search" type="button">Search</button>
       </header>
@@ -15,7 +15,7 @@ export default function Home() {
           <p className="topic-label">Visualizing history</p>
           <h1>Rome</h1>
           <p className="standfirst">A city on the Tiber became the largest empire Europe had yet seen—and remained a Mediterranean superstate for centuries.</p>
-          <p className="byline">By Visualizing Reality · First published August 2026</p>
+          <p className="byline">By How Everything Evolved · First published August 2026</p>
         </section>
 
         <div className="article-nav"><a href="#introduction">Introduction</a><a href="#key-insights">Key Insights</a></div>
@@ -45,7 +45,7 @@ export default function Home() {
           </section>
         </section>
 
-        <footer><b>Visualizing Reality</b><span>Evidence and scale about Rome.</span><a href="#top">Back to top ↑</a></footer>
+        <footer><b>How Everything Evolved</b><span>Evidence and scale about Rome.</span><a href="#top">Back to top ↑</a></footer>
       </article>
     </main>
   );

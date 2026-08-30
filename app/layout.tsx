@@ -7,16 +7,16 @@ const serif = Cormorant_Garamond({ variable: '--font-serif', subsets: ['latin'],
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://visualizing-reality.rhyslindmark.chatgpt.site'),
-  title: 'Rome — Visualizing Reality',
+  title: 'Rome — How Everything Evolved',
   description: 'Five evidence-led arguments about how Rome expanded, worked, fell, and endured.',
   openGraph: {
-    title: 'Visualizing Reality',
+    title: 'How Everything Evolved',
     description: 'Rome: five arguments about how an empire worked.',
-    images: [{ url: '/og.png', width: 1730, height: 909, alt: 'Visualizing Reality — Rome: five arguments about how an empire worked' }],
+    images: [{ url: '/og.png', width: 1730, height: 909, alt: 'How Everything Evolved — Rome: five arguments about how an empire worked' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Visualizing Reality',
+    title: 'How Everything Evolved',
     description: 'Rome: five arguments about how an empire worked.',
     images: ['/og.png'],
   },
