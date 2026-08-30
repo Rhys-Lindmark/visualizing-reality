@@ -9,6 +9,7 @@ The public site is [visualizing-reality.rhyslindmark.chatgpt.site](https://visua
 - `app/` — the atlas homepage, reusable article/evidence components, and topic routes.
 - `public/data/` — downloadable CSV, JSON, GeoJSON, TopoJSON, and public schemas.
 - `public/data/rome/<revision>/` — immutable Rome client snapshots; keep old revisions so already-open tabs cannot receive a newer, incompatible schema.
+- `public/data/uruk/<revision>/` — immutable Uruk client snapshots used by every interactive First States chart.
 - `public/data/cradles/<revision>/` — immutable Cradles client snapshots used by interactive comparisons.
 - `scripts/validate-data.mjs` — integrity checks for source keys, datasets, claims, estimates, and historical boundary intervals.
 - `research/` — durable research and evidence audits used to explain inclusion, exclusion, and modeling decisions.
@@ -33,11 +34,12 @@ Then open the local URL printed by the development server. The main routes are `
 npm run validate:data
 npm run lint
 npm run build
+npm run smoke:production-data
 ```
 
 Before publication, also test the affected visualization in a browser and inspect every changed data file. A passing build is not evidence that a historical claim is sound.
 
-When a Rome client-side schema changes, create a new immutable data revision and point `app/lib/romeDataClient.ts` to it. Do not overwrite or delete an earlier revision: a browser tab can remain open across a deployment and must continue receiving the data contract its JavaScript expects.
+When a client-side data schema changes, create a new immutable data revision and update its data-client helper. Do not overwrite or delete an earlier revision: a browser tab can remain open across a deployment and must continue receiving the data contract its JavaScript expects. `npm run smoke:production-data` checks that the deployed Uruk revision returns real CSV with the expected row counts.
 
 ## Evidence standard
 

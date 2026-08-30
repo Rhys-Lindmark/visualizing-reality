@@ -1,16 +1,16 @@
 'use client';
 import {useEffect,useMemo,useState} from 'react';
+import {fetchUrukText,urukDataUrl} from './lib/urukDataClient';
 
 type Row={slug:string;mechanism:string;place:string;start_year:string;end_year:string;display_date:string;observation:string;what_it_supports:string;what_it_does_not_prove:string;evidence_class:string;value:string;relation:string;unit:string;source_keys:string};
-const DATA_REVISION='20260830-uruk-fragility1';
-const url=`/data/uruk-state-fragility-evidence.csv?v=${DATA_REVISION}`;
+const url=urukDataUrl('uruk-state-fragility-evidence.csv');
 const tones:Record<string,string>={Concentration:'concentrate',Provisioning:'provision',Fortification:'fortify',Conflict:'conflict','Violence and ritual':'violence',Dispersal:'disperse','Peripheral autonomy':'periphery','Regional reversal':'reversal'};
 const quantity=(row:Row)=>row.value?`${row.relation==='more_than'?'>':row.relation==='minimum'?'≥':row.relation==='approximate'?'≈':''}${Number(row.value).toLocaleString()} ${row.unit}`:'qualitative record';
 function parseCSV(text:string):Row[]{const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;for(let index=0;index<text.length;index+=1){const c=text[index];if(c==='"'&&quoted&&text[index+1]==='"'){cell+='"';index+=1}else if(c==='"')quoted=!quoted;else if(c===','&&!quoted){row.push(cell);cell=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[index+1]==='\n')index+=1;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell=''}else cell+=c}if(cell||row.length){row.push(cell);rows.push(row)}const[headers,...body]=rows;return body.map(values=>Object.fromEntries(headers.map((header,index)=>[header,values[index]??''])) as Row)}
 
 export default function UrukFragilityChart(){
   const[rows,setRows]=useState<Row[]>([]);const[error,setError]=useState('');const[selectedSlug,setSelectedSlug]=useState('institutional-dispersal');
-  useEffect(()=>{let live=true;fetch(url,{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.text()}).then(text=>{const parsed=parseCSV(text);if(parsed.length!==8)throw new Error('Required evidence rows missing');if(live)setRows(parsed)}).catch(reason=>{if(live)setError(reason instanceof Error?reason.message:String(reason))});return()=>{live=false}},[]);
+  useEffect(()=>{const controller=new AbortController();fetchUrukText('uruk-state-fragility-evidence.csv',controller.signal).then(text=>{const parsed=parseCSV(text);if(parsed.length!==8)throw new Error('Required evidence rows missing');setRows(parsed)}).catch(reason=>{if(!controller.signal.aborted)setError(reason instanceof Error?reason.message:String(reason))});return()=>controller.abort()},[]);
   const selected=useMemo(()=>rows.find(row=>row.slug===selectedSlug)??rows[0],[rows,selectedSlug]);
   if(error)return <div className="uruk-data-error"><b>Fragility evidence did not load</b><span>{error}</span></div>;
   if(!selected)return <div className="uruk-data-loading">Loading source-keyed evidence…</div>;

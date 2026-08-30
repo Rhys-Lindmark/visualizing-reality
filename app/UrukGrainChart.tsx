@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { fetchUrukText, urukDataUrl } from './lib/urukDataClient';
 
 type Row={row_type:string;slug:string;label:string;role:string;model_claim:string;uruk_evidence:string;chronology:string;evidence_class:string;source_keys:string;limits:string};
-const DATA_REVISION='20260830-uruk-grain1';
-const url=`/data/uruk-grain-state-evidence.csv?v=${DATA_REVISION}`;
+const url=urukDataUrl('uruk-grain-state-evidence.csv');
 const resourceOrder=['cereal-grain','roots-and-tubers','herd-animals','fish-and-wetlands','fruit-orchards'];
 const testOrder=['original-study','published-comment','uruk-archive','deltaic-economy','archive-bias'];
 const testTone:Record<string,string>={'original-study':'support','published-comment':'challenge','uruk-archive':'direct','deltaic-economy':'context','archive-bias':'warning'};
@@ -13,7 +13,7 @@ function parseCSV(text:string):Row[]{const rows:string[][]=[];let row:string[]=[
 
 export default function UrukGrainChart(){
   const[rows,setRows]=useState<Row[]>([]);const[error,setError]=useState('');const[selectedSlug,setSelectedSlug]=useState('cereal-grain');
-  useEffect(()=>{let cancelled=false;const load=async()=>{setError('');try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const parsed=parseCSV(await response.text());if(parsed.length!==10||parsed.filter(row=>row.row_type==='resource').length!==5||parsed.filter(row=>row.row_type==='test').length!==5)throw new Error('required evidence rows missing');if(!cancelled)setRows(parsed)}catch(problem){if(!cancelled)setError(problem instanceof Error?problem.message:'Could not load the evidence')}};load();return()=>{cancelled=true}},[]);
+  useEffect(()=>{const controller=new AbortController();const load=async()=>{setError('');try{const parsed=parseCSV(await fetchUrukText('uruk-grain-state-evidence.csv',controller.signal));if(parsed.length!==10||parsed.filter(row=>row.row_type==='resource').length!==5||parsed.filter(row=>row.row_type==='test').length!==5)throw new Error('required evidence rows missing');setRows(parsed)}catch(problem){if(!controller.signal.aborted)setError(problem instanceof Error?problem.message:'Could not load the evidence')}};load();return()=>controller.abort()},[]);
   const resources=useMemo(()=>resourceOrder.map(slug=>rows.find(row=>row.row_type==='resource'&&row.slug===slug)).filter((row):row is Row=>Boolean(row)),[rows]);
   const tests=useMemo(()=>testOrder.map(slug=>rows.find(row=>row.row_type==='test'&&row.slug===slug)).filter((row):row is Row=>Boolean(row)),[rows]);
   const selected=resources.find(row=>row.slug===selectedSlug)??resources[0];

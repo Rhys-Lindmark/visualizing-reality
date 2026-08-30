@@ -213,6 +213,13 @@ for (const [metric, value] of [['artifacts', 6726], ['transliterated_artifacts',
   if (!urukWriting.some(row => row.metric === metric && Number(row.value) === value)) fail(`Uruk writing corpus is missing ${metric} = ${value}`);
 }
 
+const urukClientRevision = '20260830-client1';
+for (const filename of ['uruk-writing-corpus.csv', 'uruk-urbanization-clocks.csv', 'uruk-water-ecology.csv', 'uruk-grain-state-evidence.csv', 'uruk-state-fragility-evidence.csv']) {
+  const snapshot = read(`public/data/uruk/${urukClientRevision}/${filename}`);
+  const canonical = readFileSync(path.join(root, 'public/data', filename), 'utf8');
+  if (snapshot !== canonical) fail(`Uruk immutable client snapshot diverges from canonical dataset: ${filename}`);
+}
+
 const urukUrbanization = csv('public/data/uruk-urbanization-clocks.csv');
 const urukUrbanKeys = new Set();
 for (const [index, row] of urukUrbanization.entries()) {

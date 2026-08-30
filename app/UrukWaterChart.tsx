@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
+import { fetchUrukText, urukDataUrl } from './lib/urukDataClient';
 
 type Row={kind:string;system:string;start_year:string;end_year:string;display_date:string;place:string;measure:string;value:string;relation:string;unit:string;label:string;evidence_type:string;source_keys:string;interpretation:string;limits:string};
-const DATA_REVISION='20260830-uruk-water1';const dataUrl=`/data/uruk-water-ecology.csv?v=${DATA_REVISION}`;
+const dataUrl=urukDataUrl('uruk-water-ecology.csv');
 const minYear=-10000,maxYear=-1000,span=maxYear-minYear;
 const systems=['Local environment','Regional climate','Urban context','Direct waterwork','Textual evidence','Preserved network'];
 const colors:Record<string,string>={'Local environment':'#287c91','Regional climate':'#7b8d67','Urban context':'#be2434','Direct waterwork':'#2d5f86','Textual evidence':'#9a6c37','Preserved network':'#766084'};
@@ -17,7 +18,7 @@ function relation(row:Row){return row.relation==='more_than'?`>${Number(row.valu
 
 export default function UrukWaterChart(){
   const[rows,setRows]=useState<Row[]>([]);const[error,setError]=useState('');const[mapView,setMapView]=useState<'plain'|'eridu'>('plain');const[selectedMeasure,setSelectedMeasure]=useState('freshwater_environment');
-  useEffect(()=>{let cancelled=false;const load=async()=>{try{const response=await fetch(dataUrl,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const parsed=parseCSV(await response.text());if(parsed.length!==11)throw new Error('required evidence rows missing');if(!cancelled)setRows(parsed)}catch(problem){if(!cancelled)setError(problem instanceof Error?problem.message:'Could not load the dataset')}};load();return()=>{cancelled=true}},[]);
+  useEffect(()=>{const controller=new AbortController();const load=async()=>{try{const parsed=parseCSV(await fetchUrukText('uruk-water-ecology.csv',controller.signal));if(parsed.length!==11)throw new Error('required evidence rows missing');setRows(parsed)}catch(problem){if(!controller.signal.aborted)setError(problem instanceof Error?problem.message:'Could not load the dataset')}};load();return()=>controller.abort()},[]);
   const dated=useMemo(()=>rows.filter(row=>row.start_year&&row.end_year),[rows]);const network=useMemo(()=>rows.filter(row=>row.kind==='network_summary'),[rows]);
   const selected=dated.find(row=>row.measure===selectedMeasure)??dated[0];
   if(error)return <div className="uruk-data-error"><b>The water evidence did not load.</b><span>{error}</span><button type="button" onClick={()=>location.reload()}>Retry</button></div>;

@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { fetchUrukText, urukDataUrl } from './lib/urukDataClient';
 
 type Row={kind:string;system:string;start_year:string;end_year:string;display_date:string;place:string;measure:string;value:string;relation:string;unit:string;label:string;evidence_type:string;source_keys:string;interpretation:string;limits:string};
-const DATA_REVISION='20260830-uruk-urban1';const url=`/data/uruk-urbanization-clocks.csv?v=${DATA_REVISION}`;
+const url=urukDataUrl('uruk-urbanization-clocks.csv');
 const systems=['Urban scale','Public institutions','Record-keeping','Political inference'];
 const colors:Record<string,string>={'Urban scale':'#234f78','Public institutions':'#7d668d','Record-keeping':'#be2434','Political inference':'#b6822e'};
 const minYear=-4400,maxYear=-2900,span=maxYear-minYear;
@@ -15,7 +16,7 @@ function parseCSV(text:string):Row[]{const rows:string[][]=[];let row:string[]=[
 
 export default function UrukUrbanizationChart(){
   const[rows,setRows]=useState<Row[]>([]);const[error,setError]=useState('');const[selectedKey,setSelectedKey]=useState('Political inference|Uruk');
-  useEffect(()=>{let cancelled=false;const load=async()=>{setError('');try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const parsed=parseCSV(await response.text());if(parsed.length!==10||!parsed.some(row=>row.kind==='timeline')||!parsed.some(row=>row.kind==='footprint'))throw new Error('required rows missing');if(!cancelled)setRows(parsed)}catch(problem){if(!cancelled)setError(problem instanceof Error?problem.message:'Could not load the dataset')}};load();return()=>{cancelled=true}},[]);
+  useEffect(()=>{const controller=new AbortController();const load=async()=>{setError('');try{const parsed=parseCSV(await fetchUrukText('uruk-urbanization-clocks.csv',controller.signal));if(parsed.length!==10||!parsed.some(row=>row.kind==='timeline')||!parsed.some(row=>row.kind==='footprint'))throw new Error('required rows missing');setRows(parsed)}catch(problem){if(!controller.signal.aborted)setError(problem instanceof Error?problem.message:'Could not load the dataset')}};load();return()=>controller.abort()},[]);
   const timeline=useMemo(()=>rows.filter(row=>row.kind==='timeline'),[rows]);const footprints=useMemo(()=>rows.filter(row=>row.kind!=='timeline'),[rows]);
   const selected=timeline.find(row=>`${row.system}|${row.place}`===selectedKey)??timeline.find(row=>row.system==='Political inference')??timeline[0];
   if(error)return <div className="uruk-data-error"><b>The urbanization chronology did not load.</b><span>{error}</span><button type="button" onClick={()=>location.reload()}>Retry</button></div>;

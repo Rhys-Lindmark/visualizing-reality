@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { fetchUrukText, urukDataUrl } from './lib/urukDataClient';
 
 type Row={record_type:string;phase:string;phase_order:string;metric:string;value:string;relation:string;unit:string;label:string;source_keys:string;notes:string};
 
-const DATA_REVISION='20260830-uruk-writing1';
-const url=`/data/uruk-writing-corpus.csv?v=${DATA_REVISION}`;
+const url=urukDataUrl('uruk-writing-corpus.csv');
 
 function parseCSV(text:string):Row[]{
   const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;
@@ -17,7 +17,7 @@ const format=(value:number)=>new Intl.NumberFormat('en-US').format(value);
 
 export default function UrukWritingChart(){
   const[rows,setRows]=useState<Row[]>([]);const[error,setError]=useState('');const[selected,setSelected]=useState('Uruk IV');
-  useEffect(()=>{let cancelled=false;const load=async()=>{setError('');try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const parsed=parseCSV(await response.text());if(!parsed.some(row=>row.record_type==='genre_share')||!parsed.some(row=>row.metric==='artifacts'))throw new Error('required rows missing');if(!cancelled)setRows(parsed);}catch(problem){if(!cancelled)setError(problem instanceof Error?problem.message:'Could not load the dataset');}};load();return()=>{cancelled=true};},[]);
+  useEffect(()=>{const controller=new AbortController();const load=async()=>{setError('');try{const parsed=parseCSV(await fetchUrukText('uruk-writing-corpus.csv',controller.signal));if(!parsed.some(row=>row.record_type==='genre_share')||!parsed.some(row=>row.metric==='artifacts'))throw new Error('required rows missing');setRows(parsed);}catch(problem){if(!controller.signal.aborted)setError(problem instanceof Error?problem.message:'Could not load the dataset');}};load();return()=>controller.abort();},[]);
   const shares=useMemo(()=>rows.filter(row=>row.record_type==='genre_share').sort((a,b)=>Number(a.phase_order)-Number(b.phase_order)),[rows]);
   const corpus=useMemo(()=>rows.filter(row=>row.record_type==='corpus_snapshot').sort((a,b)=>Number(a.phase_order)-Number(b.phase_order)),[rows]);
   const active=shares.find(row=>row.phase===selected)??shares[1]??shares[0];
