@@ -34,10 +34,11 @@ graphics that explain the claim without decorative clutter.
 - Never fabricate a number, boundary, quotation, or citation.
 - Label reconstructions, interpolation, and model outputs explicitly. Preserve source keys in downloadable data.
 - Prefer primary sources, archaeology datasets, peer-reviewed scholarship, academic reference works, and high-quality specialist synthesis.
+- Use Rhys’s private “Information Anki Jun 23 Backup” as a discovery index for themes and source leads when locally available. Never publish card text or treat a card as evidence; verify every lead against a citable source.
 - Treat ACOUP, Seshat, *Against the Grain*, Cremieux Recueil, and similar works as important inputs—not sole authorities.
 - Test competing explanations. State where scholars or datasets disagree.
 - Do not add a core insight until the evidence and visualization can survive informed criticism.
-- Preserve owner-only site access. Never autonomously change access, domains, credentials, billing, or repository visibility.
+- Preserve the site’s current public access setting. Never autonomously change access, domains, credentials, billing, or repository visibility.
 - Before publishing: run lint and the production build, test the affected interaction in a browser, inspect the diff, and parse every changed data file.
 - Commit and push to GitHub `Rhys-Lindmark/visualizing-reality`, push the same commit to Sites, and deploy that exact commit.
 - After each run, update this file with the result, verification evidence, and next actionable item.
@@ -45,8 +46,8 @@ graphics that explain the claim without decorative clutter.
 
 ## P0 — Page 01: Rome — in progress (2/5)
 
-1. **Where Rome was:** annual territorial map, neighboring polities, political form — live; audit and improve inspectability.
-2. **Why Rome won:** soldiers under arms × worked iron — live; audit sources and interpolation.
+1. **Where Rome was:** annual territorial map, neighboring polities, political form — live, inspectable, and target-year audited.
+2. **Why Rome won:** deep mobilization plus relative worked-metal investment — live; replace remaining broad estimates where scholarship permits.
 3. **How Rome paid for empire:** taxation, tribute, customs, land tax, military pay, and grain flows — ready.
 4. **Why the western court fell:** fiscal capacity, civil war, territorial loss, army cost, and external pressure without a monocausal story — ready.
 5. **What Rome changed:** labor and land, roads, language, law, cities, and the survival of the eastern state — ready; split only if the argument becomes incoherent.
@@ -54,8 +55,6 @@ graphics that explain the claim without decorative clutter.
 Immediate Rome work:
 
 - Replace remaining broad Roman reconstruction points with published point estimates where scholarship permits; split eastern and western force estimates after 395.
-- Add polity hover/click readouts and expose the dated source interval behind each annual map frame.
-- Check 395, 410, 439, and 476 against specialist maps and Seshat geometry.
 - Build insight 03, **How Rome paid for empire**, only after its tax, revenue, pay, grain, and customs observations have source-keyed units and definitions.
 
 ## P0 — Page 02: Uruk and the first states — ready
@@ -173,6 +172,7 @@ when the evidence supports independent urban/state formation.
 
 ## Completed
 
+- 2026-08-29 — Made the Roman territorial map inspectable without pretending annual playback means annual observation. Hovering the canvas or selecting a keyboard-accessible polity record now exposes the frame year, exact sourced interval, approximate area, Seshat record identity, background records, and downloadable boundary data; selection persists only while that dated geometry remains active. Added automated assertions for continuous Roman coverage from 500 BCE to 476 CE and for eastern/western state presence at 395, 410, 439, and 476. Repaired the event strip so its scrollbar no longer intercepts event-marker clicks, and added a repository README covering the project, evidence rules, local workflow, and current status. Verified pointer-equivalent selection, interval persistence across annual stepping, all four late-imperial transitions, data validation, lint, and the production build in the isolated `codex/rome-map-inspectability` worktree.
 - 2026-08-29 — Audited every visible quantitative claim and data row in Rome’s two live insights. Removed the unsupported “largest empire Europe had ever known” superlative, 53 invented rival/interpolation rows, every unsourced kilogram-per-soldier value, and every derived iron-tonnage claim. The revised military visual directly labels Rome as a heterogeneous central-estimate series, shows rivals only as dated campaign observations, preserves disputed ancient reports as disputed rather than silently adjusting them, and confines Devereaux’s equipment argument to a sourced third–second-century BCE relative index (Rome 125, nearest comparator 100). Added a durable audit explaining each inclusion and removal. Validation now checks 23 Roman estimate rows, 11 rival campaign observations, 2 equipment-index rows, 36 source keys, 5 datasets, 2 claims, and 442 boundary features. Verified the readout interaction, five changed downloads, metadata, lint, and the production build in the isolated `codex/rome-evidence-audit` worktree.
 - 2026-08-29 — Built the shared evidence and visual-data standard. Added canonical source, dataset, and claim registries; public JSON Schemas for observations, modeled series, boundaries, citations, and notes; and an automated validator for malformed CSV/JSON, missing files and source keys, invalid estimate ranges, unsupported claim statuses, and malformed boundary intervals. Rome now exposes an on-page evidence ledger distinguishing source observations, historical reconstructions, and model outputs, with claim-to-dataset-to-source provenance, source filtering, and direct downloads. The subsequent military audit supersedes the initial modeled-row contents while preserving and tightening this evidence system.
 - 2026-08-29 — Built the reusable atlas and page-routing system. The new homepage states the project thesis, filters eleven queued pages by era/region/system, and labels research/draft/reviewed status. Rome moved to `/rome` through a reusable Introduction → Key Insights → Methods/Sources shell, retaining both interactive modules and naming insights 03–05. Verified both production routes, the Mediterranean filter, atlas-to-Rome navigation, annual map stepping, military metric toggle, metadata, lint, and the production build.
