@@ -1,0 +1,18 @@
+{
+  "release_id": "20260830-iron-quality1",
+  "page_contract": "owid-key-insights-v2",
+  "required_routes": [
+    "/",
+    "/rome",
+    "/uruk",
+    "/cradles",
+    "/bronze-age",
+    "/iron-age"
+  ],
+  "newest_visualization_assets": [
+    "/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv",
+    "/data/iron-age/20260830-adoption1/iron-adoption-windows.csv",
+    "/data/iron-age/20260830-fuel1/iron-smelting-experiments.csv",
+    "/data/iron-age/20260830-quality1/iron-quality-experiments.csv"
+  ]
+}

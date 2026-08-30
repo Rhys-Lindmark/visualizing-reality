@@ -41,6 +41,8 @@ npm run smoke:production-data
 
 Before publication, also test the affected visualization in a browser and inspect every changed data file. A passing build is not evidence that a historical claim is sound.
 
+Package the Sites archive from the same validated worktree where the production build and `verify:build-assets` passed. Packaging a different checkout can pair the right source commit with stale build output. The production smoke test checks the release manifest, all live visualization assets at both origins, and every published route.
+
 When a client-side data schema changes, create a new immutable data revision and update its data-client helper. Do not overwrite or delete an earlier revision: a browser tab can remain open across a deployment and must continue receiving the data contract its JavaScript expects. Every client data request first uses the Sites asset and then falls back to the same versioned path in the public GitHub repository; both origins must preserve old revisions. Always build the exact checkout being packaged, then run `npm run verify:build-assets`; it byte-compares every file under `public/` with its copy in `dist/client/` and blocks a stale or incomplete Sites archive. `npm run smoke:production-data` then checks every live visualization asset at both origins.
 
 ## Evidence standard

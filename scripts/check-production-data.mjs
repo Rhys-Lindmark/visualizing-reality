@@ -1,8 +1,11 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
+const releaseId='20260830-iron-quality1';
+const routes=['/','/rome','/uruk','/cradles','/bronze-age','/iron-age'];
 // Every asset fetched by a live visualization. A release is unhealthy when even
 // one URL returns the app's HTML 404 shell instead of its data payload.
 const assets=[
+  ['release','/data/release-manifest.json'],
   ['json','/data/rome/20260830-client4/land.topojson'],
   ['json','/data/rome/20260830-client4/borders.topojson'],
   ['json','/data/rome/20260830-client4/rivers.topojson'],
@@ -47,10 +50,18 @@ for(const [origin,root] of [['site',base],['mirror',mirror]])for(const [kind,pat
     const text=await response.text();
     if(!response.ok)failures.push(`${origin} ${path}: HTTP ${response.status}`);
     else if(!text.trim()||text.trimStart().startsWith('<'))failures.push(`${origin} ${path}: HTML or empty payload returned`);
-    else if(kind==='json'){try{JSON.parse(text);}catch{failures.push(`${origin} ${path}: invalid JSON`);}}
+    else if(kind==='json'||kind==='release'){try{const payload=JSON.parse(text);if(kind==='release'&&payload.release_id!==releaseId)failures.push(`${origin} ${path}: expected release ${releaseId}, received ${payload.release_id??'missing id'}`);}catch{failures.push(`${origin} ${path}: invalid JSON`);}}
     else if(!text.includes('\n')||!text.split(/\r?\n/,1)[0].includes(','))failures.push(`${origin} ${path}: invalid CSV`);
     else console.log(`ok ${response.status} ${origin} ${path}`);
   }catch(error){failures.push(`${origin} ${path}: ${error instanceof Error?error.message:String(error)}`);}
+}
+for(const route of routes){
+  try{
+    const response=await fetch(`${base}${route}?release=${releaseId}`,{headers:{Accept:'text/html'}});
+    const html=await response.text();
+    if(!response.ok||/<h1[^>]*>404<\/h1>|This page could not be found/i.test(html))failures.push(`site route ${route}: ${response.ok?'rendered a 404 shell':`HTTP ${response.status}`}`);
+    else console.log(`ok ${response.status} site route ${route}`);
+  }catch(error){failures.push(`site route ${route}: ${error instanceof Error?error.message:String(error)}`);}
 }
 if(failures.length){console.error('Production visualization asset smoke test failed:');for(const failure of failures)console.error(`- ${failure}`);process.exit(1);}
 console.log(`Production visualization asset smoke test passed: ${assets.length} assets at both the live site and public GitHub mirror`);
