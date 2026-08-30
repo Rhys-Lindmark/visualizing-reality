@@ -235,6 +235,35 @@ for (const [year, value] of [[-3100, 250], [-2900, 400]]) if (!urukUrbanization.
 if (!urukUrbanization.some(row => row.kind === 'timeline' && row.place === 'Shakhi Kora' && Number(row.start_year) === -3941 && Number(row.end_year) === -3377)) fail('Uruk urbanization data is missing the 3941–3377 cal BCE Shakhi Kora institutional sequence');
 if (!urukUrbanization.some(row => row.kind === 'timeline' && row.system === 'Political inference' && row.place === 'Uruk' && Number(row.start_year) === -3800 && Number(row.end_year) === -3300)) fail('Uruk urbanization data is missing the bounded 3800–3300 BCE political interpretation');
 
+const urukWater = csv('public/data/uruk-water-ecology.csv');
+const urukWaterKeys = new Set();
+for (const [index, row] of urukWater.entries()) {
+  const context = `uruk-water-ecology.csv row ${index + 2}`;
+  requireFields(row, ['kind', 'system', 'display_date', 'place', 'measure', 'relation', 'unit', 'label', 'evidence_type', 'source_keys', 'interpretation', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!['timeline', 'context', 'map_boundary', 'network_summary'].includes(row.kind)) fail(`${context} has unsupported kind ${row.kind}`);
+  if (row.kind === 'map_boundary') {
+    if (row.start_year || row.end_year || row.value) fail(`${context} assigns a date or quantity to the mixed-age map layer`);
+  } else {
+    numeric(row, ['start_year', 'end_year'], context);
+    if (Number(row.start_year) > Number(row.end_year)) fail(`${context} starts after it ends`);
+  }
+  if (row.kind === 'network_summary') {
+    numeric(row, ['value'], context);
+    if (row.relation !== 'more_than' || row.unit !== 'count') fail(`${context} must preserve the published more-than count`);
+  } else if (row.value !== '') fail(`${context} introduces a quantity outside the preserved-network summary`);
+  const key = `${row.kind}|${row.system}|${row.place}|${row.measure}`;
+  if (urukWaterKeys.has(key)) fail(`${context} duplicates ${key}`); urukWaterKeys.add(key);
+}
+if (urukWater.length !== 11) fail(`Expected eleven Uruk water-ecology rows, found ${urukWater.length}`);
+if (!urukWater.some(row => row.measure === 'freshwater_environment' && Number(row.start_year) === -7750 && Number(row.end_year) === -4900 && row.source_keys === 'ALTAWEEL_ET_AL2019')) fail('Uruk water ecology is missing the bounded M38 freshwater sequence');
+if (!urukWater.some(row => row.kind === 'map_boundary' && row.measure === 'palaeochannel_palimpsest' && row.start_year === '' && row.end_year === '' && row.source_keys === 'JOTHERI_ET_AL2025')) fail('Uruk water ecology must keep the palaeochannel map explicitly undated');
+for (const [measure, value] of [['primary_canals', 200], ['branch_canals', 4000], ['farms', 700]]) if (!urukWater.some(row => row.measure === measure && Number(row.value) === value && row.relation === 'more_than' && row.start_year === '-6000' && row.end_year === '-1000')) fail(`Uruk water ecology is missing the non-simultaneous Eridu ${measure} lower bound`);
+if (!urukWater.some(row => row.measure === 'canal_archaeological_context' && Number(row.start_year) === -2900 && Number(row.end_year) === -2600 && row.source_keys === 'EGBERTS_ET_AL2023')) fail('Uruk water ecology is missing the Girsu canal stratigraphic interval');
+if (!urukWater.some(row => row.measure === 'developed_irrigation_terminology' && Number(row.start_year) === -2475 && Number(row.end_year) === -2315 && row.source_keys === 'EGBERTS_ET_AL2023')) fail('Uruk water ecology is missing the bounded Lagash textual interval');
+for (const asset of ['public/images/mesopotamia-palaeochannels.webp', 'public/images/eridu-irrigation-network.webp']) if (!existsSync(path.join(root, asset))) fail(`Missing Uruk water-map asset: ${asset}`);
+read('public/images/uruk-water-map-LICENSE.md');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -300,4 +329,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${geo.features.length} boundary features.`);

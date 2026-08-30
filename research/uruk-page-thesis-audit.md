@@ -2,7 +2,7 @@
 
 ## Decision
 
-Two claims now meet the evidence threshold:
+Three claims now meet the evidence threshold:
 
 1. **Uruk did not become a city and a state in one leap.** Settlement scale,
    public institutions, record-keeping, and political power changed on different
@@ -11,9 +11,13 @@ Two claims now meet the evidence threshold:
 2. **The earliest surviving writing was overwhelmingly administrative; a broader
    scribal knowledge system grew alongside it.** The claim has phase-specific
    published quantities and a reproducible public corpus snapshot.
+3. **Uruk's concentration depended on a dynamic freshwater, marsh, channel, and
+   field mosaic—but current evidence cannot be collapsed into one clean
+   fourth-millennium river map.** The visual publishes a real open map while
+   keeping its mixed chronology visible.
 
-The water, grain, and fragility claims remain visible as research commitments,
-not live findings.
+The grain and fragility claims remain visible as research commitments, not live
+findings.
 
 ## 01 — Four clocks, not one state birthday — publish
 
@@ -54,15 +58,49 @@ Limits:
 - The comparison demonstrates plural and reversible pathways. It does not prove
   that every city preceded every state or that urbanism caused state formation.
 
-## 02 — Water made concentration possible
+## 02 — Water made concentration possible — publish
 
-Working claim: southern urbanism drew on irrigation agriculture, marsh resources,
-and water transport. Rivers and coastlines shifted.
+Live claim: Uruk's concentration depended on a dynamic freshwater, marsh,
+channel, and field mosaic, but current evidence does not support one precise
+fourth-millennium river or irrigation map or a monocausal hydraulic origin for
+the state.
 
-- Kelley, Cartolano, and Ferrara (2025) summarize the combined irrigation/marsh ecology and river transport, citing Pournelle and Algaze.
-- Needed: open, publication-grade paleochannel/wetland geometry and settlement coordinates.
-- Risk: projecting modern waterways backward or reviving a monocausal hydraulic-state theory.
-- Status: hold pending spatial-data audit.
+Evidence retained in the public dataset:
+
+- Altaweel et al.'s M38 borehole near the Uruk–Larsa region spans from just after
+  approximately 7750–7600 to before 4900–4860 cal BCE. Its microfossils,
+  vegetation, and sediments show persistent freshwater conditions alongside
+  alternating riparian, marsh, overbank or crevasse-splay, and floodplain
+  environments.
+- The same study treats the wider southern landscape as a palimpsest and warns
+  that site alignments alone recover only part of palaeochannel history. Its
+  broader climate synthesis is regional and discontinuous, not a local rainfall
+  curve for Uruk.
+- Jotheri et al.'s CC BY 4.0 map combines remote sensing, elevation, and field
+  evidence. The Eridu region preserves more than 200 primary canals, more than
+  4000 branches, and more than 700 farms because a course shift removed the area
+  from later intensive use.
+- Those Eridu counts combine occupations from the sixth to early first millennium
+  BCE. The authors explicitly state that the network was not all active at once,
+  and note that ancient marsh reconstruction remains future work.
+- Egberts et al. provide the first direct dating study of a palaeocanal system at
+  Girsu. Ceramics below an early canal context date to 2900–2600 BCE; the earliest
+  textual evidence they cite for developed irrigation terminology is Lagash
+  ED IIIb/Presargonic, approximately 2475–2315 BCE.
+
+Limits:
+
+- M38 predates Uruk's principal late-fourth-millennium urban expansion and samples
+  one location. It demonstrates a changing local ecology, not Uruk's canal plan.
+- The palaeochannel overview is mixed-age and mostly undated. Black lines cannot
+  be relabeled as the river network of 3300 BCE.
+- Eridu is a preservation case study, not a simultaneous census or a direct Uruk
+  analogue.
+- Direct canal dating is difficult: shell dates can carry freshwater reservoir
+  effects, charcoal can be residual, and later channels cut earlier deposits.
+- First surviving written terminology postdates the practice it names.
+- Water management enabled and amplified concentration. The evidence does not
+  show that hydraulic control alone created the state.
 
 ## 03 — Test the grain-state hypothesis
 
@@ -112,3 +150,6 @@ non-state peripheries must be considered together.
 - Dan Lawrence and T. J. Wilkinson, “Hubs and upstarts: pathways to urbanism in the northern Fertile Crescent,” *Antiquity* 89 (2015), DOI: 10.15184/aqy.2014.44.
 - Claudia Glatz et al., “There and back again: local institutions, an Uruk expansion and the rejection of centralisation in the Sirwan/Upper Diyala region,” *Antiquity* 99 (2025), DOI: 10.15184/aqy.2024.189.
 - Gebhard J. Selz, “The Uruk Phenomenon,” in *The Oxford History of the Ancient Near East, Volume I* (2020), DOI: 10.1093/oso/9780190687854.003.0004.
+- Mark Altaweel et al., “New Insights on the Role of Environmental Dynamics Shaping Southern Mesopotamia: From the Pre-Ubaid to the Early Islamic Period,” *Iraq* 81 (2019), DOI: 10.1017/irq.2019.2.
+- Jaafar Jotheri et al., “Identifying the preserved network of irrigation canals in the Eridu region, southern Mesopotamia,” *Antiquity* 99 (2025), DOI: 10.15184/aqy.2025.19.
+- Ella Egberts et al., “Dating Ancient Canal Systems Using Radiocarbon Dating and Archaeological Evidence at Tello/Girsu, Southern Mesopotamia, Iraq,” *Radiocarbon* 65 (2023), DOI: 10.1017/RDC.2023.40.

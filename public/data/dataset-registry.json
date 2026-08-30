@@ -118,5 +118,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "five irregular chronology intervals and five phase-level settlement-footprint observations from 4400 to 2900 BCE",
     "notes": "Urban scale, public institutions, record-keeping, and political interpretation remain separate evidence lanes. Settlement hectares are not converted into population, and no annual growth or state-birth threshold is interpolated."
+  },
+  {
+    "id": "uruk-water-ecology",
+    "title": "Southern Mesopotamian water-ecology evidence and preserved canal-network summary",
+    "path": "/data/uruk-water-ecology.csv",
+    "schema": "observation",
+    "evidence_type": "mixed_environmental_proxy_remote_sensing_stratigraphy_text_and_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "irregular proxy and evidence intervals from 9700 to 1000 BCE plus one explicitly undated mixed-age palaeochannel layer",
+    "notes": "Local borehole evidence, regional climate synthesis, Uruk's urban interval, later directly dated canals, textual evidence, and the multi-period Eridu network remain distinct. The palaeochannel map is not a fourth-millennium time slice, and the canal counts are not simultaneous."
   }
 ]

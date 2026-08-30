@@ -75,5 +75,16 @@
     "dataset_ids": ["uruk-urbanization-clocks"],
     "source_keys": ["EMBERLING_ET_AL2023", "LAWRENCE_WILKINSON2015", "GLATZ_ET_AL2025", "SELZ2020", "KELLEY_CARTOLANO_FERRARA2025"],
     "note": "The four lanes do not share one threshold or unit. Published footprints are approximate site extents rather than populations; phase ranges are not annual observations; Shakhi Kora demonstrates a reversible institutional path outside the Uruk core; and the political lane is a scholarly inference explicitly bounded by the absence of unequivocal evidence for monocratic governance."
+  },
+  {
+    "id": "uruk-02-moving-waterscape",
+    "page": "uruk",
+    "insight": 2,
+    "claim": "Uruk's concentration depended on a dynamic freshwater marsh channel and field mosaic, but current evidence does not support one precise fourth-millennium river or irrigation map or a monocausal hydraulic origin for the state.",
+    "status": "working_synthesis",
+    "evidence_type": "mixed_environmental_proxy_remote_sensing_stratigraphy_text_and_synthesis",
+    "dataset_ids": ["uruk-water-ecology"],
+    "source_keys": ["ALTAWEEL_ET_AL2019", "JOTHERI_ET_AL2025", "EGBERTS_ET_AL2023", "SELZ2020"],
+    "note": "The M38 borehole predates Uruk's urban peak; the visible alluvial channels form a mixed-age palimpsest; Eridu counts combine many occupations and were not simultaneous; directly dated Girsu canals and developed Lagash irrigation terminology are later. These gaps are evidence limits, not permission to interpolate a 3300 BCE network."
   }
 ]
