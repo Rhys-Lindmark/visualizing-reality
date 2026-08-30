@@ -1,59 +1,186 @@
 # How Everything Evolved — Continuous Backlog
 
-This is the persistent queue for the autonomous site updater. Work one coherent,
-reviewable item at a time, from the highest-priority `ready` item downward.
+## North star
+
+Build an Our World in Data–style guide to the rest of history: visual-first,
+quantitatively honest, source-traceable, and opinionated enough to teach a real
+model of how societies changed. Begin with the world before industrialization.
+
+The recurring question is **domestication** in its widest sense: how humans
+domesticated landscapes, water, plants, animals, metal, labor, information,
+belief, violence, and one another—and how those systems remade humans in turn.
+
+Use the explanatory ambition of ACOUP, Peter Turchin, and Saloni Dattani as a
+quality bar. Do not impersonate them or turn any one framework into dogma.
+
+## The page contract
+
+Each subject becomes a real page, not a miscellaneous section. A finished page has:
+
+1. A short introduction that states the historical problem.
+2. Exactly five core insights, ordered as an argument rather than a fact list.
+3. At least one excellent map or timeline and four other useful visualizations.
+4. Downloadable data or a transparent visual model with source keys and notes.
+5. A compact methodology and sources section that a skeptical historian can audit.
+
+The visual language should feel like Our World in Data: direct claim headlines,
+calm typography, generous whitespace, legible annotations, useful toggles, and
+graphics that explain the claim without decorative clutter.
 
 ## Operating rules
 
+- Work one coherent, reviewable backlog item per run, from highest priority downward.
 - Never fabricate a number, boundary, quotation, or citation.
-- Mark reconstructions and model outputs explicitly; preserve source keys in downloadable data.
-- Prefer primary sources, peer-reviewed scholarship, academic reference works, and high-quality specialist synthesis. ACOUP is a major interpretive source, not the sole authority.
-- Do not add a top-level claim until its evidence and visualization are strong enough to survive informed historical criticism.
-- Preserve the owner-only site access policy. Never change access, domains, credentials, billing, or repository visibility autonomously.
-- Before publishing: run lint and the production build, test the affected interaction in a browser, inspect the diff, and confirm downloadable data parses.
-- Commit and push the validated change to GitHub `Rhys-Lindmark/visualizing-reality`, push the same commit to the Sites source repository, and deploy that exact commit.
-- After each run, move finished work to `Completed`, record verification, and leave the next item in a clear state.
+- Label reconstructions, interpolation, and model outputs explicitly. Preserve source keys in downloadable data.
+- Prefer primary sources, archaeology datasets, peer-reviewed scholarship, academic reference works, and high-quality specialist synthesis.
+- Treat ACOUP, Seshat, *Against the Grain*, Cremieux Recueil, and similar works as important inputs—not sole authorities.
+- Test competing explanations. State where scholars or datasets disagree.
+- Do not add a core insight until the evidence and visualization can survive informed criticism.
+- Preserve owner-only site access. Never autonomously change access, domains, credentials, billing, or repository visibility.
+- Before publishing: run lint and the production build, test the affected interaction in a browser, inspect the diff, and parse every changed data file.
+- Commit and push to GitHub `Rhys-Lindmark/visualizing-reality`, push the same commit to Sites, and deploy that exact commit.
+- After each run, update this file with the result, verification evidence, and next actionable item.
 - Stop and report a blocker when a product decision is genuinely ambiguous, evidence conflicts materially, or the change would be destructive or expand scope.
 
-## Ready
+## P0 — Build the reusable history-publication system
 
-### P0 — Audit the two live insights
+### Site atlas and page routing — ready
 
-- Check every quantitative statement and CSV source key against the cited source.
-- Add a compact on-page source/method panel so a skeptical reader can trace the map and chart without opening the repository.
-- Fix any claim that is stronger than the evidence.
+- Add a homepage that introduces the project and organizes pages by era, geography, and system.
+- Create a reusable page shell for Introduction → Five Key Insights → Methods/Sources.
+- Make Rome the first atlas entry without weakening its current interactive modules.
+- Add page status labels: research, draft, reviewed.
 
-### P0 — Make the Roman map historically inspectable
+### Evidence and visual standards — ready
 
-- Add hover/click readouts for the active Roman and neighboring polity geometries.
-- Surface the source interval behind each annual frame, so readers can distinguish annual playback from dated boundary observations.
-- Check the eastern and western administrations at 395, 410, 439, and 476 against specialist maps and the underlying Seshat geometry.
+- Add a repository source registry shared across pages.
+- Define schemas for observations, modeled series, boundaries, citations, and notes.
+- Add lightweight validation for missing source keys, malformed CSVs, and unsupported claims.
+- Add an on-page method/source panel so provenance is visible without opening GitHub.
 
-### P1 — Improve the military comparison model
+## P0 — Page 01: Rome — in progress (2/5)
 
-- Document the interpolation rule used for each rival 50-year series.
-- Ensure each campaign anchor has a human-readable citation and the line never implies continuous observations.
-- Add direct labels at line ends where this improves OWID-style readability.
+1. **Where Rome was:** annual territorial map, neighboring polities, political form — live; audit and improve inspectability.
+2. **Why Rome won:** soldiers under arms × worked iron — live; audit sources and interpolation.
+3. **How Rome paid for empire:** taxation, tribute, customs, land tax, military pay, and grain flows — ready.
+4. **Why the western court fell:** fiscal capacity, civil war, territorial loss, army cost, and external pressure without a monocausal story — ready.
+5. **What Rome changed:** labor and land, roads, language, law, cities, and the survival of the eastern state — ready; split only if the argument becomes incoherent.
 
-### P1 — Build Insight 03: how Rome paid for empire
+Immediate Rome work:
 
-- Research taxation, tribute, customs, land tax, military pay, and grain flows across the Republic and Empire.
-- Create the source/data file before designing the chart.
-- Prefer an explanatory fiscal-flow visualization over an unsupported single-number time series.
+- Check every live quantitative statement and CSV source key against its cited source.
+- Add polity hover/click readouts and expose the dated source interval behind each annual map frame.
+- Check 395, 410, 439, and 476 against specialist maps and Seshat geometry.
+- Document each rival military interpolation rule and directly label lines where useful.
 
-### P1 — Build Insight 04: why the western empire fell
+## P0 — Page 02: Uruk and the first states — ready
 
-- Avoid a monocausal story. Compare fiscal capacity, army cost, civil war, territorial loss, and external pressure over time.
-- Separate the end of the western imperial court from the survival of the eastern Roman state.
+Working thesis: the first states emerged not from a single invention but from a
+bundle of domestications that made people, food, water, and information legible.
 
-### P2 — Build Insight 05: labor, land, and slavery
+1. **Cities came before fully developed states:** timeline from sedentism and villages to Uruk-scale urbanism.
+2. **Water made concentration possible:** map the shifting rivers, wetlands, irrigation, and settlement ecology of southern Mesopotamia.
+3. **Grain made people taxable:** compare grains with tubers, pastoralism, and wetland subsistence on visibility, storability, divisibility, and transport.
+4. **Writing began as administration:** show the path from tokens and bullae to tablets, rations, labor accounts, and institutions.
+5. **Early states were fragile population machines:** visualize walls, coerced labor, disease, flight, conflict, and the non-state periphery.
 
-- Show what can and cannot be quantified about enslaved labor, tenancy, estates, and agricultural production.
-- Do not present empire-wide slave population estimates as settled facts.
+Source seeds to test and extend:
 
-### P2 — Build Insight 06: what Rome left behind
+- James C. Scott, [*Against the Grain*](https://yalebooks.yale.edu/book/9780300240214/against-the-grain/).
+- Cremieux Recueil, [“From Caveman to Chinaman”](https://www.cremieux.xyz/p/from-caveman-to-chinaman), especially water control and state formation.
+- Patrick Wyman, [“Uruk and the Emergence of Civilization”](https://patrickwyman.substack.com/p/uruk-and-the-emergence-of-civilization).
+- Add excavation reports, settlement datasets, paleochannel research, and critical reviews before publishing claims.
 
-- Map or chart roads, language families, legal inheritance, cities, and administrative boundaries with clear causal caveats.
+## P1 — Page 03: The cradles of civilization — ready
+
+Treat “five cradles” as a question to investigate, not a settled canonical list.
+Include Mesopotamia, Egypt, the Indus, northern China, Mesoamerica, and the Andes
+when the evidence supports independent urban/state formation.
+
+1. Map when and where urbanism, states, and writing emerged independently.
+2. Compare river regimes, rainfall, crops, transport, and settlement density.
+3. Compare the timing of cities, states, writing, bronze, and monumental building.
+4. Show multiple routes to surplus and coordination rather than one hydraulic formula.
+5. Explain why some early urban systems endured, transformed, dispersed, or left unreadable records.
+
+## P1 — Page 04: The Bronze Age world system — ready
+
+1. Copper and tin turned geography into a long-distance production network.
+2. Palace economies concentrated storage, craft, writing, and redistribution.
+3. Chariots were an elite military system with demanding horse and maintenance inputs.
+4. Trade connected the eastern Mediterranean more tightly than political borders suggest.
+5. The Late Bronze Age collapse was a systems failure with multiple interacting causes.
+
+## P1 — Page 05: The Iron Age transformation — ready
+
+1. Iron was not instantly better or cheaper; adoption depended on ore, fuel, skill, and institutions.
+2. Larger infantry armies changed the scale and social base of war.
+3. Coins, alphabets, and administrative technologies lowered some coordination costs.
+4. Neo-Assyria and Persia built new kinds of territorial empire.
+5. Mediterranean and Eurasian networks recovered and expanded after Bronze Age fragmentation.
+
+## P1 — Page 06: Persia and territorial empire — ready
+
+1. Roads and relays compressed imperial distance.
+2. Satrapies combined local rule with imperial extraction.
+3. Tribute was a political system, not simply a tax rate.
+4. Imperial armies were coalitions of distinct peoples and military systems.
+5. Persian institutions outlasted dynasties and shaped successor empires.
+
+## P1 — Page 07: Qin and Han China — ready
+
+1. Warring-state competition rewarded administrative and military scale.
+2. Standardization made territory more legible to the state.
+3. Grain, canals, roads, walls, and conscription linked ecology to empire.
+4. The Han state balanced direct rule, local elites, and frontier strategy.
+5. Collapse and reunification became a recurrent political pattern, not a civilizational reset.
+
+## P1 — Page 08: India from cities to empires — ready
+
+1. The Indus urban system was extensive, standardized, and still partly unreadable.
+2. Monsoon ecology produced different political and agricultural rhythms.
+3. Cities, coinage, and states returned in the first millennium BCE.
+4. Mauryan power combined core administration with uneven frontier control.
+5. Religions and trade networks often traveled farther than states.
+
+## P2 — Page 09: Steppe, horse, and mobile power — ready
+
+1. Pastoral mobility was an adaptation, not failed agriculture.
+2. Horses expanded transport, herding, communication, and raiding ranges.
+3. Composite bows and remount systems produced unusual operational reach.
+4. Steppe confederations and agrarian states co-produced one another.
+5. Migration and exchange reshaped languages, genes, military systems, and trade.
+
+## P2 — Page 10: Christianity as an infrastructure — ready
+
+1. A small movement spread through Roman cities and networks.
+2. Texts, letters, bishops, ritual, and charity formed durable institutions.
+3. Imperial adoption transformed both church and state.
+4. Christianity fragmented geographically and doctrinally while remaining connected.
+5. Monasteries, law, calendars, education, and sacred geography outlasted western imperial rule.
+
+## P2 — Page 11: The caliphates — ready
+
+1. Early Islamic expansion changed political scale with remarkable speed.
+2. Existing Roman and Sasanian fiscal-administrative systems were adapted rather than erased.
+3. Arabic, coinage, law, and paper supported a connected imperial sphere.
+4. Cities and trade linked the Atlantic, Mediterranean, Indian Ocean, and Central Asia.
+5. Political fragmentation did not end the wider intellectual and commercial system.
+
+## P2 — Later pre-industrial pages — ready after the core sequence
+
+- Greek city-states and the problem of collective action.
+- Hellenistic kingdoms and the military-fiscal state.
+- Silk Roads: many routes, many intermediaries, no single road.
+- Medieval Europe: fragmentation, lordship, church, towns, and state rebuilding.
+- African states and trade systems: Nile, Sahel, Horn, Great Lakes, and southern Africa.
+- Southeast Asian mandalas and maritime trade.
+- Mesoamerican cities, states, and ecological engineering.
+- Andean vertical economies and imperial logistics.
+- Mongol Eurasia: conquest, relay networks, trade, and epidemiological exchange.
+- Gunpowder empires and the rising cost of fortification and war.
+- Oceanic navigation and the integration of the pre-industrial world.
+- The great divergence before industry: wages, energy, institutions, empire, and ecology.
 
 ## Blocked
 
@@ -63,4 +190,4 @@ reviewable item at a time, from the highest-priority `ready` item downward.
 
 - 2026-08-29 — Annual 500 BCE–476 CE Roman map with sourced persistent geometry, neighboring polities, event jumps, and corrected late-imperial states. Verified with lint, production build, browser stepping, and 293/395/410/439/476 data checks.
 - 2026-08-29 — Rome-versus-rivals manpower and manpower × iron chart with 50-year modeled rival series, separate campaign anchors, metric toggle, and downloadable CSVs. Verified with lint, production build, CSV parsing, and browser interaction.
-- 2026-08-29 — Project renamed from Visualizing Reality to How Everything Evolved; recurring autonomous improvement loop established.
+- 2026-08-29 — Project renamed from Visualizing Reality to How Everything Evolved.
