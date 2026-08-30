@@ -1,6 +1,16 @@
 import { readFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
+const snapshotRevision = '20260830-client4';
+const snapshotFiles = [
+  'land.topojson',
+  'borders.topojson',
+  'rivers.topojson',
+  'ancient-polities.geojson',
+  'roman-military-capacity.csv',
+  'comparison-forces.csv',
+  'equipment-comparison.csv',
+];
 const required = (value) => value && value !== 'undefined' && value !== 'null';
 
 function parseCsv(text) {
@@ -28,6 +38,17 @@ const [romeCsv, rivalsCsv, polityJson] = await Promise.all([
   readFile(new URL('public/data/comparison-forces.csv', root), 'utf8'),
   readFile(new URL('public/data/ancient-polities.geojson', root), 'utf8'),
 ]);
+
+for (const filename of snapshotFiles) {
+  const [canonical, snapshot] = await Promise.all([
+    readFile(new URL(`public/data/${filename}`, root)),
+    readFile(new URL(`public/data/rome/${snapshotRevision}/${filename}`, root)),
+  ]);
+  if (!canonical.equals(snapshot)) throw new Error(`Rome immutable snapshot diverges: ${filename}`);
+}
+
+const clientHelper = await readFile(new URL('app/lib/romeDataClient.ts', root), 'utf8');
+if (!clientHelper.includes(`ROME_DATA_REVISION='${snapshotRevision}'`)) throw new Error('Rome client does not target the immutable data snapshot');
 const rome = parseCsv(romeCsv);
 const rivals = parseCsv(rivalsCsv);
 
@@ -53,4 +74,4 @@ for (const feature of polities.features) {
   if (!required(feature?.properties?.Name) || !Number.isFinite(Number(feature?.properties?.FromYear)) || !Number.isFinite(Number(feature?.properties?.ToYear)) || !Number.isFinite(Number(feature?.properties?.Area)) || !feature?.geometry?.coordinates) throw new Error('Polity atlas has an incompatible feature');
 }
 
-console.log(`Rome client contracts valid: ${rome.length} Roman estimates, ${rivals.length} rival observations, ${polities.features.length} polity geometries.`);
+console.log(`Rome client contracts valid: ${rome.length} Roman estimates, ${rivals.length} rival observations, ${polities.features.length} polity geometries, immutable snapshot ${snapshotRevision}.`);

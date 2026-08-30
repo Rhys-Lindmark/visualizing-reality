@@ -52,6 +52,8 @@ graphics that explain the claim without decorative clutter.
 4. **Why the western court fell:** fiscal capacity, civil war, territorial loss, army cost, and external pressure without a monocausal story — live, with a selective chronology, a primary-law anchor, and a clearly labeled fiscal-equivalent model.
 5. **What Rome changed:** state, language, law, and roads persisted through different carriers and on different clocks — live, with source-keyed milestones and an uncertainty-forward road profile.
 
+Reliability repair: the Rome map and military chart now load from an immutable, revisioned client-data snapshot. This prevents a long-open tab from combining an older JavaScript schema with newly deployed CSV or map files; invalid responses still fail closed instead of rendering `undefined` or `NaN`.
+
 Immediate project work:
 
 - Continue Page 03, **The cradles of civilization**, with insight 02: compare river regimes, rainfall, crops, transport, and settlement density across the six regional cases without reducing unlike landscapes to one hydraulic-state formula.

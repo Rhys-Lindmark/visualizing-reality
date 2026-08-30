@@ -1,0 +1,3 @@
+profile,from_year,to_year,worked_metal_index,index_basis,source_keys,notes
+Roman heavy infantry,-300,-133,125,nearest_comparator_equals_100,ACOU_METAL,"Devereaux's public summary reports 25% more worked metal—iron and bronze—than the nearest comparator in his third- and second-century BCE panoply model."
+Nearest comparator benchmark,-300,-133,100,nearest_comparator_equals_100,ACOU_METAL,"Relative benchmark only. The public source does not publish enough underlying mass data to convert the comparison into kilograms or rank every rival separately."

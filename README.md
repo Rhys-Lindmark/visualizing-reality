@@ -8,6 +8,7 @@ The public site is [visualizing-reality.rhyslindmark.chatgpt.site](https://visua
 
 - `app/` — the atlas homepage, reusable article/evidence components, and topic routes.
 - `public/data/` — downloadable CSV, JSON, GeoJSON, TopoJSON, and public schemas.
+- `public/data/rome/<revision>/` — immutable Rome client snapshots; keep old revisions so already-open tabs cannot receive a newer, incompatible schema.
 - `scripts/validate-data.mjs` — integrity checks for source keys, datasets, claims, estimates, and historical boundary intervals.
 - `research/` — durable research and evidence audits used to explain inclusion, exclusion, and modeling decisions.
 - `BACKLOG.md` — the page contract, editorial rules, priorities, and completed milestones.
@@ -34,6 +35,8 @@ npm run build
 ```
 
 Before publication, also test the affected visualization in a browser and inspect every changed data file. A passing build is not evidence that a historical claim is sound.
+
+When a Rome client-side schema changes, create a new immutable data revision and point `app/lib/romeDataClient.ts` to it. Do not overwrite or delete an earlier revision: a browser tab can remain open across a deployment and must continue receiving the data contract its JavaScript expects.
 
 ## Evidence standard
 
