@@ -177,6 +177,24 @@ if (infantryEquivalentTotal !== 58000) fail(`African infantry-equivalent total i
 if (cavalryEquivalentFloor !== 30000 || !africaEquivalents.some(row => row.cavalry_relation === 'lower_bound')) fail(`African cavalry-equivalent floor must be more than 30000`);
 if (africaEquivalents.some(row => Number(row.infantry_cost_solidi) !== 6 || Number(row.cavalry_cost_solidi) !== 10.5)) fail('African model must preserve Elton maintenance costs of 6 and 10.5 solidi');
 
+const afterlives = csv('public/data/roman-afterlives.csv');
+const afterlifeSystems = new Set(['Roads', 'Language', 'Law', 'State']);
+for (const [index, row] of afterlives.entries()) {
+  const context = `roman-afterlives.csv row ${index + 2}`;
+  requireFields(row, ['system', 'year', 'display_year', 'kind', 'milestone', 'evidence_type', 'source_keys', 'interpretation', 'limits'], context);
+  numeric(row, ['year'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!afterlifeSystems.has(row.system)) fail(`${context} has unsupported system ${row.system}`);
+  if (!['event', 'metric'].includes(row.kind)) fail(`${context} has unsupported kind ${row.kind}`);
+  if (row.kind === 'metric') { requireFields(row, ['value', 'unit'], context); numeric(row, ['value'], context); }
+}
+for (const system of afterlifeSystems) if (!afterlives.some(row => row.system === system && row.kind === 'event')) fail(`Roman afterlives are missing ${system} events`);
+for (const [system, year] of [['Roads', -312], ['Language', 813], ['Language', 842], ['Law', 529], ['Law', 1070], ['State', 476], ['State', 1204], ['State', 1261], ['State', 1453]]) if (!afterlives.some(row => row.system === system && Number(row.year) === year)) fail(`Roman afterlives are missing ${system} milestone ${year}`);
+const roadLength = afterlives.find(row => row.milestone === 'Mapped road network');
+const roadCertainty = afterlives.find(row => row.milestone === 'Location known with certainty');
+if (!roadLength || Number(roadLength.value) !== 299171.31) fail('Roman afterlives must preserve the Itiner-e mapped length of 299171.31 km');
+if (!roadCertainty || Number(roadCertainty.value) !== 2.737) fail('Roman afterlives must preserve the Itiner-e certain-location share of 2.737%');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -242,4 +260,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${geo.features.length} boundary features.`);

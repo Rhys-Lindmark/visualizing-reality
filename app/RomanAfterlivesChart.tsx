@@ -1,0 +1,29 @@
+'use client';
+
+import { useEffect, useMemo, useState } from 'react';
+import type { CSSProperties } from 'react';
+
+type AfterlifeRow={system:'Roads'|'Language'|'Law'|'State';year:number;display_year:string;kind:'event'|'metric';milestone:string;value?:number;unit?:string;evidence_type:string;source_keys:string;interpretation:string;limits:string};
+const SYSTEMS:AfterlifeRow['system'][]=['State','Language','Law','Roads'];
+const colors:Record<AfterlifeRow['system'],string>={State:'#163f68',Language:'#bd1f2e',Law:'#8c5e94',Roads:'#8a7440'};
+const mechanisms:Record<AfterlifeRow['system'],string>={State:'direct political continuity',Language:'gradual vernacular change',Law:'textual preservation and revival',Roads:'continued use and maintenance'};
+const DATA_REVISION='20260829-afterlives1';
+
+function parseCSV(text:string):string[][]{const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const char=text[i];if(char==='"'&&quoted&&text[i+1]==='"'){cell+='"';i++;}else if(char==='"')quoted=!quoted;else if(char===','&&!quoted){row.push(cell);cell='';}else if((char==='\n'||char==='\r')&&!quoted){if(char==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=char;}if(cell||row.length){row.push(cell);rows.push(row);}return rows;}
+function parseRows(text:string):AfterlifeRow[]{const[headers,...rows]=parseCSV(text);return rows.map(values=>{const row=Object.fromEntries(headers.map((header,index)=>[header,values[index]??'']));return{system:row.system as AfterlifeRow['system'],year:Number(row.year),display_year:row.display_year,kind:row.kind as AfterlifeRow['kind'],milestone:row.milestone,value:row.value?Number(row.value):undefined,unit:row.unit,evidence_type:row.evidence_type,source_keys:row.source_keys,interpretation:row.interpretation,limits:row.limits};});}
+function x(year:number){return Math.max(0,Math.min(100,((year+350)/1803)*100));}
+
+export default function RomanAfterlivesChart(){
+  const[rows,setRows]=useState<AfterlifeRow[]>([]);const[selected,setSelected]=useState('State|476');const[status,setStatus]=useState<'loading'|'ready'|'error'>('loading');const[error,setError]=useState('');const[attempt,setAttempt]=useState(0);
+  useEffect(()=>{const controller=new AbortController();fetch(`/data/roman-afterlives.csv?v=${DATA_REVISION}`,{cache:'no-cache',signal:controller.signal}).then(response=>{if(!response.ok)throw new Error(`Data request returned ${response.status}`);return response.text();}).then(text=>{const parsed=parseRows(text);if(parsed.length!==18||parsed.some(row=>!SYSTEMS.includes(row.system)||!Number.isFinite(row.year)||!row.milestone||!row.source_keys))throw new Error('The afterlives dataset was incomplete.');setRows(parsed);setStatus('ready');}).catch(reason=>{if(controller.signal.aborted)return;setError(reason instanceof Error?reason.message:'The chronology could not be loaded.');setStatus('error');});return()=>controller.abort();},[attempt]);
+  const events=useMemo(()=>rows.filter(row=>row.kind==='event'),[rows]);const roadMetrics=useMemo(()=>rows.filter(row=>row.system==='Roads'&&row.kind==='metric'),[rows]);const focus=events.find(row=>`${row.system}|${row.year}`===selected)||events[0];
+  const retry=()=>{setRows([]);setError('');setStatus('loading');setAttempt(value=>value+1);};
+  if(status!=='ready'||!focus)return <div className={`data-state afterlives-data-state ${status}`} role={status==='error'?'alert':'status'}><b>{status==='error'?'The afterlives chronology did not load':'Loading four Roman afterlives…'}</b><span>{status==='error'?error:'State, language, law, and roads remain separate evidence tracks'}</span>{status==='error'&&<button type="button" onClick={retry}>Retry chronology</button>}</div>;
+  return <div className="afterlives-chart">
+    <div className="afterlife-kpis"><div><span>Eastern state after 395</span><b>1,058 years</b><small>to the conquest of Constantinople in 1453</small></div>{roadMetrics.map(row=><div key={row.milestone}><span>{row.milestone}</span><b>{row.value?.toLocaleString(undefined,{maximumFractionDigits:3})}{row.unit?.startsWith('percent')?'%':''}</b><small>{row.unit?.startsWith('percent')?row.unit.replace('percent','of'):row.unit} · Itiner-e 2024 static dataset</small></div>)}</div>
+    <div className="afterlife-axis" aria-hidden="true"><span>350 BCE</span><span>1 CE</span><span>500</span><span>1000</span><span>1453 CE</span></div>
+    <div className="afterlife-lanes">{SYSTEMS.map(system=>{const systemEvents=events.filter(row=>row.system===system);return <div className="afterlife-lane" key={system}><div><b style={{color:colors[system]}}>{system}</b><span>{mechanisms[system]}</span></div><div className="afterlife-track" style={{'--lane-color':colors[system]} as CSSProperties}>{systemEvents.map((row,index)=><button type="button" aria-label={`${row.system}: ${row.milestone}, ${row.display_year}`} aria-pressed={focus===row} className={focus===row?'active':''} style={{left:`${x(row.year)}%`}} onClick={()=>setSelected(`${row.system}|${row.year}`)} key={`${row.system}|${row.year}`}><i/><span style={{top:index%2?22:11}}>{row.display_year}</span></button>)}</div></div>;})}</div>
+    <div className="afterlife-readout" aria-live="polite"><div><span>{focus.system} · {focus.evidence_type}</span><h5>{focus.milestone}</h5><b>{focus.display_year}</b></div><div><p>{focus.interpretation}</p><small><b>Limit:</b> {focus.limits}</small></div><div><span>Source key</span><b>{focus.source_keys}</b></div></div>
+    <div className="afterlife-thesis"><b>Persistence needed a carrier.</b><span>A tax-paying state carried Roman government; speakers carried changing Latin; manuscripts and schools carried law; users and maintainers carried road geography. Remove the carrier and “legacy” becomes a label, not an explanation.</span><a href={`/data/roman-afterlives.csv?v=${DATA_REVISION}`} download>Download chronology ↓</a></div>
+  </div>;
+}

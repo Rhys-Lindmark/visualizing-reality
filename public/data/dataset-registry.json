@@ -88,5 +88,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "two regional components after the fifth-century African losses",
     "notes": "Published fiscal equivalents using Elton's annual maintenance costs. Values are not observed troop reductions or a western army census; the Proconsularis–Byzacena cavalry value is a lower bound."
+  },
+  {
+    "id": "roman-afterlives",
+    "title": "Roman institutional afterlives on different clocks",
+    "path": "/data/roman-afterlives.csv",
+    "schema": "observation",
+    "evidence_type": "mixed_historical_chronology_and_reconstruction",
+    "source_key_field": "source_keys",
+    "time_resolution": "irregular milestones from 312 BCE to 1453 CE plus three road-network summary measures",
+    "notes": "Four parallel trajectories—roads, language, law, and the eastern Roman state—retain unlike evidence types and explicit limits. They are not combined into a legacy score."
   }
 ]

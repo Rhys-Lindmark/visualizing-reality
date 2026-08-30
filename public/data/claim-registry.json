@@ -42,5 +42,16 @@
     "dataset_ids": ["western-roman-collapse-events", "africa-fiscal-equivalents"],
     "source_keys": ["HEATHER2005", "ELTON1996", "ACOU_SAVING_EMPIRE", "NOV_VAL_13"],
     "note": "The chronology does not assign causal scores. Heather's Africa calculations are revenue-to-maintenance equivalents, not observed headcount losses. Novel XIII's one-eighth assessment applies only to Numidia and Mauretania Sitifensis. The 476 endpoint marks the western imperial office, not the end of the eastern Roman state."
+  },
+  {
+    "id": "rome-05-afterlives",
+    "page": "rome",
+    "insight": 5,
+    "claim": "Rome's institutions did not persist as one legacy: the eastern state continued directly, Latin diverged gradually into Romance, Justinianic law was revived in the medieval West, and road geography persisted conditionally through later use and maintenance.",
+    "status": "working_synthesis",
+    "evidence_type": "mixed_historical_chronology_and_reconstruction",
+    "dataset_ids": ["roman-afterlives"],
+    "source_keys": ["ITINERE2025", "DALGAARD2022", "CAMBRIDGE_ROMANCE2021", "OXFORD_JUSTINIAN", "OXFORD_ROMAN_LAW", "KALDELLIS2023", "KALDELLIS2026"],
+    "note": "The four lanes share a chronology but not a common unit. The road result is an association rather than a universal causal estimate; 813 and 842 are language evidence rather than birthdays; western legal reception was discontinuous; and 476 does not end the eastern Roman state."
   }
 ]
