@@ -6,7 +6,10 @@ type Point = [number, number];
 type Transform = { scale: Point; translate: Point };
 type Geometry = { type: string; arcs: unknown; properties?: Record<string, string | number> };
 type Topology = { transform: Transform; arcs: Point[][]; objects: Record<string, { geometries: Geometry[] }> };
-type MapData = { land: Topology; borders: Topology; rivers: Topology; extents: Topology };
+type GeoGeometry = { type: 'Polygon' | 'MultiPolygon'; coordinates: Point[][] | Point[][][] };
+type GeoFeature = { type: 'Feature'; properties: { Name: string; FromYear: number; ToYear: number; Area: number }; geometry: GeoGeometry };
+type GeoCollection = { type: 'FeatureCollection'; features: GeoFeature[] };
+type MapData = { land: Topology; borders: Topology; rivers: Topology; extents: Topology; polities: GeoCollection };
 
 const lateEras = [
   { year: '200 CE', title: 'A mature continental empire', detail: 'Rome governs a connected Mediterranean system at near-maximum scale.', kind: 'unified' },
@@ -31,13 +34,14 @@ const keyCities: Array<[number, number, string]> = [
 ];
 
 const mapYears = [-500,-338,-298,-290,-272,-264,-218,-133,-60,16,47,69,84,102,117,200,293,395,476];
-
-function drawPolity(ctx: CanvasRenderingContext2D, points: Point[], label: string, color: string) {
-  ctx.beginPath(); points.forEach((point,i)=>{const [x,y]=project(point,ctx.canvas.width,ctx.canvas.height);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.closePath();
-  ctx.fillStyle=color;ctx.fill();ctx.strokeStyle='rgba(49,59,64,.58)';ctx.lineWidth=1;ctx.stroke();
-  const lon=points.reduce((sum,p)=>sum+p[0],0)/points.length,lat=points.reduce((sum,p)=>sum+p[1],0)/points.length;
-  drawText(ctx,label,lon,lat,'rgba(31,42,49,.82)');
-}
+const polityColors: Record<string,string> = {
+  'Achaemenid Empire':'#9b709f','Carthage':'#c59a3e','(Macedonian Empire)':'#5f8fa2','Antigonid Macedonia':'#5f8fa2',
+  'Seleucid Empire':'#d18b42','Ptolemaic Kingdom':'#4f9291','Parthian Empire':'#8b6b9d','Sasanian Empire':'#76558a',
+  'Etruscans':'#a17c55','Greek City-States':'#6a91ad','Galatia':'#7f9c61','Kingdom of Numidia':'#b07e4b',
+  'Illyrian Kingdom':'#77946d','Nabataeans':'#b16f67','Vandal Kingdom':'#8a7456','Visigothic Kingdom':'#789159',
+  'Ostrogothic Kingdom':'#627f54','Kingdom of the Franks':'#527b7f','Kingdom of the Suebi':'#92795b','Burgundian Kingdom':'#7e6d91',
+  'Brythons':'#81916a','Eastern Roman Empire':'#2d6898','Western Roman Empire':'#ad2e3e','Gallic Empire':'#527b8f',
+};
 
 function decodeArc(topology: Topology, index: number): Point[] {
   const reversed = index < 0;
@@ -82,6 +86,19 @@ function pathRings(ctx: CanvasRenderingContext2D, rings: Point[][], width: numbe
   }));
 }
 
+function geoRings(geometry: GeoGeometry): Point[][] {
+  return geometry.type === 'Polygon' ? geometry.coordinates as Point[][] : (geometry.coordinates as Point[][][]).flat();
+}
+
+function drawGeoFeature(ctx: CanvasRenderingContext2D, feature: GeoFeature, color: string, label = true) {
+  const rings=geoRings(feature.geometry);pathRings(ctx,rings,ctx.canvas.width,ctx.canvas.height);ctx.fillStyle=`${color}bb`;ctx.fill('evenodd');ctx.strokeStyle='rgba(46,54,59,.62)';ctx.lineWidth=.9;ctx.stroke();
+  if(!label||feature.properties.Area<35000)return;
+  const points=rings.flat().filter(([lon,lat])=>lon>=VIEW.west&&lon<=VIEW.east&&lat>=VIEW.south&&lat<=VIEW.north);if(!points.length)return;
+  const minLon=Math.min(...points.map(p=>p[0])),maxLon=Math.max(...points.map(p=>p[0])),minLat=Math.min(...points.map(p=>p[1])),maxLat=Math.max(...points.map(p=>p[1]));
+  const names:Record<string,string>={'(Macedonian Empire)':'MACEDON','Antigonid Macedonia':'MACEDON','Greek City-States':'GREEK CITY-STATES','Kingdom of Numidia':'NUMIDIA'};
+  drawText(ctx,names[feature.properties.Name]||feature.properties.Name.toUpperCase(),(minLon+maxLon)/2,(minLat+maxLat)/2,'rgba(27,37,43,.82)');
+}
+
 function drawText(ctx: CanvasRenderingContext2D, text: string, lon: number, lat: number, color = '#314352') {
   const [x, y] = project([lon, lat], ctx.canvas.width, ctx.canvas.height);
   ctx.fillStyle = color; ctx.font = '600 12px Arial'; ctx.fillText(text, x, y);
@@ -99,7 +116,8 @@ export default function RomanMap() {
       fetch('/data/borders.topojson').then((r) => r.json()),
       fetch('/data/rivers.topojson').then((r) => r.json()),
       fetch('/data/roman-extents.topojson').then((r) => r.json()),
-    ]).then(([land, borders, rivers, extents]) => setData({ land, borders, rivers, extents }));
+      fetch('/data/ancient-polities.geojson').then((r) => r.json()),
+    ]).then(([land, borders, rivers, extents, polities]) => setData({ land, borders, rivers, extents, polities }));
   }, []);
 
   const early = useMemo(() => data ? [...data.extents.objects.CombinedExtentLayers_v6.geometries]
@@ -119,7 +137,7 @@ export default function RomanMap() {
   }, [playing, total]);
 
   useEffect(() => {
-    if (!data || !canvas.current || !early.length) return;
+    if (!data || !data.polities || !canvas.current || !early.length) return;
     const c = canvas.current;
     const ctx = c.getContext('2d');
     if (!ctx) return;
@@ -142,14 +160,16 @@ export default function RomanMap() {
     });
 
     const mapYear=mapYears[era] ?? 117;
-    if(mapYear<=-50) drawPolity(ctx,[[-5,43],[7,43],[11,47],[8,52],[-1,52],[-6,48]],'GALLO-CELTIC POLITIES','rgba(117,145,92,.62)');
-    if(mapYear>=-500&&mapYear<=-146){drawPolity(ctx,[[-1,32],[18,31],[17,37],[10,38],[3,36]],'CARTHAGE','rgba(198,154,61,.66)');if(mapYear<=-218)drawPolity(ctx,[[-9,36],[2,36],[1,43],[-7,42]],'PUNIC IBERIA','rgba(198,154,61,.58)');}
-    if(mapYear>=-247&&mapYear<=224) drawPolity(ctx,[[41,29],[63,28],[63,47],[50,48],[39,40]],'PARTHIAN EMPIRE','rgba(133,105,154,.6)');
-    if(mapYear>=-338&&mapYear<=-146) drawPolity(ctx,[[19,38],[29,37],[30,43],[20,43]],'MACEDON','rgba(81,137,154,.55)');
+    const romanLateNames=new Set(['Eastern Roman Empire','Western Roman Empire','Gallic Empire']);
+    const activePolities=data.polities.features.filter((feature)=>feature.properties.FromYear<=mapYear&&feature.properties.ToYear>=mapYear&&!romanLateNames.has(feature.properties.Name)).sort((a,b)=>b.properties.Area-a.properties.Area);
+    activePolities.forEach((feature)=>drawGeoFeature(ctx,feature,polityColors[feature.properties.Name]||'#8a927c'));
+    if(mapYear<=-50) drawText(ctx,'GALLIC PEOPLES · NO SINGLE STATE',-1,49,'rgba(63,91,57,.86)');
 
     const extent = current || early[14];
     const rings = ringsFor(data.extents, extent);
-    if (!late || late.kind === 'unified') {
+    if (late?.kind === 'division' || late?.kind === 'successors') {
+      data.polities.features.filter((feature)=>feature.properties.FromYear<=mapYear&&feature.properties.ToYear>=mapYear&&romanLateNames.has(feature.properties.Name)).sort((a,b)=>b.properties.Area-a.properties.Area).forEach((feature)=>drawGeoFeature(ctx,feature,polityColors[feature.properties.Name]||'#ad2e3e'));
+    } else if (!late || late.kind === 'unified') {
       const cumulative = late ? early : early.slice(0,era+1);
       cumulative.forEach((layer)=>{pathRings(ctx,ringsFor(data.extents,layer),w,h);ctx.fillStyle='rgba(173,35,50,.78)';ctx.fill('evenodd');ctx.strokeStyle='#821927';ctx.lineWidth=1.2;ctx.stroke();});
     } else {
@@ -165,19 +185,6 @@ export default function RomanMap() {
           ctx.fillStyle = color; ctx.globalAlpha = .82; ctx.fillRect(x, 0, x2 - x, h);
           ctx.globalAlpha = 1; drawText(ctx, label, lon, lat, '#fff');
         });
-      } else if (late.kind === 'division') {
-        const [split] = project([18, 30], w, h);
-        ctx.fillStyle = 'rgba(167,45,61,.84)'; ctx.fillRect(0, 0, split, h);
-        ctx.fillStyle = 'rgba(38,93,139,.84)'; ctx.fillRect(split, 0, w - split, h);
-        drawText(ctx, 'WESTERN EMPIRE', -2, 47, '#fff'); drawText(ctx, 'EASTERN EMPIRE', 30, 37, '#fff');
-      } else {
-        const [split] = project([18, 30], w, h);
-        ctx.fillStyle = 'rgba(38,93,139,.88)'; ctx.fillRect(split, 0, w - split, h);
-        const successors = [
-          [-11, 7, 37, 58, '#b98a42'], [7, 18, 40, 58, '#708960'], [-11, 9, 20, 37, '#8d6b96'],
-        ] as const;
-        successors.forEach(([a,b,s,n,color]) => { const [x,y2]=project([a,s],w,h); const [x2,y]=project([b,n],w,h); ctx.fillStyle=color; ctx.globalAlpha=.86; ctx.fillRect(x,y,x2-x,y2-y); });
-        ctx.globalAlpha=1; drawText(ctx, 'ROMAN EMPIRE', 29, 38, '#fff');
       }
       ctx.restore();
       pathRings(ctx, rings, w, h); ctx.strokeStyle = 'rgba(66,45,45,.8)'; ctx.lineWidth = 1.4; ctx.stroke();
@@ -199,12 +206,12 @@ export default function RomanMap() {
         <div><span>Roman territorial history</span><h4>{context[0]}</h4><p>{context[1]}</p></div>
         <div className="map-date"><b>{year || 'Loading…'}</b><small>{late?.kind === 'tetrarchy' ? 'administrative portfolios' : late?.kind === 'successors' ? 'political reconstruction' : 'controlled territory'}</small></div>
       </div>
-      <div className="map-stage"><canvas ref={canvas} width="1100" height="570" aria-label={`Map of Roman territory in ${year}`} /><div className="map-key"><span><i className="roman" /> Roman rule</span><span><i className="neighbor-key" /> selected neighboring polities</span></div></div>
+      <div className="map-stage"><canvas ref={canvas} width="1100" height="570" aria-label={`Map of Roman territory in ${year}`} /><div className="map-key"><span><i className="roman" /> Roman rule</span><span><i className="neighbor-key" /> Seshat/Cliopatria polities</span></div></div>
       <div className="timeline-control">
         <button className="play" type="button" onClick={() => setPlaying((value) => !value)} aria-label={playing ? 'Pause timeline' : 'Play timeline'}>{playing ? 'Ⅱ' : '▶'}</button>
         <div className="timeline-track"><input aria-label="Year in Roman history" type="range" min="0" max={Math.max(0,total-1)} value={era} onChange={(e) => { setPlaying(false); setEra(Number(e.target.value)); }} /><div className="year-ticks"><button onClick={()=>setEra(0)} type="button">500 BCE</button><button onClick={()=>setEra(5)} type="button">264 BCE</button><button onClick={()=>setEra(14)} type="button">117 CE</button><button onClick={()=>setEra(16)} type="button">293</button><button onClick={()=>setEra(total-1)} type="button">476</button></div></div>
       </div>
-      <div className="map-foot"><p><b>How to read this:</b> Roman territory accumulates through time. Neighboring colors show selected major states or cultural-political regions, not an exhaustive political map. At 293, color shows administrative responsibility within one Roman Empire.</p><p>Roman territorial data: Sirius T. Bontea · Natural Earth · AWMC. Neighboring and late-antique boundaries are simplified historical reconstructions.</p></div>
+      <div className="map-foot"><p><b>How to read this:</b> Roman territory accumulates through time. Named neighboring shapes are time-indexed polity boundaries—not decorative regions. Gaul is labeled without a border because it was not one state. At 293, color shows administrative responsibility within one empire.</p><p>Roman layers: Sirius T. Bontea · Natural Earth · AWMC. Other polities and late Rome: Seshat Cliopatria, CC BY 4.0; geometry simplified for display.</p></div>
     </div>
   );
 }

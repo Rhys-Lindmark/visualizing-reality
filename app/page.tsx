@@ -36,16 +36,16 @@ export default function Home() {
           </section>
 
           <section className="insight manpower-insight">
-            <div className="insight-copy"><span className="insight-number">02</span><p className="claim">Rome combined more soldiers with more metal per soldier.</p><h3>Why Rome won: manpower × iron</h3><p>The graph estimates soldiers actually under arms—not every man theoretically liable for service—and multiplies that force by a modeled average iron load per soldier.</p><p>Rome’s advantage was multiplicative. Its Italian federation could sustain unusually large armies, while its heavy infantry increasingly carried expensive mail, substantial helmets, swords, and iron-intensive pila. ACOUP estimates Roman kit contained about 25% more worked metal than its nearest competitor.</p><p>This is a model, not a recovered ancient statistic. Move across the graph to inspect its assumptions and uncertainty.</p><a className="source-link" href="https://acoup.blog/2024/02/16/collections-phalanxs-twilight-legions-triump-part-iib-handfuls-of-maniples/">Read ACOUP on Roman equipment ↗</a></div>
+            <div className="insight-copy"><span className="insight-number">02</span><p className="claim">Rome combined more soldiers with more metal per soldier.</p><h3>Why Rome won: manpower × iron</h3><p>The graph compares soldiers actually under arms—not every man theoretically liable for service—and multiplies each force by a consistently modeled iron load per soldier.</p><p>Rome’s advantage was multiplicative. Its Italian federation could sustain unusually large armies, while its heavy infantry increasingly carried expensive mail, substantial helmets, swords, and iron-intensive pila. ACOUP estimates Roman kit contained about 25% more worked metal than its nearest competitor.</p><p>Now Rome is not alone: compare it with Achaemenid Persia, Macedon, Carthage, the Ptolemies, the Seleucids, a Gallic coalition, Parthia, and the Sasanians.</p><a className="source-link" href="https://acoup.blog/2024/02/16/collections-phalanxs-twilight-legions-triump-part-iib-handfuls-of-maniples/">Read ACOUP on Roman equipment ↗</a></div>
             <div className="viz-card manpower-viz-v2">
-              <div className="viz-title"><div><span>Military capacity of the Roman system</span><h4>How much army—and how much iron?</h4></div><small>500 BCE–500 CE · modeled estimates</small></div>
+              <div className="viz-title"><div><span>Comparative military capacity</span><h4>How much army—and how much iron?</h4></div><small>500 BCE–500 CE · documented mobilizations</small></div>
               <MilitaryCapacityChart />
-              <p className="viz-note"><b>Method:</b> blue values reconstruct soldiers under arms or paper establishment from ancient unit counts and modern scholarship. Red values multiply the midpoint by modeled kilograms of worked iron carried per soldier. The downloadable CSV preserves low/high ranges, estimate type, citation keys, and notes for every point.</p>
+              <p className="viz-note"><b>Method:</b> Rome’s line estimates empire-wide forces under arms; rival observations are documented major campaign armies because complete establishments rarely survive. The comparison excludes theoretical manpower pools. Iron tonnage is soldiers multiplied by a consistent equipment model; every point retains its citation keys and notes in the downloadable CSVs.</p>
             </div>
           </section>
         </section>
 
-        <footer><b>Visualizing Reality</b><span>Evidence, scale, and uncertainty about Rome.</span><a href="#top">Back to top ↑</a></footer>
+        <footer><b>Visualizing Reality</b><span>Evidence and scale about Rome.</span><a href="#top">Back to top ↑</a></footer>
       </article>
     </main>
   );

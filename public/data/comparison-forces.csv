@@ -1,0 +1,12 @@
+polity,year,display_year,soldiers_thousands,iron_kg_per_soldier,combat_iron_tonnes,observation,event,source_keys,notes
+Achaemenid Empire,-480,480 BCE,50,3.5,175.0,campaign,Xerxes' invasion force,XERXES2025;ACOU_METAL,"Recent logistical work supports at least 50,000 combatants; the iron load is modeled for a diverse imperial army."
+Macedonian Empire,-334,334 BCE,47,4.2,197.4,campaign,Alexander crosses into Asia,ALEXANDER334;ACOU_METAL,"Approximately 40,000 infantry and 7,000 cavalry; iron estimate reflects a mixed Macedonian and allied force."
+Gallic coalition,-225,225 BCE,70,2.8,196.0,campaign,Telamon,POLYBIUS_TELAMON;ACOU_TRIBAL,"Polybius reports about 50,000 infantry and 20,000 cavalry and chariots; common warriors usually lacked metal body armor."
+Carthage,-255,255 BCE,16,3.8,60.8,campaign,Bagradas River,POLYBIUS_BAGRADAS;ACOU_METAL,"12,000 infantry and 4,000 cavalry under Xanthippus; elephants excluded from personnel."
+Carthage,-218,218 BCE,102,3.8,387.6,campaign,Hannibal's initial expedition,POLYBIUS_HANNIBAL;ACOU_METAL,"Polybius' initial army in Iberia before detachments and Alpine losses; not the later army at Cannae."
+Carthage,-216,216 BCE,50,3.8,190.0,campaign,Cannae,POLYBIUS_CANNAE;ACOU_METAL,"Roughly 40,000 infantry and 10,000 cavalry in Hannibal's multinational field army."
+Ptolemaic Kingdom,-217,217 BCE,75,4.0,300.0,campaign,Raphia,POLYBIUS_RAPHIA;OCD_RAPHIA;ACOU_METAL,"Polybius reports 70,000 infantry and 5,000 cavalry; the infantry total remains debated."
+Seleucid Empire,-217,217 BCE,68,4.2,285.6,campaign,Raphia,POLYBIUS_RAPHIA;OCD_RAPHIA;ACOU_METAL,"Polybius reports 62,000 infantry and 6,000 cavalry; elephants excluded from personnel."
+Seleucid Empire,-190,190 BCE,70,4.2,294.0,campaign,Magnesia,POLYBIUS_MAGNESIA;ACOU_METAL,"Ancient order-of-battle total, rounded; a mixed phalanx, cavalry, light infantry, and auxiliaries."
+Parthian Empire,-53,53 BCE,10,4.5,45.0,campaign,Carrhae,PLUTARCH_CARRHAE;ACOU_METAL,"Plutarch's figure may describe Surena's personal levy rather than all Parthian forces; one-tenth were heavily mailed cataphracts."
+Sasanian Empire,359,359 CE,50,5.5,275.0,campaign,Siege of Amida,AMMIANUS_AMIDA;HOWARD_JOHNSTON;ACOU_METAL,"A deliberately conservative model below Ammianus' reported 100,000; scholarship warns that reported field-army size is not total establishment."
