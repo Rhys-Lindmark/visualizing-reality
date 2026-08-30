@@ -255,5 +255,27 @@
       "OEA_HALA_SULTAN"
     ],
     "note": "Three wrecks and two harbor settlements preserve five different carriers and nineteen inspectable associations. The visual does not infer direct voyages traffic frequency market share crew ethnicity ownership political control or a representative annual network."
+  },
+  {
+    "id": "bronze-age-05-nonsynchronous-collapse",
+    "page": "bronze-age",
+    "insight": 5,
+    "claim": "The Late Bronze Age transition was not one synchronized event or universal causal chain: palaces capitals ports archives and states changed on different dates and some political systems survived.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_archaeological_textual_environmental_and_institutional_chronology",
+    "dataset_ids": [
+      "bronze-collapse-windows"
+    ],
+    "source_keys": [
+      "KNAPP_MANNING2016",
+      "JUDSON2023",
+      "MANNING_ET_AL2023",
+      "KANIEWSKI_ET_AL2011",
+      "HALAYQA2010",
+      "FISCHER2023",
+      "OEA_HALA_SULTAN",
+      "MEDINET_HABU_OIP"
+    ],
+    "note": "Six unlike windows and four evidence lenses expose asynchronous change and divergent outcomes. The chronology computes no shared year collapse cause resilience or population-loss score and does not treat Sea Peoples as one homogeneous force."
   }
 ]

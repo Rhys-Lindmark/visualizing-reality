@@ -641,6 +641,34 @@ for (const file of ['bronze-maritime-cases.csv', 'bronze-maritime-links.csv']) {
   if (snapshot !== readFileSync(path.join(root, `public/data/${file}`), 'utf8')) fail(`Bronze maritime immutable client snapshot diverges from ${file}`);
 }
 
+const bronzeCollapseWindows = csv('public/data/bronze-collapse-windows.csv');
+const collapseWindows = new Map();
+for (const [index, row] of bronzeCollapseWindows.entries()) {
+  const context = `bronze-collapse-windows.csv row ${index + 2}`;
+  requireFields(row, ['case_id', 'place', 'region', 'start_year', 'end_year', 'date_window', 'evidence_kind', 'anchor_value', 'anchor_label', 'environment', 'conflict', 'institution', 'persistence', 'interpretation', 'source_keys', 'limits'], context);
+  numeric(row, ['start_year', 'end_year'], context); validateKeys(sourceKeys(row.source_keys), context);
+  if (collapseWindows.has(row.case_id)) fail(`${context} duplicates ${row.case_id}`); collapseWindows.set(row.case_id, row);
+  if (Number(row.start_year) > Number(row.end_year)) fail(`${context} starts after it ends`);
+  if (Object.keys(row).some(field => /collapse_score|cause_score|resilience_score|population_loss|annual_(decline|flow)|common_attacker|shared_year|rank/i.test(field))) fail(`${context} introduces an unsupported collapse or causal model field`);
+  if (row.limits.length < 105) fail(`${context} does not preserve a substantive chronology and causal limit`);
+}
+for (const caseId of ['eastern-mediterranean', 'pylos', 'hattusa', 'ugarit-gibala', 'hala-sultan-tekke', 'egypt']) if (!collapseWindows.has(caseId)) fail(`Bronze collapse chronology is missing ${caseId}`);
+if (bronzeCollapseWindows.length !== 6 || collapseWindows.size !== 6) fail(`Bronze collapse chronology requires six unique windows, found ${bronzeCollapseWindows.length} rows and ${collapseWindows.size} cases`);
+const regionalCollapse = collapseWindows.get('eastern-mediterranean');
+if (!regionalCollapse || regionalCollapse.anchor_value !== '~150 years' || !sourceKeys(regionalCollapse.source_keys).includes('KNAPP_MANNING2016') || !/editorial.*not a measured duration.*no collapse score.*shared cause.*synchronized year.*population loss/i.test(regionalCollapse.limits)) fail('Regional collapse frame must remain an editorial comparison without one duration cause year or loss estimate');
+const pylosCollapse = collapseWindows.get('pylos');
+if (!pylosCollapse || pylosCollapse.anchor_value !== '~1,000 tablets' || !sourceKeys(pylosCollapse.source_keys).includes('JUDSON2023') || !/approximate.*challenged.*does not identify an attacker.*do not prove/i.test(pylosCollapse.limits)) fail('Pylos must preserve the final-horizon archive and contested chronology without an attacker attribution');
+const hattusaCollapse = collapseWindows.get('hattusa');
+if (!hattusaCollapse || hattusaCollapse.anchor_value !== '1198–1196 BCE' || !sourceKeys(hattusaCollapse.source_keys).includes('MANNING_ET_AL2023') || !/regional context.*not a direct observation.*political causation.*later burning/i.test(hattusaCollapse.limits)) fail('Hattusa must preserve the regional drought anchor without a drought monocause or one attack event');
+const ugaritCollapse = collapseWindows.get('ugarit-gibala');
+if (!ugaritCollapse || ugaritCollapse.anchor_value !== '1192–1190 BCE' || !sourceKeys(ugaritCollapse.source_keys).includes('KANIEWSKI_ET_AL2011') || !sourceKeys(ugaritCollapse.source_keys).includes('HALAYQA2010') || !/for Gibala.*not an exact universal collapse year.*not.*one homogeneous force/i.test(ugaritCollapse.limits)) fail('Ugarit and Gibala must preserve the local date range and heterogeneous attacker limit');
+const halaCollapse = collapseWindows.get('hala-sultan-tekke');
+if (!halaCollapse || halaCollapse.anchor_value !== 'c. 1150 BCE' || !sourceKeys(halaCollapse.source_keys).includes('OEA_HALA_SULTAN') || !/not an annual decline series.*do not measure total trade.*does not establish population death.*single migration/i.test(halaCollapse.limits)) fail('Hala Sultan Tekke must preserve phased change without annual decline death or migration inference');
+const egyptCollapse = collapseWindows.get('egypt');
+if (!egyptCollapse || egyptCollapse.anchor_value !== 'Year 8' || !sourceKeys(egyptCollapse.source_keys).includes('MEDINET_HABU_OIP') || !/interested testimony.*not provide neutral casualty totals.*proof.*every other regional destruction/i.test(egyptCollapse.limits)) fail('Egypt must remain an interested royal survival account rather than a universal invasion record');
+const bronzeCollapseSnapshot = read('public/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv');
+if (bronzeCollapseSnapshot !== readFileSync(path.join(root, 'public/data/bronze-collapse-windows.csv'), 'utf8')) fail('Bronze collapse immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -706,4 +734,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${geo.features.length} boundary features.`);

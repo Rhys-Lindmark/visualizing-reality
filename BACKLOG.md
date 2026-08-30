@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Build Bronze Age insight 05: test interacting explanations for the Late Bronze Age collapse without forcing one regional cause.
+- Open Iron Age insight 01: compare adoption windows and production dependencies without treating iron as instantly better or cheaper.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -100,7 +100,7 @@ when the evidence supports independent urban/state formation.
 2. Palace economies concentrated storage, craft, writing, and redistribution — live; five selective institutional circuits compare Mari, Hattusha, Knossos, Pylos, and Ugarit without combining unlike archive counts, flock tallies, metal allotments, or archaeological episodes into a centralization score.
 3. **Speed had a supply chain:** five evidence windows expose chariots as systems of vehicles, paired horses, control gear, specialist people, upkeep, and institutions — live; unlike burials, texts, inventories, gifts, and mortuary assemblages are never converted into a force-size or effectiveness score.
 4. **The sea was shared; the carriers were plural:** three shipwrecks and two harbor settlements expose elite shipments, travelling metal ventures, mixed coasting cargoes, and multi-period port communities — live; nineteen source-keyed associations are not converted into routes, traffic, market share, ownership, or one trade system.
-5. The Late Bronze Age collapse was a systems failure with multiple interacting causes.
+5. **There was no single collapse event:** six unlike evidence windows keep environment, conflict, institutional change, and persistence separate on a 1250–1050 BCE chronology — live; no shared year, causal score, population-loss total, or homogeneous Sea Peoples army.
 
 ## P1 — Page 05: The Iron Age transformation — ready
 
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Bronze Age insight 05, **There was no single collapse event.** Six source-keyed windows place the Eastern Mediterranean comparison, Pylos, Hattusa, Ugarit and Gibala, Hala Sultan Tekke, and Egypt on a 1250–1050 BCE chronology while keeping environment, conflict, institutional change, and persistence in separate inspectable lenses. The visual preserves the 1198–1196 BCE central Anatolian drought proxy, Gibala's proposed 1192–1190 BCE destruction window, Pylos's roughly one thousand final-horizon tablets, Hala Sultan Tekke's phased rebuilding and c. 1150 BCE abandonment, and Ramesses III's Year 8 victory representation without producing one collapse year, cause score, population-loss total, or homogeneous Sea Peoples army. Added five specialist and primary sources, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated guards for each chronology and inference limit. Verified all six windows and four evidence lenses, five shared insight tabs with one active panel, zero loading or corrupt-value states, zero horizontal overflow at 1280 and 390 × 844, mobile touch targets, 56 data files, 157 sources, 25 datasets, 20 claims, lint, production build, and 69 byte-identical built assets. The Bronze Age page is now five of five and reviewed. Next: open the Iron Age transformation with a non-teleological iron-adoption comparison.
 
 - 2026-08-30 — Completed Bronze Age insight 04, **The sea was shared. The carriers were plural.** The comparison places Uluburun, Cape Gelidonya, Point Iria, Kommos, and Hala Sultan Tekke in five unlike evidence windows: three wreck events and two multi-period harbor assemblages. Nineteen inspectable associations connect each find context to the materials, analytical regions, or typological traditions named by its sources while explicitly refusing to reconstruct direct voyages, annual traffic, import shares, crew ethnicity, ownership, political control, or a representative network. Added nine specialist and excavation sources, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated checks preserving the 10 + 1 tonne Uluburun anchor, Cape Gelidonya's 750-plus fragments, Point Iria's three ceramic traditions, Kommos's 69-fragment sample, and Hala Sultan Tekke's minimum 25-hectare extent. Verified all five cases, the Sardinia association and source readout, five shared insight tabs with one active panel, desktop and 390 × 844 layouts, no loading or corrupt-value states, data validation, lint, and the production build. Next: a multi-causal Late Bronze Age collapse chronology.
 
