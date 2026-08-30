@@ -1,0 +1,8 @@
+record_type,phase,phase_order,metric,value,relation,unit,label,source_keys,notes
+genre_share,All archaic archives,0,lexical_share,15,approximate,percent,Commonly cited corpus average,ENGLUND2011,"Englund warns that the familiar 85% administrative / 15% lexical split is an average that conceals strong change between phases."
+genre_share,Uruk IV,1,lexical_share,1,less_than,percent,Earliest proto-cuneiform phase,ENGLUND2011,"Less than 1% of the earliest Uruk IV tablets are lexical; the displayed bar marks the published upper bound, not a point estimate."
+genre_share,Uruk III,2,lexical_share,20,approximate,percent,Following proto-cuneiform phase,ENGLUND2011,"Close to 20% of the following Uruk III tablets are lexical."
+corpus_snapshot,CDLI Uruk-period corpus,0,artifacts,6726,exact,count,Artifacts in dataset,BORN_KELLEY2021,"All Uruk-period tablets available in CDLI on 19 May 2020; includes caveated Uruk V records."
+corpus_snapshot,CDLI Uruk-period corpus,1,transliterated_artifacts,6267,exact,count,Artifacts with transliteration,BORN_KELLEY2021,"The authors report 6267 of 6726 artifacts with a transliteration."
+corpus_snapshot,CDLI Uruk-period corpus,2,readable_artifacts,5274,exact,count,Artifacts with a readable sign,BORN_KELLEY2021,"Excludes artifacts whose transliteration contains only breaks or unreadable signs."
+corpus_snapshot,CDLI Uruk III–IV corpus,3,readable_non_numerical_tokens,52943,exact,count,Readable non-numerical sign tokens,BORN_KELLEY2021,"Uruk V is excluded; tokens come from non-numerical entries in Uruk III and IV texts and depend on the authors' cleaning and counting choices."

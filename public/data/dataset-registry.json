@@ -98,5 +98,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "irregular milestones from 312 BCE to 1453 CE plus three road-network summary measures",
     "notes": "Four parallel trajectories—roads, language, law, and the eastern Roman state—retain unlike evidence types and explicit limits. They are not combined into a legacy score."
+  },
+  {
+    "id": "uruk-writing-corpus",
+    "title": "Proto-cuneiform archive composition and CDLI corpus snapshot",
+    "path": "/data/uruk-writing-corpus.csv",
+    "schema": "observation",
+    "evidence_type": "published_corpus_summary",
+    "source_key_field": "source_keys",
+    "time_resolution": "Uruk IV and III phase summaries plus a corpus snapshot dated 19 May 2020",
+    "notes": "Published bounded genre shares and corpus-filter counts. Values describe surviving, cataloged, transliterated material—not ancient production or a census of writing."
   }
 ]

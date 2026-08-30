@@ -11,7 +11,7 @@ function parseCSV(text:string):Source[]{
   for(let index=0;index<text.length;index+=1){const character=text[index];if(character==='"'&&quoted&&text[index+1]==='"'){cell+='"';index+=1;}else if(character==='"')quoted=!quoted;else if(character===','&&!quoted){row.push(cell);cell='';}else if((character==='\n'||character==='\r')&&!quoted){if(character==='\r'&&text[index+1]==='\n')index+=1;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=character;}if(cell||row.length){row.push(cell);rows.push(row);}const[headers,...body]=rows;return body.map(values=>Object.fromEntries(headers.map((header,index)=>[header,values[index]])) as Source);
 }
 function label(value:string){return value.replaceAll('_',' ');}
-const DATA_REVISION='20260829-collapse1';
+const DATA_REVISION='20260830-uruk1';
 const versioned=(path:string)=>`${path}?v=${DATA_REVISION}`;
 
 export default function EvidencePanel({ page }: { page:string }){

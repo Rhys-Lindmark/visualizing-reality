@@ -195,6 +195,24 @@ const roadCertainty = afterlives.find(row => row.milestone === 'Location known w
 if (!roadLength || Number(roadLength.value) !== 299171.31) fail('Roman afterlives must preserve the Itiner-e mapped length of 299171.31 km');
 if (!roadCertainty || Number(roadCertainty.value) !== 2.737) fail('Roman afterlives must preserve the Itiner-e certain-location share of 2.737%');
 
+const urukWriting = csv('public/data/uruk-writing-corpus.csv');
+for (const [index, row] of urukWriting.entries()) {
+  const context = `uruk-writing-corpus.csv row ${index + 2}`;
+  requireFields(row, ['record_type', 'phase', 'phase_order', 'metric', 'value', 'relation', 'unit', 'label', 'source_keys', 'notes'], context);
+  numeric(row, ['phase_order', 'value'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!['genre_share', 'corpus_snapshot'].includes(row.record_type)) fail(`${context} has unsupported record type ${row.record_type}`);
+  if (!['exact', 'approximate', 'less_than'].includes(row.relation)) fail(`${context} has unsupported relation ${row.relation}`);
+}
+if (urukWriting.length !== 7) fail(`Expected seven Uruk writing summary rows, found ${urukWriting.length}`);
+const urukIV = urukWriting.find(row => row.phase === 'Uruk IV' && row.metric === 'lexical_share');
+const urukIII = urukWriting.find(row => row.phase === 'Uruk III' && row.metric === 'lexical_share');
+if (!urukIV || Number(urukIV.value) !== 1 || urukIV.relation !== 'less_than') fail('Uruk IV lexical share must remain a less-than 1% bound');
+if (!urukIII || Number(urukIII.value) !== 20 || urukIII.relation !== 'approximate') fail('Uruk III lexical share must remain approximately 20%');
+for (const [metric, value] of [['artifacts', 6726], ['transliterated_artifacts', 6267], ['readable_artifacts', 5274], ['readable_non_numerical_tokens', 52943]]) {
+  if (!urukWriting.some(row => row.metric === metric && Number(row.value) === value)) fail(`Uruk writing corpus is missing ${metric} = ${value}`);
+}
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -260,4 +278,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${geo.features.length} boundary features.`);
