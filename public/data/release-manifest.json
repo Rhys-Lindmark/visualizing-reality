@@ -1,6 +1,6 @@
 {
-  "release_id": "20260830-iron-quality1",
-  "page_contract": "owid-key-insights-v2",
+  "release_id": "20260830-owid-key-insights3",
+  "page_contract": "owid-key-insights-v3",
   "required_routes": [
     "/",
     "/rome",
