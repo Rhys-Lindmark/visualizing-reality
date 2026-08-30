@@ -350,5 +350,26 @@
       "ACOU_SOCII"
     ],
     "note": "Four unlike cases preserve their evidence classes. Only Taylor's Carthaginian and Roman strategic deployment models are compared proportionally; Kadesh remains an inferred campaign total and the pre-Roman transition receives no headcount. No metal mass artifact count or equipment observation is converted into army size or military power."
+  },
+  {
+    "id": "iron-age-05-scale-was-institutional",
+    "page": "iron-age",
+    "insight": 5,
+    "claim": "Iron production became durable through multiple institutional architectures—household networks distribution nodes urban workshop landscapes royal arsenals and state monopoly systems—rather than one universal path toward centralization.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_archaeological_textual_archaeometallurgical_and_regional_synthesis",
+    "dataset_ids": [
+      "iron-production-institutions"
+    ],
+    "source_keys": [
+      "STRONACH1958_NIMRUD",
+      "ORACC_FORT_SHALMANESER",
+      "BENNERHAG_ET_AL2021",
+      "SALAC1993_BOHEMIA",
+      "ZHANG_ET_AL2020_LINGNAN",
+      "HUMPHRIS_SCHEIBNER2017",
+      "HUMPHRIS_ET_AL2018"
+    ],
+    "note": "Five unlike cases are displayed as institutional circuits rather than ranked by output or centralization. Direct observations and published interpretations remain labelled; no slag heap inventory workshop date or monopoly record is converted into a shared scale score."
   }
 ]

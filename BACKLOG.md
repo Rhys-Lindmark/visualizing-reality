@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Build Iron Age insight 05: compare workshops, markets, specialist communities, standards, tribute, and state production without one centralization index.
+- Open Page 06, Persia and territorial empire, with a bounded road-and-relay comparison that does not turn estimated travel times into one imperial-speed score.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -108,7 +108,7 @@ when the evidence supports independent urban/state formation.
 2. **The forest was part of the furnace:** eleven published modern experimental runs compare ore charcoal and reported bloom outcomes — live; zero and trace blooms remain categorical, run-level analogs are not ancient output or woodland-loss estimates, and no universal fuel-efficiency ratio is imposed.
 3. **Quality was made:** four paired bloom and forged-bar samples keep hardness, chemistry, microstructure, and forgeability separate — live; no toughness, weapon-performance, ancient-average, or material-superiority score.
 4. **Metal did not mobilize itself:** live; four bounded cases separate equipment, recruitment, supply, and replacement, and only Taylor's same-model Punic War maxima receive proportional bars.
-5. **Scale was institutional:** compare workshops, markets, specialist communities, standards, tribute, and state production without one centralization index.
+5. **Scale had more than one shape:** five production circuits compare a royal arsenal, household network, distribution-centred oppida, state monopoly with a frontier gap, and a long-lived urban production landscape — live; no output, productivity, market-integration, state-capacity, or centralization score.
 
 ## P1 — Page 06: Persia and territorial empire — ready
 
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Iron Age insight 05, **Scale had more than one shape**, and finished the five-insight Iron Age page. Five bounded production circuits separate inputs, making, coordination, distribution, and surviving evidence: Fort Shalmaneser's royal arsenal, the Sangis–Vivungi household network, distribution-centred La Tène oppida, the Han monopoly with a documented Lingnan iron-office gap, and Meroe's long-lived production landscape. The visual preserves the 36,242-bow administrative docket without turning bows into iron output, Sangis's under-500-metre smelting-to-smithing relationship and at least three smithing hearths, the 119 BCE monopoly date and absence of a recorded Lingnan *tieguan*, and Meroe's 97 radiocarbon dates across nine slag mounds without deriving metal tonnage or royal ownership. Added six source records, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated guards against output, productivity, labor, market-integration, state-capacity, centralization, and developmental-stage scores. Verified all five architecture selectors and five-stage circuits, one active shared insight panel, exact corrupt-value checks, zero horizontal overflow at 1280 and 390 × 844, 84-pixel mobile case controls, 66 checked data files, 176 sources, 30 datasets, 25 claims, five institution cases, lint, the production build, and 80 byte-identical built assets. The Iron Age page is five of five and reviewed. Next: open Persia with a bounded road-and-relay comparison.
 
 - 2026-08-30 — Completed Iron Age insight 04, **A cheaper weapon could broaden a levy. It could not create the levy.** Four deliberately unlike cases separate equipment from recruitment, supply, and replacement: New Kingdom Egypt at Kadesh, pre-Roman European civitates, Carthage in 215 BCE, and Rome with the Italian allies in 212 BCE. Only Taylor's two Second Punic War strategic-deployment models receive proportional bars (approximately 170,000 and 185,000); the Kadesh figure remains a modern inference from four named divisions, and the civitas synthesis receives no invented headcount. Added three source records, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated guards against kilograms-per-soldier, artifact-derived armies, replacement curves, and military-power scores. Verified all four case selectors, four mobilization ledgers, two like-for-like bars, zero loading or corrupt-value states, zero horizontal overflow at 1280 and 390 × 844, 82–87 px mobile case controls, 64 checked data files, 170 sources, 29 datasets, 24 claims, four cases, lint, the production build, and 78 byte-identical built assets. The Iron Age page is four of five and draft. Next: explain why iron adoption did not erase regional technological diversity.
 

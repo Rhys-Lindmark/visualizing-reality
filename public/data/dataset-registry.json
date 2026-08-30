@@ -294,5 +294,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "one Bronze Age campaign structure one broad pre-Roman transition and two same-model Punic War strategic maxima",
     "notes": "Only the Carthaginian and Roman values share a model family and receive proportional bars. Kadesh remains a campaign inference and the pre-Roman civitas case has no headcount. The dataset contains no kilograms per soldier artifact-derived army total replacement curve causal share or military-power score."
+  },
+  {
+    "id": "iron-production-institutions",
+    "title": "Five bounded iron-production architectures from household networks to royal and state systems",
+    "path": "/data/iron-production-institutions.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_archaeological_textual_archaeometallurgical_and_regional_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "five unlike institutional cases from the ninth century BCE through the fifth century CE",
+    "notes": "Inputs making coordination distribution and visible evidence remain separate. The rows do not calculate output centralization market integration state capacity productivity labor totals or a universal development sequence."
   }
 ]
