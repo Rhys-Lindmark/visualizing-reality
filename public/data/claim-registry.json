@@ -18,7 +18,7 @@
     "status": "modeled_argument",
     "evidence_type": "historical_model",
     "dataset_ids": ["rome-military-capacity", "rival-campaign-forces", "republican-equipment-index"],
-    "source_keys": ["POLYBIUS2_24", "BRUNT1971", "ACOU_SOCII", "ACOU_MAIL", "ACOU_METAL", "ACOU_PILUM", "ACOU_GLADIUS"],
-    "note": "Rome's line is an explicit estimate series, not a census. Rival points are particular campaign forces and are not joined or treated as state capacity. The equipment comparison is a third–second-century BCE relative index; the public evidence does not support absolute kilograms or tonnes across the full timeline."
+    "source_keys": ["POLYBIUS2_24", "LIVY25_LEGIONS", "TACITUS4_5", "CAMPBELL1994", "HASSALL2000", "MACMULLEN1980", "ELTON1996", "TREADGOLD1995", "NOTITIA", "KALDELLIS_KRUSE2023", "RANCE2024", "ACOU_SOCII", "ACOU_MAIL", "ACOU_METAL", "ACOU_PILUM", "ACOU_GLADIUS"],
+    "note": "Roman points are limited to an ancient reported deployment, an explicit Republican unit model, and published modern estimates. Short lines connect only definition-consistent segments; gaps are not interpolated. The lone post-395 marker is explicitly eastern and its date reflects a live dispute over the Notitia Dignitatum. Rival points remain particular campaign forces. The equipment comparison is a third–second-century BCE relative index; the public evidence does not support absolute kilograms or tonnes across the full timeline."
   }
 ]

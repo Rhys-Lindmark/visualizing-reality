@@ -11,13 +11,13 @@
   },
   {
     "id": "rome-military-capacity",
-    "title": "Roman military capacity estimates",
+    "title": "Published and explicit Roman force estimates",
     "path": "/data/roman-military-capacity.csv",
     "schema": "modeled_series",
     "evidence_type": "historical_model",
     "source_key_field": "source_keys",
-    "time_resolution": "irregular historical anchors and reconstructions",
-    "notes": "Central army-size estimates connect heterogeneous ancient anchors, unit-count models, and modern reconstructions. Low and high fields retain the stated model ranges even though the chart intentionally does not draw uncertainty bands."
+    "time_resolution": "seven irregular, non-interpolated estimates in four separately defined segments",
+    "notes": "Only an ancient reported deployment, one explicit unit model, and published modern estimates remain. Lines connect points only when polity, scope, and estimation family are comparable. No western fifth-century total is plotted because the current evidence audit did not find a defensible published establishment estimate."
   },
   {
     "id": "rival-campaign-forces",

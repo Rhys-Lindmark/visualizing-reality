@@ -51,11 +51,11 @@ annual dataset. Each row has:
 - one or more source keys; and
 - a note stating the conversion or limitation.
 
-The line connects heterogeneous observations for orientation. It must not be
-described as annual measurement or as a homogeneous published series. Future
-work should replace project reconstructions with published point estimates
-where scholarship permits and should split eastern and western forces after
-395 rather than implying one operational establishment.
+This remaining continuous line was subsequently superseded by
+`rome-force-estimate-revision.md`. The live chart now keeps only seven ancient,
+explicitly modeled, or published anchors; connects them only inside four short,
+definition-consistent segments; and removes every combined eastern-plus-western
+value after 395.
 
 ## Remaining evidence limits
 

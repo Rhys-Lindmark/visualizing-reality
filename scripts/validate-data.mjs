@@ -67,15 +67,16 @@ function validateKeys(keys, context) {
 }
 
 const rome = csv('public/data/roman-military-capacity.csv');
-const romanYears = new Set();
+const romanObservations = new Set();
 for (const [index, row] of rome.entries()) {
   const context = `roman-military-capacity.csv row ${index + 2}`;
-  requireFields(row, ['year', 'display_year', 'army_mid_thousands', 'army_low_thousands', 'army_high_thousands', 'estimate_type', 'source_keys', 'notes'], context);
-  numeric(row, ['year', 'army_mid_thousands', 'army_low_thousands', 'army_high_thousands'], context);
+  requireFields(row, ['polity', 'series_id', 'year', 'display_year', 'soldiers_thousands', 'estimate_type', 'scope', 'source_keys', 'notes'], context);
+  numeric(row, ['year', 'soldiers_thousands'], context);
   validateKeys(sourceKeys(row.source_keys), context);
-  if (romanYears.has(row.year)) fail(`${context} duplicates year ${row.year}`); romanYears.add(row.year);
-  if (!['reconstruction', 'ancient_anchor', 'modeled_from_units', 'ancient_plus_modern', 'modern_estimate'].includes(row.estimate_type)) fail(`${context} has unsupported estimate type ${row.estimate_type}`);
-  if (!(Number(row.army_low_thousands) <= Number(row.army_mid_thousands) && Number(row.army_mid_thousands) <= Number(row.army_high_thousands))) fail(`${context} army estimate is not low ≤ mid ≤ high`);
+  const observationKey = `${row.polity}|${row.series_id}|${row.year}`;
+  if (romanObservations.has(observationKey)) fail(`${context} duplicates ${observationKey}`); romanObservations.add(observationKey);
+  if (!['ancient_reported_deployment', 'explicit_unit_model', 'published_modern_estimate', 'published_document_model'].includes(row.estimate_type)) fail(`${context} has unsupported estimate type ${row.estimate_type}`);
+  if (Number(row.year) >= 395 && ['Roman Republic', 'Roman Empire', 'Late Roman Empire'].includes(row.polity)) fail(`${context} recombines eastern and western forces after 395`);
 }
 
 const rivals = csv('public/data/comparison-forces.csv');
