@@ -1,52 +1,20 @@
-import RomanMap from './RomanMap';
-import MilitaryCapacityChart from './MilitaryCapacityChart';
+import AtlasExplorer from './AtlasExplorer';
+import SiteFooter from './components/SiteFooter';
+import SiteHeader from './components/SiteHeader';
 
-export default function Home() {
-  return (
-    <main>
-      <header className="site-header">
-        <a className="wordmark" href="#top"><span>How Everything</span><b>Evolved</b></a>
-        <nav aria-label="Primary"><a href="#introduction">Introduction</a><a href="#key-insights">Key Insights</a></nav>
-        <button className="search" type="button">Search</button>
-      </header>
+const eras=[['Before states','10,000–3500 BCE','Fire · plants · animals · villages'],['First cities','3500–1200 BCE','Water · grain · writing · bronze'],['Iron & empire','1200 BCE–500 CE','Metal · money · armies · administration'],['Connected worlds','500–1750 CE','Belief · trade · steppe · ocean']];
 
-      <article>
-        <section className="article-head" id="top">
-          <p className="topic-label">Visualizing history</p>
-          <h1>Rome</h1>
-          <p className="standfirst">A city on the Tiber became the largest empire Europe had yet seen—and remained a Mediterranean superstate for centuries.</p>
-          <p className="byline">By How Everything Evolved · First published August 2026</p>
-        </section>
-
-        <div className="article-nav"><a href="#introduction">Introduction</a><a href="#key-insights">Key Insights</a></div>
-
-        <section className="intro article-copy" id="introduction">
-          <h2>Introduction</h2>
-          <p>Rome’s history is almost a millennium of expansion, consolidation, division, and survival. Seeing the whole arc matters: the Republic’s Italian coalition, the Mediterranean empire, the Tetrarchy’s four courts, the loss of the western provinces, and the Roman state that continued in the East.</p>
-          <p>We begin with two basic questions. Where was Rome, and how did that territory change? Then: how could it keep raising armies after defeats that would have ended most ancient states?</p>
-          <p>Ancient numbers are fragmentary. Every chart below distinguishes a registered military pool, soldiers actually under arms, and the size of one army in one campaign.</p>
-        </section>
-
-        <section className="insights" id="key-insights">
-          <div className="section-heading"><span>Key Insights</span><h2>First, see the empire.<br />Then, see its advantage.</h2></div>
-
-          <section className="insight map-insight">
-            <div className="insight-copy"><span className="insight-number">01</span><p className="claim">Rome became the largest empire Europe had ever known.</p><h3>From one city to three continents</h3><p>Press play to follow more than nine centuries of Roman political geography. The map begins with a small state in central Italy, reaches its greatest extent under Trajan, then changes meaning: one empire with four courts, two imperial administrations, and finally an eastern empire without a western emperor.</p><p>The important change is not only size. Watch the political form change while the Roman name endures.</p></div>
-            <RomanMap />
-          </section>
-
-          <section className="insight manpower-insight">
-            <div className="insight-copy"><span className="insight-number">02</span><p className="claim">Rome combined more soldiers with more metal per soldier.</p><h3>Why Rome won: manpower × iron</h3><p>The graph compares soldiers actually under arms—not every man theoretically liable for service—and multiplies each force by a consistently modeled iron load per soldier.</p><p>Rome’s advantage was multiplicative. Its Italian federation could sustain unusually large armies, while its heavy infantry increasingly carried expensive mail, substantial helmets, swords, and iron-intensive pila. ACOUP estimates Roman kit contained about 25% more worked metal than its nearest competitor.</p><p>Now Rome is not alone: compare it with Achaemenid Persia, Macedon, Carthage, the Ptolemies, the Seleucids, Gallic polities, Parthia, and the Sasanians.</p><a className="source-link" href="https://acoup.blog/2024/02/16/collections-phalanxs-twilight-legions-triump-part-iib-handfuls-of-maniples/">Read ACOUP on Roman equipment ↗</a></div>
-            <div className="viz-card manpower-viz-v2">
-              <div className="viz-title"><div><span>Comparative military capacity</span><h4>How much army—and how much iron?</h4></div><small>500 BCE–500 CE · 50-year estimates</small></div>
-              <MilitaryCapacityChart />
-              <p className="viz-note"><b>Method:</b> Rome’s line estimates empire-wide forces under arms. Rival dashed lines are 50-year capacity models calibrated to surviving campaign evidence; outlined dots mark those campaign anchors. They are not annual censuses. The comparison excludes theoretical manpower pools. Iron tonnage is soldiers multiplied by a consistent equipment model; every point retains its citation keys and notes in the downloadable CSVs.</p>
-            </div>
-          </section>
-        </section>
-
-        <footer><b>How Everything Evolved</b><span>Evidence and scale about Rome.</span><a href="#top">Back to top ↑</a></footer>
-      </article>
-    </main>
-  );
+export default function Home(){
+  return <main id="top" className="home-page">
+    <SiteHeader sectionLinks={[{href:'#thesis',label:'Thesis'},{href:'#atlas',label:'Atlas'}]} />
+    <section className="home-hero">
+      <div className="home-title"><p className="topic-label">A visual atlas of pre-industrial history</p><h1>How Everything<br/><em>Evolved</em></h1></div>
+      <div className="home-intro"><p>Our World in Data made the modern world legible. This project attempts the same thing for everything that came before it.</p><a href="#atlas">Explore the atlas ↓</a></div>
+      <div className="era-ruler" aria-label="Timeline of the atlas">{eras.map(([name,years,systems],index)=><div key={name} className={`era-block era-${index}`}><i/><b>{name}</b><span>{years}</span><small>{systems}</small></div>)}</div>
+    </section>
+    <section className="thesis" id="thesis"><div><p className="topic-label">Our working thesis</p><h2>History is a sequence of domestications.</h2></div><div className="thesis-copy"><p>Humans domesticated fire, landscapes, water, plants, animals, metal, labor, information, belief, violence—and one another. Each system expanded what societies could coordinate. Each also created new dependencies and new ways to fail.</p><p>This is not a neutral encyclopedia. It is a source-traceable argument told through maps, timelines, models, and comparisons. Where the evidence is fragmentary, the uncertainty belongs in the explanation.</p></div><div className="domestication-chain" aria-label="Systems in the project"><span>ecology</span><b>→</b><span>surplus</span><b>→</b><span>legibility</span><b>→</b><span>coordination</span><b>→</b><span>power</span></div></section>
+    <AtlasExplorer />
+    <section className="editorial-standard"><p className="topic-label">The publishing standard</p><h2>Five ideas.<br/>Five visuals.<br/>Sources you can inspect.</h2><ol><li><b>Opinionated</b><span>Every page makes a coherent argument.</span></li><li><b>Visual first</b><span>The graphic must teach, not decorate.</span></li><li><b>Quantitatively honest</b><span>Observations, models, and unknowns stay distinct.</span></li><li><b>Historically plural</b><span>Competing explanations remain visible.</span></li><li><b>Continuously revised</b><span>Drafts improve as evidence and criticism arrive.</span></li></ol></section>
+    <SiteFooter context="An opinionated, visual history of the pre-industrial world." />
+  </main>;
 }

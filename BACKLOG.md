@@ -44,13 +44,6 @@ graphics that explain the claim without decorative clutter.
 
 ## P0 — Build the reusable history-publication system
 
-### Site atlas and page routing — ready
-
-- Add a homepage that introduces the project and organizes pages by era, geography, and system.
-- Create a reusable page shell for Introduction → Five Key Insights → Methods/Sources.
-- Make Rome the first atlas entry without weakening its current interactive modules.
-- Add page status labels: research, draft, reviewed.
-
 ### Evidence and visual standards — ready
 
 - Add a repository source registry shared across pages.
@@ -188,6 +181,7 @@ when the evidence supports independent urban/state formation.
 
 ## Completed
 
+- 2026-08-29 — Built the reusable atlas and page-routing system. The new homepage states the project thesis, filters eleven queued pages by era/region/system, and labels research/draft/reviewed status. Rome moved to `/rome` through a reusable Introduction → Key Insights → Methods/Sources shell, retaining both interactive modules and naming insights 03–05. Verified both production routes, the Mediterranean filter, atlas-to-Rome navigation, annual map stepping, military metric toggle, metadata, lint, and the production build.
 - 2026-08-29 — Annual 500 BCE–476 CE Roman map with sourced persistent geometry, neighboring polities, event jumps, and corrected late-imperial states. Verified with lint, production build, browser stepping, and 293/395/410/439/476 data checks.
 - 2026-08-29 — Rome-versus-rivals manpower and manpower × iron chart with 50-year modeled rival series, separate campaign anchors, metric toggle, and downloadable CSVs. Verified with lint, production build, CSV parsing, and browser interaction.
 - 2026-08-29 — Project renamed from Visualizing Reality to How Everything Evolved.
