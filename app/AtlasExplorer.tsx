@@ -6,7 +6,7 @@ type Status = 'research' | 'draft' | 'reviewed';
 type AtlasPage = { number: string; title: string; years: string; era: string; region: string; system: string; status: Status; progress: string; thesis: string; href?: string };
 
 const pages: AtlasPage[] = [
-  { number:'01', title:'Rome', years:'500 BCE–476 CE', era:'Iron Age', region:'Mediterranean', system:'States', status:'draft', progress:'3 of 5 live', thesis:'How an Italian coalition became a continental state—and why the Roman state survived its western court.', href:'/rome'},
+  { number:'01', title:'Rome', years:'500 BCE–476 CE', era:'Iron Age', region:'Mediterranean', system:'States', status:'draft', progress:'4 of 5 live', thesis:'How an Italian coalition became a continental state—and why the Roman state survived its western court.', href:'/rome'},
   { number:'02', title:'Uruk and the first states', years:'7000–2900 BCE', era:'First cities', region:'Mesopotamia', system:'States', status:'research', progress:'sources assembling', thesis:'Water, grain, writing, and coerced labor made people and landscapes newly legible.' },
   { number:'03', title:'The cradles of civilization', years:'4000–500 BCE', era:'First cities', region:'Global', system:'Ecology', status:'research', progress:'page scoped', thesis:'Urbanism and states emerged by several routes—not from one civilizational recipe.' },
   { number:'04', title:'The Bronze Age world system', years:'3300–1200 BCE', era:'Bronze Age', region:'Mediterranean', system:'Trade', status:'research', progress:'five claims scoped', thesis:'Tin, palaces, chariots, and ships connected distant societies into a fragile system.' },

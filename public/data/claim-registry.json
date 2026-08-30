@@ -31,5 +31,16 @@
     "dataset_ids": ["roman-imperial-budget", "roman-fiscal-observations"],
     "source_keys": ["ACOU_PROVINCES", "ACOU_BREAD_CIRCUSES", "ACOU_GRACCHI2", "CICERO_VERRES3", "RES_GESTAE17", "DIO55_25", "TACITUS1_17", "TACITUS1_78", "SPEIDEL1992", "OXFORD_TAX_PRINCIPATE", "OXFORD_PORTORIA", "DUNCAN_JONES1994", "MATTINGLY2011"],
     "note": "The budget shares are modern reconstructions, not surviving imperial accounts. Fiscal rates apply to distinct bases and jurisdictions and are not added into one Roman tax rate. Nominal pay and budget figures are not treated as a real-value time series."
+  },
+  {
+    "id": "rome-04-western-collapse",
+    "page": "rome",
+    "insight": 4,
+    "claim": "The western court lost taxable territory while civil wars and external threats kept demanding armies; the seizure of the richest African provinces made recovery much harder, while the Roman state continued in the East.",
+    "status": "modeled_argument",
+    "evidence_type": "historical_chronology_and_published_model",
+    "dataset_ids": ["western-roman-collapse-events", "africa-fiscal-equivalents"],
+    "source_keys": ["HEATHER2005", "ELTON1996", "ACOU_SAVING_EMPIRE", "NOV_VAL_13"],
+    "note": "The chronology does not assign causal scores. Heather's Africa calculations are revenue-to-maintenance equivalents, not observed headcount losses. Novel XIII's one-eighth assessment applies only to Numidia and Mauretania Sitifensis. The 476 endpoint marks the western imperial office, not the end of the eastern Roman state."
   }
 ]

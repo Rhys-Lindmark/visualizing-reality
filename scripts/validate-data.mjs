@@ -143,6 +143,40 @@ for (const measure of ['monthly_grain_allotment', 'subsidized_grain_price', 'sic
 const payYears = fiscalObservations.filter(row => row.series === 'legionary_pay').map(row => Number(row.year));
 if (payYears.some(year => year > 197)) fail('Legionary pay series extends beyond the defensible 197 CE cutoff');
 
+const collapseEvents = csv('public/data/western-roman-collapse-events.csv');
+const collapseYears = new Set();
+const allowedEventTypes = new Set(['political division', 'external pressure', 'civil war', 'capital shock', 'fiscal workaround', 'territorial loss', 'territorial settlement', 'fiscal evidence', 'failed recovery', 'political ending']);
+for (const [index, row] of collapseEvents.entries()) {
+  const context = `western-roman-collapse-events.csv row ${index + 2}`;
+  requireFields(row, ['year', 'display_year', 'event_type', 'event', 'what_changed', 'mechanism', 'source_keys', 'notes'], context);
+  numeric(row, ['year'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (Number(row.year) < 395 || Number(row.year) > 476) fail(`${context} falls outside the western-court chronology`);
+  if (collapseYears.has(Number(row.year))) fail(`${context} duplicates year ${row.year}`); collapseYears.add(Number(row.year));
+  if (!allowedEventTypes.has(row.event_type)) fail(`${context} has unsupported event type ${row.event_type}`);
+}
+for (const year of [395, 439, 445, 476]) if (!collapseYears.has(year)) fail(`Western collapse chronology is missing anchor year ${year}`);
+if (collapseEvents.length !== 12) fail(`Expected twelve selective western-collapse events, found ${collapseEvents.length}`);
+const lawEvent = collapseEvents.find(row => Number(row.year) === 445);
+if (!lawEvent || !sourceKeys(lawEvent.source_keys).includes('NOV_VAL_13')) fail('The 445 one-eighth assessment must cite Novel XIII');
+
+const africaEquivalents = csv('public/data/africa-fiscal-equivalents.csv');
+for (const [index, row] of africaEquivalents.entries()) {
+  const context = `africa-fiscal-equivalents.csv row ${index + 2}`;
+  requireFields(row, ['region_group', 'loss_status', 'infantry_equivalent', 'cavalry_equivalent', 'cavalry_relation', 'infantry_cost_solidi', 'cavalry_cost_solidi', 'evidence_type', 'source_keys', 'notes'], context);
+  numeric(row, ['infantry_equivalent', 'cavalry_equivalent', 'infantry_cost_solidi', 'cavalry_cost_solidi'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (row.evidence_type !== 'published_model') fail(`${context} is not labeled as a published model`);
+  if (!['approximate', 'lower_bound'].includes(row.cavalry_relation)) fail(`${context} has unsupported cavalry relation ${row.cavalry_relation}`);
+  if (!row.notes.toLowerCase().includes('not an observed reduction')) fail(`${context} does not block a headcount interpretation`);
+}
+if (africaEquivalents.length !== 2) fail(`Expected two African fiscal-equivalent components, found ${africaEquivalents.length}`);
+const infantryEquivalentTotal = africaEquivalents.reduce((sum, row) => sum + Number(row.infantry_equivalent), 0);
+const cavalryEquivalentFloor = africaEquivalents.reduce((sum, row) => sum + Number(row.cavalry_equivalent), 0);
+if (infantryEquivalentTotal !== 58000) fail(`African infantry-equivalent total is ${infantryEquivalentTotal}, expected 58000`);
+if (cavalryEquivalentFloor !== 30000 || !africaEquivalents.some(row => row.cavalry_relation === 'lower_bound')) fail(`African cavalry-equivalent floor must be more than 30000`);
+if (africaEquivalents.some(row => Number(row.infantry_cost_solidi) !== 6 || Number(row.cavalry_cost_solidi) !== 10.5)) fail('African model must preserve Elton maintenance costs of 6 and 10.5 solidi');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -208,4 +242,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${geo.features.length} boundary features.`);

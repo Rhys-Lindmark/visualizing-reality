@@ -1,0 +1,3 @@
+region_group,loss_status,infantry_equivalent,cavalry_equivalent,cavalry_relation,infantry_cost_solidi,cavalry_cost_solidi,evidence_type,source_keys,notes
+Numidia and the Mauretanias,damaged or lost,18000,10000,approximate,6,10.5,published_model,HEATHER2005;ELTON1996,"Heather converts estimated lost revenue using Elton's annual maintenance costs. This is a fiscal equivalent, not an observed reduction in army headcount."
+Proconsularis and Byzacena,lost after 439,40000,20000,lower_bound,6,10.5,published_model,HEATHER2005;ELTON1996,"Heather describes the cavalry equivalent as more than 20,000. The plotted 20,000 is therefore a lower bound. This is a fiscal equivalent, not an observed reduction in army headcount."

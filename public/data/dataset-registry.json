@@ -68,5 +68,25 @@
     "source_key_field": "source_keys",
     "time_resolution": "irregular dated observations from 123 BCE to 197 CE",
     "notes": "Each rate retains its own payer, base, geography, destination, and unit. The values are not combined into an empire-wide tax rate or a purchasing-power series."
+  },
+  {
+    "id": "western-roman-collapse-events",
+    "title": "Selected western Roman fiscal-political shocks and recoveries",
+    "path": "/data/western-roman-collapse-events.csv",
+    "schema": "observation",
+    "evidence_type": "historical_chronology",
+    "source_key_field": "source_keys",
+    "time_resolution": "twelve selected dated events from 395 to 476 CE",
+    "notes": "A selective chronology of interacting political, military, territorial, and fiscal changes. Event markers are not causal scores and do not imply a continuous decline."
+  },
+  {
+    "id": "africa-fiscal-equivalents",
+    "title": "Heather's African revenue-loss military equivalents",
+    "path": "/data/africa-fiscal-equivalents.csv",
+    "schema": "modeled_series",
+    "evidence_type": "published_historical_model",
+    "source_key_field": "source_keys",
+    "time_resolution": "two regional components after the fifth-century African losses",
+    "notes": "Published fiscal equivalents using Elton's annual maintenance costs. Values are not observed troop reductions or a western army census; the Proconsularis–Byzacena cavalry value is a lower bound."
   }
 ]

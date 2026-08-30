@@ -26,7 +26,7 @@ type FiscalObservation = {
   notes:string;
 };
 
-const DATA_REVISION='20260829-finance2';
+const DATA_REVISION='20260829-collapse1';
 const versioned=(path:string)=>`${path}?v=${DATA_REVISION}`;
 const colors:Record<string,string>={Army:'#bd1f2e','Other imperial servants':'#204c74',Handouts:'#d6a34a',Buildings:'#7c9b82',Other:'#a8b1b7'};
 
