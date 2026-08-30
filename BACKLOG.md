@@ -44,6 +44,10 @@ graphics that explain the claim without decorative clutter.
 - After each run, update this file with the result, verification evidence, and next actionable item.
 - Stop and report a blocker when a product decision is genuinely ambiguous, evidence conflicts materially, or the change would be destructive or expand scope.
 
+## P0 — Mobile quality release gate
+
+Every published page and new insight must look and work intentionally at 390 × 844 pixels before deployment. Test the full affected page—not only the new chart—for horizontal overflow, clipped labels, unreadably small controls, overlapping copy, touch targets, loading and error states, and interaction parity with desktop. Record the viewport and result in the completed-milestone note. A passing desktop build does not satisfy this gate.
+
 ## P0 — Page 01: Rome — five core insights live
 
 1. **Where Rome was:** annual territorial map, neighboring polities, political form — live, inspectable, and target-year audited.
@@ -56,7 +60,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Open Page 04, **The Bronze Age world system**, with insight 01: show how copper and tin turned geography into a long-distance production network without inventing annual trade volumes.
+- Build Bronze Age insight 02: compare how palace archives, stores, workshops, and redistribution made distant materials governable without treating every palace as one centrally planned economy.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -90,7 +94,7 @@ when the evidence supports independent urban/state formation.
 
 ## P1 — Page 04: The Bronze Age world system — ready
 
-1. Copper and tin turned geography into a long-distance production network.
+1. Copper and tin turned geography into a long-distance production network — live; four evidence views preserve one cargo, copper provenance, an Atlantic tin signal, a textual relationship, and competing tin-source hypotheses without inventing annual flows or direct routes.
 2. Palace economies concentrated storage, craft, writing, and redistribution.
 3. Chariots were an elite military system with demanding horse and maintenance inputs.
 4. Trade connected the eastern Mediterranean more tightly than political borders suggest.
@@ -173,6 +177,7 @@ when the evidence supports independent urban/state formation.
 
 ## Completed
 
+- 2026-08-30 — Opened Page 04 with Bronze Age insight 01, **The Bronze Age was a supply chain before it was an age**. Added four evidence views and nineteen source-keyed places joined by sixteen inspectable connections: the roughly 10-tonne copper and 1-tonne tin Uluburun cargo, a 78-ingot Cypriot copper comparison across six find regions, a three-method Atlantic tin signal, and one Mari textual relationship. Competing Uluburun tin-source publications remain visible; automated guards reject annual flow, traffic, market-share, direct-route, and shared-score fields and preserve the direct-Britain-to-Levant, Mušiston, and textual-evidence limits. Added six specialist sources, one public dataset, one registered claim, a durable audit, immutable client snapshots, and a new P0 mobile-quality release gate. Verified all four views, the Mušiston readout, desktop and 390 × 844 interaction parity, 0 horizontal overflow, 0 exact `undefined`/`NaN` values, data validation, lint, and the production build in the isolated `codex/bronze-age-metal-network` worktree.
 - 2026-08-30 — Repaired the reported production 404 on Uruk's grain-state evidence and hardened all five First States visualizations against the same deployment mismatch. Every Uruk chart now loads from one immutable revisioned client-data snapshot, rejects HTML and empty fallbacks, and retries one transient request before showing an error. Added byte-for-byte snapshot checks for all five CSVs and a production smoke test that requires HTTP 200, CSV content, and the expected row count for every live Uruk dataset. Verified data validation, lint, production build, all five deployed assets, all five live visualizations, and a clean production browser console.
 - 2026-08-30 — Completed Cradles insight 05, **There was no single kind of collapse**, with six source-keyed pathways through deliberate dispersal at Shakhi Kora, political relocation to Thebes and Karnak, Indus deurbanization and regional shift, Taosi's loss of capital status after destruction, uneven fragmentation around Monte Albán, and a hypothesized reorganization of the Supe system. Added four specialist sources, one public dataset, one registered claim, a durable evidence audit, and an immutable client snapshot. Automated guards reject shared collapse, resilience, continuity, and population-loss fields and preserve geographic scope, climate-monocause, conqueror, dynasty, successor, and migration limits. Verified all six selectors and afterlife readouts, zero horizontal overflow at 1280 and 390 × 844, no corrupt rendered values or loading errors, a clean browser console, data validation, lint, and the production build in the isolated `codex/cradles-afterlives` worktree.
 - 2026-08-30 — Completed Cradles insight 04, **There was no single route from grain to state power**, with six institutional portfolios and twenty-four source-keyed input → coordinator → visible-outcome routes. The comparison distinguishes Mesopotamian archives and institutional kitchens, Egyptian industrial food and craft production, Indus standards and civic public goods, Taosi storage and craft districts, Erlitou workshops and planned access, Oaxaca households and marketplaces, Aguada Fénix communal building, and Caral's irrigation, coast–valley complementarity, maize, and monuments. Every route exposes its evidence class and limit; automated guards reject prevalence and capacity scores and block bowl-to-slavery, brewery-to-workforce, public-goods-to-kings, storage-to-tax-record, monument-to-coercion, and complementarity-to-central-redistribution inferences. Added one public dataset, one registered claim, a durable evidence audit, and an immutable client snapshot. Verified all six regional selectors and all twenty-four route readouts, the Indus civic-public-goods selection, zero horizontal overflow at desktop and 390 × 844, no corrupt rendered values, a clean browser console, data validation, lint, and the production build in the isolated `codex/cradles-coordination` worktree.

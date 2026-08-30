@@ -198,5 +198,18 @@
     "source_key_field": "source_keys",
     "time_resolution": "six unlike site regional and political transition cases from the fourth millennium BCE to the first millennium CE",
     "notes": "Each row distinguishes a prior system an observable transition and a bounded afterlife. The cases are not synchronized and compute no collapse resilience continuity population-loss or civilizational score. Settlement persistence does not by itself establish population institutional or political continuity."
+  },
+  {
+    "id": "bronze-metal-network",
+    "title": "Copper and tin evidence places and connections across the Bronze Age Mediterranean and Eurasia",
+    "paths": [
+      "/data/bronze-metal-network-nodes.csv",
+      "/data/bronze-metal-network-links.csv"
+    ],
+    "schema": "observation",
+    "evidence_type": "archaeological_cargo_archaeometallurgical_provenance_textual_exchange_and_contested_hypothesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "nineteen evidence-place rows and sixteen bounded connections from the eighteenth through thirteenth centuries BCE",
+    "notes": "Four views keep one cargo Cypriot copper distribution Atlantic tin compatibility and a textual exchange relationship separate. Connections are evidence links not reconstructed routes. The dataset contains no annual trade volumes traffic estimates market shares or inferred direct voyages and preserves competing Uluburun tin-source claims."
   }
 ]

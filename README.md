@@ -11,6 +11,7 @@ The public site is [visualizing-reality.rhyslindmark.chatgpt.site](https://visua
 - `public/data/rome/<revision>/` — immutable Rome client snapshots; keep old revisions so already-open tabs cannot receive a newer, incompatible schema.
 - `public/data/uruk/<revision>/` — immutable Uruk client snapshots used by every interactive First States chart.
 - `public/data/cradles/<revision>/` — immutable Cradles client snapshots used by interactive comparisons.
+- `public/data/bronze-age/<revision>/` — immutable Bronze Age client snapshots used by the metal-network evidence map.
 - `scripts/validate-data.mjs` — integrity checks for source keys, datasets, claims, estimates, and historical boundary intervals.
 - `research/` — durable research and evidence audits used to explain inclusion, exclusion, and modeling decisions.
 - `BACKLOG.md` — the page contract, editorial rules, priorities, and completed milestones.
@@ -26,7 +27,7 @@ npm install
 npm run dev
 ```
 
-Then open the local URL printed by the development server. The main routes are `/`, `/rome`, `/uruk`, and `/cradles`.
+Then open the local URL printed by the development server. The main routes are `/`, `/rome`, `/uruk`, `/cradles`, and `/bronze-age`.
 
 ## Verify a change
 
@@ -69,4 +70,6 @@ Uruk and the first states now has all five insights live. The first separates ur
 
 The cradles of civilization now has all five insights live. The first uses a selectable world map to compare urban scale, political centralization, and durable notation across Mesopotamia, Egypt, the Indus, northern China, Mesoamerica, and the Andes. Eighteen source-keyed observations preserve phase ranges and evidence status; the Indus political form remains contested, San Andrés notation remains probable and contested, earlier Chinese signs remain distinct from secure Shang writing, and the Andes notation lane is an undated evidence gap rather than year zero. The second compares water, rainfall, crops, transport, and settlement form through thirty qualitative regional cells. Every cell exposes its evidence class and limit; unlike ecologies are not converted into one hydraulic or settlement-density score. The third reuses the audited city, state, and notation clocks and adds monumental building and bronze. Thirty source-keyed phase rows show six ordinal signatures on a 4000 BCE–1550 CE axis; ties stay tied, missing notation stays undated, and rare objects, sustained alloy use, analytical samples, and regional scaling are never collapsed into one Bronze Age threshold. The fourth follows twenty-four input → institution → outcome routes through archives, kitchens, workshops, standards, exchange, public goods, distributed water works, coast–valley complementarity, and communal monuments. Four routes per region are an inspectable editorial portfolio, not a prevalence count, and no surplus or state-capacity score is computed. The fifth compares six different historical afterlives—deliberate dispersal, political relocation, deurbanization, capital destruction, regional fragmentation, and a hypothesized reorganization—while keeping site occupation, population, political order, records, and institutions on separate clocks.
 
-Next is Page 04, the Bronze Age world system, beginning with how copper and tin turned geography into a long-distance production network.
+The Bronze Age world system is now open with the first of five insights live. Its four-view evidence map separates one observed Uluburun cargo, the analytical reach of Cypriot copper, an Atlantic tin provenance signal, and a Mari textual relationship. Nineteen nodes and sixteen connections expose their source keys and inference limits; no line claims a direct voyage, annual flow, market share, or complete route. Competing Uluburun tin-source interpretations remain visible rather than being smoothed into one answer.
+
+Next is Bronze Age insight 02: compare how palace archives, stores, workshops, and redistribution made distant materials governable without treating every palace as one centrally planned economy.

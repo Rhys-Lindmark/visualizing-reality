@@ -163,5 +163,26 @@
     "dataset_ids": ["cradles-afterlives"],
     "source_keys": ["CRAWFORD_ET_AL2023", "GLATZ_ET_AL2025", "CHARLOUX_ET_AL2021", "PETRIE_ET_AL2017", "MADELLA_FULLER2006", "DIXIT_ET_AL2018", "HE2018", "KOWALEWSKI_ET_AL2025", "SANDWEISS_ET_AL2009", "SHADY_ET_AL2001"],
     "note": "Six cases remain unlike pathways rather than a common time series or score. The visual distinguishes site occupation from population political and institutional continuity; blocks climate monocausality; and does not infer destinations dynastic identities or direct successor lines where the evidence cannot establish them."
+  },
+  {
+    "id": "bronze-age-01-metal-network",
+    "page": "bronze-age",
+    "insight": 1,
+    "claim": "Bronze tied copper-producing regions to scarcer and more distant tin sources through overlapping archaeological analytical and textual networks but surviving evidence does not support one route map or annual flow series.",
+    "status": "working_synthesis",
+    "evidence_type": "archaeological_cargo_archaeometallurgical_provenance_textual_exchange_and_contested_hypothesis",
+    "dataset_ids": [
+      "bronze-metal-network"
+    ],
+    "source_keys": [
+      "HAUPTMANN_ET_AL2002",
+      "MANNING_ET_AL2009",
+      "STOS_GALE_ET_AL1997",
+      "WILLIAMS_ET_AL2025",
+      "POWELL_ET_AL2022",
+      "BERGER_ET_AL2023",
+      "SAUVAGE2017"
+    ],
+    "note": "The evidence map distinguishes one observed cargo an isotopic distribution comparison a multi-method provenance signal a textual relationship and disputed source hypotheses. Straight connections are not roads voyages or annual quantities; the Uluburun tin source remains unresolved."
   }
 ]

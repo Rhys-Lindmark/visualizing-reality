@@ -504,6 +504,51 @@ if (!andesAfterlife || !sourceKeys(andesAfterlife.source_keys).includes('SANDWEI
 const cradleAfterlivesSnapshot = read('public/data/cradles/20260830-afterlives1/cradles-afterlives.csv');
 if (cradleAfterlivesSnapshot !== readFileSync(path.join(root, 'public/data/cradles-afterlives.csv'), 'utf8')) fail('Cradles afterlives immutable client snapshot diverges from the canonical dataset');
 
+const bronzeNodes = csv('public/data/bronze-metal-network-nodes.csv');
+const bronzeLinks = csv('public/data/bronze-metal-network-links.csv');
+const bronzeNodeIndex = new Map();
+const bronzeNetworkNodeCounts = new Map();
+const bronzeNetworkLinkCounts = new Map();
+for (const [index, row] of bronzeNodes.entries()) {
+  const context = `bronze-metal-network-nodes.csv row ${index + 2}`;
+  requireFields(row, ['network_id', 'network_label', 'node_id', 'name', 'latitude', 'longitude', 'role', 'material', 'display_date', 'evidence_status', 'observation', 'source_keys', 'limits'], context);
+  numeric(row, ['latitude', 'longitude'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  const key = `${row.network_id}|${row.node_id}`;
+  if (bronzeNodeIndex.has(key)) fail(`${context} duplicates ${key}`); bronzeNodeIndex.set(key, row);
+  bronzeNetworkNodeCounts.set(row.network_id, (bronzeNetworkNodeCounts.get(row.network_id) ?? 0) + 1);
+  if (Object.keys(row).some(field => /annual_volume|traffic|market_share|rank|score|direct_route/i.test(field))) fail(`${context} introduces an unsupported route or quantity field`);
+  if (row.limits.length < 70) fail(`${context} does not preserve a substantive inference limit`);
+}
+for (const [index, row] of bronzeLinks.entries()) {
+  const context = `bronze-metal-network-links.csv row ${index + 2}`;
+  requireFields(row, ['network_id', 'link_id', 'from_node', 'to_node', 'material', 'link_class', 'evidence_status', 'display_date', 'observation', 'source_keys', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!bronzeNodeIndex.has(`${row.network_id}|${row.from_node}`) || !bronzeNodeIndex.has(`${row.network_id}|${row.to_node}`)) fail(`${context} references a node outside its evidence view`);
+  bronzeNetworkLinkCounts.set(row.network_id, (bronzeNetworkLinkCounts.get(row.network_id) ?? 0) + 1);
+  if (Object.keys(row).some(field => /annual_volume|traffic|market_share|rank|score|direct_route/i.test(field))) fail(`${context} introduces an unsupported route or quantity field`);
+  if (!/not |no |rather than|cannot|does not/i.test(row.limits)) fail(`${context} does not state a negative inference limit`);
+}
+const expectedBronzeNodes = new Map([['one-cargo', 5], ['copper-reach', 7], ['atlantic-tin', 4], ['textual-hub', 3]]);
+const expectedBronzeLinks = new Map([['one-cargo', 4], ['copper-reach', 6], ['atlantic-tin', 4], ['textual-hub', 2]]);
+if (bronzeNodes.length !== 19 || bronzeLinks.length !== 16) fail(`Bronze metal network requires 19 nodes and 16 links; found ${bronzeNodes.length} and ${bronzeLinks.length}`);
+for (const [network, count] of expectedBronzeNodes) if (bronzeNetworkNodeCounts.get(network) !== count) fail(`Bronze ${network} requires ${count} nodes`);
+for (const [network, count] of expectedBronzeLinks) if (bronzeNetworkLinkCounts.get(network) !== count) fail(`Bronze ${network} requires ${count} links`);
+const uluburun = bronzeNodeIndex.get('one-cargo|uluburun');
+if (!uluburun || !sourceKeys(uluburun.source_keys).includes('HAUPTMANN_ET_AL2002') || !sourceKeys(uluburun.source_keys).includes('MANNING_ET_AL2009') || !/ten tonnes of copper and one tonne of tin/i.test(uluburun.observation) || !/not an annual trade total/i.test(uluburun.limits)) fail('Uluburun must remain one dated cargo with 10 tonnes copper 1 tonne tin and an explicit non-annual limit');
+const aplikiReach = bronzeNodeIndex.get('copper-reach|aplike');
+if (!aplikiReach || !sourceKeys(aplikiReach.source_keys).includes('STOS_GALE_ET_AL1997') || !/78 analyzed oxhide ingots/i.test(aplikiReach.observation)) fail('Cypriot copper reach must preserve the published 78-ingot comparison');
+const israelTin = bronzeNodeIndex.get('atlantic-tin|israel');
+if (!israelTin || !sourceKeys(israelTin.source_keys).includes('WILLIAMS_ET_AL2025') || !/no evidence for a direct Britain-to-eastern-Mediterranean connection/i.test(israelTin.limits)) fail('Atlantic tin must explicitly reject a direct Britain-to-Levant route inference');
+const mushiston = bronzeNodeIndex.get('one-cargo|mushiston');
+if (!mushiston || mushiston.evidence_status !== 'rejected_specific_match' || !sourceKeys(mushiston.source_keys).includes('POWELL_ET_AL2022') || !sourceKeys(mushiston.source_keys).includes('BERGER_ET_AL2023') || !/does not rule out every eastern tin source/i.test(mushiston.limits)) fail('Mušiston must preserve both the proposal and critique without excluding all eastern sources');
+const mari = bronzeNodeIndex.get('textual-hub|mari');
+if (!mari || !sourceKeys(mari.source_keys).includes('SAUVAGE2017') || !/does not reveal the mine source.*cargo size.*complete route/i.test(mari.limits)) fail('Mari textual evidence must not become a mine cargo or complete route');
+for (const file of ['bronze-metal-network-nodes.csv', 'bronze-metal-network-links.csv']) {
+  const snapshot = read(`public/data/bronze-age/20260830-bronze-network1/${file}`);
+  if (snapshot !== readFileSync(path.join(root, `public/data/${file}`), 'utf8')) fail(`Bronze immutable client snapshot diverges from ${file}`);
+}
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -569,4 +614,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${geo.features.length} boundary features.`);
