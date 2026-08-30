@@ -325,6 +325,41 @@ if (!provisioning || !/does not by itself prove a grain wage forced labor slaver
 const regionalReversal = urukFragility.find(row => row.slug === 'regional-reversal');
 if (!regionalReversal || !/Ceramic absence is not a death count/i.test(regionalReversal.what_it_does_not_prove)) fail('Regional reversal must block a death-count interpretation');
 
+const cradles = csv('public/data/cradles-evidence-clocks.csv');
+const cradleRegions = new Set(['mesopotamia', 'egypt', 'indus', 'northern-china', 'mesoamerica', 'andes']);
+const cradleClocks = new Set(['urban_scale', 'political_centralization', 'durable_notation']);
+const cradleKeys = new Set();
+for (const [index, row] of cradles.entries()) {
+  const context = `cradles-evidence-clocks.csv row ${index + 2}`;
+  requireFields(row, ['region', 'region_slug', 'latitude', 'longitude', 'clock', 'display_date', 'place', 'observation', 'evidence_status', 'source_keys', 'interpretation', 'limits'], context);
+  numeric(row, ['latitude', 'longitude'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!cradleRegions.has(row.region_slug)) fail(`${context} has unsupported region ${row.region_slug}`);
+  if (!cradleClocks.has(row.clock)) fail(`${context} has unsupported clock ${row.clock}`);
+  if (Number(row.latitude) < -90 || Number(row.latitude) > 90 || Number(row.longitude) < -180 || Number(row.longitude) > 180) fail(`${context} has invalid coordinates`);
+  const key = `${row.region_slug}|${row.clock}`;
+  if (cradleKeys.has(key)) fail(`${context} duplicates ${key}`); cradleKeys.add(key);
+  const isGap = row.evidence_status === 'evidence_gap';
+  if (isGap) {
+    if (row.start_year !== '' || row.end_year !== '') fail(`${context} assigns a numeric date to an evidence gap`);
+    if (row.region_slug !== 'andes' || row.clock !== 'durable_notation') fail(`${context} introduces an unsupported undated gap`);
+    if (!/not zero|year zero|not be plotted at 0/i.test(`${row.observation} ${row.interpretation} ${row.limits}`)) fail(`${context} does not block a year-zero reading`);
+  } else {
+    numeric(row, ['start_year', 'end_year'], context);
+    if (Number(row.start_year) > Number(row.end_year)) fail(`${context} starts after it ends`);
+    if (Number(row.start_year) < -4000 || Number(row.end_year) > -100) fail(`${context} falls outside the published comparison window`);
+  }
+  if (/civilization (score|rank)|ranking of civilizations|most civilized/i.test(`${row.observation} ${row.interpretation} ${row.limits}`)) fail(`${context} introduces a civilizational rank`);
+}
+if (cradles.length !== 18) fail(`Expected eighteen cradles evidence-clock rows, found ${cradles.length}`);
+for (const region of cradleRegions) for (const clock of cradleClocks) if (!cradleKeys.has(`${region}|${clock}`)) fail(`Cradles evidence clocks are missing ${region}|${clock}`);
+if (cradles.filter(row => row.evidence_status === 'evidence_gap').length !== 1) fail('Cradles evidence clocks must contain exactly one explicit evidence gap');
+if (!cradles.some(row => row.region_slug === 'indus' && row.clock === 'political_centralization' && row.evidence_status === 'contested_inference' && /does not invent kings/i.test(row.limits))) fail('Indus political centralization must remain contested and block invented kings');
+if (!cradles.some(row => row.region_slug === 'mesoamerica' && row.clock === 'durable_notation' && row.evidence_status === 'probable_contested_attestation')) fail('San Andrés notation must remain probable and contested');
+if (!cradles.some(row => row.region_slug === 'northern-china' && row.clock === 'durable_notation' && /Earlier marks/i.test(row.limits))) fail('Northern China writing must distinguish secure Shang attestation from earlier disputed marks');
+if (!cradles.some(row => row.region_slug === 'andes' && row.clock === 'urban_scale' && Number(row.start_year) === -2627 && Number(row.end_year) === -1977 && row.source_keys === 'SHADY_ET_AL2001')) fail('Andes urban-scale evidence must preserve the calibrated Caral range');
+if (!cradles.some(row => row.region_slug === 'andes' && row.clock === 'political_centralization' && Number(row.start_year) === -200 && Number(row.end_year) === -100 && row.source_keys === 'MILLAIRE2010')) fail('Andes political clock must preserve the probable second-century BCE Virú range');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -390,4 +425,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${geo.features.length} boundary features.`);

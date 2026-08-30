@@ -148,5 +148,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "eight irregular site and regional observations from approximately 4200 to 3100 BCE",
     "notes": "Unlike observations retain their original units and inference limits. Counts are not added or converted into a fragility score; bowls do not establish slavery, walls do not measure coercion, abandonment is not a death count, and no Uruk disease series is inferred."
+  },
+  {
+    "id": "cradles-evidence-clocks",
+    "title": "Urban scale, political centralization, and durable-notation evidence clocks across six regions",
+    "path": "/data/cradles-evidence-clocks.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_archaeological_chronology_and_scholarly_inference",
+    "source_key_field": "source_keys",
+    "time_resolution": "eighteen region-clock observations: seventeen phase ranges or dated contexts and one explicitly undated Andean notation gap",
+    "notes": "The six-region frame is a debated comparative device, not a canonical list or rank. Urban scale, political centralization, and durable notation remain separate clocks. Dates are not annual series or confidence intervals; the Andean notation gap is not plotted at year zero."
   }
 ]

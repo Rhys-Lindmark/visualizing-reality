@@ -108,5 +108,16 @@
     "dataset_ids": ["uruk-state-fragility-evidence"],
     "source_keys": ["LAWRENCE_WILKINSON2015", "CHAZAN_LEHNER1990", "REICHEL2006", "MCMAHON2007", "GLATZ_ET_AL2025", "STEIN1999", "LEWIS2025"],
     "note": "Eight cases remain unlike observations rather than a common time series or score. The visual blocks a slavery count from bowls, an attacker identity from Hamoukar's destruction, a state-execution label from Tell Brak's mass deposit, a death count from settlement abandonment, and a disease claim without a local population series."
+  },
+  {
+    "id": "cradles-01-three-clocks",
+    "page": "cradles",
+    "insight": 1,
+    "claim": "Across six frequently compared regions, urban scale, political centralization, and durable notation became visible in different sequences and cannot be collapsed into one civilizational birthday or rank.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_archaeological_chronology_and_scholarly_inference",
+    "dataset_ids": ["cradles-evidence-clocks", "natural-earth-basemap"],
+    "source_keys": ["COWGILL2004", "SPENCER2010", "MOELLER2015", "REGULSKI2016", "GREEN_PETRIE2018", "GREEN2020", "WELLS2015", "HE2018", "XU2018", "DEMATTE2022", "SPENCER_REDMOND2004", "POHL_ET_AL2002", "SHADY_ET_AL2001", "MILLAIRE2010", "URTON2017", "EMBERLING_ET_AL2023", "SELZ2020", "KELLEY_CARTOLANO_FERRARA2025"],
+    "note": "The map locates evidence cases rather than ancient borders or an independence score. All political rows are labeled as inferences. Indus authority remains contested, San Andrés notation probable and contested, earlier Chinese signs are not treated as secure writing, and the Andean script lane remains an undated evidence gap rather than zero."
   }
 ]

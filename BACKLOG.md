@@ -54,7 +54,7 @@ graphics that explain the claim without decorative clutter.
 
 Immediate project work:
 
-- Open Page 03, **The cradles of civilization**, with insight 01: define and map multiple evidence clocks for independent urbanism, state formation, and writing across Mesopotamia, Egypt, the Indus, northern China, Mesoamerica, and the Andes without turning a debated category into a canonical rank or one birthday.
+- Continue Page 03, **The cradles of civilization**, with insight 02: compare river regimes, rainfall, crops, transport, and settlement density across the six regional cases without reducing unlike landscapes to one hydraulic-state formula.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -80,7 +80,7 @@ Treat “five cradles” as a question to investigate, not a settled canonical l
 Include Mesopotamia, Egypt, the Indus, northern China, Mesoamerica, and the Andes
 when the evidence supports independent urban/state formation.
 
-1. Map when and where urbanism, states, and writing emerged independently.
+1. Map when and where urban scale, political centralization, and durable notation became visible — live; six selectable regional chronologies, eighteen source-keyed rows, and one explicit undated Andean notation gap with no rank, score, annual interpolation, or year zero.
 2. Compare river regimes, rainfall, crops, transport, and settlement density.
 3. Compare the timing of cities, states, writing, bronze, and monumental building.
 4. Show multiple routes to surplus and coordination rather than one hydraulic formula.
