@@ -436,6 +436,38 @@ if (!mesoMonument || Number(mesoMonument.start_year) !== -1000 || Number(mesoMon
 const cradleSequenceSnapshot = read('public/data/cradles/20260830-sequence1/cradles-sequence-clocks.csv');
 if (cradleSequenceSnapshot !== readFileSync(path.join(root, 'public/data/cradles-sequence-clocks.csv'), 'utf8')) fail('Cradles sequence immutable client snapshot diverges from the canonical dataset');
 
+const cradleCoordination = csv('public/data/cradles-coordination-routes.csv');
+const cradleCoordinationKeys = new Set();
+const coordinationCounts = new Map();
+for (const [index, row] of cradleCoordination.entries()) {
+  const context = `cradles-coordination-routes.csv row ${index + 2}`;
+  requireFields(row, ['region', 'region_slug', 'route_slug', 'route_label', 'input', 'coordinator', 'outcome', 'observation', 'evidence_status', 'place', 'time_window', 'source_keys', 'interpretation', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!cradleRegions.has(row.region_slug)) fail(`${context} has unsupported region ${row.region_slug}`);
+  const key = `${row.region_slug}|${row.route_slug}`;
+  if (cradleCoordinationKeys.has(key)) fail(`${context} duplicates ${key}`); cradleCoordinationKeys.add(key);
+  coordinationCounts.set(row.region_slug, (coordinationCounts.get(row.region_slug) ?? 0) + 1);
+  if (Object.keys(row).some(field => /score|rank|index|prevalence|surplus_value|tax_value|storage_value|labor_value|coercion_value|capacity_value/i.test(field))) fail(`${context} introduces an unsupported common-scale field`);
+  if (row.limits.length < 70) fail(`${context} does not preserve a substantive inference limit`);
+  if (/proves? (centralized|hydraulic) control|automatically created (a )?state|measures? state capacity/i.test(`${row.observation} ${row.interpretation}`)) fail(`${context} turns one route into an unsupported state-capacity cause`);
+}
+if (cradleCoordination.length !== 24) fail(`Expected twenty-four cradles coordination routes, found ${cradleCoordination.length}`);
+for (const region of cradleRegions) if (coordinationCounts.get(region) !== 4) fail(`Cradles coordination routes require four inspectable rows for ${region}, found ${coordinationCounts.get(region) ?? 0}`);
+const mesopotamiaBowls = cradleCoordination.find(row => row.region_slug === 'mesopotamia' && row.route_slug === 'standard-vessels');
+if (!mesopotamiaBowls || !sourceKeys(mesopotamiaBowls.source_keys).includes('CHAZAN_LEHNER1990') || !/do not prove grain wages forced labor slavery/i.test(mesopotamiaBowls.limits.replaceAll(',', ''))) fail('Mesopotamian vessel evidence must not become a grain-wage forced-labor or slavery estimate');
+const egyptBrewing = cradleCoordination.find(row => row.region_slug === 'egypt' && row.route_slug === 'industrial-brewing');
+if (!egyptBrewing || !sourceKeys(egyptBrewing.source_keys).includes('MOELLER2015') || !/cannot be estimated precisely/i.test(egyptBrewing.limits)) fail('Egyptian industrial brewing must preserve the missing capacity and worker estimates');
+const indusPublicGoods = cradleCoordination.find(row => row.region_slug === 'indus' && row.route_slug === 'civic-public-goods');
+if (!indusPublicGoods || !sourceKeys(indusPublicGoods.source_keys).includes('GREEN_ALAM_PETRIE2026') || !/does not identify a palace king labor regime or centralized ruling class/i.test(indusPublicGoods.limits.replaceAll(',', ''))) fail('Indus public goods must not invent a palace king labor regime or centralized ruling class');
+const taosiStorage = cradleCoordination.find(row => row.region_slug === 'northern-china' && row.route_slug === 'segregated-storage');
+if (!taosiStorage || !sourceKeys(taosiStorage.source_keys).includes('HE2018') || !/interpretations rather than surviving administrative records/i.test(taosiStorage.limits)) fail('Taosi storage must keep tax redistribution guards and ruler control interpretive');
+const aguadaLabor = cradleCoordination.find(row => row.region_slug === 'mesoamerica' && row.route_slug === 'communal-monument');
+if (!aguadaLabor || !sourceKeys(aguadaLabor.source_keys).includes('INOMATA_ET_AL2020') || !/voluntary coerced seasonal centrally commanded/i.test(aguadaLabor.limits.replaceAll(',', ''))) fail('Aguada Fénix must preserve uncertainty about how communal labor was organized');
+const andesComplementarity = cradleCoordination.find(row => row.region_slug === 'andes' && row.route_slug === 'coast-valley-complementarity');
+if (!andesComplementarity || !sourceKeys(andesComplementarity.source_keys).includes('SANDWEISS_ET_AL2009') || !/does not establish centralized redistribution/i.test(andesComplementarity.limits)) fail('Andean coast-valley complementarity must not become a centralized-redistribution claim');
+const cradleCoordinationSnapshot = read('public/data/cradles/20260830-coordination1/cradles-coordination-routes.csv');
+if (cradleCoordinationSnapshot !== readFileSync(path.join(root, 'public/data/cradles-coordination-routes.csv'), 'utf8')) fail('Cradles coordination immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -501,4 +533,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${geo.features.length} boundary features.`);
