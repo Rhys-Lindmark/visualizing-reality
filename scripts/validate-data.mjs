@@ -213,6 +213,28 @@ for (const [metric, value] of [['artifacts', 6726], ['transliterated_artifacts',
   if (!urukWriting.some(row => row.metric === metric && Number(row.value) === value)) fail(`Uruk writing corpus is missing ${metric} = ${value}`);
 }
 
+const urukUrbanization = csv('public/data/uruk-urbanization-clocks.csv');
+const urukUrbanKeys = new Set();
+for (const [index, row] of urukUrbanization.entries()) {
+  const context = `uruk-urbanization-clocks.csv row ${index + 2}`;
+  requireFields(row, ['kind', 'system', 'start_year', 'end_year', 'display_date', 'place', 'measure', 'relation', 'unit', 'label', 'evidence_type', 'source_keys', 'interpretation', 'limits'], context);
+  numeric(row, ['start_year', 'end_year'], context);
+  if (row.value !== '') numeric(row, ['value'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!['timeline', 'footprint', 'context'].includes(row.kind)) fail(`${context} has unsupported kind ${row.kind}`);
+  if (!['Urban scale', 'Public institutions', 'Record-keeping', 'Political inference'].includes(row.system)) fail(`${context} has unsupported system ${row.system}`);
+  if (Number(row.start_year) > Number(row.end_year)) fail(`${context} starts after it ends`);
+  if (row.kind === 'timeline' && row.value !== '') fail(`${context} mixes a timeline interval with a footprint value`);
+  if (row.kind !== 'timeline' && (row.measure !== 'settlement_footprint' || row.unit !== 'hectares' || !Number.isFinite(Number(row.value)))) fail(`${context} is not a valid settlement-footprint observation`);
+  if (/population/i.test(`${row.measure} ${row.unit}`)) fail(`${context} presents settlement footprint as population`);
+  const key = `${row.kind}|${row.system}|${row.place}|${row.start_year}|${row.end_year}|${row.measure}`;
+  if (urukUrbanKeys.has(key)) fail(`${context} duplicates ${key}`); urukUrbanKeys.add(key);
+}
+if (urukUrbanization.length !== 10) fail(`Expected ten Uruk urbanization rows, found ${urukUrbanization.length}`);
+for (const [year, value] of [[-3100, 250], [-2900, 400]]) if (!urukUrbanization.some(row => row.kind === 'footprint' && row.place === 'Uruk' && Number(row.start_year) === year && Number(row.value) === value && row.unit === 'hectares')) fail(`Uruk urbanization data is missing the ${Math.abs(year)} BCE footprint of ${value} hectares`);
+if (!urukUrbanization.some(row => row.kind === 'timeline' && row.place === 'Shakhi Kora' && Number(row.start_year) === -3941 && Number(row.end_year) === -3377)) fail('Uruk urbanization data is missing the 3941–3377 cal BCE Shakhi Kora institutional sequence');
+if (!urukUrbanization.some(row => row.kind === 'timeline' && row.system === 'Political inference' && row.place === 'Uruk' && Number(row.start_year) === -3800 && Number(row.end_year) === -3300)) fail('Uruk urbanization data is missing the bounded 3800–3300 BCE political interpretation');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -278,4 +300,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${geo.features.length} boundary features.`);

@@ -2,21 +2,57 @@
 
 ## Decision
 
-Publish insight 04 first: **the earliest surviving writing was overwhelmingly
-administrative; a broader scribal knowledge system grew alongside it.** The claim
-has phase-specific published quantities and a reproducible public corpus snapshot.
-It does not require a fabricated population, tax, or state-capacity series.
+Two claims now meet the evidence threshold:
 
-The other four claims remain visible as research commitments, not live findings.
+1. **Uruk did not become a city and a state in one leap.** Settlement scale,
+   public institutions, record-keeping, and political power changed on different
+   clocks. The visual keeps unlike evidence in separate lanes and refuses a
+   precise state-birth threshold.
+2. **The earliest surviving writing was overwhelmingly administrative; a broader
+   scribal knowledge system grew alongside it.** The claim has phase-specific
+   published quantities and a reproducible public corpus snapshot.
 
-## 01 — Cities came before fully developed states
+The water, grain, and fragility claims remain visible as research commitments,
+not live findings.
 
-Working claim: settlement concentration and urban scale should be charted separately
-from administration, hierarchy, territorial rule, and coercion.
+## 01 — Four clocks, not one state birthday — publish
 
-- Needed: a site-by-period settlement dataset with explicit area methods and calibrated chronology.
-- Risk: treating “city,” “urbanism,” and “state” as synonyms or assigning one precise birthday.
-- Status: hold. Audit excavation/survey estimates and definitions first.
+Live claim: Uruk did not become a city and a state in one leap. Settlement scale,
+public institutions, record-keeping, and political power changed on different clocks.
+
+Evidence retained in the public dataset:
+
+- Emberling et al. report Uruk at approximately 250 hectares around 3100 BCE and
+  400 hectares in the early third millennium, while warning that southern city-size
+  estimates depend on older survey, imagery, and edge definitions.
+- Lawrence and Wilkinson reconstruct more than one urban trajectory: Tell Brak at
+  approximately 55 hectares in LC 1–2 and 130 hectares in LC 3/Uruk, plus Tell
+  al-Hawa at approximately 50 hectares in the Late Chalcolithic. Their chronology
+  is phase-level and their broader model is pulsating rather than linear.
+- Glatz et al. radiocarbon-bound the successive institutional sequence at Shakhi
+  Kora to 3941–3377 cal BCE (95.4%). Four supra-household food-production and
+  distribution phases ended in population dispersal, making institutional growth
+  visibly reversible rather than an inevitable march toward centralization.
+- Kelley, Cartolano, and Ferrara date cylinder seals broadly to the mid-fourth
+  millennium and proto-cuneiform to approximately 3350–3000 BCE. These are
+  record-keeping attestations, not political constitutions.
+- Selz treats approximately 3800–3300 BCE as the principal period of Uruk
+  urbanization and state formation but finds no unequivocal evidence for
+  monocratic governance. The political lane therefore remains a labeled scholarly
+  inference rather than a recovered first-king date.
+
+Limits:
+
+- Hectares measure a reconstructed settlement footprint, not population, density,
+  jurisdiction, coercive capacity, or a constitution.
+- Survey coverage, ceramic chronology, suburbs, low-density occupation, and where
+  scholars draw a site's edge differ by settlement.
+- Phase ranges and radiocarbon bounds are not annual observations; the visual does
+  not interpolate growth between them.
+- Public buildings and institutional food production are evidence for collective
+  organization, not by themselves proof of territorial state control.
+- The comparison demonstrates plural and reversible pathways. It does not prove
+  that every city preceded every state or that urbanism caused state formation.
 
 ## 02 — Water made concentration possible
 
@@ -66,9 +102,13 @@ non-state peripheries must be considered together.
 - Risk: reading every settlement contraction as collapse or every labor ration as slavery.
 - Status: hold pending data audit.
 
-## Sources used for the live claim
+## Sources used for the live claims
 
 - Robert K. Englund, “Accounting in Proto-Cuneiform,” *The Oxford Handbook of Cuneiform Culture* (2011/2012), DOI: 10.1093/oxfordhb/9780199557301.013.0002.
 - Kathryn Kelley, Mattia Cartolano, and Silvia Ferrara, “Seals and signs: tracing the origins of writing in ancient South-west Asia,” *Antiquity* 99 (2025), DOI: 10.15184/aqy.2024.165.
 - Niek Veldhuis et al., DCCLT introduction, Open Richly Annotated Cuneiform Corpus.
 - Logan Born and Kathryn Erin Kelley, “A Quantitative Analysis of Proto-Cuneiform Sign Use in Archaic Tribute,” *Cuneiform Digital Library Bulletin* 2021/6.
+- Geoff Emberling et al., “The Suburbs of the Early Mesopotamian City of Ur (Tell al-Muqayyar, Iraq),” *American Journal of Archaeology* 127 (2023), DOI: 10.1086/725907.
+- Dan Lawrence and T. J. Wilkinson, “Hubs and upstarts: pathways to urbanism in the northern Fertile Crescent,” *Antiquity* 89 (2015), DOI: 10.15184/aqy.2014.44.
+- Claudia Glatz et al., “There and back again: local institutions, an Uruk expansion and the rejection of centralisation in the Sirwan/Upper Diyala region,” *Antiquity* 99 (2025), DOI: 10.15184/aqy.2024.189.
+- Gebhard J. Selz, “The Uruk Phenomenon,” in *The Oxford History of the Ancient Near East, Volume I* (2020), DOI: 10.1093/oso/9780190687854.003.0004.

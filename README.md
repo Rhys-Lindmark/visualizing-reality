@@ -59,6 +59,6 @@ Rome has all five planned insights live:
 4. A selectable 395–476 CE chronology of the western court's contraction, paired with a published African fiscal-equivalent model and Valentinian III's one-eighth assessment for the two named remaining provinces.
 5. A four-lane chronology of Roman afterlives—eastern state continuity, Latin-to-Romance change, Justinianic-law reception, and conditional road persistence—with an auditable Itiner-e road profile.
 
-Uruk and the first states is now a draft page with one of five insights live. Its first visualization shows the administrative composition of the earliest proto-cuneiform archives, how lexical lists grew in the following phase, and the filtering behind a 2020 CDLI corpus snapshot. The remaining city, water, grain, and state-fragility claims stay visibly under evidence review.
+Uruk and the first states is now a draft page with two of five insights live. The first separates urban scale, public institutions, record-keeping, and political interpretation into four evidence clocks, with published settlement footprints kept distinct from population or a precise state-birth date. The second shows the administrative composition of the earliest proto-cuneiform archives, how lexical lists grew in the following phase, and the filtering behind a 2020 CDLI corpus snapshot. Water, grain, and state fragility remain visibly under evidence review.
 
-Next is Uruk's settlement-to-city chronology, followed by its water ecology, the grain-state hypothesis, and early-state fragility. The cradles of civilization, Bronze Age, and Iron Age pages follow.
+Next is Uruk's water ecology, followed by the grain-state hypothesis and early-state fragility. The cradles of civilization, Bronze Age, and Iron Age pages follow.
