@@ -30,25 +30,29 @@ const colors:Record<string,string>={
   'Parthian Empire':'#745395',
   'Sasanian Empire':'#53376f',
 };
-const DATA_REVISION='20260829-collapse1';
+const DATA_REVISION='20260829-data-hotfix1';
 const versioned=(path:string)=>`${path}?v=${DATA_REVISION}`;
 
 function parseCSV(text:string):string[][]{const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const char=text[i];if(char==='"'&&quoted&&text[i+1]==='"'){cell+='"';i++;}else if(char==='"')quoted=!quoted;else if(char===','&&!quoted){row.push(cell);cell='';}else if((char==='\n'||char==='\r')&&!quoted){if(char==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=char;}if(cell||row.length){row.push(cell);rows.push(row);}return rows;}
 function objects(text:string){const[headers,...rows]=parseCSV(text);return rows.map(row=>Object.fromEntries(headers.map((key,index)=>[key,row[index]])));}
 function people(value:number){return value>=1000?`${(value/1000).toFixed(1)}m`:`${value.toLocaleString()}k`;}
 function evidenceLabel(value:string){return value.replaceAll('_',' ');}
+function validObservation(row:Observation){return Boolean(row.polity&&row.display_year&&row.evidence_grade&&row.source_keys&&Number.isFinite(row.year)&&Number.isFinite(row.soldiers_thousands)&&row.soldiers_thousands>0);}
+async function fetchText(path:string,signal:AbortSignal){let lastError:unknown;for(let attempt=0;attempt<2;attempt++){try{const response=await fetch(versioned(path),{cache:'no-cache',signal});if(!response.ok)throw new Error(`${path} returned ${response.status}`);const text=await response.text();if(!text.trim()||text.trimStart().startsWith('<'))throw new Error(`${path} did not return CSV data`);return text;}catch(error){lastError=error;if(signal.aborted)throw error;if(attempt===0)await new Promise(resolve=>window.setTimeout(resolve,350));}}throw lastError;}
 
 export default function MilitaryCapacityChart(){
   const canvas=useRef<HTMLCanvasElement>(null);
   const[data,setData]=useState<Observation[]>([]);
   const[selected,setSelected]=useState(0);
+  const[loadState,setLoadState]=useState<'loading'|'ready'|'error'>('loading');
   const[loadError,setLoadError]=useState('');
+  const[loadAttempt,setLoadAttempt]=useState(0);
 
-  useEffect(()=>{Promise.all([fetch(versioned('/data/roman-military-capacity.csv')).then(response=>response.text()),fetch(versioned('/data/comparison-forces.csv')).then(response=>response.text())]).then(([romeText,comparisonText])=>{
+  useEffect(()=>{const controller=new AbortController();Promise.all([fetchText('/data/roman-military-capacity.csv',controller.signal),fetchText('/data/comparison-forces.csv',controller.signal)]).then(([romeText,comparisonText])=>{
     const rome=objects(romeText).map((row):Observation=>({polity:String(row.polity),series_id:String(row.series_id),year:Number(row.year),display_year:String(row.display_year),soldiers_thousands:Number(row.soldiers_thousands),evidence_grade:String(row.estimate_type),event:'Published or explicit force estimate',scope:String(row.scope),source_keys:String(row.source_keys),notes:String(row.notes),series:'roman_estimate'}));
     const campaigns=objects(comparisonText).map((row):Observation=>({polity:String(row.polity),year:Number(row.year),display_year:String(row.display_year),soldiers_thousands:Number(row.soldiers_thousands),evidence_grade:String(row.evidence_grade),event:String(row.event),source_keys:String(row.source_keys),notes:String(row.notes),series:'campaign'}));
-    const combined=[...rome,...campaigns];setData(combined);setSelected(combined.findIndex(row=>row.polity==='Roman Republic'&&row.year===-212));
-  }).catch(error=>setLoadError(error instanceof Error?error.message:'Chart data could not be loaded.'));},[]);
+    const combined=[...rome,...campaigns];if(!rome.length||!campaigns.length||combined.some(row=>!validObservation(row)))throw new Error('The force-estimate response was incomplete.');const preferred=combined.findIndex(row=>row.polity==='Roman Republic'&&row.year===-212);setData(combined);setSelected(preferred>=0?preferred:0);setLoadState('ready');
+  }).catch(error=>{if(controller.signal.aborted)return;setLoadError(error instanceof Error?error.message:'Chart data could not be loaded.');setLoadState('error');});return()=>controller.abort();},[loadAttempt]);
 
   const roman=useMemo(()=>data.filter(row=>row.series==='roman_estimate').sort((a,b)=>a.year-b.year),[data]);
   const campaigns=useMemo(()=>data.filter(row=>row.series==='campaign'),[data]);
@@ -69,13 +73,11 @@ export default function MilitaryCapacityChart(){
   },[data,roman,romanSegments,campaigns,focus]);
 
   const handle=(clientX:number,clientY:number)=>{const rect=canvas.current?.getBoundingClientRect();if(!rect||!data.length)return;const localX=((clientX-rect.left)/rect.width)*1050,localY=((clientY-rect.top)/rect.height)*520,x=(year:number)=>76+((year+500)/1000)*(1050-76-34),y=(value:number)=>48+(520-48-66)-(value/500)*(520-48-66);let nearest=0,score=Infinity;data.forEach((row,index)=>{const distance=Math.hypot((x(row.year)-localX)*.7,y(row.soldiers_thousands)-localY);if(distance<score){score=distance;nearest=index;}});setSelected(nearest);};
+  const retryChart=()=>{setData([]);setLoadError('');setLoadState('loading');setLoadAttempt(value=>value+1);};
 
   return <div className="capacity-chart">
-    <div className="metric-bar"><b>Published estimates and observed campaigns</b><span>{loadError||'No reconstructed filler · post-395 East shown separately'}</span></div>
-    <div className="capacity-readout"><div><span>Polity</span><b style={{color:colors[focus?.polity]}}>{focus?.polity||'Loading…'}</b></div><div><span>Date · event</span><b>{focus?.display_year||'—'}</b><small>{focus?.event}</small></div><div><span>Soldiers</span><b>{focus?people(focus.soldiers_thousands):'—'}</b><small>{focus?.scope||'One reported campaign force'}</small></div><div className="red-stat"><span>Evidence class</span><b>{focus?evidenceLabel(focus.evidence_grade):'—'}</b><small>{focus?.series==='roman_estimate'?'one sourced estimate; gaps remain':'one campaign, not state capacity'}</small></div></div>
-    <canvas ref={canvas} width="1050" height="520" onPointerMove={event=>handle(event.clientX,event.clientY)} onPointerDown={event=>handle(event.clientX,event.clientY)} aria-label="Published Roman force estimates and reported campaign forces from 500 BCE to 500 CE" />
-    <div className="polity-legend">{legendPolities.map(name=><span key={name}><i style={{background:colors[name]||'#66747d'}} />{name}</span>)}<span className="anchor-key"><i />rival campaign observation</span></div>
-    <div className="chart-explain"><p><b>{focus?.event||'Observation'}:</b> {focus?.notes} <em>Sources: {focus?.source_keys}</em></p><div><a href={versioned('/data/roman-military-capacity.csv')} download>Rome estimates ↓</a><a href={versioned('/data/comparison-forces.csv')} download>Campaign forces ↓</a></div></div>
+    <div className="metric-bar"><b>Published estimates and observed campaigns</b><span>No reconstructed filler · post-395 East shown separately</span></div>
+    {loadState!=='ready'||!focus?<div className={`data-state chart-data-state ${loadState}`} role={loadState==='error'?'alert':'status'}><b>{loadState==='error'?'The force estimates did not load':'Loading published force estimates…'}</b><span>{loadState==='error'?loadError:'Checking Rome and comparison campaigns before drawing the chart'}</span>{loadState==='error'&&<button type="button" onClick={retryChart}>Retry chart</button>}</div>:<><div className="capacity-readout"><div><span>Polity</span><b style={{color:colors[focus.polity]}}>{focus.polity}</b></div><div><span>Date · event</span><b>{focus.display_year}</b><small>{focus.event}</small></div><div><span>Soldiers</span><b>{people(focus.soldiers_thousands)}</b><small>{focus.scope||'One reported campaign force'}</small></div><div className="red-stat"><span>Evidence class</span><b>{evidenceLabel(focus.evidence_grade)}</b><small>{focus.series==='roman_estimate'?'one sourced estimate; gaps remain':'one campaign, not state capacity'}</small></div></div><canvas ref={canvas} width="1050" height="520" onPointerMove={event=>handle(event.clientX,event.clientY)} onPointerDown={event=>handle(event.clientX,event.clientY)} aria-label="Published Roman force estimates and reported campaign forces from 500 BCE to 500 CE" /><div className="polity-legend">{legendPolities.map(name=><span key={name}><i style={{background:colors[name]||'#66747d'}} />{name}</span>)}<span className="anchor-key"><i />rival campaign observation</span></div><div className="chart-explain"><p><b>{focus.event}:</b> {focus.notes} <em>Sources: {focus.source_keys}</em></p><div><a href={versioned('/data/roman-military-capacity.csv')} download>Rome estimates ↓</a><a href={versioned('/data/comparison-forces.csv')} download>Campaign forces ↓</a></div></div></>}
     <section className="equipment-index" aria-labelledby="equipment-index-title"><div><span>Third–second centuries BCE only</span><h5 id="equipment-index-title">Worked metal per heavy infantryman</h5><p>Relative index from Devereaux’s public summary—not kilograms. Iron and bronze are combined.</p></div><div className="equipment-bars"><div><label><b>Roman heavy infantry</b><strong>125</strong></label><i style={{width:'100%'}} /></div><div><label><b>Nearest comparator</b><strong>100</strong></label><i style={{width:'80%'}} /></div></div><p className="equipment-caveat"><b>What we know:</b> the Roman panoply contained about 25% more worked metal than the nearest comparison in Devereaux’s model. <b>What we do not know from the public evidence:</b> a defensible kilogram value for every polity across a thousand years. The earlier tonnage series has therefore been removed.</p><a href={versioned('/data/equipment-comparison.csv')} download>Relative equipment data ↓</a></section>
   </div>;
 }
