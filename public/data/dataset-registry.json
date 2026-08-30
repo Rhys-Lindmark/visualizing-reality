@@ -138,5 +138,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "five qualitative resource comparisons plus five claim-test observations spanning direct Late Uruk evidence global comparative studies and an explicitly later Ur III methodological comparison",
     "notes": "No numeric legibility or causal score is computed. The original global model, its 2026 published challenge, direct Late Uruk records, regional deltaic ecology, and later evidence of institutional archive bias remain separate. Archive visibility is not treated as dietary or economic share."
+  },
+  {
+    "id": "uruk-state-fragility-evidence",
+    "title": "Archaeological evidence for early-state concentration reversibility and incomplete control",
+    "path": "/data/uruk-state-fragility-evidence.csv",
+    "schema": "observation",
+    "evidence_type": "mixed_site_excavation_regional_survey_artifact_debate_and_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "eight irregular site and regional observations from approximately 4200 to 3100 BCE",
+    "notes": "Unlike observations retain their original units and inference limits. Counts are not added or converted into a fragility score; bowls do not establish slavery, walls do not measure coercion, abandonment is not a death count, and no Uruk disease series is inferred."
   }
 ]

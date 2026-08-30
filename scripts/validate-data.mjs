@@ -294,6 +294,37 @@ if (!archiveTest || !/archive is selected by institutions/i.test(archiveTest.lim
 const laterBias = urukGrain.find(row => row.slug === 'archive-bias');
 if (!laterBias || !/later Ur III/i.test(laterBias.chronology) || !/not a direct reconstruction of Uruk/i.test(laterBias.limits)) fail('The archive-bias comparison must remain explicitly later than Uruk');
 
+const urukFragility = csv('public/data/uruk-state-fragility-evidence.csv');
+const urukFragilitySlugs = new Set();
+const fragilityClasses = new Set(['regional_settlement_synthesis', 'artifact_function_debate', 'excavated_architecture', 'excavation_field_report', 'excavated_human_remains', 'radiocarbon_bounded_excavation', 'excavated_colonial_encounter', 'regional_archaeological_synthesis']);
+for (const [index, row] of urukFragility.entries()) {
+  const context = `uruk-state-fragility-evidence.csv row ${index + 2}`;
+  requireFields(row, ['slug', 'mechanism', 'place', 'start_year', 'end_year', 'display_date', 'observation', 'what_it_supports', 'what_it_does_not_prove', 'evidence_class', 'source_keys'], context);
+  numeric(row, ['start_year', 'end_year'], context);
+  if (row.value !== '') numeric(row, ['value'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (urukFragilitySlugs.has(row.slug)) fail(`${context} duplicates slug ${row.slug}`); urukFragilitySlugs.add(row.slug);
+  if (!fragilityClasses.has(row.evidence_class)) fail(`${context} has unsupported evidence class ${row.evidence_class}`);
+  if (Number(row.start_year) > Number(row.end_year)) fail(`${context} starts after it ends`);
+  if ((row.value === '') !== (row.unit === '')) fail(`${context} must keep quantity and unit together`);
+  if (Object.keys(row).some(key => /score|rank|weight|index/i.test(key))) fail(`${context} introduces an unsupported aggregate score field`);
+  if (/proves? (forced labor|slavery|an epidemic|state execution)/i.test(`${row.observation} ${row.what_it_supports}`)) fail(`${context} turns an archaeological observation into an unsupported coercion disease or execution claim`);
+}
+if (urukFragility.length !== 8) fail(`Expected eight Uruk fragility evidence rows, found ${urukFragility.length}`);
+for (const slug of ['urban-concentration', 'institutional-provisioning', 'fortified-center', 'urban-conflict', 'mass-deposition', 'institutional-dispersal', 'autonomous-periphery', 'regional-reversal']) if (!urukFragilitySlugs.has(slug)) fail(`Uruk fragility evidence is missing ${slug}`);
+const hamoukarWall = urukFragility.find(row => row.slug === 'fortified-center');
+if (!hamoukarWall || Number(hamoukarWall.value) !== 3 || hamoukarWall.relation !== 'approximate' || !sourceKeys(hamoukarWall.source_keys).includes('REICHEL2006')) fail('Uruk fragility evidence must preserve Hamoukar\'s approximately three-metre wall');
+const hamoukarConflict = urukFragility.find(row => row.slug === 'urban-conflict');
+if (!hamoukarConflict || Number(hamoukarConflict.value) !== 1000 || hamoukarConflict.relation !== 'more_than' || !/do not securely identify the attacker/i.test(hamoukarConflict.what_it_does_not_prove)) fail('Hamoukar conflict evidence must preserve the lower bound and attacker uncertainty');
+const brakDeposit = urukFragility.find(row => row.slug === 'mass-deposition');
+if (!brakDeposit || Number(brakDeposit.value) !== 33 || brakDeposit.relation !== 'minimum' || !/does not by itself identify a state execution/i.test(brakDeposit.what_it_does_not_prove)) fail('Tell Brak evidence must preserve the 33–45 minimum and block a state-execution inference');
+const shakhiDispersal = urukFragility.find(row => row.slug === 'institutional-dispersal');
+if (!shakhiDispersal || Number(shakhiDispersal.value) !== 4 || !/deliberate dismantling and population dispersal/i.test(shakhiDispersal.observation) || !/not synonymous with civilizational collapse/i.test(shakhiDispersal.what_it_does_not_prove)) fail('Shakhi Kora must remain a four-phase reversible path rather than a generic collapse');
+const provisioning = urukFragility.find(row => row.slug === 'institutional-provisioning');
+if (!provisioning || !/does not by itself prove a grain wage forced labor slavery/i.test(provisioning.what_it_does_not_prove.replaceAll(',', ''))) fail('Provisioning evidence must not turn bevel-rim bowls into a slavery estimate');
+const regionalReversal = urukFragility.find(row => row.slug === 'regional-reversal');
+if (!regionalReversal || !/Ceramic absence is not a death count/i.test(regionalReversal.what_it_does_not_prove)) fail('Regional reversal must block a death-count interpretation');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -359,4 +390,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${geo.features.length} boundary features.`);

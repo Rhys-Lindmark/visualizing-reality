@@ -2,7 +2,7 @@
 
 ## Decision
 
-Four claims now meet the evidence threshold:
+All five claims now meet the evidence threshold:
 
 1. **Uruk did not become a city and a state in one leap.** Settlement scale,
    public institutions, record-keeping, and political power changed on different
@@ -19,8 +19,10 @@ Four claims now meet the evidence threshold:
    does not establish that grain alone caused Uruk's state.** The visual keeps
    the original global model, its 2026 published challenge, direct Late Uruk
    records, regional ecology, and a later archive-bias comparison distinct.
-
-The fragility claim remains visible as a research commitment, not a live finding.
+5. **Early-state concentration was powerful but reversible.** Eight site and
+   regional observations show concentration, provisioning, fortification,
+   violent failure, mass deposition, deliberate dispersal, peripheral autonomy,
+   and regional reversal without forcing them into one collapse score.
 
 ## 01 — Four clocks, not one state birthday — publish
 
@@ -171,15 +173,62 @@ Limits:
 - Token-to-sign derivations beyond numerical notation are contested; sign origins were diverse.
 - Many signs and their functions remain disputed.
 
-## 05 — Early states were fragile population machines
+## 05 — Concentration created power—and exit points — publish
 
-Working claim: early institutions concentrated labor and people, but state control
-was incomplete and reversible; walls, coercion, disease, flight, conflict, and
-non-state peripheries must be considered together.
+Live claim: early institutions could concentrate people, provisioning, defense,
+and administration without eliminating violent failure, deliberate dispersal,
+peripheral autonomy, or regional reversal.
 
-- Needed: comparable evidence for population concentration/dispersal, fortifications, institutional labor, trauma/conflict, and abandonment.
-- Risk: reading every settlement contraction as collapse or every labor ration as slavery.
-- Status: hold pending data audit.
+Evidence retained in the public dataset:
+
+- Lawrence and Wilkinson's regional survey synthesis finds that rural settlement
+  around Hamoukar declined as the center expanded. This supports concentration
+  without identifying whether each person moved voluntarily, under pressure, or
+  at all.
+- Chazan and Lehner's review of bevel-rim bowls documents both their enormous
+  archaeological presence and the weakness of a simple standardized raw-grain
+  ration interpretation. The vessels support provisioning at scale, not a worker
+  census, grain wage, forced-labor share, or slavery count.
+- Reichel's Hamoukar field report records a city wall approximately three metres
+  wide around 3700 BCE. The c. 3500 BCE destruction contained more than 1,000
+  small sling bullets and more than 130 larger clay missiles, including
+  impact-deformed examples. Later Uruk pottery makes an attacker hypothesis
+  possible but does not securely identify a southern army.
+- McMahon's Tell Brak project report describes two c. 3800 BCE mass deposits at
+  Tell Majnuna. One excavated grave had a minimum of 33–45 people; animal bone
+  and serving vessels complicate a simple execution, war, epidemic, or sacrifice
+  label.
+- Glatz et al. radiocarbon-bound four successive phases of supra-household food
+  production and distribution at Shakhi Kora to 3941–3377 cal BCE. Deliberate
+  dismantling and population dispersal followed instead of another centralized
+  phase.
+- Stein's Hacinebi study distinguishes a Mesopotamian enclave inside an
+  established local Anatolian settlement. Material interaction therefore cannot
+  be rendered automatically as direct territorial sovereignty.
+- Lewis's 2025 open regional synthesis finds concentrated, locally variable Uruk
+  adoption during LC4 and an LC5 virtually absent across much of the
+  Transtigridian Piedmont. It emphasizes local agency and regionalization rather
+  than a uniform imperial system.
+
+Limits:
+
+- These are eight unlike observations, not points in one state-strength series.
+  Counts remain inside the cases from which they came and are not added or scored.
+- Survey contraction does not produce an annual population estimate or identify
+  the mechanism behind every household's movement.
+- Bevel-rim bowl function remains debated. Bowls do not establish the legal
+  status, freedom, dependency, compensation, or identity of users.
+- Walls show investment in bounded settlement. They do not measure how often
+  attack occurred or whether control pointed inward, outward, or both.
+- Conflict and mass-deposition contexts establish lethal violence or unusual
+  treatment of bodies without securely identifying attackers, institutions, or
+  a city-wide mortality rate.
+- Deliberate dispersal is not synonymous with civilizational collapse. People
+  and institutions can reorganize beyond the excavated center.
+- Ceramic absence and settlement abandonment are not death counts.
+- Disease is a plausible urban risk, but the audit found no defensible
+  population-wide Uruk disease series. The visual shows that missing test rather
+  than importing a number from another place or period.
 
 ## Sources used for the live claims
 
@@ -199,3 +248,8 @@ non-state peripheries must be considered together.
 - Jennifer R. Pournelle and Guillermo Algaze, “Travels in Edin: Deltaic Resilience and Early Urbanism in Greater Mesopotamia,” in *Preludes to Urbanism* (2014), pp. 7–34.
 - Sergio Alivernini, Angela Greco, and Magnus Widell, “The Natural Environment of Southern Mesopotamia: Animals, Plants, and Landscape in Cuneiform Texts,” *Environmental Archaeology* (2026), DOI: 10.1080/14614103.2026.2680740.
 - Noa Corcoran-Tadd, Max Price, and Ari Caramanica, “The Political Economy of Livestock in Early States,” *Cambridge Archaeological Journal* 33 (2023), DOI: 10.1017/S095977432200021X.
+- Michael Chazan and Mark Lehner, “An Ancient Analogy: Pot Baked Bread in Ancient Egypt and Mesopotamia,” *Paléorient* 16/2 (1990), pp. 21–35.
+- Clemens D. Reichel, “Hamoukar,” *Oriental Institute 2005–2006 Annual Report* (2006), pp. 65–77.
+- Augusta McMahon, “Death and the City: 2007 Excavations at Tell Brak, Syria,” *McDonald Institute Annual Report* (2007), pp. 58–60.
+- Gil J. Stein, “Material Culture and Social Identity: The Evidence for a 4th Millennium BC Mesopotamian Uruk Colony at Hacinebi, Turkey,” *Paléorient* 25/1 (1999), DOI: 10.3406/paleo.1999.983.
+- Michael P. Lewis, “Reframing the Uruk Expansion: Glocalization and Local Dynamics in the Late Chalcolithic Adhaim-Sirwan Drainage Basin, Iraqi Kurdistan,” *Cambridge Archaeological Journal* 35 (2025), DOI: 10.1017/S0959774324000404.
