@@ -119,5 +119,16 @@
     "dataset_ids": ["cradles-evidence-clocks", "natural-earth-basemap"],
     "source_keys": ["COWGILL2004", "SPENCER2010", "MOELLER2015", "REGULSKI2016", "GREEN_PETRIE2018", "GREEN2020", "WELLS2015", "HE2018", "XU2018", "DEMATTE2022", "SPENCER_REDMOND2004", "POHL_ET_AL2002", "SHADY_ET_AL2001", "MILLAIRE2010", "URTON2017", "EMBERLING_ET_AL2023", "SELZ2020", "KELLEY_CARTOLANO_FERRARA2025"],
     "note": "The map locates evidence cases rather than ancient borders or an independence score. All political rows are labeled as inferences. Indus authority remains contested, San Andrés notation probable and contested, earlier Chinese signs are not treated as secure writing, and the Andean script lane remains an undated evidence gap rather than zero."
+  },
+  {
+    "id": "cradles-02-ecological-pathways",
+    "page": "cradles",
+    "insight": 2,
+    "claim": "Early urban concentration drew on multiple combinations of water rainfall crops transport and settlement form rather than one hydraulic-state recipe.",
+    "status": "working_synthesis",
+    "evidence_type": "qualitative_comparative_environmental_archaeological_synthesis",
+    "dataset_ids": ["cradles-ecology-profiles"],
+    "source_keys": ["ALTAWEEL_ET_AL2019", "JOTHERI_ET_AL2025", "POURNELLE_ALGAZE2014", "ALIVERNINI_GRECO_WIDELL2026", "MOELLER2015", "PETRIE_ET_AL2017", "MADELLA_FULLER2006", "GREEN_PETRIE2018", "LIU_HUNT_JONES2009", "ZHUANG2024", "NICHOLAS_FEINMAN2022", "SHADY_ET_AL2001", "GONZALEZ_GARCIA_ET_AL2021", "SANDWEISS_ET_AL2009", "HAAS_ET_AL2013"],
+    "note": "Thirty qualitative cells remain unlike observations rather than a common scale. The visual blocks one hydraulic score, a climate monocause, crop-share invention, traffic-volume invention, and a shared settlement-density number. Later Mesopotamian texts and multi-period canals retain explicit chronological limits."
   }
 ]

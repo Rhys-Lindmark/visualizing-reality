@@ -158,5 +158,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "eighteen region-clock observations: seventeen phase ranges or dated contexts and one explicitly undated Andean notation gap",
     "notes": "The six-region frame is a debated comparative device, not a canonical list or rank. Urban scale, political centralization, and durable notation remain separate clocks. Dates are not annual series or confidence intervals; the Andean notation gap is not plotted at year zero."
+  },
+  {
+    "id": "cradles-ecology-profiles",
+    "title": "Water rainfall crops transport and settlement-form profiles across six early urban regions",
+    "path": "/data/cradles-ecology-profiles.csv",
+    "schema": "observation",
+    "evidence_type": "qualitative_comparative_environmental_archaeological_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "thirty region-dimension observations with source-specific places and phase or synthesis windows",
+    "notes": "The six-by-five matrix computes no hydraulic, aridity, productivity, legibility, density, or state-causation score. Every cell preserves its evidence class and inference limit. Settlement form replaces a numeric density comparison because survey coverage, preservation, phase length, and population models are not commensurable."
   }
 ]

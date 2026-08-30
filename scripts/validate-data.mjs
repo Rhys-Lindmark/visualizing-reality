@@ -360,6 +360,35 @@ if (!cradles.some(row => row.region_slug === 'northern-china' && row.clock === '
 if (!cradles.some(row => row.region_slug === 'andes' && row.clock === 'urban_scale' && Number(row.start_year) === -2627 && Number(row.end_year) === -1977 && row.source_keys === 'SHADY_ET_AL2001')) fail('Andes urban-scale evidence must preserve the calibrated Caral range');
 if (!cradles.some(row => row.region_slug === 'andes' && row.clock === 'political_centralization' && Number(row.start_year) === -200 && Number(row.end_year) === -100 && row.source_keys === 'MILLAIRE2010')) fail('Andes political clock must preserve the probable second-century BCE Virú range');
 
+const cradleEcologies = csv('public/data/cradles-ecology-profiles.csv');
+const cradleEcologyDimensions = new Set(['water', 'rainfall', 'crops', 'transport', 'settlement']);
+const cradleEcologyKeys = new Set();
+for (const [index, row] of cradleEcologies.entries()) {
+  const context = `cradles-ecology-profiles.csv row ${index + 2}`;
+  requireFields(row, ['region', 'region_slug', 'dimension', 'dimension_label', 'headline', 'observation', 'evidence_status', 'place', 'time_window', 'source_keys', 'interpretation', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!cradleRegions.has(row.region_slug)) fail(`${context} has unsupported region ${row.region_slug}`);
+  if (!cradleEcologyDimensions.has(row.dimension)) fail(`${context} has unsupported dimension ${row.dimension}`);
+  const key = `${row.region_slug}|${row.dimension}`;
+  if (cradleEcologyKeys.has(key)) fail(`${context} duplicates ${key}`); cradleEcologyKeys.add(key);
+  if (Object.keys(row).some(field => /score|rank|weight|index|density_value|rainfall_value|productivity_value/i.test(field))) fail(`${context} introduces an unsupported common-scale field`);
+  if (/proves? (centralized|state) (water|hydraulic|irrigation) control|hydraulic score|caused state formation/i.test(`${row.observation} ${row.interpretation}`)) fail(`${context} turns ecology into an unsupported hydraulic-state cause`);
+  if (row.limits.length < 45) fail(`${context} does not preserve a substantive inference limit`);
+}
+if (cradleEcologies.length !== 30) fail(`Expected thirty cradles ecology rows, found ${cradleEcologies.length}`);
+for (const region of cradleRegions) for (const dimension of cradleEcologyDimensions) if (!cradleEcologyKeys.has(`${region}|${dimension}`)) fail(`Cradles ecology profiles are missing ${region}|${dimension}`);
+if (cradleEcologies.filter(row => row.dimension === 'settlement').length !== 6) fail('Cradles ecology profiles must preserve six qualitative settlement-form rows');
+const mesopotamiaWater = cradleEcologies.find(row => row.region_slug === 'mesopotamia' && row.dimension === 'water');
+if (!mesopotamiaWater || !sourceKeys(mesopotamiaWater.source_keys).includes('JOTHERI_ET_AL2025') || !/multi-period|not a fourth-millennium map/i.test(mesopotamiaWater.limits)) fail('Mesopotamian water evidence must keep the preserved canal palimpsest out of a single Uruk map');
+const indusRainfall = cradleEcologies.find(row => row.region_slug === 'indus' && row.dimension === 'rainfall');
+if (!indusRainfall || !sourceKeys(indusRainfall.source_keys).includes('PETRIE_ET_AL2017') || !sourceKeys(indusRainfall.source_keys).includes('MADELLA_FULLER2006') || !/no single climatic event/i.test(indusRainfall.limits)) fail('Indus rainfall evidence must preserve the overlapping systems and block a climate monocause');
+const mesoWater = cradleEcologies.find(row => row.region_slug === 'mesoamerica' && row.dimension === 'water');
+if (!mesoWater || !/distributed and small-scale/i.test(mesoWater.interpretation) || !/does not prove centralized construction/i.test(mesoWater.limits)) fail('Monte Albán water evidence must remain household-scale rather than hydraulic command');
+const andesCrops = cradleEcologies.find(row => row.region_slug === 'andes' && row.dimension === 'crops');
+if (!andesCrops || !sourceKeys(andesCrops.source_keys).includes('HAAS_ET_AL2013') || !sourceKeys(andesCrops.source_keys).includes('SANDWEISS_ET_AL2009') || !/importance of maize has been debated/i.test(andesCrops.limits)) fail('Andean crops must preserve the maize evidence and sampling debate');
+const cradleEcologySnapshot = read('public/data/cradles/20260830-ecology1/cradles-ecology-profiles.csv');
+if (cradleEcologySnapshot !== readFileSync(path.join(root, 'public/data/cradles-ecology-profiles.csv'), 'utf8')) fail('Cradles ecology immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
