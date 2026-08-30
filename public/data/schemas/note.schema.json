@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://how-everything-evolved.invalid/schemas/note.schema.json",
+  "title": "Evidence note",
+  "type": "object",
+  "required": ["kind", "text"],
+  "properties": {
+    "kind": { "enum": ["method", "limitation", "disagreement", "interpolation", "provenance"] },
+    "text": { "type": "string", "minLength": 1 },
+    "source_keys": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  },
+  "additionalProperties": false
+}

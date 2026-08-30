@@ -1,0 +1,42 @@
+[
+  {
+    "id": "rome-territorial-boundaries",
+    "title": "Roman and neighboring polity boundaries",
+    "path": "/data/ancient-polities.geojson",
+    "schema": "boundary",
+    "evidence_type": "historical_reconstruction",
+    "source_keys": ["CLIOPATRIA"],
+    "time_resolution": "dated intervals rendered on an annual timeline",
+    "notes": "Each geometry persists from FromYear through ToYear. Annual playback is display interpolation, not an annual observation. Geometry is simplified for web display."
+  },
+  {
+    "id": "rome-military-capacity",
+    "title": "Roman military capacity estimates",
+    "path": "/data/roman-military-capacity.csv",
+    "schema": "modeled_series",
+    "evidence_type": "historical_model",
+    "source_key_field": "source_keys",
+    "time_resolution": "irregular historical anchors and reconstructions",
+    "notes": "Army size and equipment loads are central estimates. Low and high fields document the model range but are intentionally not drawn as uncertainty bands."
+  },
+  {
+    "id": "rival-military-capacity",
+    "title": "Military capacity of Roman rivals",
+    "path": "/data/comparison-forces.csv",
+    "schema": "modeled_series",
+    "evidence_type": "historical_model",
+    "source_key_field": "source_keys",
+    "time_resolution": "50-year modeled points plus dated campaign anchors",
+    "notes": "Lines connect modeled capacity estimates. Outlined points are campaign-specific force estimates and are not estimates of total state manpower."
+  },
+  {
+    "id": "natural-earth-basemap",
+    "title": "Physical and geographic basemap",
+    "paths": ["/data/land.topojson", "/data/rivers.topojson", "/data/borders.topojson"],
+    "schema": "boundary",
+    "evidence_type": "modern_geographic_context",
+    "source_keys": ["NATURAL_EARTH"],
+    "time_resolution": "not historical",
+    "notes": "Modern coastlines, rivers, and borders provide orientation only and are not evidence for ancient political boundaries."
+  }
+]

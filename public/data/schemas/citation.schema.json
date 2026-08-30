@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://how-everything-evolved.invalid/schemas/citation.schema.json",
+  "title": "Source-registry citation",
+  "type": "object",
+  "required": ["key", "author_or_source", "title", "year", "url", "use_in_model"],
+  "properties": {
+    "key": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+    "author_or_source": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "year": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "format": "uri" },
+    "use_in_model": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": false
+}

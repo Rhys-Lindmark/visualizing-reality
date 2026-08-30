@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://how-everything-evolved.invalid/schemas/modeled-series.schema.json",
+  "title": "Modeled historical series row",
+  "type": "object",
+  "required": ["entity", "year", "value", "unit", "model_type", "source_keys", "notes"],
+  "properties": {
+    "entity": { "type": "string", "minLength": 1 },
+    "year": { "type": "integer" },
+    "value": { "type": "number" },
+    "unit": { "type": "string", "minLength": 1 },
+    "model_type": { "enum": ["historical_anchor", "interpolation", "reconstruction", "scenario"] },
+    "source_keys": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "notes": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": true
+}

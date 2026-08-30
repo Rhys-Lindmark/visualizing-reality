@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://how-everything-evolved.invalid/schemas/observation.schema.json",
+  "title": "Historical observation",
+  "type": "object",
+  "required": ["entity", "year", "value", "unit", "source_keys", "note"],
+  "properties": {
+    "entity": { "type": "string", "minLength": 1 },
+    "year": { "type": "integer", "description": "Astronomical-style integer used by the project: negative BCE, positive CE, with no year zero in display copy." },
+    "value": { "type": "number" },
+    "unit": { "type": "string", "minLength": 1 },
+    "source_keys": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "note": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": true
+}

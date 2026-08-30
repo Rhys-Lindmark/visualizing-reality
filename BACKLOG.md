@@ -30,6 +30,7 @@ graphics that explain the claim without decorative clutter.
 ## Operating rules
 
 - Work one coherent, reviewable backlog item per run, from highest priority downward.
+- Use one focused Git worktree and branch per new backlog milestone; never let concurrent tasks edit the same checkout.
 - Never fabricate a number, boundary, quotation, or citation.
 - Label reconstructions, interpolation, and model outputs explicitly. Preserve source keys in downloadable data.
 - Prefer primary sources, archaeology datasets, peer-reviewed scholarship, academic reference works, and high-quality specialist synthesis.
@@ -41,15 +42,6 @@ graphics that explain the claim without decorative clutter.
 - Commit and push to GitHub `Rhys-Lindmark/visualizing-reality`, push the same commit to Sites, and deploy that exact commit.
 - After each run, update this file with the result, verification evidence, and next actionable item.
 - Stop and report a blocker when a product decision is genuinely ambiguous, evidence conflicts materially, or the change would be destructive or expand scope.
-
-## P0 — Build the reusable history-publication system
-
-### Evidence and visual standards — ready
-
-- Add a repository source registry shared across pages.
-- Define schemas for observations, modeled series, boundaries, citations, and notes.
-- Add lightweight validation for missing source keys, malformed CSVs, and unsupported claims.
-- Add an on-page method/source panel so provenance is visible without opening GitHub.
 
 ## P0 — Page 01: Rome — in progress (2/5)
 
@@ -181,6 +173,7 @@ when the evidence supports independent urban/state formation.
 
 ## Completed
 
+- 2026-08-29 — Built the shared evidence and visual-data standard. Added canonical source, dataset, and claim registries; public JSON Schemas for observations, modeled series, boundaries, citations, and notes; and an automated validator that rejects malformed CSV/JSON, missing files and source keys, inconsistent manpower × iron calculations, invalid estimate ranges, unsupported claim statuses, and malformed boundary intervals. Rome now exposes an on-page evidence ledger distinguishing source observations, historical reconstructions, and model outputs, with claim-to-dataset-to-source provenance, source filtering, and fourteen direct downloads. Verified 36 sources, 4 datasets, 2 live claims, 87 modeled rows, 442 boundary features, the five-source Devereaux filter result, every evidence download link, metadata, lint, and the production build.
 - 2026-08-29 — Built the reusable atlas and page-routing system. The new homepage states the project thesis, filters eleven queued pages by era/region/system, and labels research/draft/reviewed status. Rome moved to `/rome` through a reusable Introduction → Key Insights → Methods/Sources shell, retaining both interactive modules and naming insights 03–05. Verified both production routes, the Mediterranean filter, atlas-to-Rome navigation, annual map stepping, military metric toggle, metadata, lint, and the production build.
 - 2026-08-29 — Annual 500 BCE–476 CE Roman map with sourced persistent geometry, neighboring polities, event jumps, and corrected late-imperial states. Verified with lint, production build, browser stepping, and 293/395/410/439/476 data checks.
 - 2026-08-29 — Rome-versus-rivals manpower and manpower × iron chart with 50-year modeled rival series, separate campaign anchors, metric toggle, and downloadable CSVs. Verified with lint, production build, CSV parsing, and browser interaction.

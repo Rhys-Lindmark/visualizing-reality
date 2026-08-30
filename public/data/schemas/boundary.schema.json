@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://how-everything-evolved.invalid/schemas/boundary.schema.json",
+  "title": "Time-bounded historical geometry",
+  "type": "object",
+  "required": ["name", "from_year", "to_year", "geometry", "source_keys", "notes"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "from_year": { "type": "integer" },
+    "to_year": { "type": "integer" },
+    "geometry": { "type": "object" },
+    "source_keys": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "notes": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": true
+}

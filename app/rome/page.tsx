@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import HistoryPageShell from '../components/HistoryPageShell';
+import EvidencePanel from '../components/EvidencePanel';
 import MilitaryCapacityChart from '../MilitaryCapacityChart';
 import RomanMap from '../RomanMap';
 
@@ -9,9 +10,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rome — How Everything Evolved',
     description: 'A visual history of Roman territory and military capacity.',
-    images: [{ url: '/og.png', width: 1730, height: 909, alt: 'How Everything Evolved — Rome' }],
+    images: [],
   },
-  twitter: { card: 'summary_large_image', title: 'Rome — How Everything Evolved', description: 'A visual history of Roman territory and military capacity.', images: ['/og.png'] },
+  twitter: { card: 'summary', title: 'Rome — How Everything Evolved', description: 'A visual history of Roman territory and military capacity.', images: [] },
 };
 
 export default function RomePage() {
@@ -25,7 +26,7 @@ export default function RomePage() {
       published="August 2026"
       insightHeading={<>First, see the empire.<br />Then, see its advantage.</>}
       introduction={<><p>Rome’s history is almost a millennium of expansion, consolidation, division, and survival. Seeing the whole arc matters: the Republic’s Italian coalition, the Mediterranean empire, the Tetrarchy’s four courts, the loss of the western provinces, and the Roman state that continued in the East.</p><p>We begin with two basic questions. Where was Rome, and how did that territory change? Then: how could it keep raising armies after defeats that would have ended most ancient states?</p><p>Ancient numbers are fragmentary. Every chart below distinguishes a registered military pool, soldiers actually under arms, and the size of one army in one campaign.</p></>}
-      methods={<><p>This is a working page. Two of five planned insights are live. Territorial geometry comes from the Seshat Global History Databank’s Cliopatria dataset and is simplified for web display over a Natural Earth physical basemap. Annual playback does not imply annual observations: each sourced boundary persists until the next dated geometry.</p><p>The military chart combines cited force estimates with an explicit equipment model. Rome’s line represents estimated empire-wide forces under arms; rival dashed lines interpolate between modeled 50-year capacity points and surviving campaign anchors. Downloadable CSVs retain source keys, assumptions, and notes.</p><div className="method-links"><a href="/data/ancient-polities.geojson" download>Political geometry ↓</a><a href="/data/roman-military-capacity.csv" download>Rome data ↓</a><a href="/data/comparison-forces.csv" download>Rival data ↓</a><a href="/data/roman-military-sources.csv" download>Source registry ↓</a></div></>}
+      methods={<><p>This is a working page. Two of five planned insights are live. Territorial geometry comes from the Seshat Global History Databank’s Cliopatria dataset and is simplified for web display over a Natural Earth physical basemap. Annual playback does not imply annual observations: each sourced boundary persists until the next dated geometry.</p><p>The military chart combines cited force estimates with an explicit equipment model. Rome’s line represents estimated empire-wide forces under arms; rival dashed lines interpolate between modeled 50-year capacity points and surviving campaign anchors. The evidence ledger below separates observations, reconstructions, and model outputs—and links every live claim to its datasets and citation keys.</p><EvidencePanel page="rome" /></>}
     >
       <section className="insight map-insight">
         <div className="insight-copy"><span className="insight-number">01</span><p className="claim">Rome became the largest empire Europe had ever known.</p><h3>From one city to three continents</h3><p>Press play to follow more than nine centuries of Roman political geography. The map begins with a small state in central Italy, reaches its greatest extent under Trajan, then changes meaning: one empire with four courts, two imperial administrations, and finally an eastern empire without a western emperor.</p><p>The important change is not only size. Watch the political form change while the Roman name endures.</p></div>
