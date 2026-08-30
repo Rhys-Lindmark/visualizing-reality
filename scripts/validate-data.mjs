@@ -104,6 +104,45 @@ const romanEquipment = equipment.find(row => row.profile === 'Roman heavy infant
 const benchmarkEquipment = equipment.find(row => row.profile === 'Nearest comparator benchmark');
 if (!romanEquipment || !benchmarkEquipment || Number(romanEquipment.worked_metal_index) / Number(benchmarkEquipment.worked_metal_index) !== 1.25) fail('Equipment comparison must preserve the cited 25% Roman-to-nearest-comparator relationship');
 
+const fiscalBudget = csv('public/data/roman-imperial-budget.csv');
+const budgetGroups = new Map();
+for (const [index, row] of fiscalBudget.entries()) {
+  const context = `roman-imperial-budget.csv row ${index + 2}`;
+  requireFields(row, ['year', 'display_year', 'scenario', 'total_million_sestertii', 'category', 'amount_million_sestertii', 'source_keys', 'notes'], context);
+  numeric(row, ['year', 'total_million_sestertii', 'amount_million_sestertii'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (![150, 215].includes(Number(row.year))) fail(`${context} has unsupported budget year ${row.year}`);
+  if (!['low', 'high'].includes(row.scenario)) fail(`${context} has unsupported scenario ${row.scenario}`);
+  const groupKey = `${row.year}|${row.scenario}`;
+  const group = budgetGroups.get(groupKey) ?? { total:Number(row.total_million_sestertii), sum:0, categories:new Set(), army:0 };
+  if (group.total !== Number(row.total_million_sestertii)) fail(`${context} changes the total inside ${groupKey}`);
+  if (group.categories.has(row.category)) fail(`${context} duplicates ${row.category} in ${groupKey}`);
+  group.categories.add(row.category); group.sum += Number(row.amount_million_sestertii);
+  if (row.category === 'Army') group.army = Number(row.amount_million_sestertii);
+  budgetGroups.set(groupKey, group);
+}
+for (const [groupKey, group] of budgetGroups) {
+  if (group.sum !== group.total) fail(`Budget ${groupKey} categories sum to ${group.sum}, expected ${group.total}`);
+  if (group.categories.size !== 5) fail(`Budget ${groupKey} has ${group.categories.size} categories, expected 5`);
+  const armyShare = group.army / group.total;
+  if (armyShare < 0.7 || armyShare > 0.8) fail(`Budget ${groupKey} army share ${armyShare} is outside the published reconstruction`);
+}
+if (budgetGroups.size !== 4) fail(`Expected four Roman budget scenarios, found ${budgetGroups.size}`);
+
+const fiscalObservations = csv('public/data/roman-fiscal-observations.csv');
+const fiscalKeys = new Set();
+for (const [index, row] of fiscalObservations.entries()) {
+  const context = `roman-fiscal-observations.csv row ${index + 2}`;
+  requireFields(row, ['year', 'display_year', 'series', 'measure', 'value', 'unit', 'scope', 'destination', 'evidence_type', 'source_keys', 'notes'], context);
+  numeric(row, ['year', 'value'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  const observationKey = `${row.year}|${row.measure}`;
+  if (fiscalKeys.has(observationKey)) fail(`${context} duplicates ${observationKey}`); fiscalKeys.add(observationKey);
+}
+for (const measure of ['monthly_grain_allotment', 'subsidized_grain_price', 'sicilian_grain_tithe', 'founding_endowment', 'inheritance_tax', 'auction_tax', 'quadragesima_galliarum', 'annual_base_pay']) if (!fiscalObservations.some(row => row.measure === measure)) fail(`Roman fiscal observations are missing ${measure}`);
+const payYears = fiscalObservations.filter(row => row.series === 'legionary_pay').map(row => Number(row.year));
+if (payYears.some(year => year > 197)) fail('Legionary pay series extends beyond the defensible 197 CE cutoff');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -169,4 +208,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman estimate rows, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${geo.features.length} boundary features.`);

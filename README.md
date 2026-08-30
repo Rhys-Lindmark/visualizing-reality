@@ -51,9 +51,10 @@ Work one coherent backlog milestone at a time in a dedicated Git worktree and br
 
 ## Current status
 
-Rome has two of five live insights:
+Rome has three of five live insights:
 
 1. An annual 500 BCE–476 CE territorial map with neighboring polities and inspectable source intervals.
 2. A sourced comparison of Roman mobilization estimates, rival campaign observations, and relative worked-metal investment.
+3. A source-keyed fiscal view of heterogeneous Roman levies and reconstructed central spending, including interactive c. 150 and c. 215 CE budget scenarios.
 
-Next are Roman imperial finance, the fall of the western court, and Rome's lasting transformations, followed by Uruk and the first states, the cradles of civilization, the Bronze Age, and the Iron Age.
+Next are the fall of the western court and Rome's lasting transformations, followed by Uruk and the first states, the cradles of civilization, the Bronze Age, and the Iron Age.

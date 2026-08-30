@@ -48,5 +48,25 @@
     "source_keys": ["NATURAL_EARTH"],
     "time_resolution": "not historical",
     "notes": "Modern coastlines, rivers, and borders provide orientation only and are not evidence for ancient political boundaries."
+  },
+  {
+    "id": "roman-imperial-budget",
+    "title": "Reconstructed Roman imperial budget scenarios",
+    "path": "/data/roman-imperial-budget.csv",
+    "schema": "modeled_series",
+    "evidence_type": "published_historical_model",
+    "source_key_field": "source_keys",
+    "time_resolution": "two snapshots, c. 150 and c. 215 CE, each with low and high scenarios",
+    "notes": "Duncan-Jones's central-expenditure reconstruction as reproduced by Mattingly. Categories sum within each published scenario. Nominal totals across the two dates are not presented as real growth."
+  },
+  {
+    "id": "roman-fiscal-observations",
+    "title": "Roman fiscal rates, transfers, grain, and legionary pay",
+    "path": "/data/roman-fiscal-observations.csv",
+    "schema": "observation",
+    "evidence_type": "mixed_source_observations",
+    "source_key_field": "source_keys",
+    "time_resolution": "irregular dated observations from 123 BCE to 197 CE",
+    "notes": "Each rate retains its own payer, base, geography, destination, and unit. The values are not combined into an empire-wide tax rate or a purchasing-power series."
   }
 ]

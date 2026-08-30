@@ -20,5 +20,16 @@
     "dataset_ids": ["rome-military-capacity", "rival-campaign-forces", "republican-equipment-index"],
     "source_keys": ["POLYBIUS2_24", "LIVY25_LEGIONS", "TACITUS4_5", "CAMPBELL1994", "HASSALL2000", "MACMULLEN1980", "ELTON1996", "TREADGOLD1995", "NOTITIA", "KALDELLIS_KRUSE2023", "RANCE2024", "ACOU_SOCII", "ACOU_MAIL", "ACOU_METAL", "ACOU_PILUM", "ACOU_GLADIUS"],
     "note": "Roman points are limited to an ancient reported deployment, an explicit Republican unit model, and published modern estimates. Short lines connect only definition-consistent segments; gaps are not interpolated. The lone post-395 marker is explicitly eastern and its date reflects a live dispute over the Notitia Dignitatum. Rival points remain particular campaign forces. The equipment comparison is a third–second-century BCE relative index; the public evidence does not support absolute kilograms or tonnes across the full timeline."
+  },
+  {
+    "id": "rome-03-fiscal-machine",
+    "page": "rome",
+    "insight": 3,
+    "claim": "Rome financed a permanent military system through heterogeneous provincial and citizen levies, and the army absorbed roughly three quarters of reconstructed central imperial expenditure around 150 and 215 CE.",
+    "status": "modeled_argument",
+    "evidence_type": "historical_model_and_source_observations",
+    "dataset_ids": ["roman-imperial-budget", "roman-fiscal-observations"],
+    "source_keys": ["ACOU_PROVINCES", "ACOU_BREAD_CIRCUSES", "ACOU_GRACCHI2", "CICERO_VERRES3", "RES_GESTAE17", "DIO55_25", "TACITUS1_17", "TACITUS1_78", "SPEIDEL1992", "OXFORD_TAX_PRINCIPATE", "OXFORD_PORTORIA", "DUNCAN_JONES1994", "MATTINGLY2011"],
+    "note": "The budget shares are modern reconstructions, not surviving imperial accounts. Fiscal rates apply to distinct bases and jurisdictions and are not added into one Roman tax rate. Nominal pay and budget figures are not treated as a real-value time series."
   }
 ]

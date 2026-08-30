@@ -30,7 +30,7 @@ const colors:Record<string,string>={
   'Parthian Empire':'#745395',
   'Sasanian Empire':'#53376f',
 };
-const DATA_REVISION='20260829-force2';
+const DATA_REVISION='20260829-finance2';
 const versioned=(path:string)=>`${path}?v=${DATA_REVISION}`;
 
 function parseCSV(text:string):string[][]{const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const char=text[i];if(char==='"'&&quoted&&text[i+1]==='"'){cell+='"';i++;}else if(char==='"')quoted=!quoted;else if(char===','&&!quoted){row.push(cell);cell='';}else if((char==='\n'||char==='\r')&&!quoted){if(char==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=char;}if(cell||row.length){row.push(cell);rows.push(row);}return rows;}
