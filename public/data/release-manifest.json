@@ -1,6 +1,6 @@
 {
-  "release_id": "20260830-persia-roads1",
-  "page_contract": "owid-key-insights-v3",
+  "release_id": "20260830-owid-argument-tabs1",
+  "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
     "/rome",
