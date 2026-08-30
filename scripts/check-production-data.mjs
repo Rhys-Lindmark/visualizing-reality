@@ -32,6 +32,7 @@ const assets=[
   ['csv','/data/bronze-age/20260830-maritime1/bronze-maritime-links.csv'],
   ['csv','/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv'],
   ['csv','/data/iron-age/20260830-adoption1/iron-adoption-windows.csv'],
+  ['csv','/data/iron-age/20260830-fuel1/iron-smelting-experiments.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],

@@ -264,5 +264,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "five broad regional phase windows from the early second millennium through 500 BCE",
     "notes": "First evidence and wider adoption are separate synthesis windows. Five production dependencies remain prose evidence rather than scores. The dataset does not estimate annual output market share diffusion speed hardness fuel efficiency military power or a universal Iron Age threshold."
+  },
+  {
+    "id": "iron-smelting-experiments",
+    "title": "Eleven measured modern bloomery experiments from Meroe and Sehnde reconstruction programs",
+    "path": "/data/iron-smelting-experiments.csv",
+    "schema": "observation",
+    "evidence_type": "published_experimental_archaeometallurgy",
+    "source_key_field": "source_keys",
+    "time_resolution": "individual modern experimental runs rather than a historical time series",
+    "notes": "Ore charcoal and reported bloom masses stay at run level. Charcoal per kilogram of bloom is a transparent derived ratio. Zero and trace outputs remain categories; the data do not estimate ancient output woodland loss labor weapon totals or civilization-level efficiency."
   }
 ]

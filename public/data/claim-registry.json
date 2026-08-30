@@ -298,5 +298,23 @@
       "WOOD2025"
     ],
     "note": "Five regional comparisons expose two broad clocks and five production dependencies without computing an adoption score annual series output total market share hardness rank fuel ratio or military-power estimate."
+  },
+  {
+    "id": "iron-age-02-charcoal-process",
+    "page": "iron-age",
+    "insight": 2,
+    "claim": "Charcoal was necessary for bloomery iron but fuel mass alone did not determine a usable bloom because ore furnace airflow slag preparation weather and skilled operation interacted.",
+    "status": "working_synthesis",
+    "evidence_type": "published_experimental_archaeometallurgy",
+    "dataset_ids": [
+      "iron-smelting-experiments"
+    ],
+    "source_keys": [
+      "HUMPHRIS_ET_AL2018",
+      "HELMREICH_ET_AL2025",
+      "STEPANOV_ET_AL2022",
+      "ACOU_IRON_BLOOMS"
+    ],
+    "note": "Eleven modern runs expose process sensitivity. Derived fuel-per-bloom ratios remain experiment-specific; zero and trace outputs are categorical and no ancient output forest-loss labor weapon or universal efficiency estimate is produced."
   }
 ]

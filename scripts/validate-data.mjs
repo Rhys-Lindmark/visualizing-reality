@@ -697,6 +697,31 @@ if (!northChinaIron || northChinaIron.first_start !== '-800' || northChinaIron.a
 const ironAdoptionSnapshot = read('public/data/iron-age/20260830-adoption1/iron-adoption-windows.csv');
 if (ironAdoptionSnapshot !== readFileSync(path.join(root, 'public/data/iron-adoption-windows.csv'), 'utf8')) fail('Iron adoption immutable client snapshot diverges from the canonical dataset');
 
+const ironSmeltingExperiments = csv('public/data/iron-smelting-experiments.csv');
+const ironExperimentRuns = new Map();
+for (const [index, row] of ironSmeltingExperiments.entries()) {
+  const context = `iron-smelting-experiments.csv row ${index + 2}`;
+  requireFields(row, ['series', 'run', 'context', 'furnace_model', 'ore_kg', 'charcoal_kg', 'bloom_kg', 'bloom_status', 'air_and_operation', 'reported_observation', 'source_keys', 'limits'], context);
+  numeric(row, ['ore_kg', 'charcoal_kg', 'bloom_kg'], context); validateKeys(sourceKeys(row.source_keys), context);
+  if (ironExperimentRuns.has(row.run)) fail(`${context} duplicates ${row.run}`); ironExperimentRuns.set(row.run, row);
+  if (['ore_kg', 'charcoal_kg', 'bloom_kg'].some(field => Number(row[field]) < 0)) fail(`${context} contains a negative reported mass`);
+  if (Object.keys(row).some(field => /ancient_output|woodland_(area|loss)|deforestation|annual_production|workforce|weapons|soldiers|efficiency_score|civilization_rank/i.test(field))) fail(`${context} introduces an unsupported historical projection field`);
+  if (row.limits.length < 115) fail(`${context} does not preserve a substantive experimental-analogy limit`);
+}
+for (const run of ['MS1','MS2','MS3','MS4','XP7','XP8','XP9','XP16','XP19','XP20','XP22']) if (!ironExperimentRuns.has(run)) fail(`Iron fuel comparison is missing ${run}`);
+if (ironSmeltingExperiments.length !== 11 || ironExperimentRuns.size !== 11) fail(`Iron fuel comparison requires eleven unique runs, found ${ironSmeltingExperiments.length}`);
+const expectedIronMasses = new Map([['MS1',[41,105,4.325]],['MS2',[30,100,0]],['MS3',[30,86.5,1.5]],['MS4',[34,71.25,0]],['XP7',[31,21.2,2.4]],['XP8',[24,25.4,1.7]],['XP9',[24,23.5,1.7]],['XP16',[16.5,15.5,1.3]],['XP19',[14.5,15,.7]],['XP20',[12,14.5,.02]],['XP22',[23.9,30,1.85]]]);
+for (const [run, values] of expectedIronMasses) {
+  const row=ironExperimentRuns.get(run);
+  if (!row || [row.ore_kg,row.charcoal_kg,row.bloom_kg].some((value,index)=>Number(value)!==values[index])) fail(`${run} does not preserve its published ore charcoal and bloom masses`);
+}
+for (const run of ['MS1','MS2','MS3','MS4']) if (!sourceKeys(ironExperimentRuns.get(run)?.source_keys ?? '').includes('HUMPHRIS_ET_AL2018')) fail(`${run} must retain the Meroe experiment source`);
+for (const run of ['XP7','XP8','XP9','XP16','XP19','XP20','XP22']) if (!sourceKeys(ironExperimentRuns.get(run)?.source_keys ?? '').includes('HELMREICH_ET_AL2025')) fail(`${run} must retain the Sehnde experiment source`);
+if (!/no recognizable bloom.*not that no metallic iron formed/i.test(ironExperimentRuns.get('MS2')?.limits ?? '')) fail('MS2 must preserve the no-recognizable-bloom limit');
+if (!/trace output.*mathematically extreme.*rather than.*chart scale.*ancient waste/i.test(ironExperimentRuns.get('XP20')?.limits ?? '')) fail('XP20 must remain a trace output without scale or ancient-waste inference');
+const ironFuelSnapshot = read('public/data/iron-age/20260830-fuel1/iron-smelting-experiments.csv');
+if (ironFuelSnapshot !== readFileSync(path.join(root, 'public/data/iron-smelting-experiments.csv'), 'utf8')) fail('Iron fuel immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {

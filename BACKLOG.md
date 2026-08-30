@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Build Iron Age insight 02: compare the charcoal and woodland constraint with experimental anchors while refusing one universal ancient fuel-efficiency ratio.
+- Build Iron Age insight 03: compare metallographic structures and workshop choices without collapsing unlike hardness tests into one material-superiority score.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -105,7 +105,7 @@ when the evidence supports independent urban/state formation.
 ## P1 — Page 05: The Iron Age transformation — ready
 
 1. **Iron adoption had two clocks:** five regional windows distinguish first or limited evidence from wider adoption, then expose prior metal traditions, resources and charcoal, furnace pathways, smithing, and institutions — live; no universal threshold, adoption score, annual output, market share, hardness rank, fuel ratio, or military-power estimate.
-2. Larger infantry armies changed the scale and social base of war.
+2. **The forest was part of the furnace:** eleven published modern experimental runs compare ore charcoal and reported bloom outcomes — live; zero and trace blooms remain categorical, run-level analogs are not ancient output or woodland-loss estimates, and no universal fuel-efficiency ratio is imposed.
 3. Coins, alphabets, and administrative technologies lowered some coordination costs.
 4. Neo-Assyria and Persia built new kinds of territorial empire.
 5. Mediterranean and Eurasian networks recovered and expanded after Bronze Age fragmentation.
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Iron Age insight 02, **The forest was part of the furnace.** Eleven published modern experimental smelts compare ore, charcoal, and reported bloom outcomes across four Meroe replica-furnace runs and seven Sehnde reusable-shaft runs. The comparison preserves 71–105 kg charcoal with outcomes from a 4.325 kg bloom to no recognizable bloom at Meroe, and 14.5–30 kg charcoal with 0.02–2.4 kg reported bloomery iron at Sehnde. A second logarithmic view derives charcoal per kilogram of bloom while keeping zero and trace outputs categorical. Added three peer-reviewed sources, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated guards for all eleven mass triplets and their inference limits. Verified every run, both metrics, both series filters, zero and trace handling, five shared insight tabs with the second active, zero corrupt values, zero horizontal overflow at 1280 and 390 × 844, mobile touch targets, 60 data files, 167 sources, 27 datasets, 22 claims, lint, the production build, and 73 byte-identical built assets. The Iron Age page is two of five and draft. Next: compare metallographic structures and workshop choices without one material-superiority score.
 
 - 2026-08-30 — Opened the Iron Age transformation with insight 01, **Iron adoption had two clocks.** Five regional comparisons separate first or limited evidence from wider adoption in Anatolia and the Near East, Cyprus, the Aegean, Central Europe, and the North China Plain. Each case exposes five production dependencies—prior metal traditions, ores and charcoal, furnace pathway, smithing and product quality, and institutional context—without treating iron as instantly superior or one technology package moving unchanged across Eurasia. Added seven source records, one public dataset, one registered claim, an immutable client snapshot, a durable source audit, and automated chronology and inference guards. Verified all five regions and five dependency lenses, one active shared insight panel, zero loading or corrupt-value states, zero horizontal overflow at 1280 and 390 × 844, mobile touch targets, 58 data files, 164 sources, 26 datasets, 21 claims, lint, the production build, and 71 byte-identical built assets. The page is one of five and draft. Next: compare charcoal and woodland constraints while keeping experimental fuel anchors separate from ancient regional efficiencies.
 
