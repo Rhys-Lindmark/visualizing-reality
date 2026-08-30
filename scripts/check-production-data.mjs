@@ -1,7 +1,14 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
 const releaseId='20260830-iron-quality1';
-const routes=['/','/rome','/uruk','/cradles','/bronze-age','/iron-age'];
+const routes=new Map([
+  ['/','<title>How Everything Evolved</title>'],
+  ['/rome','<title>Rome — How Everything Evolved</title>'],
+  ['/uruk','<title>Uruk and the first states — How Everything Evolved</title>'],
+  ['/cradles','<title>The cradles of civilization — How Everything Evolved</title>'],
+  ['/bronze-age','<title>The Bronze Age world system — How Everything Evolved</title>'],
+  ['/iron-age','<title>The Iron Age transformation — How Everything Evolved</title>'],
+]);
 // Every asset fetched by a live visualization. A release is unhealthy when even
 // one URL returns the app's HTML 404 shell instead of its data payload.
 const assets=[
@@ -55,11 +62,11 @@ for(const [origin,root] of [['site',base],['mirror',mirror]])for(const [kind,pat
     else console.log(`ok ${response.status} ${origin} ${path}`);
   }catch(error){failures.push(`${origin} ${path}: ${error instanceof Error?error.message:String(error)}`);}
 }
-for(const route of routes){
+for(const [route,expectedTitle] of routes){
   try{
     const response=await fetch(`${base}${route}?release=${releaseId}`,{headers:{Accept:'text/html'}});
     const html=await response.text();
-    if(!response.ok||/<h1[^>]*>404<\/h1>|This page could not be found/i.test(html))failures.push(`site route ${route}: ${response.ok?'rendered a 404 shell':`HTTP ${response.status}`}`);
+    if(!response.ok||!html.includes(expectedTitle))failures.push(`site route ${route}: ${response.ok?'missing its expected page title':`HTTP ${response.status}`}`);
     else console.log(`ok ${response.status} site route ${route}`);
   }catch(error){failures.push(`site route ${route}: ${error instanceof Error?error.message:String(error)}`);}
 }
