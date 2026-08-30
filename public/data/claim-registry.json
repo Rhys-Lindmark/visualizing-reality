@@ -316,5 +316,20 @@
       "ACOU_IRON_BLOOMS"
     ],
     "note": "Eleven modern runs expose process sensitivity. Derived fuel-per-bloom ratios remain experiment-specific; zero and trace outputs are categorical and no ancient output forest-loss labor weapon or universal efficiency estimate is produced."
+  },
+  {
+    "id": "iron-age-03-quality-was-made",
+    "page": "iron-age",
+    "insight": 3,
+    "claim": "Iron quality was a production history rather than one material constant because hardness chemistry carbon distribution inclusions and forgeability did not move together from bloom to worked bar.",
+    "status": "source_observation",
+    "evidence_type": "paired_experimental_metallography_chemistry_hardness_and_forging_observation",
+    "dataset_ids": [
+      "iron-quality-experiments"
+    ],
+    "source_keys": [
+      "STEPANOV_ET_AL2022"
+    ],
+    "note": "Four paired bloom and bar samples expose the hardest-bloom counterexample. No hardness value is converted into toughness weapon performance service life ancient average or a cross-material superiority score."
   }
 ]

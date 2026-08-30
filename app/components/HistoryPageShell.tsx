@@ -18,6 +18,7 @@ type HistoryPageShellProps = {
 };
 
 export default function HistoryPageShell({ title, eyebrow, standfirst, status, progress, published, introduction, insightHeading, insightLabels, children, methods }: HistoryPageShellProps) {
+  const insightTopic = title.startsWith('The ') ? `the ${title.slice(4)}` : title;
   return (
     <main id="top">
       <SiteHeader sectionLinks={[{ href: '#introduction', label: 'Introduction' }, { href: '#key-insights', label: 'Key Insights' }]} />
@@ -30,7 +31,7 @@ export default function HistoryPageShell({ title, eyebrow, standfirst, status, p
         </section>
         <div className="article-nav"><a href="#introduction">Introduction</a><a href="#key-insights">Key Insights</a></div>
         <section className="intro article-copy" id="introduction"><h2>Introduction</h2>{introduction}</section>
-        <section className="insights" id="key-insights"><div className="section-heading"><span>Key Insights</span><h2>{insightHeading}</h2></div><KeyInsightsTabs labels={insightLabels}>{children}</KeyInsightsTabs></section>
+        <section className="insights" id="key-insights"><div className="section-heading"><span>Key Insights</span><h2>Key Insights on {insightTopic}</h2><p>{insightHeading}</p></div><KeyInsightsTabs labels={insightLabels}>{children}</KeyInsightsTabs></section>
         <details className="methods methods-collapsed" id="methods"><summary><span>Methods & sources</span><small>Evidence notes, definitions, and downloads</small></summary><div className="article-copy"><p className="topic-label">Evidence standard</p>{methods}</div></details>
         <SiteFooter context={`Evidence and scale about ${title}.`} />
       </article>

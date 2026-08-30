@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Build Iron Age insight 03: compare metallographic structures and workshop choices without collapsing unlike hardness tests into one material-superiority score.
+- Build Iron Age insight 04: test when equipment abundance changed mobilization without converting metal finds into army headcounts or a military-power score.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -106,9 +106,9 @@ when the evidence supports independent urban/state formation.
 
 1. **Iron adoption had two clocks:** five regional windows distinguish first or limited evidence from wider adoption, then expose prior metal traditions, resources and charcoal, furnace pathways, smithing, and institutions — live; no universal threshold, adoption score, annual output, market share, hardness rank, fuel ratio, or military-power estimate.
 2. **The forest was part of the furnace:** eleven published modern experimental runs compare ore charcoal and reported bloom outcomes — live; zero and trace blooms remain categorical, run-level analogs are not ancient output or woodland-loss estimates, and no universal fuel-efficiency ratio is imposed.
-3. Coins, alphabets, and administrative technologies lowered some coordination costs.
-4. Neo-Assyria and Persia built new kinds of territorial empire.
-5. Mediterranean and Eurasian networks recovered and expanded after Bronze Age fragmentation.
+3. **Quality was made:** four paired bloom and forged-bar samples keep hardness, chemistry, microstructure, and forgeability separate — live; no toughness, weapon-performance, ancient-average, or material-superiority score.
+4. **Metal did not mobilize itself:** test when equipment abundance changed army scale while keeping people, logistics, training, and institutions visible.
+5. **Scale was institutional:** compare workshops, markets, specialist communities, standards, tribute, and state production without one centralization index.
 
 ## P1 — Page 06: Persia and territorial empire — ready
 
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Iron Age insight 03, **Quality was made**, and tightened the shared reading experience to match the current Our World in Data key-insights hierarchy. Four paired experimental bloom and forged-bar samples preserve published mean Vickers hardness, sample sizes, standard deviations, sulfur and phosphorus observations, metallography, and recorded forgeability. FEXP-6 is the central counterexample: the hardest mean bloom at 139 HV was sulfur-rich, brittle, and difficult to forge, while FEXP-5 averaged 84 HV and had better workability. The visual never converts hardness into toughness, weapon performance, battlefield effect, an ancient average, or an iron-versus-bronze superiority score. Across Rome, Uruk, Cradles, Bronze Age, and Iron Age, “Key Insights on …” is now the stable section title, five clickable claims sit immediately below it, and one text-left/visual-right argument is mounted at a time; mobile shows all five choices without a horizontal scroller. Added one peer-reviewed source-linked dataset, one registered claim, an immutable client snapshot, a durable audit, and automated guards for all eight samples and prohibited inferences. Verified five tabs and one active panel on all five history routes, four experiments, three evidence lenses, the 139→113 HV counterexample, no loading or corrupt-value states, zero horizontal overflow at 1280 and 390 × 844, 44 px mobile controls, 62 checked data files, 167 sources, 28 datasets, 23 claims, 75 byte-identical built assets, lint, and the production build. The Iron Age page is three of five and draft. Next: test equipment abundance and mobilization without fabricated headcounts or a military-power score.
 
 - 2026-08-30 — Completed Iron Age insight 02, **The forest was part of the furnace.** Eleven published modern experimental smelts compare ore, charcoal, and reported bloom outcomes across four Meroe replica-furnace runs and seven Sehnde reusable-shaft runs. The comparison preserves 71–105 kg charcoal with outcomes from a 4.325 kg bloom to no recognizable bloom at Meroe, and 14.5–30 kg charcoal with 0.02–2.4 kg reported bloomery iron at Sehnde. A second logarithmic view derives charcoal per kilogram of bloom while keeping zero and trace outputs categorical. Added three peer-reviewed sources, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated guards for all eleven mass triplets and their inference limits. Verified every run, both metrics, both series filters, zero and trace handling, five shared insight tabs with the second active, zero corrupt values, zero horizontal overflow at 1280 and 390 × 844, mobile touch targets, 60 data files, 167 sources, 27 datasets, 22 claims, lint, the production build, and 73 byte-identical built assets. The Iron Age page is two of five and draft. Next: compare metallographic structures and workshop choices without one material-superiority score.
 

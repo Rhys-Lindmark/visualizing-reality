@@ -722,6 +722,39 @@ if (!/trace output.*mathematically extreme.*rather than.*chart scale.*ancient wa
 const ironFuelSnapshot = read('public/data/iron-age/20260830-fuel1/iron-smelting-experiments.csv');
 if (ironFuelSnapshot !== readFileSync(path.join(root, 'public/data/iron-smelting-experiments.csv'), 'utf8')) fail('Iron fuel immutable client snapshot diverges from the canonical dataset');
 
+const ironQualityExperiments = csv('public/data/iron-quality-experiments.csv');
+const ironQualitySamples = new Map();
+for (const [index, row] of ironQualityExperiments.entries()) {
+  const context = `iron-quality-experiments.csv row ${index + 2}`;
+  requireFields(row, ['run', 'stage', 'phosphorus_wt_percent', 'sulfur_wt_percent', 'hardness_hv', 'hardness_sd', 'hardness_n', 'microstructure', 'forgeability', 'source_keys', 'limits'], context);
+  numeric(row, ['sulfur_wt_percent', 'hardness_hv', 'hardness_sd', 'hardness_n'], context);
+  if (!/^(?:<)?\d+(?:\.\d+)?$/.test(row.phosphorus_wt_percent)) fail(`${context} has an invalid phosphorus observation ${row.phosphorus_wt_percent}`);
+  validateKeys(sourceKeys(row.source_keys), context);
+  const sampleKey = `${row.run}:${row.stage}`;
+  if (ironQualitySamples.has(sampleKey)) fail(`${context} duplicates ${sampleKey}`); ironQualitySamples.set(sampleKey, row);
+  if (!['bloom', 'bar'].includes(row.stage)) fail(`${context} has unsupported stage ${row.stage}`);
+  if (Object.keys(row).some(field => /toughness|weapon_performance|lethality|battlefield|superiority_score|civilization_rank|ancient_average/i.test(field))) fail(`${context} introduces an unsupported material-performance field`);
+  if (row.limits.length < 115) fail(`${context} does not preserve a substantive sampling and inference limit`);
+}
+const expectedIronQuality = new Map([
+  ['FEXP-1:bloom',['<0.1',0.1,103,29,17]],['FEXP-1:bar',['0.2',0.1,142,5,9]],
+  ['FEXP-100:bloom',['<0.1',0.4,89,3,5]],['FEXP-100:bar',['0.1',0.3,114,10,7]],
+  ['FEXP-5:bloom',['0.1',0.2,84,10,5]],['FEXP-5:bar',['<0.1',0.2,102,5,5]],
+  ['FEXP-6:bloom',['0.2',1.2,139,13,17]],['FEXP-6:bar',['0.1',0.6,113,4,5]],
+]);
+for (const [sampleKey, values] of expectedIronQuality) {
+  const row = ironQualitySamples.get(sampleKey);
+  if (!row || row.phosphorus_wt_percent !== values[0] || [row.sulfur_wt_percent,row.hardness_hv,row.hardness_sd,row.hardness_n].some((value,index)=>Number(value)!==values[index+1])) fail(`${sampleKey} does not preserve the published chemistry hardness and sampling values`);
+}
+if (ironQualityExperiments.length !== 8 || ironQualitySamples.size !== 8) fail(`Iron quality comparison requires eight unique samples, found ${ironQualityExperiments.length}`);
+for (const sampleKey of expectedIronQuality.keys()) if (!ironQualitySamples.has(sampleKey)) fail(`Iron quality comparison is missing ${sampleKey}`);
+const hardBloom = ironQualitySamples.get('FEXP-6:bloom');
+if (!hardBloom || hardBloom.forgeability !== 'brittle and difficult' || !/higher hardness.*phosphorus rather than carbon steel/i.test(hardBloom.microstructure) || !/hardness is not toughness quality or technological superiority/i.test(hardBloom.limits)) fail('FEXP-6 must preserve the hardest-bloom counterexample without a steel toughness or superiority inference');
+const workableBloom = ironQualitySamples.get('FEXP-5:bloom');
+if (!workableBloom || workableBloom.forgeability !== 'better workability' || Number(workableBloom.hardness_hv) !== 84 || !/not evidence that softer iron is universally better/i.test(workableBloom.limits)) fail('FEXP-5 must preserve its lower hardness and better workability without a reverse superiority claim');
+const ironQualitySnapshot = read('public/data/iron-age/20260830-quality1/iron-quality-experiments.csv');
+if (ironQualitySnapshot !== readFileSync(path.join(root, 'public/data/iron-quality-experiments.csv'), 'utf8')) fail('Iron quality immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -787,4 +820,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${ironSmeltingExperiments.length} Iron fuel experiments, ${ironQualityExperiments.length} Iron quality samples, ${geo.features.length} boundary features.`);

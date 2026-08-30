@@ -10,6 +10,6 @@ export default function KeyInsightsTabs({labels,children}:KeyInsightsTabsProps){
   const onKeyDown=(event:KeyboardEvent<HTMLButtonElement>,index:number)=>{if(event.key==='ArrowRight'){event.preventDefault();select(index+1);}else if(event.key==='ArrowLeft'){event.preventDefault();select(index-1);}else if(event.key==='Home'){event.preventDefault();select(0);}else if(event.key==='End'){event.preventDefault();select(labels.length-1);}};
   return <div className="key-insights-switcher">
     <div className="key-insight-tabs" role="tablist" aria-label="Five key insights">{labels.map((label,index)=><button key={label} ref={node=>{buttons.current[index]=node;}} type="button" role="tab" id={`insight-tab-${index+1}`} aria-controls={`insight-panel-${index+1}`} aria-selected={active===index} tabIndex={active===index?0:-1} className={active===index?'active':''} onClick={()=>setActive(index)} onKeyDown={event=>onKeyDown(event,index)}><span>{String(index+1).padStart(2,'0')}</span><b>{label}</b></button>)}</div>
-    <div className="key-insight-panel" role="tabpanel" id={`insight-panel-${active+1}`} aria-labelledby={`insight-tab-${active+1}`} tabIndex={0}>{panels[active]}</div>
+    <div className="key-insight-panel" role="tabpanel" id={`insight-panel-${active+1}`} aria-labelledby={`insight-tab-${active+1}`} tabIndex={0} key={active}>{panels[active]}</div>
   </div>;
 }

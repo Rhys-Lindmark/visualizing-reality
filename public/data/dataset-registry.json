@@ -274,5 +274,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "individual modern experimental runs rather than a historical time series",
     "notes": "Ore charcoal and reported bloom masses stay at run level. Charcoal per kilogram of bloom is a transparent derived ratio. Zero and trace outputs remain categories; the data do not estimate ancient output woodland loss labor weapon totals or civilization-level efficiency."
+  },
+  {
+    "id": "iron-quality-experiments",
+    "title": "Paired bloom and forged-bar metallography from four controlled smelting experiments",
+    "path": "/data/iron-quality-experiments.csv",
+    "schema": "observation",
+    "evidence_type": "paired_experimental_metallography_chemistry_hardness_and_forging_observation",
+    "source_key_field": "source_keys",
+    "time_resolution": "eight samples from four modern experimental runs rather than a historical series",
+    "notes": "Hardness means sample counts standard deviations chemistry microstructure and forgeability remain distinct. The dataset does not convert hardness into toughness weapon performance service life battlefield effect or a material-superiority score."
   }
 ]
