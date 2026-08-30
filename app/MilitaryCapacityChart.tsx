@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { romeDataUrl } from './lib/romeDataClient';
+import { fetchClientText } from './lib/clientAsset';
 
 type Observation = {
   polity:string;
@@ -37,7 +38,7 @@ function people(value:number){return value>=1000?`${(value/1000).toFixed(1)}m`:`
 function evidenceLabel(value:string){return value.replaceAll('_',' ');}
 function validText(value:string){const normalized=value?.trim();return Boolean(normalized&&normalized!=='undefined'&&normalized!=='null');}
 function validObservation(row:Observation){return Boolean(validText(row.polity)&&validText(row.display_year)&&validText(row.evidence_grade)&&validText(row.source_keys)&&Number.isFinite(row.year)&&Number.isFinite(row.soldiers_thousands)&&row.soldiers_thousands>0);}
-async function fetchText(path:string,signal:AbortSignal){let lastError:unknown;for(let attempt=0;attempt<2;attempt++){try{const response=await fetch(romeDataUrl(path),{cache:'no-store',headers:{Accept:'text/csv,text/plain;q=0.9,*/*;q=0.1'},signal});if(!response.ok)throw new Error(`${path} returned ${response.status}`);const text=await response.text();if(!text.trim()||text.trimStart().startsWith('<'))throw new Error(`${path} did not return CSV data`);return text;}catch(error){lastError=error;if(signal.aborted)throw error;if(attempt===0)await new Promise(resolve=>window.setTimeout(resolve,350));}}throw lastError;}
+async function fetchText(path:string,signal:AbortSignal){return fetchClientText(romeDataUrl(path),{signal,label:path});}
 
 export default function MilitaryCapacityChart(){
   const canvas=useRef<HTMLCanvasElement>(null);

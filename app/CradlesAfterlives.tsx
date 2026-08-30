@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { fetchClientText } from './lib/clientAsset';
 
 type Row={region:string;region_slug:string;pathway:string;pathway_label:string;before:string;transition:string;afterlife:string;place:string;time_window:string;evidence_status:string;source_keys:string;interpretation:string;limits:string};
 
@@ -18,7 +19,7 @@ export default function CradlesAfterlives(){
   const[selectedSlug,setSelectedSlug]=useState('mesopotamia');
   const[attempt,setAttempt]=useState(0);
 
-  useEffect(()=>{const controller=new AbortController();fetch(dataUrl,{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw new Error(`Afterlives CSV returned ${response.status}`);const text=await response.text();if(!text.trim()||text.trimStart().startsWith('<'))throw new Error('Afterlives data did not return CSV');return parseCSV(text);}).then(parsed=>{const required=['before','transition','afterlife','interpretation','limits','source_keys'] as const;const regions=new Set(parsed.map(row=>row.region_slug));if(parsed.length!==6||regions.size!==6||parsed.some(row=>required.some(field=>!row[field])))throw new Error('The afterlives response used an incompatible schema.');setRows(parsed);setState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The afterlives evidence could not be loaded.');setState('error');});return()=>controller.abort();},[attempt]);
+  useEffect(()=>{const controller=new AbortController();fetchClientText(dataUrl,{signal:controller.signal,label:'Afterlives CSV'}).then(parseCSV).then(parsed=>{const required=['before','transition','afterlife','interpretation','limits','source_keys'] as const;const regions=new Set(parsed.map(row=>row.region_slug));if(parsed.length!==6||regions.size!==6||parsed.some(row=>required.some(field=>!row[field])))throw new Error('The afterlives response used an incompatible schema.');setRows(parsed);setState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The afterlives evidence could not be loaded.');setState('error');});return()=>controller.abort();},[attempt]);
 
   const selected=useMemo(()=>rows.find(row=>row.region_slug===selectedSlug)??rows[0],[rows,selectedSlug]);
   const retry=()=>{setRows([]);setError('');setState('loading');setAttempt(value=>value+1);};

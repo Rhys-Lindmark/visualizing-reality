@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
+import { fetchClientText } from './lib/clientAsset';
 
 type AfterlifeRow={system:'Roads'|'Language'|'Law'|'State';year:number;display_year:string;kind:'event'|'metric';milestone:string;value?:number;unit?:string;evidence_type:string;source_keys:string;interpretation:string;limits:string};
 const SYSTEMS:AfterlifeRow['system'][]=['State','Language','Law','Roads'];
@@ -15,7 +16,7 @@ function x(year:number){return Math.max(0,Math.min(100,((year+350)/1803)*100));}
 
 export default function RomanAfterlivesChart(){
   const[rows,setRows]=useState<AfterlifeRow[]>([]);const[selected,setSelected]=useState('State|476');const[status,setStatus]=useState<'loading'|'ready'|'error'>('loading');const[error,setError]=useState('');const[attempt,setAttempt]=useState(0);
-  useEffect(()=>{const controller=new AbortController();fetch(`/data/roman-afterlives.csv?v=${DATA_REVISION}`,{cache:'no-cache',signal:controller.signal}).then(response=>{if(!response.ok)throw new Error(`Data request returned ${response.status}`);return response.text();}).then(text=>{const parsed=parseRows(text);if(parsed.length!==18||parsed.some(row=>!SYSTEMS.includes(row.system)||!Number.isFinite(row.year)||!row.milestone||!row.source_keys))throw new Error('The afterlives dataset was incomplete.');setRows(parsed);setStatus('ready');}).catch(reason=>{if(controller.signal.aborted)return;setError(reason instanceof Error?reason.message:'The chronology could not be loaded.');setStatus('error');});return()=>controller.abort();},[attempt]);
+  useEffect(()=>{const controller=new AbortController();fetchClientText(`/data/roman-afterlives.csv?v=${DATA_REVISION}`,{signal:controller.signal,label:'Afterlives chronology'}).then(text=>{const parsed=parseRows(text);if(parsed.length!==18||parsed.some(row=>!SYSTEMS.includes(row.system)||!Number.isFinite(row.year)||!row.milestone||!row.source_keys))throw new Error('The afterlives dataset was incomplete.');setRows(parsed);setStatus('ready');}).catch(reason=>{if(controller.signal.aborted)return;setError(reason instanceof Error?reason.message:'The chronology could not be loaded.');setStatus('error');});return()=>controller.abort();},[attempt]);
   const events=useMemo(()=>rows.filter(row=>row.kind==='event'),[rows]);const roadMetrics=useMemo(()=>rows.filter(row=>row.system==='Roads'&&row.kind==='metric'),[rows]);const focus=events.find(row=>`${row.system}|${row.year}`===selected)||events[0];
   const retry=()=>{setRows([]);setError('');setStatus('loading');setAttempt(value=>value+1);};
   if(status!=='ready'||!focus)return <div className={`data-state afterlives-data-state ${status}`} role={status==='error'?'alert':'status'}><b>{status==='error'?'The afterlives chronology did not load':'Loading four Roman afterlives…'}</b><span>{status==='error'?error:'State, language, law, and roads remain separate evidence tracks'}</span>{status==='error'&&<button type="button" onClick={retry}>Retry chronology</button>}</div>;

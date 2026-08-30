@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { fetchClientJson, fetchClientText } from '../lib/clientAsset';
 
 type Source = { key:string;author_or_source:string;title:string;year:string;url:string;use_in_model:string };
 type Dataset = { id:string;title:string;path?:string;paths?:string[];schema:string;evidence_type:string;source_keys?:string[];time_resolution:string;notes:string };
@@ -16,7 +17,7 @@ const versioned=(path:string)=>`${path}?v=${DATA_REVISION}`;
 
 export default function EvidencePanel({ page }: { page:string }){
   const[sources,setSources]=useState<Source[]>([]);const[datasets,setDatasets]=useState<Dataset[]>([]);const[claims,setClaims]=useState<Claim[]>([]);const[query,setQuery]=useState('');
-  useEffect(()=>{Promise.all([fetch(versioned('/data/source-registry.csv')).then(response=>response.text()),fetch(versioned('/data/dataset-registry.json')).then(response=>response.json()),fetch(versioned('/data/claim-registry.json')).then(response=>response.json())]).then(([sourceText,datasetRows,claimRows])=>{setSources(parseCSV(sourceText));setDatasets(datasetRows);setClaims(claimRows.filter((claim:Claim)=>claim.page===page));});},[page]);
+  useEffect(()=>{const controller=new AbortController();Promise.all([fetchClientText(versioned('/data/source-registry.csv'),{signal:controller.signal,label:'Source registry'}),fetchClientJson<Dataset[]>(versioned('/data/dataset-registry.json'),{signal:controller.signal,label:'Dataset registry'}),fetchClientJson<Claim[]>(versioned('/data/claim-registry.json'),{signal:controller.signal,label:'Claim registry'})]).then(([sourceText,datasetRows,claimRows])=>{setSources(parseCSV(sourceText));setDatasets(datasetRows);setClaims(claimRows.filter((claim:Claim)=>claim.page===page));}).catch(()=>{});return()=>controller.abort();},[page]);
   const relevantKeys=useMemo(()=>new Set(claims.flatMap(claim=>claim.source_keys)),[claims]);
   const relevantDatasets=useMemo(()=>{const ids=new Set(claims.flatMap(claim=>claim.dataset_ids));return datasets.filter(dataset=>ids.has(dataset.id));},[claims,datasets]);
   const shownSources=useMemo(()=>sources.filter(source=>relevantKeys.has(source.key)&&`${source.author_or_source} ${source.title} ${source.key}`.toLowerCase().includes(query.toLowerCase())),[sources,relevantKeys,query]);

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { fetchClientText } from './lib/clientAsset';
 
 type Row={region:string;region_slug:string;route_slug:string;route_label:string;input:string;coordinator:string;outcome:string;observation:string;evidence_status:string;place:string;time_window:string;source_keys:string;interpretation:string;limits:string};
 
@@ -19,7 +20,7 @@ export default function CradlesCoordinationRoutes(){
   const[selectedRoute,setSelectedRoute]=useState('archive-accounting');
   const[attempt,setAttempt]=useState(0);
 
-  useEffect(()=>{const controller=new AbortController();fetch(dataUrl,{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw new Error(`Coordination CSV returned ${response.status}`);const text=await response.text();if(!text.trim()||text.trimStart().startsWith('<'))throw new Error('Coordination data did not return CSV');return parseCSV(text);}).then(parsed=>{const regions=new Set(parsed.map(row=>row.region_slug));const routes=new Set(parsed.map(row=>`${row.region_slug}|${row.route_slug}`));if(parsed.length!==24||regions.size!==6||routes.size!==24||parsed.some(row=>!row.input||!row.coordinator||!row.outcome||!row.limits))throw new Error('The coordination response used an incompatible schema.');setRows(parsed);setLoadState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The coordination comparison could not be loaded.');setLoadState('error');});return()=>controller.abort();},[attempt]);
+  useEffect(()=>{const controller=new AbortController();fetchClientText(dataUrl,{signal:controller.signal,label:'Coordination CSV'}).then(parseCSV).then(parsed=>{const regions=new Set(parsed.map(row=>row.region_slug));const routes=new Set(parsed.map(row=>`${row.region_slug}|${row.route_slug}`));if(parsed.length!==24||regions.size!==6||routes.size!==24||parsed.some(row=>!row.input||!row.coordinator||!row.outcome||!row.limits))throw new Error('The coordination response used an incompatible schema.');setRows(parsed);setLoadState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The coordination comparison could not be loaded.');setLoadState('error');});return()=>controller.abort();},[attempt]);
 
   const regions=useMemo(()=>{const seen=new Map<string,string>();for(const row of rows)if(!seen.has(row.region_slug))seen.set(row.region_slug,row.region);return[...seen].map(([slug,name])=>({slug,name}));},[rows]);
   const regionalRows=useMemo(()=>rows.filter(row=>row.region_slug===selectedRegion),[rows,selectedRegion]);

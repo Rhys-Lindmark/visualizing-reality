@@ -549,6 +549,31 @@ for (const file of ['bronze-metal-network-nodes.csv', 'bronze-metal-network-link
   if (snapshot !== readFileSync(path.join(root, `public/data/${file}`), 'utf8')) fail(`Bronze immutable client snapshot diverges from ${file}`);
 }
 
+const bronzePalaceCircuits = csv('public/data/bronze-palace-circuits.csv');
+const palaceCases = new Set();
+for (const [index, row] of bronzePalaceCircuits.entries()) {
+  const context = `bronze-palace-circuits.csv row ${index + 2}`;
+  requireFields(row, ['case_id', 'site', 'region', 'date_window', 'focal_flow', 'input', 'aperture', 'transformation', 'visible_output', 'outside_palace', 'evidence_channels', 'anchor_value', 'anchor_label', 'evidence_status', 'source_keys', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (palaceCases.has(row.case_id)) fail(`${context} duplicates ${row.case_id}`); palaceCases.add(row.case_id);
+  if (Object.keys(row).some(field => /capacity_score|centralization_score|rank|whole_economy|annual_output|palace_share/i.test(field))) fail(`${context} introduces an unsupported shared-scale field`);
+  if (row.limits.length < 110) fail(`${context} does not preserve a substantive outside-palace or evidence limit`);
+}
+for (const caseId of ['mari', 'hattusha', 'knossos', 'pylos', 'ugarit']) if (!palaceCases.has(caseId)) fail(`Bronze palace circuits are missing ${caseId}`);
+if (bronzePalaceCircuits.length !== 5 || palaceCases.size !== 5) fail(`Bronze palace comparison requires five unique circuits, found ${bronzePalaceCircuits.length} rows and ${palaceCases.size} cases`);
+const mariCircuit = bronzePalaceCircuits.find(row => row.case_id === 'mari');
+if (!mariCircuit || mariCircuit.anchor_value !== '15000' || !sourceKeys(mariCircuit.source_keys).includes('MARI_ARCHAEOLOGY') || !/not an annual transaction count.*whole Mari economy/i.test(mariCircuit.limits)) fail('Mari must preserve the 15000-text half-century corpus as neither annual count nor whole economy');
+const hattushaCircuit = bronzePalaceCircuits.find(row => row.case_id === 'hattusha');
+if (!hattushaCircuit || !sourceKeys(hattushaCircuit.source_keys).includes('DIFFEY_ET_AL2020') || !/not an annual tax series.*capacity estimate for the empire.*proof that the state directed cultivation/i.test(hattushaCircuit.limits)) fail('Hattusha must remain one silo episode without empire capacity or directed-cultivation inference');
+const knossosCircuit = bronzePalaceCircuits.find(row => row.case_id === 'knossos');
+if (!knossosCircuit || knossosCircuit.anchor_value !== '66000' || !/600 recorded flocks/i.test(knossosCircuit.anchor_label) || !sourceKeys(knossosCircuit.source_keys).includes('HALSTEAD1999') || !/not a complete livestock census/i.test(knossosCircuit.limits)) fail('Knossos must preserve 66000 sheep in about 600 flocks as an incomplete administrative selection');
+const pylosCircuit = bronzePalaceCircuits.find(row => row.case_id === 'pylos');
+if (!pylosCircuit || pylosCircuit.anchor_value !== '1.5–12 kg' || !sourceKeys(pylosCircuit.source_keys).includes('NAKASSIS2015') || !sourceKeys(pylosCircuit.source_keys).includes('JUDSON2023') || !/does not identify finished objects.*all smiths.*palace share/i.test(pylosCircuit.limits)) fail('Pylos must preserve the bounded bronze-allotment range and selective-mobilization limits');
+const ugaritCircuit = bronzePalaceCircuits.find(row => row.case_id === 'ugarit');
+if (!ugaritCircuit || ugaritCircuit.anchor_value !== '600' || !/royal palace archive: 1,040/i.test(ugaritCircuit.anchor_label) || !sourceKeys(ugaritCircuit.source_keys).includes('MALBRAN_LABAT_ROCHE2008') || !sourceKeys(ugaritCircuit.source_keys).includes('GILIBERT2021') || !/not a count of private trade/i.test(ugaritCircuit.limits)) fail('Ugarit must preserve the Urtenu and palace archive comparison without turning it into private-trade volume');
+const bronzePalaceSnapshot = read('public/data/bronze-age/20260830-palace1/bronze-palace-circuits.csv');
+if (bronzePalaceSnapshot !== readFileSync(path.join(root, 'public/data/bronze-palace-circuits.csv'), 'utf8')) fail('Bronze palace immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -614,4 +639,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${geo.features.length} boundary features.`);

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { fetchClientJson, fetchClientText } from './lib/clientAsset';
 
 type Point=[number,number];
 type Geometry={type:string;arcs:unknown};
@@ -36,7 +37,7 @@ export default function CradlesEvidenceClocks(){
   const[selectedClock,setSelectedClock]=useState<Clock>('political_centralization');
   const[attempt,setAttempt]=useState(0);
 
-  useEffect(()=>{const controller=new AbortController();Promise.all([fetch(dataUrl,{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw new Error(`Evidence CSV returned ${response.status}`);return parseCSV(await response.text());}),fetch(landUrl,{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw new Error(`Basemap returned ${response.status}`);return response.json() as Promise<Topology>;})]).then(([parsed,topology])=>{const regions=new Set(parsed.map(row=>row.region_slug));if(parsed.length!==18||regions.size!==6||!topology?.objects?.['10m_land'])throw new Error('The evidence-clock response used an incompatible schema.');setRows(parsed);setLand(topology);setLoadState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The evidence clocks could not be loaded.');setLoadState('error');});return()=>controller.abort();},[attempt]);
+  useEffect(()=>{const controller=new AbortController();Promise.all([fetchClientText(dataUrl,{signal:controller.signal,label:'Evidence CSV'}).then(parseCSV),fetchClientJson<Topology>(landUrl,{signal:controller.signal,label:'Basemap'})]).then(([parsed,topology])=>{const regions=new Set(parsed.map(row=>row.region_slug));if(parsed.length!==18||regions.size!==6||!topology?.objects?.['10m_land'])throw new Error('The evidence-clock response used an incompatible schema.');setRows(parsed);setLand(topology);setLoadState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The evidence clocks could not be loaded.');setLoadState('error');});return()=>controller.abort();},[attempt]);
 
   const regions=useMemo(()=>{const seen=new Map<string,Row>();for(const row of rows)if(!seen.has(row.region_slug))seen.set(row.region_slug,row);return[...seen.values()];},[rows]);
   const selectedRows=useMemo(()=>rows.filter(row=>row.region_slug===selectedRegion),[rows,selectedRegion]);

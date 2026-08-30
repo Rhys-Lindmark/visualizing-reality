@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { fetchClientText } from './lib/clientAsset';
 
 type CollapseEvent = {
   year:number;
@@ -49,10 +50,10 @@ function equivalentRows(text:string):FiscalEquivalent[]{return parseCSV(text).ma
 
 export default function WesternCollapseChart(){
   const[events,setEvents]=useState<CollapseEvent[]>([]);const[equivalents,setEquivalents]=useState<FiscalEquivalent[]>([]);const[selectedYear,setSelectedYear]=useState(439);const[metric,setMetric]=useState<'infantry'|'cavalry'>('infantry');const[loadError,setLoadError]=useState('');
-  useEffect(()=>{Promise.all([
-    fetch(versioned('/data/western-roman-collapse-events.csv')).then(response=>{if(!response.ok)throw new Error('Collapse chronology could not be loaded.');return response.text();}),
-    fetch(versioned('/data/africa-fiscal-equivalents.csv')).then(response=>{if(!response.ok)throw new Error('Africa model could not be loaded.');return response.text();}),
-  ]).then(([eventText,equivalentText])=>{setEvents(eventRows(eventText));setEquivalents(equivalentRows(equivalentText));}).catch(error=>setLoadError(error instanceof Error?error.message:'Collapse evidence could not be loaded.'));},[]);
+  useEffect(()=>{const controller=new AbortController();Promise.all([
+    fetchClientText(versioned('/data/western-roman-collapse-events.csv'),{signal:controller.signal,label:'Collapse chronology'}),
+    fetchClientText(versioned('/data/africa-fiscal-equivalents.csv'),{signal:controller.signal,label:'Africa model'}),
+  ]).then(([eventText,equivalentText])=>{setEvents(eventRows(eventText));setEquivalents(equivalentRows(equivalentText));}).catch(error=>{if(!controller.signal.aborted)setLoadError(error instanceof Error?error.message:'Collapse evidence could not be loaded.');});return()=>controller.abort();},[]);
   const selected=events.find(event=>event.year===selectedYear)??events[0];
   const selectedValue=(row:FiscalEquivalent)=>metric==='infantry'?row.infantry_equivalent:row.cavalry_equivalent;
   const total=equivalents.reduce((sum,row)=>sum+selectedValue(row),0);

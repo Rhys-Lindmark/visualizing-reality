@@ -211,5 +211,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "nineteen evidence-place rows and sixteen bounded connections from the eighteenth through thirteenth centuries BCE",
     "notes": "Four views keep one cargo Cypriot copper distribution Atlantic tin compatibility and a textual exchange relationship separate. Connections are evidence links not reconstructed routes. The dataset contains no annual trade volumes traffic estimates market shares or inferred direct voyages and preserves competing Uluburun tin-source claims."
+  },
+  {
+    "id": "bronze-palace-circuits",
+    "title": "Five selectively visible institutional circuits at Bronze Age palace centers",
+    "path": "/data/bronze-palace-circuits.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_textual_archaeobotanical_architectural_and_institutional_case_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "five unlike case windows from the early eighteenth through late thirteenth centuries BCE",
+    "notes": "Each row follows one unusually visible resource or information circuit through an institutional aperture and keeps its outside-palace limit attached. Archive counts sheep tallies metal allotments and one silo episode retain unlike units and are never summed ranked or converted into a centralization or state-capacity score."
   }
 ]

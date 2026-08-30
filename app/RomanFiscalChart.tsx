@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { fetchClientText } from './lib/clientAsset';
 
 type BudgetRow = {
   year:number;
@@ -41,7 +42,7 @@ function valueLabel(row:FiscalObservation){if(row.measure==='sicilian_grain_tith
 
 export default function RomanFiscalChart(){
   const[budget,setBudget]=useState<BudgetRow[]>([]);const[observations,setObservations]=useState<FiscalObservation[]>([]);const[year,setYear]=useState(150);const[scenario,setScenario]=useState<'low'|'high'>('low');const[loadError,setLoadError]=useState('');
-  useEffect(()=>{Promise.all([fetch(versioned('/data/roman-imperial-budget.csv')).then(response=>{if(!response.ok)throw new Error('Budget data could not be loaded.');return response.text();}),fetch(versioned('/data/roman-fiscal-observations.csv')).then(response=>{if(!response.ok)throw new Error('Fiscal observations could not be loaded.');return response.text();})]).then(([budgetText,fiscalText])=>{setBudget(budgetRows(budgetText));setObservations(fiscalRows(fiscalText));}).catch(error=>setLoadError(error instanceof Error?error.message:'Fiscal data could not be loaded.'));},[]);
+  useEffect(()=>{const controller=new AbortController();Promise.all([fetchClientText(versioned('/data/roman-imperial-budget.csv'),{signal:controller.signal,label:'Budget data'}),fetchClientText(versioned('/data/roman-fiscal-observations.csv'),{signal:controller.signal,label:'Fiscal observations'})]).then(([budgetText,fiscalText])=>{setBudget(budgetRows(budgetText));setObservations(fiscalRows(fiscalText));}).catch(error=>{if(!controller.signal.aborted)setLoadError(error instanceof Error?error.message:'Fiscal data could not be loaded.');});return()=>controller.abort();},[]);
   const selected=useMemo(()=>budget.filter(row=>row.year===year&&row.scenario===scenario),[budget,year,scenario]);
   const total=selected[0]?.total_million_sestertii||0;
   const army=selected.find(row=>row.category==='Army');const armyShare=army&&total?(army.amount_million_sestertii/total)*100:0;

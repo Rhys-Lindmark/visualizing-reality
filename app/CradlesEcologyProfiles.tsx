@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { fetchClientText } from './lib/clientAsset';
 
 type Dimension='water'|'rainfall'|'crops'|'transport'|'settlement';
 type Row={region:string;region_slug:string;dimension:Dimension;dimension_label:string;headline:string;observation:string;evidence_status:string;place:string;time_window:string;source_keys:string;interpretation:string;limits:string};
@@ -23,7 +24,7 @@ export default function CradlesEcologyProfiles(){
   const[selectedDimension,setSelectedDimension]=useState<Dimension>('water');
   const[attempt,setAttempt]=useState(0);
 
-  useEffect(()=>{const controller=new AbortController();fetch(dataUrl,{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw new Error(`Ecology CSV returned ${response.status}`);const text=await response.text();if(!text.trim()||text.trimStart().startsWith('<'))throw new Error('Ecology data did not return CSV');return parseCSV(text);}).then(parsed=>{const regions=new Set(parsed.map(row=>row.region_slug));const cells=new Set(parsed.map(row=>`${row.region_slug}|${row.dimension}`));if(parsed.length!==30||regions.size!==6||cells.size!==30||parsed.some(row=>!row.headline||!row.source_keys||!row.limits))throw new Error('The ecology response used an incompatible schema.');setRows(parsed);setLoadState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The ecology comparison could not be loaded.');setLoadState('error');});return()=>controller.abort();},[attempt]);
+  useEffect(()=>{const controller=new AbortController();fetchClientText(dataUrl,{signal:controller.signal,label:'Ecology CSV'}).then(parseCSV).then(parsed=>{const regions=new Set(parsed.map(row=>row.region_slug));const cells=new Set(parsed.map(row=>`${row.region_slug}|${row.dimension}`));if(parsed.length!==30||regions.size!==6||cells.size!==30||parsed.some(row=>!row.headline||!row.source_keys||!row.limits))throw new Error('The ecology response used an incompatible schema.');setRows(parsed);setLoadState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The ecology comparison could not be loaded.');setLoadState('error');});return()=>controller.abort();},[attempt]);
 
   const regions=useMemo(()=>{const seen=new Map<string,string>();for(const row of rows)if(!seen.has(row.region_slug))seen.set(row.region_slug,row.region);return[...seen].map(([slug,name])=>({slug,name}));},[rows]);
   const regionalRows=useMemo(()=>dimensionOrder.map(dimension=>rows.find(row=>row.region_slug===selectedRegion&&row.dimension===dimension)).filter((row):row is Row=>Boolean(row)),[rows,selectedRegion]);

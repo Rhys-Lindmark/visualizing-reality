@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { fetchClientJson, fetchClientText } from './lib/clientAsset';
 
 type Point=[number,number];
 type Geometry={type:string;arcs:unknown};
@@ -40,9 +41,9 @@ export default function BronzeMetalNetwork(){
   const[attempt,setAttempt]=useState(0);
 
   useEffect(()=>{const controller=new AbortController();Promise.all([
-    fetch(nodesUrl,{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw new Error(`Network nodes returned ${response.status}`);const text=await response.text();if(!text.trim()||text.trimStart().startsWith('<'))throw new Error('Network nodes did not return CSV');return parseCSV<NodeRow>(text);}),
-    fetch(linksUrl,{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw new Error(`Network links returned ${response.status}`);const text=await response.text();if(!text.trim()||text.trimStart().startsWith('<'))throw new Error('Network links did not return CSV');return parseCSV<LinkRow>(text);}),
-    fetch(landUrl,{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw new Error(`Basemap returned ${response.status}`);return response.json() as Promise<Topology>;}),
+    fetchClientText(nodesUrl,{signal:controller.signal,label:'Network nodes'}).then(parseCSV<NodeRow>),
+    fetchClientText(linksUrl,{signal:controller.signal,label:'Network links'}).then(parseCSV<LinkRow>),
+    fetchClientJson<Topology>(landUrl,{signal:controller.signal,label:'Basemap'}),
   ]).then(([parsedNodes,parsedLinks,topology])=>{const networks=new Set(parsedNodes.map(row=>row.network_id));if(parsedNodes.length!==19||parsedLinks.length!==16||networks.size!==4||!topology?.objects?.['10m_land']||parsedNodes.some(row=>!row.limits||!row.source_keys)||parsedLinks.some(row=>!row.limits||!row.source_keys))throw new Error('The metal-network response used an incompatible schema.');setNodes(parsedNodes);setLinks(parsedLinks);setLand(topology);setState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The metal network could not be loaded.');setState('error');});return()=>controller.abort();},[attempt]);
 
   const activeNodes=useMemo(()=>nodes.filter(row=>row.network_id===network),[nodes,network]);
