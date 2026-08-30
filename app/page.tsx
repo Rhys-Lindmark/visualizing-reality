@@ -1,10 +1,5 @@
 import RomanMap from './RomanMap';
-
-const opponents = [
-  { name: 'Gallic coalition', sub: 'Telamon · 225 BCE', value: '70k', width: '9.1%' },
-  { name: 'Hannibal’s army', sub: 'Cannae · 216 BCE', value: '≈50k', width: '6.5%' },
-  { name: 'Parthian field force', sub: 'Carrhae · 53 BCE', value: '≈10k', width: '1.3%' },
-];
+import MilitaryCapacityChart from './MilitaryCapacityChart';
 
 export default function Home() {
   return (
@@ -41,32 +36,11 @@ export default function Home() {
           </section>
 
           <section className="insight manpower-insight">
-            <div className="insight-copy"><span className="insight-number">02</span><p className="claim">Rome’s decisive weapon was the army it could raise after the army it had just lost.</p><h3>Why Rome won: manpower × staying power</h3><p>Iron and chainmail mattered, but neither was uniquely Roman. The exceptional thing was the federation behind the legion: citizens plus Italian allies, organized to supply repeated armies.</p><p>In 225 BCE, Polybius recorded more than 700,000 infantry and almost 70,000 cavalry liable for service across Rome and its allies. That was not one field army. It was the reservoir behind the field armies.</p><a className="source-link" href="https://acoup.blog/2023/10/20/collections-how-to-roman-republic-101-addenda-the-socii/">Read ACOUP on Rome’s allies ↗</a></div>
+            <div className="insight-copy"><span className="insight-number">02</span><p className="claim">Rome combined more soldiers with more metal per soldier.</p><h3>Why Rome won: manpower × iron</h3><p>The graph estimates soldiers actually under arms—not every man theoretically liable for service—and multiplies that force by a modeled average iron load per soldier.</p><p>Rome’s advantage was multiplicative. Its Italian federation could sustain unusually large armies, while its heavy infantry increasingly carried expensive mail, substantial helmets, swords, and iron-intensive pila. ACOUP estimates Roman kit contained about 25% more worked metal than its nearest competitor.</p><p>This is a model, not a recovered ancient statistic. Move across the graph to inspect its assumptions and uncertainty.</p><a className="source-link" href="https://acoup.blog/2024/02/16/collections-phalanxs-twilight-legions-triump-part-iib-handfuls-of-maniples/">Read ACOUP on Roman equipment ↗</a></div>
             <div className="viz-card manpower-viz-v2">
-              <div className="viz-title"><div><span>Military capacity of the Roman system</span><h4>The replacement pool was the advantage</h4></div><small>People · selected dates · estimates</small></div>
-
-              <div className="pool-chart">
-                <div className="pool-axis"><span>0</span><span>200k</span><span>400k</span><span>600k</span><span>800k</span></div>
-                <div className="pool-row primary"><div className="pool-label"><b>Roman–Italian liable pool</b><span>225 BCE · census</span></div><div className="bar-track"><i style={{width:'96%'}}><strong>≈770k</strong></i></div></div>
-                <div className="pool-row deployed"><div className="pool-label"><b>Rome: deployed + reserve</b><span>225 BCE · that crisis</span></div><div className="bar-track"><i style={{width:'15%'}}><strong>≈120k</strong></i></div></div>
-                <div className="pool-divider"><span>Opponent armies in a single campaign</span></div>
-                {opponents.map((item) => <div className="pool-row opponent" key={item.name}><div className="pool-label"><b>{item.name}</b><span>{item.sub}</span></div><div className="bar-track"><i style={{width:item.width}}><strong>{item.value}</strong></i></div></div>)}
-              </div>
-
-              <div className="capacity-equation"><div><span>Mobilizable people</span><b>large citizen–allied pool</b></div><i>×</i><div><span>Power per soldier</span><b>training + equipment + organization</b></div><i>=</i><div className="result"><span>Staying power</span><b>another army after defeat</b></div></div>
-
-              <div className="regime-chart">
-                <div className="regime-head"><span>Rome’s military system over time</span><b>Not one continuous measure: the institution changes</b></div>
-                <div className="regime-line"><i /><i /><i /><i /></div>
-                <div className="regime-points">
-                  <div><b>225 BCE</b><strong>≈770k</strong><span>liable coalition pool</span></div>
-                  <div><b>212 BCE</b><strong>25 legions</strong><span>in service at wartime peak</span></div>
-                  <div><b>14 CE</b><strong>≈250k</strong><span>standing army + auxiliaries</span></div>
-                  <div><b>c. 300 CE</b><strong>≈400–500k</strong><span>larger late imperial army</span></div>
-                </div>
-              </div>
-
-              <p className="viz-note"><b>Read the denominator.</b> The 770,000 figure is a census-based pool of men liable for service, not an army assembled in one place. The opponent bars are campaign armies, not every person their societies could theoretically mobilize. Ancient totals are debated and rounded.</p>
+              <div className="viz-title"><div><span>Military capacity of the Roman system</span><h4>How much army—and how much iron?</h4></div><small>500 BCE–500 CE · modeled estimates</small></div>
+              <MilitaryCapacityChart />
+              <p className="viz-note"><b>Method:</b> blue values reconstruct soldiers under arms or paper establishment from ancient unit counts and modern scholarship. Red values multiply the midpoint by modeled kilograms of worked iron carried per soldier. The downloadable CSV preserves low/high ranges, estimate type, citation keys, and notes for every point.</p>
             </div>
           </section>
         </section>

@@ -30,6 +30,15 @@ const keyCities: Array<[number, number, string]> = [
   [10.32, 36.85, 'Carthage'], [36.28, 33.51, 'Damascus'], [29.92, 31.2, 'Alexandria'],
 ];
 
+const mapYears = [-500,-338,-298,-290,-272,-264,-218,-133,-60,16,47,69,84,102,117,200,293,395,476];
+
+function drawPolity(ctx: CanvasRenderingContext2D, points: Point[], label: string, color: string) {
+  ctx.beginPath(); points.forEach((point,i)=>{const [x,y]=project(point,ctx.canvas.width,ctx.canvas.height);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.closePath();
+  ctx.fillStyle=color;ctx.fill();ctx.strokeStyle='rgba(49,59,64,.58)';ctx.lineWidth=1;ctx.stroke();
+  const lon=points.reduce((sum,p)=>sum+p[0],0)/points.length,lat=points.reduce((sum,p)=>sum+p[1],0)/points.length;
+  drawText(ctx,label,lon,lat,'rgba(31,42,49,.82)');
+}
+
 function decodeArc(topology: Topology, index: number): Point[] {
   const reversed = index < 0;
   const arc = topology.arcs[reversed ? ~index : index];
@@ -132,13 +141,19 @@ export default function RomanMap() {
       ctx.strokeStyle = 'rgba(122,125,121,.32)'; ctx.lineWidth = .45; ctx.stroke();
     });
 
+    const mapYear=mapYears[era] ?? 117;
+    if(mapYear<=-50) drawPolity(ctx,[[-5,43],[7,43],[11,47],[8,52],[-1,52],[-6,48]],'GALLO-CELTIC POLITIES','rgba(117,145,92,.62)');
+    if(mapYear>=-500&&mapYear<=-146){drawPolity(ctx,[[-1,32],[18,31],[17,37],[10,38],[3,36]],'CARTHAGE','rgba(198,154,61,.66)');if(mapYear<=-218)drawPolity(ctx,[[-9,36],[2,36],[1,43],[-7,42]],'PUNIC IBERIA','rgba(198,154,61,.58)');}
+    if(mapYear>=-247&&mapYear<=224) drawPolity(ctx,[[41,29],[63,28],[63,47],[50,48],[39,40]],'PARTHIAN EMPIRE','rgba(133,105,154,.6)');
+    if(mapYear>=-338&&mapYear<=-146) drawPolity(ctx,[[19,38],[29,37],[30,43],[20,43]],'MACEDON','rgba(81,137,154,.55)');
+
     const extent = current || early[14];
     const rings = ringsFor(data.extents, extent);
-    pathRings(ctx, rings, w, h);
     if (!late || late.kind === 'unified') {
-      ctx.fillStyle = 'rgba(173,35,50,.78)'; ctx.fill('evenodd');
-      ctx.strokeStyle = '#821927'; ctx.lineWidth = 1.7; ctx.stroke();
+      const cumulative = late ? early : early.slice(0,era+1);
+      cumulative.forEach((layer)=>{pathRings(ctx,ringsFor(data.extents,layer),w,h);ctx.fillStyle='rgba(173,35,50,.78)';ctx.fill('evenodd');ctx.strokeStyle='#821927';ctx.lineWidth=1.2;ctx.stroke();});
     } else {
+      pathRings(ctx, rings, w, h);
       ctx.save(); ctx.clip('evenodd');
       if (late.kind === 'tetrarchy') {
         const blocks = [
@@ -184,12 +199,12 @@ export default function RomanMap() {
         <div><span>Roman territorial history</span><h4>{context[0]}</h4><p>{context[1]}</p></div>
         <div className="map-date"><b>{year || 'Loading…'}</b><small>{late?.kind === 'tetrarchy' ? 'administrative portfolios' : late?.kind === 'successors' ? 'political reconstruction' : 'controlled territory'}</small></div>
       </div>
-      <div className="map-stage"><canvas ref={canvas} width="1100" height="570" aria-label={`Map of Roman territory in ${year}`} /><div className="map-key"><span><i className="roman" /> Roman rule</span><span><i className="land-key" /> land</span></div></div>
+      <div className="map-stage"><canvas ref={canvas} width="1100" height="570" aria-label={`Map of Roman territory in ${year}`} /><div className="map-key"><span><i className="roman" /> Roman rule</span><span><i className="neighbor-key" /> selected neighboring polities</span></div></div>
       <div className="timeline-control">
         <button className="play" type="button" onClick={() => setPlaying((value) => !value)} aria-label={playing ? 'Pause timeline' : 'Play timeline'}>{playing ? 'Ⅱ' : '▶'}</button>
         <div className="timeline-track"><input aria-label="Year in Roman history" type="range" min="0" max={Math.max(0,total-1)} value={era} onChange={(e) => { setPlaying(false); setEra(Number(e.target.value)); }} /><div className="year-ticks"><button onClick={()=>setEra(0)} type="button">500 BCE</button><button onClick={()=>setEra(5)} type="button">264 BCE</button><button onClick={()=>setEra(14)} type="button">117 CE</button><button onClick={()=>setEra(16)} type="button">293</button><button onClick={()=>setEra(total-1)} type="button">476</button></div></div>
       </div>
-      <div className="map-foot"><p><b>How to read this:</b> colored territory is reconstructed, not a modern surveyed border. At 293, color shows administrative responsibility within one Roman Empire.</p><p>Territorial data: Sirius T. Bontea · Natural Earth · AWMC. Late-antique overlays: Wikimedia historical maps.</p></div>
+      <div className="map-foot"><p><b>How to read this:</b> Roman territory accumulates through time. Neighboring colors show selected major states or cultural-political regions, not an exhaustive political map. At 293, color shows administrative responsibility within one Roman Empire.</p><p>Roman territorial data: Sirius T. Bontea · Natural Earth · AWMC. Neighboring and late-antique boundaries are simplified historical reconstructions.</p></div>
     </div>
   );
 }
