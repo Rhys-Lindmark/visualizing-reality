@@ -32,7 +32,7 @@ const rome = parseCsv(romeCsv);
 const rivals = parseCsv(rivalsCsv);
 
 for (const [name, rows, textFields, numericFields] of [
-  ['Rome estimates', rome, ['polity', 'display_year', 'estimate_type', 'source_keys'], ['year', 'soldiers_thousands']],
+  ['Rome estimates', rome, ['polity', 'display_year', 'estimate_type', 'source_keys'], ['year', 'soldiers_thousands', 'army_mid_thousands']],
   ['rival forces', rivals, ['polity', 'display_year', 'evidence_grade', 'source_keys'], ['year', 'soldiers_thousands']],
 ]) {
   if (!rows.length) throw new Error(`${name} has no rows`);
@@ -40,6 +40,11 @@ for (const [name, rows, textFields, numericFields] of [
     for (const field of textFields) if (!required(row[field])) throw new Error(`${name}: invalid ${field}`);
     for (const field of numericFields) if (!Number.isFinite(Number(row[field]))) throw new Error(`${name}: invalid ${field}`);
   }
+}
+
+for (const row of rome) {
+  if (Number(row.army_mid_thousands) !== Number(row.soldiers_thousands)) throw new Error('Rome estimates: legacy army_mid_thousands alias diverges from soldiers_thousands');
+  if (row.army_low_thousands || row.army_high_thousands) throw new Error('Rome estimates: deprecated uncertainty columns must remain blank');
 }
 
 const polities = JSON.parse(polityJson);
