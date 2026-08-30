@@ -231,5 +231,18 @@
     "source_key_field": "source_keys",
     "time_resolution": "five unlike case windows from the fifteenth century BCE through the late Shang period",
     "notes": "The comparison preserves six dependencies without scoring completeness or effectiveness. Husiatyn lacks a vehicle; Kikkuli's at-least-184-day schedule is reconstructed; Pylian wheels are not complete chariots; EA 15 is a diplomatic gift; and Anyang mortuary contexts are not field organization."
+  },
+  {
+    "id": "bronze-maritime-networks",
+    "title": "Three shipwreck and two harbor windows onto plural Bronze Age maritime exchange",
+    "paths": [
+      "/data/bronze-maritime-cases.csv",
+      "/data/bronze-maritime-links.csv"
+    ],
+    "schema": "observation",
+    "evidence_type": "comparative_shipwreck_harbor_archaeometric_artifact_and_institutional_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "five unlike evidence windows and nineteen bounded associations from the seventeenth through twelfth centuries BCE",
+    "notes": "Uluburun Cape Gelidonya Point Iria Kommos and Hala Sultan Tekke remain unlike cargo and harbor records. Connections identify material analytical or typological associations rather than direct voyages annual traffic market shares ownership or one unified trade institution."
   }
 ]

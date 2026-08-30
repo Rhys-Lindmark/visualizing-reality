@@ -28,6 +28,8 @@ const assets=[
   ['csv','/data/bronze-age/20260830-bronze-network1/bronze-metal-network-links.csv'],
   ['csv','/data/bronze-age/20260830-palace1/bronze-palace-circuits.csv'],
   ['csv','/data/bronze-age/20260830-chariot1/bronze-chariot-systems.csv'],
+  ['csv','/data/bronze-age/20260830-maritime1/bronze-maritime-cases.csv'],
+  ['csv','/data/bronze-age/20260830-maritime1/bronze-maritime-links.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],

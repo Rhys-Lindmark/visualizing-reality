@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Build Bronze Age insight 04: show how ports and cargoes connected the eastern Mediterranean more tightly than political borders imply.
+- Build Bronze Age insight 05: test interacting explanations for the Late Bronze Age collapse without forcing one regional cause.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -99,7 +99,7 @@ when the evidence supports independent urban/state formation.
 1. Copper and tin turned geography into a long-distance production network — live; four evidence views preserve one cargo, copper provenance, an Atlantic tin signal, a textual relationship, and competing tin-source hypotheses without inventing annual flows or direct routes.
 2. Palace economies concentrated storage, craft, writing, and redistribution — live; five selective institutional circuits compare Mari, Hattusha, Knossos, Pylos, and Ugarit without combining unlike archive counts, flock tallies, metal allotments, or archaeological episodes into a centralization score.
 3. **Speed had a supply chain:** five evidence windows expose chariots as systems of vehicles, paired horses, control gear, specialist people, upkeep, and institutions — live; unlike burials, texts, inventories, gifts, and mortuary assemblages are never converted into a force-size or effectiveness score.
-4. Trade connected the eastern Mediterranean more tightly than political borders suggest.
+4. **The sea was shared; the carriers were plural:** three shipwrecks and two harbor settlements expose elite shipments, travelling metal ventures, mixed coasting cargoes, and multi-period port communities — live; nineteen source-keyed associations are not converted into routes, traffic, market share, ownership, or one trade system.
 5. The Late Bronze Age collapse was a systems failure with multiple interacting causes.
 
 ## P1 — Page 05: The Iron Age transformation — ready
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Bronze Age insight 04, **The sea was shared. The carriers were plural.** The comparison places Uluburun, Cape Gelidonya, Point Iria, Kommos, and Hala Sultan Tekke in five unlike evidence windows: three wreck events and two multi-period harbor assemblages. Nineteen inspectable associations connect each find context to the materials, analytical regions, or typological traditions named by its sources while explicitly refusing to reconstruct direct voyages, annual traffic, import shares, crew ethnicity, ownership, political control, or a representative network. Added nine specialist and excavation sources, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated checks preserving the 10 + 1 tonne Uluburun anchor, Cape Gelidonya's 750-plus fragments, Point Iria's three ceramic traditions, Kommos's 69-fragment sample, and Hala Sultan Tekke's minimum 25-hectare extent. Verified all five cases, the Sardinia association and source readout, five shared insight tabs with one active panel, desktop and 390 × 844 layouts, no loading or corrupt-value states, data validation, lint, and the production build. Next: a multi-causal Late Bronze Age collapse chronology.
 
 - 2026-08-30 — Rebuilt the shared reading experience around an Our World in Data–style key-insights selector. Rome, Uruk, Cradles, and the Bronze Age now present exactly five clickable argument cards, render one selected text-and-visual pair at a time, support arrow/Home/End keyboard navigation, and keep the compact methods/source material collapsed outside the main reading flow. The selector becomes a horizontal, touch-scrollable rail at 390 × 844 rather than compressing five labels into unreadable columns. Verified five tabs and one active panel on every history route, all five Uruk transitions, representative transitions on the other three pages, asynchronous Rome data loading, desktop composition, mobile interaction, lint, and the production build.
 

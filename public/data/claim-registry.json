@@ -230,5 +230,30 @@
       "IHP_YIN_CHARIOT_M40"
     ],
     "note": "Five records expose different dependencies and survival filters. The visual makes no chariot-force total battlefield-effectiveness score fodder acreage annual cost or universal crew standard; absence from one record remains unobserved rather than zero."
+  },
+  {
+    "id": "bronze-age-04-plural-maritime-networks",
+    "page": "bronze-age",
+    "insight": 4,
+    "claim": "Late Bronze Age maritime connectivity crossed political worlds through overlapping elite voyages freelance metal ventures coasting cargoes and harbor communities rather than one centrally owned trade system.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_shipwreck_harbor_archaeometric_artifact_and_institutional_synthesis",
+    "dataset_ids": [
+      "bronze-maritime-networks"
+    ],
+    "source_keys": [
+      "INA_ULUBURUN",
+      "HAUPTMANN_ET_AL2002",
+      "MANNING_ET_AL2009",
+      "INA_GELIDONYA",
+      "INA_GELIDONYA_INGOTS",
+      "POINT_IRIA_HIMA",
+      "KRISTIANSEN_SUCHOWSKA2015",
+      "TOMLINSON_RUTTER_HOFFMANN2010",
+      "KOMMOS_PROJECT",
+      "FISCHER2023",
+      "OEA_HALA_SULTAN"
+    ],
+    "note": "Three wrecks and two harbor settlements preserve five different carriers and nineteen inspectable associations. The visual does not infer direct voyages traffic frequency market share crew ethnicity ownership political control or a representative annual network."
   }
 ]

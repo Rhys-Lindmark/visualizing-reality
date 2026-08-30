@@ -599,6 +599,48 @@ if (!anyangChariot || anyangChariot.anchor_value !== '1 + 2 + 3' || !sourceKeys(
 const bronzeChariotSnapshot = read('public/data/bronze-age/20260830-chariot1/bronze-chariot-systems.csv');
 if (bronzeChariotSnapshot !== readFileSync(path.join(root, 'public/data/bronze-chariot-systems.csv'), 'utf8')) fail('Bronze chariot immutable client snapshot diverges from the canonical dataset');
 
+const bronzeMaritimeCases = csv('public/data/bronze-maritime-cases.csv');
+const maritimeCases = new Map();
+for (const [index, row] of bronzeMaritimeCases.entries()) {
+  const context = `bronze-maritime-cases.csv row ${index + 2}`;
+  requireFields(row, ['case_id', 'name', 'case_kind', 'date_window', 'latitude', 'longitude', 'political_setting', 'anchor_value', 'anchor_label', 'carrier', 'evidence', 'interpretation', 'source_keys', 'limits'], context);
+  numeric(row, ['latitude', 'longitude'], context); validateKeys(sourceKeys(row.source_keys), context);
+  if (maritimeCases.has(row.case_id)) fail(`${context} duplicates ${row.case_id}`); maritimeCases.set(row.case_id, row);
+  if (Object.keys(row).some(field => /annual_(traffic|flow|volume)|market_share|connectivity_score|port_rank|direct_route|crew_ethnicity|political_control|typical_year/i.test(field))) fail(`${context} introduces an unsupported maritime model field`);
+  if (row.limits.length < 150) fail(`${context} does not preserve substantive cargo route and institutional limits`);
+}
+for (const caseId of ['uluburun', 'cape-gelidonya', 'point-iria', 'kommos', 'hala-sultan-tekke']) if (!maritimeCases.has(caseId)) fail(`Bronze maritime cases are missing ${caseId}`);
+if (bronzeMaritimeCases.length !== 5 || maritimeCases.size !== 5) fail(`Bronze maritime comparison requires five unique cases, found ${bronzeMaritimeCases.length} rows and ${maritimeCases.size} cases`);
+const bronzeMaritimeLinks = csv('public/data/bronze-maritime-links.csv');
+const maritimeLinkIds = new Set(); const maritimeLinksByCase = new Map();
+for (const [index, row] of bronzeMaritimeLinks.entries()) {
+  const context = `bronze-maritime-links.csv row ${index + 2}`;
+  requireFields(row, ['case_id', 'link_id', 'region', 'latitude', 'longitude', 'material', 'evidence_class', 'observation', 'source_keys', 'limits'], context);
+  numeric(row, ['latitude', 'longitude'], context); validateKeys(sourceKeys(row.source_keys), context);
+  if (!maritimeCases.has(row.case_id)) fail(`${context} references missing case ${row.case_id}`);
+  if (maritimeLinkIds.has(row.link_id)) fail(`${context} duplicates ${row.link_id}`); maritimeLinkIds.add(row.link_id);
+  maritimeLinksByCase.set(row.case_id, (maritimeLinksByCase.get(row.case_id) ?? 0) + 1);
+  if (Object.keys(row).some(field => /distance_traveled|direction|frequency|quantity|direct_route|annual_flow|market_share/i.test(field))) fail(`${context} introduces an unsupported route or flow field`);
+  if (row.limits.length < 95) fail(`${context} does not preserve a substantive association or route limit`);
+}
+const expectedMaritimeLinks = new Map([['uluburun', 4], ['cape-gelidonya', 2], ['point-iria', 3], ['kommos', 4], ['hala-sultan-tekke', 6]]);
+for (const [caseId, expected] of expectedMaritimeLinks) if (maritimeLinksByCase.get(caseId) !== expected) fail(`${caseId} must preserve ${expected} bounded maritime associations`);
+if (bronzeMaritimeLinks.length !== 19 || maritimeLinkIds.size !== 19) fail(`Bronze maritime comparison requires nineteen unique links, found ${bronzeMaritimeLinks.length}`);
+const uluburunMaritime = maritimeCases.get('uluburun');
+if (!uluburunMaritime || uluburunMaritime.anchor_value !== '10 + 1 t' || !sourceKeys(uluburunMaritime.source_keys).includes('INA_ULUBURUN') || !/not a representative cargo.*annual flow.*ownership.*institutional status remain debated/i.test(uluburunMaritime.limits)) fail('Uluburun must remain one exceptional cargo without representative flow ownership or route inference');
+const gelidonyaMaritime = maritimeCases.get('cape-gelidonya');
+if (!gelidonyaMaritime || gelidonyaMaritime.anchor_value !== '750+' || !sourceKeys(gelidonyaMaritime.source_keys).includes('INA_GELIDONYA_INGOTS') || !/not 750 complete ingots.*full shipment count.*identity is unresolved/i.test(gelidonyaMaritime.limits)) fail('Cape Gelidonya must preserve fragment and tinker-model limits');
+const iriaMaritime = maritimeCases.get('point-iria');
+if (!iriaMaritime || iriaMaritime.anchor_value !== '3 regions' || !sourceKeys(iriaMaritime.source_keys).includes('POINT_IRIA_HIMA') || !/do not identify crew ethnicity.*complete itinerary.*reconstruction rather than an observed sequence/i.test(iriaMaritime.limits)) fail('Point Iria must preserve mixed ceramic regions without crew or observed-itinerary inference');
+const kommosMaritime = maritimeCases.get('kommos');
+if (!kommosMaritime || kommosMaritime.anchor_value !== '69' || !/roughly 80 percent/i.test(kommosMaritime.evidence) || !sourceKeys(kommosMaritime.source_keys).includes('TOMLINSON_RUTTER_HOFFMANN2010') || !/not all pottery.*share of imports.*annual series/i.test(kommosMaritime.limits)) fail('Kommos must preserve the selected 69-fragment sample and bounded eighty-percent result');
+const halaMaritime = maritimeCases.get('hala-sultan-tekke');
+if (!halaMaritime || halaMaritime.anchor_value !== '≥25 ha' || !sourceKeys(halaMaritime.source_keys).includes('FISCHER2023') || !/do not measure simultaneous population.*annual imports.*market share.*centuries/i.test(halaMaritime.limits)) fail('Hala Sultan Tekke must preserve minimum extent and multi-period assemblage limits');
+for (const file of ['bronze-maritime-cases.csv', 'bronze-maritime-links.csv']) {
+  const snapshot = read(`public/data/bronze-age/20260830-maritime1/${file}`);
+  if (snapshot !== readFileSync(path.join(root, `public/data/${file}`), 'utf8')) fail(`Bronze maritime immutable client snapshot diverges from ${file}`);
+}
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -664,4 +706,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${geo.features.length} boundary features.`);
