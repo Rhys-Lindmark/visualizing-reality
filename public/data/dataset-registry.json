@@ -221,5 +221,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "five unlike case windows from the early eighteenth through late thirteenth centuries BCE",
     "notes": "Each row follows one unusually visible resource or information circuit through an institutional aperture and keeps its outside-palace limit attached. Archive counts sheep tallies metal allotments and one silo episode retain unlike units and are never summed ranked or converted into a centralization or state-capacity score."
+  },
+  {
+    "id": "bronze-chariot-systems",
+    "title": "Five evidence windows onto Bronze Age chariot horses vehicles people upkeep and institutions",
+    "path": "/data/bronze-chariot-systems.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_burial_textual_archival_and_archaeological_system_evidence",
+    "source_key_field": "source_keys",
+    "time_resolution": "five unlike case windows from the fifteenth century BCE through the late Shang period",
+    "notes": "The comparison preserves six dependencies without scoring completeness or effectiveness. Husiatyn lacks a vehicle; Kikkuli's at-least-184-day schedule is reconstructed; Pylian wheels are not complete chariots; EA 15 is a diplomatic gift; and Anyang mortuary contexts are not field organization."
   }
 ]

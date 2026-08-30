@@ -574,6 +574,31 @@ if (!ugaritCircuit || ugaritCircuit.anchor_value !== '600' || !/royal palace arc
 const bronzePalaceSnapshot = read('public/data/bronze-age/20260830-palace1/bronze-palace-circuits.csv');
 if (bronzePalaceSnapshot !== readFileSync(path.join(root, 'public/data/bronze-palace-circuits.csv'), 'utf8')) fail('Bronze palace immutable client snapshot diverges from the canonical dataset');
 
+const bronzeChariotSystems = csv('public/data/bronze-chariot-systems.csv');
+const chariotCases = new Map();
+for (const [index, row] of bronzeChariotSystems.entries()) {
+  const context = `bronze-chariot-systems.csv row ${index + 2}`;
+  requireFields(row, ['case_id', 'place', 'region', 'date_window', 'evidence_kind', 'anchor_value', 'anchor_label', 'vehicle', 'horses', 'control', 'people', 'upkeep', 'institution', 'interpretation', 'source_keys', 'limits'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (chariotCases.has(row.case_id)) fail(`${context} duplicates ${row.case_id}`); chariotCases.set(row.case_id, row);
+  if (Object.keys(row).some(field => /effectiveness_score|completeness_score|force_total|annual_cost|fodder_acres|crew_standard|rank/i.test(field))) fail(`${context} introduces an unsupported shared-scale or modeled field`);
+  if (row.limits.length < 130) fail(`${context} does not preserve a substantive survival and inference limit`);
+}
+for (const caseId of ['husiatyn', 'hattusha', 'pylos', 'amarna', 'anyang']) if (!chariotCases.has(caseId)) fail(`Bronze chariot systems are missing ${caseId}`);
+if (bronzeChariotSystems.length !== 5 || chariotCases.size !== 5) fail(`Bronze chariot comparison requires five unique records, found ${bronzeChariotSystems.length} rows and ${chariotCases.size} cases`);
+const husiatynChariot = chariotCases.get('husiatyn');
+if (!husiatynChariot || husiatynChariot.anchor_value !== '2' || !sourceKeys(husiatynChariot.source_keys).includes('MAKAROWICZ_ET_AL2022') || !/vehicle did not survive.*cannot establish battlefield use.*force/i.test(husiatynChariot.limits)) fail('Husiatyn must preserve two horses while explicitly withholding vehicle battle and force inferences');
+const hattushaChariot = chariotCases.get('hattusha');
+if (!hattushaChariot || hattushaChariot.anchor_value !== '≥184' || !sourceKeys(hattushaChariot.source_keys).includes('RAULWING2009') || !/scholarly reconstruction.*not an ancient numbered total.*does not measure compliance/i.test(hattushaChariot.limits)) fail('Kikkuli must preserve the at-least-184-day reconstructed schedule without claiming compliance');
+const pylosChariot = chariotCases.get('pylos');
+if (!pylosChariot || pylosChariot.anchor_value !== '58 pairs' || !/13 listed as unfit for service/i.test(pylosChariot.anchor_label) || !sourceKeys(pylosChariot.source_keys).includes('OBRIEN2009') || !/not 58 complete or fieldable chariots/i.test(pylosChariot.limits)) fail('Pylos must keep wheel pairs and unfit condition separate from a fieldable chariot count');
+const amarnaChariot = chariotCases.get('amarna');
+if (!amarnaChariot || amarnaChariot.anchor_value !== '1 + 2' || !sourceKeys(amarnaChariot.source_keys).includes('ORACC_EA15') || !sourceKeys(amarnaChariot.source_keys).includes('MET_AMARNA_LETTERS') || !/not a military inventory.*price.*standard issue/i.test(amarnaChariot.limits)) fail('EA 15 must remain one diplomatic gift rather than an inventory price or standard issue');
+const anyangChariot = chariotCases.get('anyang');
+if (!anyangChariot || anyangChariot.anchor_value !== '1 + 2 + 3' || !sourceKeys(anyangChariot.source_keys).includes('RAWSON_ET_AL2020') || !sourceKeys(anyangChariot.source_keys).includes('IHP_YIN_CHARIOT_M40') || !/M40 quantities and M41 repair tools come from different pits.*mortuary staging is not field organization/i.test(anyangChariot.limits)) fail('Anyang must keep M40 and M41 contexts separate and reject a field-organization inference');
+const bronzeChariotSnapshot = read('public/data/bronze-age/20260830-chariot1/bronze-chariot-systems.csv');
+if (bronzeChariotSnapshot !== readFileSync(path.join(root, 'public/data/bronze-chariot-systems.csv'), 'utf8')) fail('Bronze chariot immutable client snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -639,4 +664,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${geo.features.length} boundary features.`);

@@ -1,4 +1,5 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
+const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
 // Every asset fetched by a live visualization. A release is unhealthy when even
 // one URL returns the app's HTML 404 shell instead of its data payload.
 const assets=[
@@ -26,23 +27,24 @@ const assets=[
   ['csv','/data/bronze-age/20260830-bronze-network1/bronze-metal-network-nodes.csv'],
   ['csv','/data/bronze-age/20260830-bronze-network1/bronze-metal-network-links.csv'],
   ['csv','/data/bronze-age/20260830-palace1/bronze-palace-circuits.csv'],
+  ['csv','/data/bronze-age/20260830-chariot1/bronze-chariot-systems.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],
 ];
 
 const failures=[];
-for(const [kind,path] of assets){
-  const url=`${base}${path}?smoke=${Date.now()}`;
+for(const [origin,root] of [['site',base],['mirror',mirror]])for(const [kind,path] of assets){
+  const url=`${root}${path}?smoke=${Date.now()}`;
   try{
     const response=await fetch(url,{headers:{Accept:kind==='json'?'application/json,*/*;q=0.1':'text/csv,text/plain;q=0.9,*/*;q=0.1'}});
     const text=await response.text();
-    if(!response.ok)failures.push(`${path}: HTTP ${response.status}`);
-    else if(!text.trim()||text.trimStart().startsWith('<'))failures.push(`${path}: HTML or empty payload returned`);
-    else if(kind==='json'){try{JSON.parse(text);}catch{failures.push(`${path}: invalid JSON`);}}
-    else if(!text.includes('\n')||!text.split(/\r?\n/,1)[0].includes(','))failures.push(`${path}: invalid CSV`);
-    else console.log(`ok ${response.status} ${path}`);
-  }catch(error){failures.push(`${path}: ${error instanceof Error?error.message:String(error)}`);}
+    if(!response.ok)failures.push(`${origin} ${path}: HTTP ${response.status}`);
+    else if(!text.trim()||text.trimStart().startsWith('<'))failures.push(`${origin} ${path}: HTML or empty payload returned`);
+    else if(kind==='json'){try{JSON.parse(text);}catch{failures.push(`${origin} ${path}: invalid JSON`);}}
+    else if(!text.includes('\n')||!text.split(/\r?\n/,1)[0].includes(','))failures.push(`${origin} ${path}: invalid CSV`);
+    else console.log(`ok ${response.status} ${origin} ${path}`);
+  }catch(error){failures.push(`${origin} ${path}: ${error instanceof Error?error.message:String(error)}`);}
 }
 if(failures.length){console.error('Production visualization asset smoke test failed:');for(const failure of failures)console.error(`- ${failure}`);process.exit(1);}
-console.log(`Production visualization asset smoke test passed: ${assets.length} assets at ${base}`);
+console.log(`Production visualization asset smoke test passed: ${assets.length} assets at both the live site and public GitHub mirror`);

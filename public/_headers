@@ -1,0 +1,7 @@
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Data is revisioned by path. Revalidate rather than retaining a negative edge
+# response while a freshly deployed archive propagates.
+/data/*
+  Cache-Control: public, max-age=0, must-revalidate
