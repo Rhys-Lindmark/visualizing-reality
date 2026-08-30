@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "npm run validate:data && vinext build",
+    "verify:build-assets": "node scripts/check-build-assets.mjs",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "validate:data": "node scripts/validate-data.mjs && node scripts/test-rome-client-data.mjs",

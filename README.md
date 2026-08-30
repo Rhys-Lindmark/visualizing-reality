@@ -35,12 +35,13 @@ Then open the local URL printed by the development server. The main routes are `
 npm run validate:data
 npm run lint
 npm run build
+npm run verify:build-assets
 npm run smoke:production-data
 ```
 
 Before publication, also test the affected visualization in a browser and inspect every changed data file. A passing build is not evidence that a historical claim is sound.
 
-When a client-side data schema changes, create a new immutable data revision and update its data-client helper. Do not overwrite or delete an earlier revision: a browser tab can remain open across a deployment and must continue receiving the data contract its JavaScript expects. `npm run smoke:production-data` checks that the deployed Uruk revision returns real CSV with the expected row counts.
+When a client-side data schema changes, create a new immutable data revision and update its data-client helper. Do not overwrite or delete an earlier revision: a browser tab can remain open across a deployment and must continue receiving the data contract its JavaScript expects. Always build the exact checkout being packaged, then run `npm run verify:build-assets`; it byte-compares every file under `public/` with its copy in `dist/client/` and blocks a stale or incomplete Sites archive. `npm run smoke:production-data` then checks every asset fetched by a live production visualization.
 
 ## Evidence standard
 
