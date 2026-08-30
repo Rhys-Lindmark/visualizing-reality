@@ -30,14 +30,15 @@ const colors:Record<string,string>={
   'Parthian Empire':'#745395',
   'Sasanian Empire':'#53376f',
 };
-const DATA_REVISION='20260829-data-hotfix1';
+const DATA_REVISION='20260830-rome-client-cache2';
 const versioned=(path:string)=>`${path}?v=${DATA_REVISION}`;
 
 function parseCSV(text:string):string[][]{const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const char=text[i];if(char==='"'&&quoted&&text[i+1]==='"'){cell+='"';i++;}else if(char==='"')quoted=!quoted;else if(char===','&&!quoted){row.push(cell);cell='';}else if((char==='\n'||char==='\r')&&!quoted){if(char==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=char;}if(cell||row.length){row.push(cell);rows.push(row);}return rows;}
 function objects(text:string){const[headers,...rows]=parseCSV(text);return rows.map(row=>Object.fromEntries(headers.map((key,index)=>[key,row[index]])));}
 function people(value:number){return value>=1000?`${(value/1000).toFixed(1)}m`:`${value.toLocaleString()}k`;}
 function evidenceLabel(value:string){return value.replaceAll('_',' ');}
-function validObservation(row:Observation){return Boolean(row.polity&&row.display_year&&row.evidence_grade&&row.source_keys&&Number.isFinite(row.year)&&Number.isFinite(row.soldiers_thousands)&&row.soldiers_thousands>0);}
+function validText(value:string){return Boolean(value&&value!=='undefined'&&value!=='null');}
+function validObservation(row:Observation){return Boolean(validText(row.polity)&&validText(row.display_year)&&validText(row.evidence_grade)&&validText(row.source_keys)&&Number.isFinite(row.year)&&Number.isFinite(row.soldiers_thousands)&&row.soldiers_thousands>0);}
 async function fetchText(path:string,signal:AbortSignal){let lastError:unknown;for(let attempt=0;attempt<2;attempt++){try{const response=await fetch(versioned(path),{cache:'no-cache',signal});if(!response.ok)throw new Error(`${path} returned ${response.status}`);const text=await response.text();if(!text.trim()||text.trimStart().startsWith('<'))throw new Error(`${path} did not return CSV data`);return text;}catch(error){lastError=error;if(signal.aborted)throw error;if(attempt===0)await new Promise(resolve=>window.setTimeout(resolve,350));}}throw lastError;}
 
 export default function MilitaryCapacityChart(){
