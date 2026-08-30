@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260830-owid-key-insights3';
+const releaseId='20260830-iron-mobilization1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -44,6 +44,7 @@ const assets=[
   ['csv','/data/iron-age/20260830-adoption1/iron-adoption-windows.csv'],
   ['csv','/data/iron-age/20260830-fuel1/iron-smelting-experiments.csv'],
   ['csv','/data/iron-age/20260830-quality1/iron-quality-experiments.csv'],
+  ['csv','/data/iron-age/20260830-mobilization1/iron-mobilization-cases.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],

@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Build Iron Age insight 04: test when equipment abundance changed mobilization without converting metal finds into army headcounts or a military-power score.
+- Build Iron Age insight 05: compare workshops, markets, specialist communities, standards, tribute, and state production without one centralization index.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -107,7 +107,7 @@ when the evidence supports independent urban/state formation.
 1. **Iron adoption had two clocks:** five regional windows distinguish first or limited evidence from wider adoption, then expose prior metal traditions, resources and charcoal, furnace pathways, smithing, and institutions — live; no universal threshold, adoption score, annual output, market share, hardness rank, fuel ratio, or military-power estimate.
 2. **The forest was part of the furnace:** eleven published modern experimental runs compare ore charcoal and reported bloom outcomes — live; zero and trace blooms remain categorical, run-level analogs are not ancient output or woodland-loss estimates, and no universal fuel-efficiency ratio is imposed.
 3. **Quality was made:** four paired bloom and forged-bar samples keep hardness, chemistry, microstructure, and forgeability separate — live; no toughness, weapon-performance, ancient-average, or material-superiority score.
-4. **Metal did not mobilize itself:** test when equipment abundance changed army scale while keeping people, logistics, training, and institutions visible.
+4. **Metal did not mobilize itself:** live; four bounded cases separate equipment, recruitment, supply, and replacement, and only Taylor's same-model Punic War maxima receive proportional bars.
 5. **Scale was institutional:** compare workshops, markets, specialist communities, standards, tribute, and state production without one centralization index.
 
 ## P1 — Page 06: Persia and territorial empire — ready
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Iron Age insight 04, **A cheaper weapon could broaden a levy. It could not create the levy.** Four deliberately unlike cases separate equipment from recruitment, supply, and replacement: New Kingdom Egypt at Kadesh, pre-Roman European civitates, Carthage in 215 BCE, and Rome with the Italian allies in 212 BCE. Only Taylor's two Second Punic War strategic-deployment models receive proportional bars (approximately 170,000 and 185,000); the Kadesh figure remains a modern inference from four named divisions, and the civitas synthesis receives no invented headcount. Added three source records, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated guards against kilograms-per-soldier, artifact-derived armies, replacement curves, and military-power scores. Verified all four case selectors, four mobilization ledgers, two like-for-like bars, zero loading or corrupt-value states, zero horizontal overflow at 1280 and 390 × 844, 82–87 px mobile case controls, 64 checked data files, 170 sources, 29 datasets, 24 claims, four cases, lint, the production build, and 78 byte-identical built assets. The Iron Age page is four of five and draft. Next: explain why iron adoption did not erase regional technological diversity.
 
 - 2026-08-30 — Refined the shared Key Insights experience against the current Our World in Data topic-page pattern. Removed the second oversized slogan that delayed the selector; each history page now moves directly from a compact “Key Insights on …” heading into five equal clickable claim cards and one active text-left/visual-right argument. The claim cards use the quieter sans-serif treatment and pale-blue selected state of the reference layout, while the active editorial column is wider and the visualization remains the dominant surface. On mobile, all five controls remain visible as compact full-width touch targets without horizontal scrolling, and section links now clear the sticky header. Applied the contract to Rome, Uruk, Cradles, Bronze Age, and Iron Age; methods and source detail remain collapsed below the active argument rather than interrupting it. Verified all five selectors and last-tab transitions at 1280 pixels, all five third-tab transitions at 390 × 844, a 438/686-pixel desktop editorial/visual split, 55-pixel mobile controls, an 84-pixel anchor offset, keyboard End navigation, zero horizontal overflow, a clean browser console, 62 historical data files, 167 sources, 28 datasets, 23 claims, lint, the production build, and 76 byte-identical built assets. Next: test Iron Age equipment abundance and mobilization without fabricated headcounts or a military-power score.
 

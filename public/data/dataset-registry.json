@@ -284,5 +284,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "eight samples from four modern experimental runs rather than a historical series",
     "notes": "Hardness means sample counts standard deviations chemistry microstructure and forgeability remain distinct. The dataset does not convert hardness into toughness weapon performance service life battlefield effect or a material-superiority score."
+  },
+  {
+    "id": "iron-mobilization-cases",
+    "title": "Four bounded cases separating equipment access from recruitment supply and replacement",
+    "path": "/data/iron-mobilization-cases.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_documented_structure_qualitative_synthesis_and_strategic_deployment_models",
+    "source_key_field": "source_keys",
+    "time_resolution": "one Bronze Age campaign structure one broad pre-Roman transition and two same-model Punic War strategic maxima",
+    "notes": "Only the Carthaginian and Roman values share a model family and receive proportional bars. Kadesh remains a campaign inference and the pre-Roman civitas case has no headcount. The dataset contains no kilograms per soldier artifact-derived army total replacement curve causal share or military-power score."
   }
 ]

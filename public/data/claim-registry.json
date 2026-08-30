@@ -331,5 +331,24 @@
       "STEPANOV_ET_AL2022"
     ],
     "note": "Four paired bloom and bar samples expose the hardest-bloom counterexample. No hardness value is converted into toughness weapon performance service life ancient average or a cross-material superiority score."
+  },
+  {
+    "id": "iron-age-04-metal-did-not-mobilize-itself",
+    "page": "iron-age",
+    "insight": 4,
+    "claim": "Cheaper iron equipment could widen military participation but large and durable armies still depended on recruitment supply command finance and replacement institutions.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_documented_structure_qualitative_synthesis_and_strategic_deployment_models",
+    "dataset_ids": [
+      "iron-mobilization-cases"
+    ],
+    "source_keys": [
+      "WERNICK2014_KADESH_LOGISTICS",
+      "ACOU_TRIBAL",
+      "TAYLOR2020_SOLDIERS_SILVER",
+      "TAYLOR_CARTHAGINIAN_MANPOWER",
+      "ACOU_SOCII"
+    ],
+    "note": "Four unlike cases preserve their evidence classes. Only Taylor's Carthaginian and Roman strategic deployment models are compared proportionally; Kadesh remains an inferred campaign total and the pre-Roman transition receives no headcount. No metal mass artifact count or equipment observation is converted into army size or military power."
   }
 ]
