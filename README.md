@@ -16,7 +16,7 @@ The public site is [visualizing-reality.rhyslindmark.chatgpt.site](https://visua
 - `research/` — durable research and evidence audits used to explain inclusion, exclusion, and modeling decisions.
 - `BACKLOG.md` — the page contract, editorial rules, priorities, and completed milestones.
 
-Every finished topic page is designed around a short introduction and exactly five visual arguments. Reconstructions, observations, and model outputs are labeled separately; published data retains source keys and methodological notes.
+Every finished topic page is designed around a short introduction and exactly five visual arguments. Five clickable insight cards reveal one argument at a time in an editorial-text-left, visualization-right layout; compact methods and sources remain available below the main reading flow. Reconstructions, observations, and model outputs are labeled separately; published data retains source keys and methodological notes.
 
 ## Run locally
 

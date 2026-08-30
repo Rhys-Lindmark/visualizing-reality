@@ -19,6 +19,8 @@ Each subject becomes a real page, not a miscellaneous section. A finished page h
 
 1. A short introduction that states the historical problem.
 2. Exactly five core insights, ordered as an argument rather than a fact list.
+   Present them as five clickable tabs: one selected argument at a time, with
+   editorial text on the left and its visualization on the right.
 3. At least one excellent map or timeline and four other useful visualizations.
 4. Downloadable data or a transparent visual model with source keys and notes.
 5. A compact methodology and sources section that a skeptical historian can audit.
@@ -176,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Rebuilt the shared reading experience around an Our World in Data–style key-insights selector. Rome, Uruk, Cradles, and the Bronze Age now present exactly five clickable argument cards, render one selected text-and-visual pair at a time, support arrow/Home/End keyboard navigation, and keep the compact methods/source material collapsed outside the main reading flow. The selector becomes a horizontal, touch-scrollable rail at 390 × 844 rather than compressing five labels into unreadable columns. Verified five tabs and one active panel on every history route, all five Uruk transitions, representative transitions on the other three pages, asynchronous Rome data loading, desktop composition, mobile interaction, lint, and the production build.
 
 - 2026-08-30 — Eliminated the reported cross-page visualization failure mode and completed Bronze Age insight 03, **Speed had a supply chain**. Every one of the site's forty-seven client data loads now uses the same recovery path: the versioned Sites asset first, then the identical public GitHub path if the Sites edge returns 404 or an invalid payload. Data responses are explicitly revalidated, the production gate now parses all twenty-eight visualization assets at both origins, and a local failure proxy proved that Uruk, Cradles, and Rome still render with every primary `/data/` request intentionally forced to HTTP 404. The chariot comparison adds five source-keyed evidence windows—Husiatyn, Hattusha, Pylos, EA 15, and Anyang—and six dependencies: vehicle, horse team, control gear, people, upkeep, and institution. It preserves two paired horses without a surviving vehicle, Kikkuli's reconstructed schedule of at least 184 days, 58 Pylian wheel pairs including 13 unfit, one chariot plus two horses in EA 15, and M40's one chariot, two horses, and three people while keeping M41 repair tools in a separate context. Added eight sources, one public dataset, one registered claim, an immutable client snapshot, a durable evidence audit, and automated guards against force totals, effectiveness scores, annual cost, fodder acreage, universal crew standards, and missing-equals-zero reasoning. Verified all five selectors, six dependency cards, the Anyang repair readout, zero horizontal overflow at desktop and 390 × 844, no corrupt rendered values, a clean browser console, source/data validation, lint, the production build, and byte-identical public/build assets. Next: eastern Mediterranean ports and cargoes.
 

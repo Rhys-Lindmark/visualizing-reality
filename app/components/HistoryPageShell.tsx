@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
+import KeyInsightsTabs from './KeyInsightsTabs';
 
 type HistoryPageShellProps = {
   title: string;
@@ -11,11 +12,12 @@ type HistoryPageShellProps = {
   published: string;
   introduction: ReactNode;
   insightHeading: ReactNode;
+  insightLabels: string[];
   children: ReactNode;
   methods: ReactNode;
 };
 
-export default function HistoryPageShell({ title, eyebrow, standfirst, status, progress, published, introduction, insightHeading, children, methods }: HistoryPageShellProps) {
+export default function HistoryPageShell({ title, eyebrow, standfirst, status, progress, published, introduction, insightHeading, insightLabels, children, methods }: HistoryPageShellProps) {
   return (
     <main id="top">
       <SiteHeader sectionLinks={[{ href: '#introduction', label: 'Introduction' }, { href: '#key-insights', label: 'Key Insights' }]} />
@@ -26,10 +28,10 @@ export default function HistoryPageShell({ title, eyebrow, standfirst, status, p
           <p className="standfirst">{standfirst}</p>
           <p className="byline">By How Everything Evolved · First published {published}</p>
         </section>
-        <div className="article-nav"><a href="#introduction">Introduction</a><a href="#key-insights">Key Insights</a><a href="#methods">Methods & sources</a></div>
+        <div className="article-nav"><a href="#introduction">Introduction</a><a href="#key-insights">Key Insights</a></div>
         <section className="intro article-copy" id="introduction"><h2>Introduction</h2>{introduction}</section>
-        <section className="insights" id="key-insights"><div className="section-heading"><span>Key Insights</span><h2>{insightHeading}</h2></div>{children}</section>
-        <section className="methods article-copy" id="methods"><p className="topic-label">Evidence standard</p><h2>Methods & sources</h2>{methods}</section>
+        <section className="insights" id="key-insights"><div className="section-heading"><span>Key Insights</span><h2>{insightHeading}</h2></div><KeyInsightsTabs labels={insightLabels}>{children}</KeyInsightsTabs></section>
+        <details className="methods methods-collapsed" id="methods"><summary><span>Methods & sources</span><small>Evidence notes, definitions, and downloads</small></summary><div className="article-copy"><p className="topic-label">Evidence standard</p>{methods}</div></details>
         <SiteFooter context={`Evidence and scale about ${title}.`} />
       </article>
     </main>
