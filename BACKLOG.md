@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Build Persia insight 02: compare satrapal appointment, local political forms, royal oversight, and negotiated extraction without one centralization score.
+- Build Persia insight 03: compare tribute districts, local obligations, royal gifts, and negotiated extraction without one empire-wide tax rate.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -113,7 +113,7 @@ when the evidence supports independent urban/state formation.
 ## P1 — Page 06: Persia and territorial empire — ready
 
 1. **Distance became a relay problem:** live; Herodotus's six-segment itinerary, ninety-day traveler arithmetic, relay mechanism, and the regional Persepolis provisioning archive remain separate evidence classes with no kilometre conversion, route geometry, courier-duration estimate, or imperial-speed score.
-2. Satrapies combined local rule with imperial extraction.
+2. **A satrapy was an interface, not a copy:** live; five source-bounded provincial portfolios compare royal appointment, local partners, obligations, royal connection, and visible action without one autonomy, centralization, loyalty, tax, or control score.
 3. Tribute was a political system, not simply a tax rate.
 4. Imperial armies were coalitions of distinct peoples and military systems.
 5. Persian institutions outlasted dynasties and shaped successor empires.
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Persia insight 02, **A satrapy was an interface, not a copy**. Five source-bounded governance portfolios compare Bactria during the Margian revolt, Ionia after revolt, Egypt under Arsames, Caria under the Hecatomnids, and the Dascylium satrapal estate. Each case follows top office → local partners → obligation or problem → royal connection → visible action, with royal inscription, Greek narrative, administrative archive, regional synthesis, and archaeology kept as distinct evidence classes. Added seven sources, one public dataset, one registered claim, an immutable client snapshot, a durable audit, and automated guards against autonomy, centralization, loyalty, tax, control, population, and revenue scores. Verified all five case selectors and five-stage circuits, five atlas rows, substantive inference limits, exactly one outer insight panel, zero exact loading/404/`undefined`/`NaN` states, zero horizontal overflow at 1280 × 720 and 390 × 844, 65–66-pixel mobile insight controls, 88-pixel mobile case controls, a clean browser console, 72 checked data files, 187 sources, 32 datasets, 27 claims, lint, the production build, and 86 byte-identical built assets. Next: compare tribute districts, local obligations, royal gifts, and negotiated extraction without one empire-wide tax rate.
 
 - 2026-08-30 — Made the shared five-insight navigator read like an argument, not a category menu. Rome, Uruk, Cradles, Bronze Age, Iron Age, and Persia now present five full claim sentences as numbered clickable tabs; one argument and one visualization remain active at a time in the editorial-text-left, visualization-right composition. Removed the decorative active-tab top rule in favor of OWID's calmer filled selection, retained keyboard tab semantics, and kept methods collapsed below the reading flow. Verified the third Cradles argument at 1280 × 720 and the fifth at 390 × 844, exactly five tabs, exactly one panel, a 382/786-pixel desktop copy/visual split, 65–66-pixel mobile controls, zero horizontal overflow, zero exact loading/404/`undefined`/`NaN` states, 70 checked data files, 180 sources, 31 datasets, 26 claims, lint, and the production build. Next: compare satrapal appointment, local political forms, royal oversight, and negotiated extraction without one centralization score.
 

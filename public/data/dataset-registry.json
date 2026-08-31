@@ -317,5 +317,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "six itinerary segments and four source-bounded evidence windows from 509 to 480 BCE and mid-fifth-century reporting",
     "notes": "The itinerary preserves stages and parasangs without kilometre conversion. Ninety days is Herodotus's arithmetic; the relay description has no end-to-end duration; the Persepolis archive is regional. No imperial-speed score route geometry traffic estimate or universal travel model is produced."
+  },
+  {
+    "id": "persian-satrapal-portfolios",
+    "title": "Five source-bounded Achaemenid provincial governance portfolios",
+    "path": "/data/persian-satrapal-portfolios.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_primary_and_regional_administrative_case_portfolios",
+    "source_key_field": "source_keys",
+    "time_resolution": "five unlike administrative windows between 522 and 334 BCE rather than a continuous provincial series",
+    "notes": "Top office local partners obligations royal connection visible action and inference limit remain separate. The dataset does not treat tribute districts as identical to satrapies or calculate autonomy centralization loyalty tax control population revenue or a universal provincial hierarchy."
   }
 ]

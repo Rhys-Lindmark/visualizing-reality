@@ -1,5 +1,5 @@
 {
-  "release_id": "20260830-owid-argument-tabs1",
+  "release_id": "20260830-persia-satrapies1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -18,6 +18,7 @@
     "/data/iron-age/20260830-mobilization1/iron-mobilization-cases.csv",
     "/data/iron-age/20260830-institutions1/iron-production-institutions.csv",
     "/data/persia/20260830-roads1/persian-royal-road-segments.csv",
-    "/data/persia/20260830-roads1/persian-road-evidence.csv"
+    "/data/persia/20260830-roads1/persian-road-evidence.csv",
+    "/data/persia/20260830-satrapies1/persian-satrapal-portfolios.csv"
   ]
 }

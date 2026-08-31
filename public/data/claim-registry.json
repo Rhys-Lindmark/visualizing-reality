@@ -389,5 +389,26 @@
       "DANDAMAYEV2002_PFT"
     ],
     "note": "Herodotus's 111 stages 450 parasangs and ninety-day arithmetic remain one literary itinerary. His relay description supplies no end-to-end courier time. Persepolis provisioning records demonstrate administrative practice but remain a regional surviving archive."
+  },
+  {
+    "id": "persia-02-satrapies-negotiated-rule",
+    "page": "persia",
+    "insight": 2,
+    "claim": "Achaemenid satrapies were not identical provincial boxes: royal appointment and intervention operated through different local institutions households cities dynasties and military communities.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_primary_and_regional_administrative_case_portfolios",
+    "dataset_ids": [
+      "persian-satrapal-portfolios"
+    ],
+    "source_keys": [
+      "JACOBS2006_SATRAPIES",
+      "AVESTA_OP_DB",
+      "HERODOTUS_6_42",
+      "BRESCIANI1996_EGYPT",
+      "ALLEN_ET_AL2013_ARSHAMA",
+      "WEISKOPF1990_CARIA",
+      "WEISKOPF1994_DASCYLIUM"
+    ],
+    "note": "Five unlike source windows expose top office local partners obligations royal connection visible action and inference limits. No shared autonomy centralization loyalty tax or control score is computed, and Herodotus's tribute districts are not assumed to be identical to satrapies."
   }
 ]

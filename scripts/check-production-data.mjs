@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260830-owid-argument-tabs1';
+const releaseId='20260830-persia-satrapies1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -49,6 +49,7 @@ const assets=[
   ['csv','/data/iron-age/20260830-institutions1/iron-production-institutions.csv'],
   ['csv','/data/persia/20260830-roads1/persian-royal-road-segments.csv'],
   ['csv','/data/persia/20260830-roads1/persian-road-evidence.csv'],
+  ['csv','/data/persia/20260830-satrapies1/persian-satrapal-portfolios.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],
