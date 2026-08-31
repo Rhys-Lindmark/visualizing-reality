@@ -22,7 +22,6 @@ export default function PersianInstitutionalAfterlives(){
   const retry=()=>{setRows([]);setError('');setState('loading');setAttempt(value=>value+1);};
   if(state!=='ready'||!active)return <div className={`data-state persia-afterlife-data-state ${state}`} role={state==='error'?'alert':'status'}><b>{state==='error'?'The institutional timeline did not load':'Loading five institutional pathways…'}</b><span>{state==='error'?error:'retained · adapted · descended · revived · stopped'}</span>{state==='error'&&<button type="button" onClick={retry}>Retry afterlives</button>}</div>;
   return <div className="persia-afterlife-chart">
-    <div className="persia-afterlife-summary"><div><span>Institutional pathways</span><b>5</b><small>office · army · writing · local rule · title</small></div><div><span>Observed episodes</span><b>18</b><small>unlike evidence windows</small></div><div><span>Continuity score</span><b>None</b><small>duration is not institutional strength</small></div></div>
     <div className="persia-afterlife-thesis"><span>The dynasty ended in 330 BCE</span><strong>The toolkit fractured, branched, and was recombined.</strong></div>
     <section className="persia-afterlife-timeline" aria-label="Five institutional afterlife timelines">
       <header><div><span>550 BCE</span><b>Achaemenid rule</b></div><p>330 BCE · dynasty ends</p><small>651 CE</small></header>
@@ -31,7 +30,6 @@ export default function PersianInstitutionalAfterlives(){
     </section>
     <nav className="persia-afterlife-tabs" aria-label="Choose one institutional pathway">{groups.map(([id,episodes])=><button type="button" key={id} className={selected===id?'active':''} onClick={()=>setSelected(id)}><span>0{episodes[0].thread_order}</span><b>{episodes[0].thread_title}</b></button>)}</nav>
     <section className="persia-afterlife-focus"><header><div><span>Selected pathway</span><h5>{active[0].thread_title}</h5></div><small>{active.length} windows · arrows are not a strength score</small></header><div className="persia-afterlife-chain">{active.map((episode,index)=><article key={episode.episode_id} style={{'--episode-color':colors[episode.relationship]} as React.CSSProperties}><div><span>{episode.date_label}</span><b>{relLabel(episode.relationship)}</b></div><h6>{episode.regime}</h6><p>{episode.observed_change}</p><small>{episode.evidence}</small>{index<active.length-1&&<i aria-hidden="true">→</i>}</article>)}</div></section>
-    <section className="persia-afterlife-limit"><div><span>Inference limit</span><p>{active.at(-1)?.limits}</p></div><div><span>Source keys for this pathway</span><b>{[...new Set(active.flatMap(row=>row.source_keys.split(';')))].join(' · ')}</b></div></section>
-    <div className="cradle-downloads persia-afterlife-downloads"><p><b>Survival had several shapes.</b> Retaining an office, inheriting a script, reviving a title, and remembering an image are not the same historical claim.</p><a href={dataUrl} download>Download 18 episodes ↓</a></div>
+    <section className="persia-afterlife-limit"><div><p>{active.at(-1)?.limits}</p></div></section>
   </div>;
 }

@@ -138,11 +138,11 @@ when the evidence supports independent urban/state formation.
 
 ## P1 — Page 06: Persia and territorial empire — ready
 
-1. **Distance became a relay problem:** live; Herodotus's six-segment itinerary, ninety-day traveler arithmetic, relay mechanism, and the regional Persepolis provisioning archive remain separate evidence classes with no kilometre conversion, route geometry, courier-duration estimate, or imperial-speed score.
-2. **A satrapy was an interface, not a copy:** live; five source-bounded provincial portfolios compare royal appointment, local partners, obligations, royal connection, and visible action without one autonomy, centralization, loyalty, tax, or control score.
-3. **Obligation was a portfolio, not a rate:** live; twenty reported districts and seven source-bounded obligation windows keep silver, gold dust, horses, grain, people, service, gifts, documents, and royal imagery separate without one tax rate or modern value.
-4. **The army was an assembly:** live; six source-bounded windows connect contributors, command, battlefield role, support, and coordination without accepting ancient headline totals or converting catalogue labels into soldiers, ethnic shares, equipment ranks, or combat-power scores.
-5. **The toolkit outlasted the dynasty:** live; eighteen source-bounded episodes across five pathways distinguish retained and reallocated provinces, a contested army experiment, script descent, local recombination, and royal-title revival or redesign without one continuity, influence, strength, or importance score.
+1. **Persia made messages outrun travelers by relaying exhaustion** — live; Herodotus's six-segment itinerary, ninety-day traveler arithmetic, relay mechanism, and the Persepolis provisioning archive remain distinct evidence windows without an invented courier duration.
+2. **Persia governed diversity through interfaces, not uniform provinces** — live; five provincial portfolios compare royal appointment, local partners, obligations, royal connection, and visible action without one autonomy or control score.
+3. **Persian taxation encoded status through different obligations** — live; twenty districts and seven obligation windows keep silver, gold dust, horses, grain, people, service, gifts, documents, and royal imagery separate without one tax rate or modern value.
+4. **Persian military scale came from assembling specialized forces** — live; six windows connect contributors, command, battlefield role, support, and coordination without accepting ancient headline totals or converting catalogue labels into soldiers or combat power.
+5. **Alexander destroyed the dynasty but reused its imperial toolkit** — live; eighteen episodes distinguish retained and reallocated provinces, army integration, script descent, local recombination, and royal-title revival without one continuity score.
 
 ## P1 — Page 07: Qin and Han China — ready
 
@@ -204,6 +204,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed the Persia five-claim editorial and chart-anatomy audit. Reframed the page around relayed exhaustion, provincial interfaces, status encoded in obligations, specialized military assembly, and Alexander's reuse of the imperial toolkit. Selector, article, and chart titles now match exactly. Removed reader-facing anti-score summaries, source keys, evidence-class labels, duplicate downloads, standalone method notes, and external reading links; each visual now ends with one compact OWID-style source/note/download footer. Next: complete and audit Qin/Han.
 
 - 2026-08-31 — Completed the Iron Age five-claim editorial and chart-anatomy audit. Reframed the page around reproducible production, furnace control, usable rather than merely hard iron, institutional mobilization, and plural production architectures. Selector, article, and chart titles now match exactly. Removed reader-facing anti-score summaries, source keys, evidence-class labels, duplicate downloads, standalone method notes, and external reading links; each visual now ends with one compact OWID-style source/note/download footer. Next: apply the same audit to Persia.
 

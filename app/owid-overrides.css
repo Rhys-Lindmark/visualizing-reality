@@ -125,3 +125,7 @@
 }
 /* Evidence caveats remain in Methods and downloads; keep the primary Iron Age chart face concise. */
 .iron-quality-limit { display: none; }
+
+/* Persia keeps full inference and source fields in Methods and downloads. */
+.persia-tribute-limit,
+.persia-district-focus > small { display: none; }
