@@ -360,5 +360,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "eighteen unlike episodes from 550 BCE to 651 CE grouped into five pathways rather than a continuous institutional index",
     "notes": "Provincial retention military experiment script descent local recombination and royal-title revival remain distinct relationships. Bar length marks evidence dates only; the dataset does not calculate continuity influence centralization Persianization state capacity institutional strength or importance."
+  },
+  {
+    "id": "qin-mobilizing-system",
+    "title": "Five mobilizing capacities and six final Qin conquest endpoints",
+    "path": "/data/qin-mobilizing-system.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_administrative_synthesis_excavated_documents_layered_doctrine_and_retrospective_annals",
+    "source_key_field": "source_keys",
+    "time_resolution": "five unlike institutional windows from 453 to 208 BCE and six political endpoints from 230 to 221 BCE",
+    "notes": "The capacities form a causal synthesis rather than five dated inventions. Qin is the best-documented winner rather than the only reforming state. Conquest dates mark courts rather than annual boundaries; no army total casualty count population series territory series combat-power estimate or state-capacity score is inferred."
   }
 ]

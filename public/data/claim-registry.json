@@ -477,5 +477,16 @@
       "SHAHBAZI2005_SASANIAN_DYNASTY"
     ],
     "note": "Five pathways distinguish immediate administrative reuse a contested military experiment script descent local political recombination and royal-title revival after a gap. No common continuity score is calculated and shared words or images do not establish unchanged government."
+  },
+  {
+    "id": "qin-han-01-mobilization-administrative",
+    "page": "qin-han",
+    "insight": 1,
+    "claim": "Qin's final conquests were enabled by generations of interstate administrative competition that linked household registration, ranked service, county reporting, and assigned transfers.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_administrative_synthesis_excavated_documents_layered_doctrine_and_retrospective_annals",
+    "dataset_ids": ["qin-mobilizing-system"],
+    "source_keys": ["LANDER2023_QIN_ECOLOGY","TONG2026_QIN_LOGISTICS","PINES2017_LORD_SHANG","BOOK_LORD_SHANG_COLUMBIA","SHIJI_QIN_ANNALS"],
+    "note": "Five capacities and six conquest endpoints remain unlike evidence windows. The visual excludes army totals casualties continuous boundaries population and territory series and any common state-capacity score; Qin is not treated as the only reforming state."
   }
 ]

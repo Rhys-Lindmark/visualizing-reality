@@ -1,5 +1,5 @@
 {
-  "release_id": "20260830-persia-afterlives1",
+  "release_id": "20260830-qin-mobilization1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -8,7 +8,8 @@
     "/cradles",
     "/bronze-age",
     "/iron-age",
-    "/persia"
+    "/persia",
+    "/qin-han"
   ],
   "newest_visualization_assets": [
     "/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv",
@@ -23,6 +24,7 @@
     "/data/persia/20260830-tribute1/persian-tribute-districts.csv",
     "/data/persia/20260830-tribute1/persian-obligation-portfolios.csv",
     "/data/persia/20260830-coalition1/persian-coalition-windows.csv",
-    "/data/persia/20260830-afterlives1/persian-institutional-afterlives.csv"
+    "/data/persia/20260830-afterlives1/persian-institutional-afterlives.csv",
+    "/data/qin-han/20260830-mobilization1/qin-mobilizing-system.csv"
   ]
 }
