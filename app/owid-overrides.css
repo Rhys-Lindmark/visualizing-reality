@@ -1,0 +1,16 @@
+.map-module .map-inspector,
+.map-module .timeline-control .step {
+  display: none;
+}
+
+.map-module .map-foot p:first-child {
+  display: none;
+}
+
+.map-module .map-foot {
+  grid-template-columns: 1fr;
+}
+
+.map-module .map-foot p:last-child {
+  text-align: left;
+}
