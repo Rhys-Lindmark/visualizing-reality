@@ -120,6 +120,16 @@
     "notes": "Four parallel trajectories—roads, language, law, and the eastern Roman state—retain unlike evidence types and explicit limits. They are not combined into a legacy score."
   },
   {
+    "id": "roman-road-persistence",
+    "title": "Roman-road density and later outcomes in Europe and MENA",
+    "path": "/data/rome/20260831-roads1/roman-road-persistence.csv",
+    "schema": "modeled_series",
+    "evidence_type": "published_regression_comparison",
+    "source_key_field": "source_keys",
+    "time_resolution": "settlement around 500 CE and modern roads, night lights, and population",
+    "notes": "Eight Table 5 coefficients and standard errors compare Europe with MENA under the paper's full controls. Coefficients are log-log elasticities, not physical survival shares or universal causal effects."
+  },
+  {
     "id": "uruk-writing-corpus",
     "title": "Administrative and lexical composition of the proto-cuneiform archive",
     "path": "/data/uruk-writing-corpus.csv",

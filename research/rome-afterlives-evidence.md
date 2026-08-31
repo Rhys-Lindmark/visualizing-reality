@@ -1,91 +1,80 @@
-# Rome insight 05 — afterlives evidence audit
+# Rome insight 05 — road-persistence evidence audit
 
-## Working claim
+## Selected claim
 
-Rome did not leave one undifferentiated “legacy.” Different Roman systems
-persisted through different mechanisms and on different clocks. The eastern
-Roman state continued directly to 1453; spoken Latin changed gradually into
-Romance vernaculars; Justinianic law remained active in the East but had little
-western influence for centuries before a scholarly revival; and road geography
-persisted most clearly where later societies kept wheeled transport and road
-maintenance alive.
+**Roman roads persisted where later societies kept using roads.** Roman-road
+density predicts modern-road density and modern economic activity in Europe,
+but not in the Middle East and North Africa after wheeled transport and road
+maintenance were abandoned in favor of caravan routes.
 
-## Why this is not a legacy checklist
+This is more informative than the previous “different carriers and clocks”
+framing because the claim can fail. The same Roman infrastructure existed in
+both regions; the later relationship appears only where its use continued.
 
-The visualization places four trajectories on one chronology without pretending
-they are the same kind of evidence. State events are political chronology;
-language markers are surviving texts and ecclesiastical policy; law markers are
-codification and institutional reception; road totals are a modern historical
-reconstruction, while persistence is an empirical association.
+## Primary evidence
 
-The comparison is therefore about mechanisms, not a common numerical score.
-There is no “Roman influence index,” no claim that a modern road is physically
-the same pavement, and no date on which Latin suddenly became French.
+The public dataset reproduces Table 5 of Dalgaard, Kaarsen, Olsson, and Selaya
+(2022). Every row uses the paper's full control set and country-language fixed
+effects. Coefficients are log-log elasticities; standard errors are published
+heteroskedasticity-robust standard errors.
 
-## Roads
+| Outcome | Europe coefficient (SE) | MENA coefficient (SE) |
+|---|---:|---:|
+| Settlements around 500 CE | 0.470* (0.255) | 0.599* (0.358) |
+| Modern roads | 0.208*** (0.072) | -0.115 (0.091) |
+| Night lights, 2010–2013 | 0.783*** (0.191) | 0.405 (0.282) |
+| Population, 2010 | 1.405*** (0.390) | 0.717 (0.630) |
 
-The 2024 static Itiner-e dataset maps 299,171.31 km of Roman roads. Secondary
-roads account for 65.42% of mapped length. Only 2.737% of route location is
-classed as certain; 89.818% is conjectured and 7.445% hypothesized. Those
-certainty labels are central to the visual because a large, precise-looking map
-can otherwise conceal uneven evidence.
+The late-antique settlement result is positive in both regions. The modern
+Europe coefficients are positive and significant at 1%; the corresponding
+MENA estimates are not statistically significant. This before/after regional
+contrast is the visual's central evidence.
 
-Dalgaard, Kaarsen, Olsson, and Selaya find that higher Roman-road density is
-associated with higher modern-road density in Europe, settlement formation by
-500 CE, and modern economic activity. The relationship weakens sharply in the
-Middle East and North Africa, where wheeled transport and road maintenance
-declined in favor of caravan routes. The visual describes an association and a
-maintenance mechanism, not a universal causal effect.
+## Mechanism and identification limit
 
-## Language
+The authors use the long abandonment of wheeled transport in MENA as a natural
+experiment. They argue that caravan routes displaced road-based trade, roads
+lost value and maintenance, and later transport geography no longer followed
+the ancient network. In Europe, continued wheeled use and the emergence of
+medieval market towns helped carry the network forward.
 
-The Council of Tours in 813 sanctioned preaching in *rustica romana lingua* or
-German so congregations could understand. The Strasbourg Oaths of 842 preserve
-an early extended Romance witness alongside Old High German. Scholarship warns
-against treating either marker as a clean birthday for French: the separation
-of late Latin and early Romance was gradual, regional, and analytically disputed.
+The result is stronger than a map overlay but not unlimited causal proof. The
+authors control for extensive geography and exploit a differential historical
+shock, yet the model cannot distinguish productivity gains from activity moving
+toward better-connected places. Night lights are an activity proxy, not welfare.
+An insignificant MENA coefficient is not proof of a precisely zero relationship
+or the absence of every local Roman road legacy.
 
-## Law
+## Alternative answers retained
 
-Justinian's government issued a first Code in 529, the Digest and Institutes in
-533, and the surviving revised Code in 534. Oxford's Roman Law faculty summarizes
-the crucial discontinuity: the Justinianic corpus had little influence in the
-West for centuries; recovery of the Digest around 1070 initiated a western
-revival, and Roman law was studied at Oxford by 1149. This is transmission by
-preserved texts and institutions, not uninterrupted western administration.
+- **State:** the eastern Roman polity continued for 977 years after the western
+  court ended in 476, until Constantinople fell in 1453.
+- **Language:** Latin's divergence into Romance was gradual and regional; 813
+  and 842 are evidence markers, not birthdays.
+- **Law:** Justinianic law was an eastern codification followed by centuries of
+  limited western influence and then medieval scholarly recovery.
 
-## State
-
-Anthony Kaldellis treats the polity conventionally called Byzantium as the
-eastern Roman empire, beginning his narrative with Constantinople in 324 and
-ending it in the fifteenth century. His 2026 study of 1453 explicitly describes
-the conquest as the end of the Roman empire. The lane includes 1204 and 1261 so
-that “continuous to 1453” does not imply an unbroken possession of the capital
-or unchanged territorial scale.
+These are consequential afterlives, but combining them with roads would require
+an invented common score. Roads lead the public insight because the evidence
+offers a measurable cross-regional test of a historical mechanism.
 
 ## Deliberate exclusions
 
-- No percentage of modern languages, legal systems, or roads that are “Roman.”
-- No causal estimate from the road-persistence paper presented as universal.
-- No claim that Romance began in exactly 813 or 842.
-- No claim that western Roman law disappeared completely before c. 1070.
-- No implication that 476 ended the Roman state.
-- No bundle of aqueducts, concrete, Christianity, slavery, cities, and calendars
-  added merely because they are recognizable Roman topics.
+- No claim that a modern road preserves Roman pavement.
+- No percentage of modern prosperity “caused by Rome.”
+- No claim that the road coefficients measure welfare or productivity alone.
+- No claim that non-significance proves no MENA legacy.
+- No ranking that turns states, languages, laws, and roads into one score.
+- No claim that 476 ended the Roman state.
 
-## Private discovery check
+## Principal sources
 
-Rhys's Anki backup remains a private discovery index. No card text is reproduced
-and no card is treated as evidence.
-
-## Principal public sources
-
+- Carl-Johan Dalgaard, Nicolai Kaarsen, Ola Olsson, and Pablo Selaya, “Roman
+  Roads to Prosperity: Persistence and Non-Persistence of Public
+  Infrastructure,” *Journal of Comparative Economics* 50 (2022), 896–916,
+  DOI 10.1016/j.jce.2022.05.003.
 - Pau de Soto et al., “Itiner-e: a high-resolution dataset of roads of the Roman
   Empire,” *Scientific Data* 12 (2025), DOI 10.1038/s41597-025-06140-z.
-- Carl-Johan Dalgaard et al., “Roman Roads to Prosperity,” *Journal of
-  Comparative Economics* 50 (2022), DOI 10.1016/j.jce.2022.05.003.
 - Jerome Moran, “The Strasbourg Speeches,” *Journal of Classics Teaching* 22
-  (2021), with discussion of Tours 813 and Strasbourg 842.
-- Oxford Faculty of Law, “Roman Law,” and the Oxford Classical Dictionary entry
-  on Justinian's codification.
-- Anthony Kaldellis, *The New Roman Empire* (2023) and *1453* (2026).
+  (2021); Oxford Faculty of Law, “Roman Law”; Anthony Kaldellis, *The New Roman
+  Empire* (2023) and *1453* (2026), for the retained alternative answers.

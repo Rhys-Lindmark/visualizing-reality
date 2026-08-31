@@ -228,6 +228,28 @@ const roadCertainty = afterlives.find(row => row.milestone === 'Location known w
 if (!roadLength || Number(roadLength.value) !== 299171.31) fail('Roman afterlives must preserve the Itiner-e mapped length of 299171.31 km');
 if (!roadCertainty || Number(roadCertainty.value) !== 2.737) fail('Roman afterlives must preserve the Itiner-e certain-location share of 2.737%');
 
+const roadPersistence = csv('public/data/rome/20260831-roads1/roman-road-persistence.csv');
+if (roadPersistence.length !== 8) fail(`Expected eight Europe–MENA road-persistence estimates, found ${roadPersistence.length}`);
+const roadOutcomes = new Set();
+for (const [index, row] of roadPersistence.entries()) {
+  const context = `roman-road-persistence.csv row ${index + 2}`;
+  requireFields(row, ['outcome', 'outcome_order', 'period', 'region', 'coefficient', 'standard_error', 'significant_10pct', 'interpretation', 'source_keys', 'note'], context);
+  numeric(row, ['outcome_order', 'coefficient', 'standard_error'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  if (!['Europe', 'MENA'].includes(row.region)) fail(`${context} has unsupported region ${row.region}`);
+  if (!['yes', 'no'].includes(row.significant_10pct)) fail(`${context} has unsupported significance label ${row.significant_10pct}`);
+  roadOutcomes.add(row.outcome);
+}
+if (roadOutcomes.size !== 4) fail(`Expected four road-persistence outcomes, found ${roadOutcomes.size}`);
+for (const outcome of roadOutcomes) if (roadPersistence.filter(row => row.outcome === outcome).length !== 2) fail(`${outcome} must have one Europe and one MENA estimate`);
+const expectedRoadCoefficients = new Map([
+  ['Settlements|Europe', [0.470, 0.255, 'yes']], ['Settlements|MENA', [0.599, 0.358, 'yes']],
+  ['Modern roads|Europe', [0.208, 0.072, 'yes']], ['Modern roads|MENA', [-0.115, 0.091, 'no']],
+  ['Night lights|Europe', [0.783, 0.191, 'yes']], ['Night lights|MENA', [0.405, 0.282, 'no']],
+  ['Population|Europe', [1.405, 0.390, 'yes']], ['Population|MENA', [0.717, 0.630, 'no']],
+]);
+for (const row of roadPersistence) { const expected = expectedRoadCoefficients.get(`${row.outcome}|${row.region}`); if (!expected || Number(row.coefficient) !== expected[0] || Number(row.standard_error) !== expected[1] || row.significant_10pct !== expected[2]) fail(`Road-persistence estimate changed for ${row.outcome}|${row.region}`); }
+
 const urukWriting = csv('public/data/uruk-writing-corpus.csv');
 for (const [index, row] of urukWriting.entries()) {
   const context = `uruk-writing-corpus.csv row ${index + 2}`;

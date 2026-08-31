@@ -47,12 +47,12 @@
     "id": "rome-05-afterlives",
     "page": "rome",
     "insight": 5,
-    "claim": "Rome's institutions did not persist as one legacy: the eastern state continued directly, Latin diverged gradually into Romance, Justinianic law was revived in the medieval West, and road geography persisted conditionally through later use and maintenance.",
-    "status": "working_synthesis",
-    "evidence_type": "mixed_historical_chronology_and_reconstruction",
-    "dataset_ids": ["roman-afterlives"],
-    "source_keys": ["ITINERE2025", "DALGAARD2022", "CAMBRIDGE_ROMANCE2021", "OXFORD_JUSTINIAN", "OXFORD_ROMAN_LAW", "KALDELLIS2023", "KALDELLIS2026"],
-    "note": "The four lanes share a chronology but not a common unit. The road result is an association rather than a universal causal estimate; 813 and 842 are language evidence rather than birthdays; western legal reception was discontinuous; and 476 does not end the eastern Roman state."
+    "claim": "Roman roads predicted modern roads and economic activity in Europe, but not in MENA after wheeled transport and road maintenance were abandoned.",
+    "status": "modeled_argument",
+    "evidence_type": "published_regression_comparison_and_historical_mechanism",
+    "dataset_ids": ["roman-road-persistence", "roman-afterlives"],
+    "source_keys": ["DALGAARD2022", "ITINERE2025", "CAMBRIDGE_ROMANCE2021", "OXFORD_JUSTINIAN", "OXFORD_ROMAN_LAW", "KALDELLIS2023", "KALDELLIS2026"],
+    "note": "Table 5 shows positive late-antique settlement associations in both regions, but statistically significant modern-road, night-light, and population coefficients only in Europe. The contrast supports continued use and maintenance as a persistence mechanism; it does not prove universal productivity effects, physical pavement survival, or absence of every local MENA legacy."
   },
   {
     "id": "uruk-04-administrative-writing",
