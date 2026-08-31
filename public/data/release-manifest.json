@@ -1,5 +1,5 @@
 {
-  "release_id": "20260831-rome-roads1",
+  "release_id": "20260831-india-metrology1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -9,7 +9,8 @@
     "/bronze-age",
     "/iron-age",
     "/persia",
-    "/qin-han"
+    "/qin-han",
+    "/india"
   ],
   "newest_visualization_assets": [
     "/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv",
@@ -32,6 +33,8 @@
     "/data/rome/20260830-client4/rome-territorial-growth.csv",
     "/data/rome/20260831-thin-state1/rome-han-administration.csv",
     "/data/rome/20260831-fall1/rome-fall-mechanism.csv",
-    "/data/rome/20260831-roads1/roman-road-persistence.csv"
+    "/data/rome/20260831-roads1/roman-road-persistence.csv",
+    "/data/india/20260831-metrology1/indus-weight-series.csv",
+    "/data/india/20260831-metrology1/indus-ruler-monuments.csv"
   ]
 }

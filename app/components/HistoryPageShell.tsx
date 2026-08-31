@@ -22,8 +22,9 @@ const relatedByTitle:Record<string,Array<{href:string;label:string}>>={
   'The cradles of civilization':[{href:'/uruk',label:'Uruk and the first states'},{href:'/bronze-age',label:'The Bronze Age world system'},{href:'/qin-han',label:'Qin and Han China'}],
   'The Bronze Age world system':[{href:'/cradles',label:'The cradles of civilization'},{href:'/iron-age',label:'The Iron Age transformation'},{href:'/persia',label:'Persia and territorial empire'}],
   'The Iron Age transformation':[{href:'/bronze-age',label:'The Bronze Age world system'},{href:'/persia',label:'Persia and territorial empire'},{href:'/rome',label:'Rome'}],
-  'Persia and territorial empire':[{href:'/iron-age',label:'The Iron Age transformation'},{href:'/rome',label:'Rome'},{href:'/qin-han',label:'Qin and Han China'}],
-  'Qin and Han China':[{href:'/persia',label:'Persia and territorial empire'},{href:'/iron-age',label:'The Iron Age transformation'},{href:'/cradles',label:'The cradles of civilization'}],
+  'Persia and territorial empire':[{href:'/iron-age',label:'The Iron Age transformation'},{href:'/rome',label:'Rome'},{href:'/india',label:'India from cities to empires'}],
+  'Qin and Han China':[{href:'/persia',label:'Persia and territorial empire'},{href:'/india',label:'India from cities to empires'},{href:'/cradles',label:'The cradles of civilization'}],
+  'India from cities to empires':[{href:'/cradles',label:'The cradles of civilization'},{href:'/persia',label:'Persia and territorial empire'},{href:'/qin-han',label:'Qin and Han China'}],
 };
 
 export default function HistoryPageShell({ title, published, introduction, insightLabels, children, methods }: HistoryPageShellProps) {

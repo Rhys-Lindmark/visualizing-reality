@@ -154,11 +154,11 @@ when the evidence supports independent urban/state formation.
 
 ## P1 — Page 08: India from cities to empires — ready
 
-1. The Indus urban system was extensive, standardized, and still partly unreadable.
-2. Monsoon ecology produced different political and agricultural rhythms.
-3. Cities, coinage, and states returned in the first millennium BCE.
-4. Mauryan power combined core administration with uneven frontier control.
-5. Religions and trade networks often traveled farther than states.
+1. **Indus cities coordinated without monumentalizing rulers** — live; twenty-four published means across three Harappa and Mohenjo-daro excavation series test the shared binary-decimal weight system, while four archaeological absence categories keep palaces, royal tombs, large temples, and ruler-aggrandizing monuments distinct. The visual does not infer one centralized state or the absence of rulers, elites, coercion, or inequality.
+2. **Monsoon diversity kept one political rhythm from fitting all India** — next; test regional winter and summer crops, rainfall, rivers, irrigation, and settlement rhythms without one monsoon or hydraulic-state score.
+3. **Iron Age cities grew with coins, roads, and competing states** — candidate; test urban, numismatic, transport, and political clocks without making iron or coinage a single cause.
+4. **Mauryan rule was strongest in cores and thinner at frontiers** — candidate; compare inscriptions, languages, provincial centers, roads, and administrative evidence without turning edict locations into complete boundaries.
+5. **Religions and trade traveled farther than Indian empires** — candidate; compare dated institutional and exchange networks without treating contact or affiliation as political control.
 
 ## P2 — Page 09: Steppe, horse, and mobile power — ready
 
@@ -204,6 +204,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Opened India with insight 01, **Indus cities coordinated without monumentalizing rulers**. Transcribed twenty-four published weight-series means and sample sizes from Kenoyer's Table 9.3 across the HARP, Vats, and Mackay excavations. The plot divides each observed mean by its published ratio and retains the high-ratio HARP deviation rather than smoothing it away. A second evidence panel records the continuing absence of securely identified palaces, elaborate royal tombs, large temples, and ruler-aggrandizing monuments without claiming that rulers, elites, inequality, coercion, or ritual institutions were absent. Added the five-question India editorial audit, five source records, two public CSVs, one dataset, one registered claim, an interactive downloadable visual, and the first live India route. Verified 91 historical data files, 248 sources, 45 datasets, 36 claims, all 24 weight rows and four monumental-evidence categories, the immutable Rome client contract, lint, the production build, 111 byte-identical built assets, all five India tabs, chart-point selection, exact claim-title parity, one active panel, no corrupt or alert state, zero desktop or 390 × 844 overflow, 104-pixel mobile insight controls, and a clean browser console. Next: ship breadth-first page alphas before returning to India insight 02 for the beta pass.
 
 - 2026-08-31 — Rebuilt Rome insight 02 as **Rome won because its Italian alliance could survive defeat**. Reused Taylor's registered like-for-like strategic-deployment models to put Carthage's approximately 170,000 troops in 215 BCE beside Rome and the Italian allies' approximately 185,000 in 212 BCE, showing that peak size alone does not explain the outcome. Added a recruitment-and-replacement comparison, a separate Devereaux worked-metal mode, and a secondary published-estimates view that keeps incompatible Roman establishments and rival campaign points visibly discontinuous. The visual rejects annual filler, a 15,000-man precision margin, kilograms per soldier, and an equipment-weighted combat score. Verified both analytical modes, the secondary evidence view, exactly one source footer and download per view, no loading or corrupt-value states, zero desktop or 390 × 844 overflow, a clean browser console, data validation, the immutable Rome client contract, lint, the production build, and 106 byte-identical built assets. Next: test which claim best captures Rome at its height.
 

@@ -1111,6 +1111,39 @@ if(!/local communities/i.test(qinLogisticsIndex.get('maintenance')?.observed_anc
 const qinLogisticsSnapshot=read('public/data/qin-han/20260830-logistics1/qin-logistics-ecology.csv');
 if(qinLogisticsSnapshot!==readFileSync(path.join(root,'public/data/qin-logistics-ecology.csv'),'utf8'))fail('Qin logistics immutable snapshot diverges from the canonical dataset');
 
+const indusWeightRows=csv('public/data/india/20260831-metrology1/indus-weight-series.csv');
+const indusWeightIndex=new Map();
+const indusSeriesCounts=new Map();
+for(const[index,row]of indusWeightRows.entries()){
+  const context=`indus-weight-series.csv row ${index+2}`;
+  requireFields(row,['series_id','site','excavation_series','designation','ratio','mean_g','sample_n','implied_unit_g','source_keys','limits'],context);
+  numeric(row,['ratio','mean_g','sample_n','implied_unit_g'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(indusWeightIndex.has(row.series_id))fail(`${context} duplicates ${row.series_id}`);indusWeightIndex.set(row.series_id,row);
+  indusSeriesCounts.set(row.excavation_series,(indusSeriesCounts.get(row.excavation_series)??0)+1);
+  if(Number(row.ratio)<=0||Number(row.mean_g)<=0||Number(row.sample_n)<=0)fail(`${context} has a non-positive published measure`);
+  if(Math.abs(Number(row.implied_unit_g)-(Number(row.mean_g)/Number(row.ratio)))>.0006)fail(`${context} implied unit does not equal mean divided by ratio`);
+  if(Object.keys(row).some(field=>/centralization|state_capacity|ruler_count|market_volume|bulk_flow|equality_score|tolerance_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(indusWeightRows.length!==24||indusWeightIndex.size!==24)fail(`Indus metrology requires twenty-four unique series-ratio rows; found ${indusWeightRows.length}`);
+for(const [series,count]of [['HARP',8],['Vats',8],['Mackay',8]])if(indusSeriesCounts.get(series)!==count)fail(`Indus metrology requires eight common ratios for ${series}`);
+for(const ratio of [1,2,4,8,16,32,64,160])if(indusWeightRows.filter(row=>Number(row.ratio)===ratio).length!==3)fail(`Indus metrology ratio ${ratio} must appear in all three excavation series`);
+const mackayG=indusWeightIndex.get('mackay_g');
+if(!mackayG||Number(mackayG.mean_g)!==27.41||Number(mackayG.sample_n)!==94||Number(mackayG.implied_unit_g)!==.857)fail('Mackay G must preserve the 27.41 g mean, ninety-four specimens, and 0.857 g implied unit');
+const harpJ=indusWeightIndex.get('harp_j');
+if(!harpJ||Number(harpJ.mean_g)!==120.81||Number(harpJ.sample_n)!==4||Number(harpJ.implied_unit_g)!==.755||!/remain visible/i.test(harpJ.limits))fail('HARP J must preserve the high-ratio deviation and four-specimen limit');
+
+const indusMonumentRows=csv('public/data/india/20260831-metrology1/indus-ruler-monuments.csv');
+const indusMonumentIndex=new Map();
+for(const[index,row]of indusMonumentRows.entries()){
+  const context=`indus-ruler-monuments.csv row ${index+2}`;
+  requireFields(row,['signal_id','signal','archaeological_status','observed_evidence','source_keys','limits'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(indusMonumentIndex.has(row.signal_id))fail(`${context} duplicates ${row.signal_id}`);indusMonumentIndex.set(row.signal_id,row);
+  if(row.archaeological_status!=='No clear identification')fail(`${context} overstates the archaeological absence`);
+  if(!/does not prove|not proof|do not prove|prevents direct comparison|remains debated|not evidence/i.test(row.limits))fail(`${context} lacks an explicit absence-of-evidence limit`);
+}
+if(indusMonumentRows.length!==4||indusMonumentIndex.size!==4)fail(`Indus monumental-ruler comparison requires four unique categories; found ${indusMonumentRows.length}`);
+for(const id of ['palaces','royal_tombs','large_temples','ruler_monuments'])if(!indusMonumentIndex.has(id))fail(`Indus monumental-ruler evidence is missing ${id}`);
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -1176,4 +1209,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${ironSmeltingExperiments.length} Iron fuel experiments, ${ironQualityExperiments.length} Iron quality samples, ${ironMobilizationCases.length} Iron mobilization cases, ${ironInstitutionCases.length} Iron production institutions, ${persianRoadSegments.length} Persian itinerary segments, ${persianRoadEvidence.length} Persian road evidence lenses, ${persianSatrapyCases.length} Persian satrapal portfolios, ${persianTributeDistricts.length} Persian tribute districts, ${persianObligationPortfolios.length} Persian obligation windows, ${persianCoalitionWindows.length} Persian coalition windows, ${persianAfterlifeEpisodes.length} Persian afterlife episodes, ${qinMobilizingRows.length} Qin mobilization records, ${qinStandardRows.length} Qin standardization windows, ${qinLogisticsRows.length} Qin logistics windows, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${ironSmeltingExperiments.length} Iron fuel experiments, ${ironQualityExperiments.length} Iron quality samples, ${ironMobilizationCases.length} Iron mobilization cases, ${ironInstitutionCases.length} Iron production institutions, ${persianRoadSegments.length} Persian itinerary segments, ${persianRoadEvidence.length} Persian road evidence lenses, ${persianSatrapyCases.length} Persian satrapal portfolios, ${persianTributeDistricts.length} Persian tribute districts, ${persianObligationPortfolios.length} Persian obligation windows, ${persianCoalitionWindows.length} Persian coalition windows, ${persianAfterlifeEpisodes.length} Persian afterlife episodes, ${qinMobilizingRows.length} Qin mobilization records, ${qinStandardRows.length} Qin standardization windows, ${qinLogisticsRows.length} Qin logistics windows, ${indusWeightRows.length} Indus metrology rows, ${indusMonumentRows.length} Indus monumental-ruler categories, ${geo.features.length} boundary features.`);

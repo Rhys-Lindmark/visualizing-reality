@@ -450,5 +450,18 @@
     "source_key_field": "source_keys",
     "time_resolution": "twenty-five sparse published anchors reset to the first selected estimate for each polity",
     "notes": "Lines between anchors are visual interpolation, not annual observations. Western Han begins at inherited Qin scale; the comparison does not treat frontier control as equally intensive or splice Cliopatria map areas into the Taagepera series."
+  },
+  {
+    "id": "indus-metrology-and-monumental-power",
+    "title": "Twenty-four published Indus weight-series means and four monumental-ruler evidence categories",
+    "paths": [
+      "/data/india/20260831-metrology1/indus-weight-series.csv",
+      "/data/india/20260831-metrology1/indus-ruler-monuments.csv"
+    ],
+    "schema": "observation",
+    "evidence_type": "official_excavation_metrology_and_peer_reviewed_archaeological_absence_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "three excavation series grouped into eight common weight ratios and four century-scale archaeological absence categories",
+    "notes": "Published means and sample sizes remain series-specific. Implied units are exact mean divided by ratio. No political-centralization score, ruler count, market volume, bulk-goods flow, social-equality score, or claim that rulers were absent is inferred."
   }
 ]

@@ -532,5 +532,16 @@
     "dataset_ids": ["han-collapse-command"],
     "source_keys": ["DE_CRESPIGNY2017_LUOYANG","PENA_DAVIES2026_HAN_TRANSITION","HOU_HAN_SHU_XIAN_ANNALS","EBREY2022_BUREAUCRATIC_EMPIRE"],
     "note": "This is a multi-step mechanism rather than a single-cause collapse claim; transmitted army and casualty totals are excluded."
+  },
+  {
+    "id": "india-01-coordination-without-monumental-rulers",
+    "page": "india",
+    "insight": 1,
+    "claim": "Indus cities coordinated a shared weight system across Harappa and Mohenjo-daro without monumentalizing rulers in securely identified palaces, royal tombs, large temples, or ruler-aggrandizing monuments.",
+    "status": "working_synthesis",
+    "evidence_type": "official_excavation_metrology_and_peer_reviewed_archaeological_absence_synthesis",
+    "dataset_ids": ["indus-metrology-and-monumental-power"],
+    "source_keys": ["MARSHALL_HEMMY1931_WEIGHTS","KENOYER2010_MEASURING","GREEN2021_PRIEST_KING","CONINGHAM_MANUEL2009_PRIEST_KINGS","PETRIE_ET_AL2024_INDUS_MOVEMENT"],
+    "note": "The weight points reproduce published means divided by category ratios, with unequal sample sizes and the high-ratio HARP deviation retained. Shared measurement does not establish one centralized state, and missing monumental signals do not prove that rulers, elites, inequality, ritual institutions, or coercion were absent."
   }
 ]
