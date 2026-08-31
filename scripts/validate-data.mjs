@@ -1159,6 +1159,20 @@ if(indusCropIndex.get('khirsara_early')?.numeric_value!=='90'||indusCropIndex.ge
 if(indusCropRows.filter(row=>row.site==='Masudpur VII').length!==3)fail('Masudpur VII must preserve all three phase observations');
 if(indusCropRows.some(row=>row.source_keys!=='BATES_CHOI2023_INDUS_AGRICULTURE'))fail('Every Indus crop-calendar row must cite Bates and Choi 2023');
 
+const indiaUrbanRows=csv('public/data/india/20260831-urban1/early-historic-urban-phases.csv');
+const indiaUrbanIndex=new Map();
+for(const[index,row]of indiaUrbanRows.entries()){
+  const context=`early-historic-urban-phases.csv row ${index+2}`;
+  requireFields(row,['phase_id','year_start','year_end','display_period','phase_title','political_order','urban_evidence','named_examples','quantitative_anchor','source_keys','limits'],context);numeric(row,['year_start','year_end'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(indiaUrbanIndex.has(row.phase_id))fail(`${context} duplicates ${row.phase_id}`);indiaUrbanIndex.set(row.phase_id,row);
+  if(Number(row.year_start)>=Number(row.year_end))fail(`${context} must have an ordered phase interval`);
+  if(Object.keys(row).some(field=>/urbanization_score|state_capacity|coinage_rate|population_total|iron_output|trade_volume/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(indiaUrbanRows.length!==3||indiaUrbanIndex.size!==3)fail(`India urban revival requires three unique broad phases; found ${indiaUrbanRows.length}`);
+if(indiaUrbanIndex.get('phase_1')?.quantitative_anchor!=='7 named fortified-site examples'||!/Kosala Vatsa Magadha and Avanti/.test(indiaUrbanIndex.get('phase_1')?.political_order??''))fail('India urban phase one must preserve seven named sites and four rival monarchies');
+if(!/one large imperial framework/.test(indiaUrbanIndex.get('phase_2')?.quantitative_anchor??'')||!/multiple regional powers/.test(indiaUrbanIndex.get('phase_3')?.political_order??''))fail('India urban phases must preserve Mauryan integration followed by multiple regional powers');
+if(indiaUrbanRows.some(row=>sourceKeys(row.source_keys).length!==2))fail('Every India urban phase must cite both Sawant 2023 and Smith 2006');
+
 const steppeAlpha=csv('public/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv');
 for(const[index,row]of steppeAlpha.entries()){
   const context=`begash-pastoral-sequence.csv row ${index+2}`;

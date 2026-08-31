@@ -623,5 +623,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "site-specific phase sequences rather than synchronized annual observations",
     "notes": "Exact assemblage shares are preserved only where published. Qualitative crop presence is not converted into acreage output yield or diet."
+  },
+  {
+    "id": "early-historic-urban-phases",
+    "title": "Urban fabric and political order across three Early Historic South Asian phases",
+    "path": "/data/india/20260831-urban1/early-historic-urban-phases.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_archaeological_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "three broad and regionally asynchronous phases from 600 BCE through 300 CE",
+    "notes": "Named sites polities and material features are illustrative examples rather than a complete census or one urbanization score."
   }
 ]

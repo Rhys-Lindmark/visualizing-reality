@@ -719,5 +719,16 @@
     "dataset_ids": ["indus-cropping-strategies"],
     "source_keys": ["BATES_CHOI2023_INDUS_AGRICULTURE"],
     "note": "Crop assemblages document regional strategies but are not acreage output yield diets or proof that diversity alone produced resilience."
+  },
+  {
+    "id": "india-03-cities-before-empire",
+    "page": "india",
+    "insight": 3,
+    "claim": "Cities returned before one empire united them.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_archaeological_synthesis",
+    "dataset_ids": ["early-historic-urban-phases"],
+    "source_keys": ["SAWANT2023_EARLY_HISTORIC_URBANISM", "SMITH2006_SOUTH_ASIAN_CITIES"],
+    "note": "The broad phases keep urban evidence and political integration distinct; they do not assign one cause to urban revival."
   }
 ]

@@ -156,7 +156,7 @@ when the evidence supports independent urban/state formation.
 
 1. **Indus cities coordinated without monumentalizing rulers** — live; twenty-four published means across three Harappa and Mohenjo-daro excavation series test the shared binary-decimal weight system, while four archaeological absence categories keep palaces, royal tombs, large temples, and ruler-aggrandizing monuments distinct. The visual does not infer one centralized state or the absence of rulers, elites, coercion, or inequality.
 2. **Indus farmers answered rainfall risk with different crop calendars** — live; seven source-bounded observations compare Harappa's winter-heavy urban assemblage, Khirsara's shift from 90% barley toward summer crops, and Masudpur VII's sequential winter/summer strategy without one resilience score. Archaeobotanical shares are not converted into acreage, output, yield, or diet.
-3. **Iron Age cities grew with coins, roads, and competing states** — candidate; test urban, numismatic, transport, and political clocks without making iron or coinage a single cause.
+3. **Cities returned before one empire united them** — live; three broad phases keep Early Historic urban fabric separate from political order. The opening phase preserves four notable rival monarchies, seven named fortified-site examples, civic planning, early coinage, script, and NBPW before Mauryan integration; the later phase returns to multiple regional powers. Named cases are illustrative, not a census or one urbanization score.
 4. **Mauryan rule was strongest in cores and thinner at frontiers** — candidate; compare inscriptions, languages, provincial centers, roads, and administrative evidence without turning edict locations into complete boundaries.
 5. **Religions and trade traveled farther than Indian empires** — candidate; compare dated institutional and exchange networks without treating contact or affiliation as political control.
 
@@ -282,7 +282,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- India insight 03: test whether coins, roads, fortified centers, and dense settlements moved together in the first-millennium-BCE urban revival.
+- India insight 04: test how Ashokan inscriptions, languages, provincial centers, roads, and administrative evidence distinguish heavily governed cores from negotiated frontiers.
 - Steppe insight 02: horses, mobility, and military reach.
 - Christianity insight 02: bishops, charity, and durable congregations.
 - Continue in atlas order, one beta insight per focused worktree.
@@ -292,6 +292,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed India insight 03, **Cities returned before one empire united them**. Replaced the iron/coinage topic label with a direct sequence claim: rival urban polities and a material urban toolkit were already visible in 600–300 BCE; Mauryan integration followed; multiple regional urban worlds later expanded. Added a three-phase interactive grounded in Sawant's Oxford Research Encyclopedia synthesis and Monica Smith's peer-reviewed city/state distinction, plus one public CSV, two sources, one dataset, one claim, release coverage, and automated guards. Verified 108 historical data files, 272 sources, 62 datasets, 53 claims, targeted lint, Rome client contract, production build, all three phase selectors, exact claim-title parity, no loading failure, zero desktop or 390 × 844 overflow, and a clean browser console. Next: India insight 04 on Mauryan cores and frontiers.
 
 - 2026-08-31 — Completed India insight 02, **Indus farmers answered rainfall risk with different crop calendars**. Added a compact three-case interactive based on Bates and Choi's peer-reviewed archaeobotanical synthesis: Harappa's winter-heavy urban supply pattern, Khirsara's phase-by-phase transition from 90% barley to summer crops, and Masudpur VII's continuing sequential winter/summer cropping. Exact percentages appear only where published; qualitative crop presence stays qualitative. Added one public CSV, one source, one dataset, one claim, release coverage, and automated anchor/caveat checks. Verified 107 historical data files, 270 sources, 61 datasets, 52 claims, targeted lint, production build, all three case selectors, exact claim-title parity, no loading failure, zero desktop or 390 × 844 overflow, and a clean browser console. Next: India insight 03 on the first-millennium-BCE urban revival.
 
