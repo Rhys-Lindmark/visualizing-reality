@@ -390,5 +390,25 @@
     "source_key_field": "source_keys",
     "time_resolution": "eight unlike windows from the late fourth century BCE through 25 CE rather than an annual infrastructure or throughput series",
     "notes": "Production storage transport maintenance and labor extraction remain separate. The Western Han Capital Granary is not back-projected into Qin and the dataset calculates no annual grain flow irrigated area wall length labor total household burden megaproject workforce or state-capacity score."
+  },
+  {
+    "id": "han-governance-bargains",
+    "title": "Six changes in the Han center-kingdom bargain",
+    "path": "/data/han-governance-bargains.csv",
+    "schema": "observation",
+    "evidence_type": "documentary_and_scholarly_administrative_reconstruction",
+    "source_key_field": "source_keys",
+    "time_resolution": "six dated windows from 202 to 106 BCE",
+    "notes": "Direct-commandery counts are three published anchors, not area shares or a centralization index."
+  },
+  {
+    "id": "han-collapse-command",
+    "title": "Six steps from late-Han emergency response to rival states",
+    "path": "/data/han-collapse-command.csv",
+    "schema": "observation",
+    "evidence_type": "primary_chronology_and_peer_reviewed_historical_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "six dated windows from 184 to 229 CE",
+    "notes": "The sequence presents a mechanism, not a single-cause model; army, rebel, and casualty totals are excluded."
   }
 ]

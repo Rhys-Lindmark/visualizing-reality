@@ -149,8 +149,8 @@ when the evidence supports independent urban/state formation.
 1. **Victory was administrative before it was territorial:** live; five unlike capacities connect interstate pressure, household registration, ranked service, county reporting, and assigned transfers, while six political endpoints preserve the 230–221 BCE conquest sequence without army totals, continuous boundaries, or a state-capacity score.
 2. **A standard was an interface, not sameness:** live; six norm-to-practice windows compare certified measures, official script, tablet dimensions, text density, and grain-tally layout without one empire-wide compliance, literacy, efficiency, or state-capacity score.
 3. **Infrastructure worked as an ecology:** live; eight source-bounded windows connect productive irrigation, transport corridors, route records, ration reporting, storage, maintenance, and concentrated labor without annual grain flow, Qin granary back-projection, wall length, or megaproject workforce totals.
-4. The Han state balanced direct rule, local elites, and frontier strategy.
-5. Collapse and reunification became a recurrent political pattern, not a civilizational reset.
+4. **Han lasted by sharing rule—then shrinking the space for rivals:** live; six dated changes trace the court–kingdom bargain from roughly fifteen direct commanderies in 202 BCE to divided fiefs and 108 commanderies under higher supervision in 106 BCE, without treating counts as area shares or a centralization score.
+5. **Han fell when emergency commanders became rival states:** live; six steps from 184 to 229 CE show rebellion prompting regional military command, armies entering the court, defeated movements feeding successor forces, and three rival imperial claims, without accepting transmitted army or casualty totals or reducing collapse to one cause.
 
 ## P1 — Page 08: India from cities to empires — ready
 
@@ -204,6 +204,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed Qin and Han insights 04 and 05 and the five-claim page contract. Added a six-step center–kingdom bargain and a six-step emergency-command mechanism for late Han collapse, with immutable client snapshots and compact OWID-style source/note/download footers. Verified both new outer tabs, all twelve new inner controls, exact data loading, no `undefined`/`NaN`/failure state, zero horizontal overflow at desktop and 390 × 844, a clean browser console, lint, historical-data validation, and the production build. Next: finish the site-wide chart-anatomy cleanup on the first three Qin/Han visuals, then continue to India.
 
 - 2026-08-31 — Completed the Persia five-claim editorial and chart-anatomy audit. Reframed the page around relayed exhaustion, provincial interfaces, status encoded in obligations, specialized military assembly, and Alexander's reuse of the imperial toolkit. Selector, article, and chart titles now match exactly. Removed reader-facing anti-score summaries, source keys, evidence-class labels, duplicate downloads, standalone method notes, and external reading links; each visual now ends with one compact OWID-style source/note/download footer. Next: complete and audit Qin/Han.
 

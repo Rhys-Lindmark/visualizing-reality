@@ -510,5 +510,27 @@
     "dataset_ids": ["qin-logistics-ecology"],
     "source_keys": ["LANDER2023_QIN_ECOLOGY","TONG2026_QIN_LOGISTICS","KOROLKOV2024_WATER_MANAGEMENT","KOROLKOV2024_SOUTHERN_INSTITUTIONS","YAO_LAM2024_GUANZHONG"],
     "note": "Eight unlike windows show production storage transport maintenance and extraction. Dates share a display axis but do not form a continuous series; no transported tonnage annual throughput irrigated area wall length labor total soldier-month conversion or state-capacity score is produced."
+  },
+  {
+    "id": "qin-han-04-governance-bargain",
+    "page": "qin-han",
+    "insight": 4,
+    "claim": "Han lasted by sharing rule with kingdoms and local partners, then progressively shrinking the space in which those partners could become rivals.",
+    "status": "working_synthesis",
+    "evidence_type": "documentary_and_scholarly_administrative_reconstruction",
+    "dataset_ids": ["han-governance-bargains"],
+    "source_keys": ["TONG2025_HAN_KINGDOMS","WU2014_SHIJI_TABLE","LOEWE2008_HAN_GOVERNMENT","EBREY2022_BUREAUCRATIC_EMPIRE","HAN_SHU_WUDI_ANNALS"],
+    "note": "Counts combine changing territorial extent, subdivision, and classification and are not treated as comparable area shares."
+  },
+  {
+    "id": "qin-han-05-emergency-command",
+    "page": "qin-han",
+    "insight": 5,
+    "claim": "Han fell when repeated emergencies transferred soldiers, territory, revenue, and imperial legitimacy to regional commanders who became rival states.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_chronology_and_peer_reviewed_historical_synthesis",
+    "dataset_ids": ["han-collapse-command"],
+    "source_keys": ["DE_CRESPIGNY2017_LUOYANG","PENA_DAVIES2026_HAN_TRANSITION","HOU_HAN_SHU_XIAN_ANNALS","EBREY2022_BUREAUCRATIC_EMPIRE"],
+    "note": "This is a multi-step mechanism rather than a single-cause collapse claim; transmitted army and casualty totals are excluded."
   }
 ]
