@@ -130,11 +130,11 @@ when the evidence supports independent urban/state formation.
 
 ## P1 — Page 05: The Iron Age transformation — ready
 
-1. **Iron adoption had two clocks:** five regional windows distinguish first or limited evidence from wider adoption, then expose prior metal traditions, resources and charcoal, furnace pathways, smithing, and institutions — live; no universal threshold, adoption score, annual output, market share, hardness rank, fuel ratio, or military-power estimate.
-2. **The forest was part of the furnace:** eleven published modern experimental runs compare ore charcoal and reported bloom outcomes — live; zero and trace blooms remain categorical, run-level analogs are not ancient output or woodland-loss estimates, and no universal fuel-efficiency ratio is imposed.
-3. **Quality was made:** four paired bloom and forged-bar samples keep hardness, chemistry, microstructure, and forgeability separate — live; no toughness, weapon-performance, ancient-average, or material-superiority score.
-4. **Metal did not mobilize itself:** live; four bounded cases separate equipment, recruitment, supply, and replacement, and only Taylor's same-model Punic War maxima receive proportional bars.
-5. **Scale had more than one shape:** five production circuits compare a royal arsenal, household network, distribution-centred oppida, state monopoly with a frontier gap, and a long-lived urban production landscape — live; no output, productivity, market-integration, state-capacity, or centralization score.
+1. **Iron became transformative only when production became repeatable** — live; five regional windows distinguish rare or limited evidence from wider adoption and expose the production dependencies that joined the two clocks.
+2. **Furnace control mattered more than charcoal alone** — live; eleven experimental runs show similar fuel ranges producing radically different outcomes while remaining modern analogs rather than ancient productivity estimates.
+3. **Hardness did not make iron usable** — live; four paired bloom and forged-bar samples keep hardness, chemistry, microstructure, and forgeability separate and make the brittle 139 HV counterexample central.
+4. **Institutions—not cheaper metal—made armies scale** — live; four cases separate equipment, recruitment, supply, and replacement, while only Taylor's same-model Punic War maxima receive proportional bars.
+5. **Iron production scaled through households, markets, and states** — live; five circuits compare a royal arsenal, household network, distribution-centered oppida, a state monopoly with a frontier gap, and a long-lived urban production landscape.
 
 ## P1 — Page 06: Persia and territorial empire — ready
 
@@ -204,6 +204,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed the Iron Age five-claim editorial and chart-anatomy audit. Reframed the page around reproducible production, furnace control, usable rather than merely hard iron, institutional mobilization, and plural production architectures. Selector, article, and chart titles now match exactly. Removed reader-facing anti-score summaries, source keys, evidence-class labels, duplicate downloads, standalone method notes, and external reading links; each visual now ends with one compact OWID-style source/note/download footer. Next: apply the same audit to Persia.
 
 - 2026-08-31 — Completed the Bronze Age five-claim editorial and chart-anatomy audit. Reframed the page around long-distance material interdependence, selective palace concentration, chariot logistics, plural maritime carriers, and the uneven breakdown of the palace system. Selector, article, and chart titles now match exactly. Removed reader-facing anti-score KPIs, source keys, evidence-status labels, inference headings, duplicated downloads, standalone method notes, and external reading links; one compact OWID-style source/note/download footer remains for each visual, while full limits and source keys stay in Methods and the datasets. Next: apply the same audit to the Iron Age page.
 

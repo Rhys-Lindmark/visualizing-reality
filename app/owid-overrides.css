@@ -123,3 +123,5 @@
     margin-top: 8px;
   }
 }
+/* Evidence caveats remain in Methods and downloads; keep the primary Iron Age chart face concise. */
+.iron-quality-limit { display: none; }
