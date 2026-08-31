@@ -256,17 +256,44 @@ when the evidence supports independent urban/state formation.
 4. **The empire protected merchants selectively—not uniformly** — beta candidate; compare capital, protection, tax privileges, coercion, war, and fragmentation.
 5. **Successor states localized Mongol institutions instead of simply disappearing** — beta candidate; compare Yuan, Ilkhanid, Chaghatayid, and Golden Horde adaptations.
 
-## P2 — Later pre-industrial pages — next alpha queue
+## P2 — Page 21: Gunpowder Empires — alpha live
 
-- Gunpowder empires and the rising cost of fortification and war.
-- Oceanic navigation and the integration of the pre-industrial world.
-- The great divergence before industry: wages, energy, institutions, empire, and ecology.
+1. **Gunpowder warfare rewarded fiscal scale more than possession of cannon** — alpha live; European largest-army and Spanish war-cost multipliers remain separate measures with separate baselines.
+2. **Fortresses adapted, so artillery did not simply erase walls** — beta candidate.
+3. **Firearms worked with cavalry and logistics—not instead of them** — beta candidate.
+4. **Drill converted guns into repeatable battlefield fire** — beta candidate.
+5. **Gunpowder states remained politically diverse** — beta candidate.
+
+## P2 — Page 22: Oceanic Navigation — alpha live
+
+1. **The Manila galleon connected Asia and America—and monopoly made the crossing more dangerous** — alpha live; route chronology, the two-ship cap, and 20%, 17%, and 22.5% voyage-failure shares remain distinct observations.
+2. **Ocean routes followed winds and currents, not shortest lines** — beta candidate.
+3. **Sailors combined celestial, dead-reckoning, and local knowledge** — beta candidate.
+4. **Shipyards were global production systems** — beta candidate.
+5. **Oceanic exchange reorganized ecologies and coerced labor** — beta candidate.
+
+## P2 — Page 23: The Great Divergence — alpha live
+
+1. **Northwestern Europe’s urban wage advantage was visible before factories dominated output** — alpha live; six London, Amsterdam, and Beijing building-laborer subsistence ratios retain their basket and full-employment assumptions.
+2. **High wages and cheap energy made labor-saving invention unusually profitable** — beta candidate.
+3. **Coal and New World resources loosened land constraints** — beta candidate.
+4. **Institutions mattered through particular markets and state capacities—not one score** — beta candidate.
+5. **The divergence was regional and late, not an eternal West–East gap** — beta candidate.
+
+## Next beta queue
+
+- India insight 02: monsoon diversity and political rhythms.
+- Steppe insight 02: horses, mobility, and military reach.
+- Christianity insight 02: bishops, charity, and durable congregations.
+- Continue in atlas order, one beta insight per focused worktree.
 
 ## Blocked
 
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed the fifth breadth-first alpha batch: Gunpowder Empires, Oceanic Navigation, and the Great Divergence. Each route now has five affirmative claims, one source-bounded opening visual, and four explicit beta targets. The live evidence keeps European largest-army multipliers separate from Spain’s differently based war-cost multiplier; defines Manila-galleon failure as wreck or damaged return and keeps descriptive subgroup shares distinct from causal estimates; and presents six city/occupation subsistence ratios without treating them as national incomes or one universal divergence date. Added three peer-reviewed source records, three public CSVs, three datasets, three claims, atlas and related-topic links, release smoke coverage, and automated anchor checks. The breadth-first alpha inventory is now complete through page 23. Next: return to the beta queue in atlas order, beginning with India insight 02.
 
 - 2026-08-31 — Completed the fourth breadth-first alpha batch: Mesoamerican Cities and States, Andean Worlds and the Inka, and Mongol Eurasia. Each route has five affirmative claims, one source-bounded opening visual, and four explicit beta targets. The live evidence distinguishes PACUNAM's 2,144 km² lidar survey and 61,480 mapped structures from its regional population models; separates the Qhapaq Ñan's full network, organization, topography, imperial reach, and selected heritage subset; and preserves Spyrou et al.'s 1338–1339 context, seven screened individuals, three plague detections, two reconstructed genomes, and one ancestral strain without claiming a proven transmission route or Mongol political cause. Added three authoritative source records, three public CSVs, three datasets, three claims, atlas and related-topic links, release smoke coverage, and automated anchor checks. Next: open Gunpowder Empires, Oceanic Navigation, and the Great Divergence before Industry with the same 80/20 alpha contract.
 

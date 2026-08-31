@@ -37,6 +37,9 @@ const relatedByTitle:Record<string,Array<{href:string;label:string}>>={
   'Mesoamerican Cities and States':[{href:'/cradles',label:'The cradles of civilization'},{href:'/andes',label:'Andean Worlds and the Inka'}],
   'Andean Worlds and the Inka':[{href:'/mesoamerica',label:'Mesoamerican Cities and States'},{href:'/cradles',label:'The cradles of civilization'}],
   'Mongol Eurasia':[{href:'/steppe',label:'The Steppe'},{href:'/silk-roads',label:'Silk Roads'},{href:'/qin-han',label:'Qin and Han China'}],
+  'Gunpowder Empires':[{href:'/mongol-eurasia',label:'Mongol Eurasia'},{href:'/oceanic-navigation',label:'Oceanic Navigation'},{href:'/great-divergence',label:'The Great Divergence'}],
+  'Oceanic Navigation':[{href:'/silk-roads',label:'Silk Roads'},{href:'/gunpowder-empires',label:'Gunpowder Empires'},{href:'/great-divergence',label:'The Great Divergence'}],
+  'The Great Divergence':[{href:'/oceanic-navigation',label:'Oceanic Navigation'},{href:'/gunpowder-empires',label:'Gunpowder Empires'},{href:'/medieval-europe',label:'Medieval Europe'}],
 };
 
 export default function HistoryPageShell({ title, published, introduction, insightLabels, children, methods }: HistoryPageShellProps) {

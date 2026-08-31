@@ -583,5 +583,35 @@
     "source_key_field": "source_keys",
     "time_resolution": "one 1338–1339 epidemic context compared with published plague genomes",
     "notes": "Sample counts detections reconstructed genomes and phylogenetic placement are unlike observations. The study does not establish a transmission route or political cause."
+  },
+  {
+    "id": "gunpowder-military-scale-multipliers",
+    "title": "Published European military scale and cost multipliers",
+    "path": "/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_historical_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four published multipliers and one normalized comparison baseline",
+    "notes": "Army and annual war-cost multipliers use different measures and baselines and are never combined."
+  },
+  {
+    "id": "manila-galleon-risk",
+    "title": "Manila Galleon chronology monopoly rule and voyage failure shares",
+    "path": "/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_route_database_and_econometric_study",
+    "source_key_field": "source_keys",
+    "time_resolution": "route chronology plus sample-wide descriptive shares across 1565–1815",
+    "notes": "Failure includes shipwreck or a heavily damaged return to port; subgroup shares are not causal estimates."
+  },
+  {
+    "id": "urban-subsistence-ratios",
+    "title": "Building-laborer subsistence ratios in London Amsterdam and Beijing",
+    "path": "/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_real_wage_reconstruction",
+    "source_key_field": "source_keys",
+    "time_resolution": "two half-century averages per city from 1700 through 1799",
+    "notes": "Ratios depend on a bare-bones family basket and full-employment assumptions and are not citywide or national median incomes."
   }
 ]

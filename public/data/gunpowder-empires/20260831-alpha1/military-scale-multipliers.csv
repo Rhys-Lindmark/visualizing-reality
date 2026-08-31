@@ -1,0 +1,6 @@
+observation_id,period,polity,measure,baseline_period,multiplier,source_keys,limits
+baseline,1470s,European comparison baseline,largest army,1470s,1,KENKEL_PAINE2023_PARLIAMENTS,"Normalized denominator, not an independent army count"
+england_army,17th century,England,largest army,1470s,2.8,KENKEL_PAINE2023_PARLIAMENTS,"Published multiplier, not a continuous force series"
+france_army,17th century,France,largest army,1470s,3.8,KENKEL_PAINE2023_PARLIAMENTS,"Published multiplier, not a continuous force series"
+spain_army,17th century,Spain,largest army,1470s,15,KENKEL_PAINE2023_PARLIAMENTS,"Published multiplier, not a continuous force series"
+spain_war_cost,1590s,Spain,annual cost of war,1540s,4.5,KENKEL_PAINE2023_PARLIAMENTS,"Different measure and baseline from the army multipliers"

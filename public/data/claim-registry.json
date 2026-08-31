@@ -675,5 +675,38 @@
     "dataset_ids": ["black-death-origin-evidence"],
     "source_keys": ["SPYROU_ETAL2022_BLACK_DEATH"],
     "note": "The genetics supports place date and ancestry; the exact westward route remains unknown and the evidence does not establish Mongol rule or trade as a sole cause."
+  },
+  {
+    "id": "gunpowder-empires-01-fiscal-scale",
+    "page": "gunpowder-empires",
+    "insight": 1,
+    "claim": "Gunpowder warfare rewarded fiscal and organizational scale more than possession of cannon alone.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_historical_synthesis",
+    "dataset_ids": ["gunpowder-military-scale-multipliers"],
+    "source_keys": ["KENKEL_PAINE2023_PARLIAMENTS"],
+    "note": "The multipliers describe European army and cost growth with different baselines; they do not rank every gunpowder empire or isolate gunpowder as the sole cause."
+  },
+  {
+    "id": "oceanic-navigation-01-monopoly-risk",
+    "page": "oceanic-navigation",
+    "insight": 1,
+    "claim": "The Manila Galleon connected Asia and America while monopoly rents encouraged costly delay and loading that increased voyage risk.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_route_database_and_econometric_study",
+    "dataset_ids": ["manila-galleon-risk"],
+    "source_keys": ["ARTEAGA_DESIERTO_KOYAMA2024_GALLEON"],
+    "note": "Failure includes wreck or damaged return; descriptive subgroup shares are kept distinct from the paper's controlled estimates."
+  },
+  {
+    "id": "great-divergence-01-urban-wages",
+    "page": "great-divergence",
+    "insight": 1,
+    "claim": "Northwestern Europe's urban building-laborer wage advantage was visible before factories dominated output.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_real_wage_reconstruction",
+    "dataset_ids": ["urban-subsistence-ratios"],
+    "source_keys": ["ALLEN_MURPHY_SCHNEIDER2012_WAGES"],
+    "note": "Selected city and occupation ratios are not national incomes or proof of a single divergence date."
   }
 ]

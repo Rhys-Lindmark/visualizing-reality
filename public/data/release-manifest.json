@@ -1,5 +1,5 @@
 {
-  "release_id": "20260831-world-alphas2",
+  "release_id": "20260831-world-alphas3",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -22,7 +22,10 @@
     "/southeast-asia",
     "/mesoamerica",
     "/andes",
-    "/mongol-eurasia"
+    "/mongol-eurasia",
+    "/gunpowder-empires",
+    "/oceanic-navigation",
+    "/great-divergence"
   ],
   "newest_visualization_assets": [
     "/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv",
@@ -59,6 +62,9 @@
     "/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv",
     "/data/mesoamerica/20260831-alpha1/maya-lidar-findings.csv",
     "/data/andes/20260831-alpha1/qhapaq-nan-scale.csv",
-    "/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv"
+    "/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv",
+    "/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv",
+    "/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv",
+    "/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv"
   ]
 }

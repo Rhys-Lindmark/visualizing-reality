@@ -1,0 +1,6 @@
+observation_id,display_value,numeric_value,measure,period,scope,source_keys,limits
+route_duration,250 years,250,route duration,1565–1815,Manila Galleon era,ARTEAGA_DESIERTO_KOYAMA2024_GALLEON,"Chronological span, not uninterrupted annual service"
+legal_cap,2 per year,2,legal maximum departures from Manila,1593 onward,Manila to Acapulco,ARTEAGA_DESIERTO_KOYAMA2024_GALLEON,"Legal cap, not observed annual departures"
+all_failures,20%,20,failed voyage share,1565–1815,Manila-to-Acapulco estimation sample,ARTEAGA_DESIERTO_KOYAMA2024_GALLEON,"Failure includes shipwreck or a heavily damaged return to port"
+on_time_failures,17%,17,failed share among on-time departures,1565–1815,Manila-to-Acapulco estimation sample,ARTEAGA_DESIERTO_KOYAMA2024_GALLEON,"Descriptive subgroup share, not a causal effect"
+late_failures,22.5%,22.5,failed share among late departures,1565–1815,Manila-to-Acapulco estimation sample,ARTEAGA_DESIERTO_KOYAMA2024_GALLEON,"Descriptive subgroup share; controlled estimates are reported separately in the paper"

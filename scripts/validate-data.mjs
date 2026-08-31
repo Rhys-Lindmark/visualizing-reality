@@ -1256,6 +1256,32 @@ for(const[index,row]of blackDeathOrigin.entries()){
 }
 if(blackDeathOrigin.length!==5||Number(blackDeathOrigin.find(row=>row.observation_id==='screened_individuals')?.numeric_value)!==7||Number(blackDeathOrigin.find(row=>row.observation_id==='plague_positive')?.numeric_value)!==3||Number(blackDeathOrigin.find(row=>row.observation_id==='reconstructed_genomes')?.numeric_value)!==2||Number(blackDeathOrigin.find(row=>row.observation_id==='phylogenetic_placement')?.numeric_value)!==1)fail('Mongol Eurasia alpha must preserve seven screened people, three positives, two reconstructed genomes, and one ancestral strain');
 
+const gunpowderScale=csv('public/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv');
+for(const[index,row]of gunpowderScale.entries()){
+  const context=`military-scale-multipliers.csv row ${index+2}`;
+  requireFields(row,['observation_id','period','polity','measure','baseline_period','multiplier','source_keys','limits'],context);
+  numeric(row,['multiplier'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(gunpowderScale.length!==5||Number(gunpowderScale.find(row=>row.observation_id==='england_army')?.multiplier)!==2.8||Number(gunpowderScale.find(row=>row.observation_id==='france_army')?.multiplier)!==3.8||Number(gunpowderScale.find(row=>row.observation_id==='spain_army')?.multiplier)!==15||Number(gunpowderScale.find(row=>row.observation_id==='spain_war_cost')?.multiplier)!==4.5)fail('Gunpowder alpha must preserve the 2.8× 3.8× and 15× army multipliers plus Spain’s separate 4.5× cost multiplier');
+
+const galleonRisk=csv('public/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv');
+for(const[index,row]of galleonRisk.entries()){
+  const context=`manila-galleon-risk.csv row ${index+2}`;
+  requireFields(row,['observation_id','display_value','numeric_value','measure','period','scope','source_keys','limits'],context);
+  numeric(row,['numeric_value'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(galleonRisk.length!==5||Number(galleonRisk.find(row=>row.observation_id==='legal_cap')?.numeric_value)!==2||Number(galleonRisk.find(row=>row.observation_id==='all_failures')?.numeric_value)!==20||Number(galleonRisk.find(row=>row.observation_id==='on_time_failures')?.numeric_value)!==17||Number(galleonRisk.find(row=>row.observation_id==='late_failures')?.numeric_value)!==22.5)fail('Oceanic navigation alpha must preserve the two-ship cap and 20% 17% and 22.5% failure shares');
+
+const urbanSubsistence=csv('public/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv');
+for(const[index,row]of urbanSubsistence.entries()){
+  const context=`urban-subsistence-ratios.csv row ${index+2}`;
+  requireFields(row,['city','period','year_start','year_end','subsistence_ratio','worker_scope','source_keys','limits'],context);
+  numeric(row,['year_start','year_end','subsistence_ratio'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+const ratioKey=row=>`${row.city}|${row.period}`;
+const ratios=new Map(urbanSubsistence.map(row=>[ratioKey(row),Number(row.subsistence_ratio)]));
+if(urbanSubsistence.length!==6||ratios.get('London|1700–1749')!==4.16||ratios.get('London|1750–1799')!==3.51||ratios.get('Amsterdam|1700–1749')!==4.2||ratios.get('Amsterdam|1750–1799')!==3.77||ratios.get('Beijing|1700–1749')!==1.25||ratios.get('Beijing|1750–1799')!==1.04)fail('Great Divergence alpha must preserve all six published London Amsterdam and Beijing subsistence ratios');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
