@@ -122,11 +122,11 @@ when the evidence supports independent urban/state formation.
 
 ## P1 — Page 04: The Bronze Age world system — ready
 
-1. Copper and tin turned geography into a long-distance production network — live; four evidence views preserve one cargo, copper provenance, an Atlantic tin signal, a textual relationship, and competing tin-source hypotheses without inventing annual flows or direct routes.
-2. Palace economies concentrated storage, craft, writing, and redistribution — live; five selective institutional circuits compare Mari, Hattusha, Knossos, Pylos, and Ugarit without combining unlike archive counts, flock tallies, metal allotments, or archaeological episodes into a centralization score.
-3. **Speed had a supply chain:** five evidence windows expose chariots as systems of vehicles, paired horses, control gear, specialist people, upkeep, and institutions — live; unlike burials, texts, inventories, gifts, and mortuary assemblages are never converted into a force-size or effectiveness score.
-4. **The sea was shared; the carriers were plural:** three shipwrecks and two harbor settlements expose elite shipments, travelling metal ventures, mixed coasting cargoes, and multi-period port communities — live; nineteen source-keyed associations are not converted into routes, traffic, market share, ownership, or one trade system.
-5. **There was no single collapse event:** six unlike evidence windows keep environment, conflict, institutional change, and persistence separate on a 1250–1050 BCE chronology — live; no shared year, causal score, population-loss total, or homogeneous Sea Peoples army.
+1. **Bronze made distant mining regions interdependent** — live; four evidence views preserve one cargo, copper provenance, an Atlantic tin signal, a textual relationship, and competing tin-source hypotheses without inventing annual flows or direct routes.
+2. **Palaces concentrated flows without controlling whole economies** — live; five institutional circuits compare Mari, Hattusha, Knossos, Pylos, and Ugarit while keeping unlike archive counts, flock tallies, metal allotments, and archaeological episodes separate.
+3. **Chariots were logistical systems before they were battlefield weapons** — live; five evidence windows expose vehicles, paired horses, control gear, specialist people, upkeep, and institutions without converting unlike records into a force-size or effectiveness score.
+4. **Courts, merchants, and craftspeople shared the same sea** — live; three shipwrecks and two harbor settlements expose elite shipments, travelling metal ventures, mixed cargoes, and port communities without reconstructing routes, traffic, market share, or ownership.
+5. **The palace system broke unevenly—and did not take every society with it** — live; six evidence windows keep environment, conflict, institutional change, and persistence separate on a 1250–1050 BCE chronology while making survival and reorganization part of the central claim.
 
 ## P1 — Page 05: The Iron Age transformation — ready
 
@@ -204,6 +204,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed the Bronze Age five-claim editorial and chart-anatomy audit. Reframed the page around long-distance material interdependence, selective palace concentration, chariot logistics, plural maritime carriers, and the uneven breakdown of the palace system. Selector, article, and chart titles now match exactly. Removed reader-facing anti-score KPIs, source keys, evidence-status labels, inference headings, duplicated downloads, standalone method notes, and external reading links; one compact OWID-style source/note/download footer remains for each visual, while full limits and source keys stay in Methods and the datasets. Next: apply the same audit to the Iron Age page.
 
 - 2026-08-31 — Completed the Cradles five-claim editorial and chart-anatomy audit. Replaced five caution-led or question-led headlines with affirmative claims about asynchronous urban/state/writing schedules, adaptation to different water regimes, cities and states appearing without writing or bronze, institutions turning surplus into coordinated power, and political reorganization after capitals fell. Selector, article, and chart titles now match exactly. Removed public source keys, evidence-class labels, anti-score KPIs, record counts, standalone method blocks, duplicate downloads, and visible limit panels from all five visuals; retained the full evidence and caveats in Methods, registries, CSVs, and one compact OWID-style footer per visual. Verified every insight and representative regional control, exact title parity, one active panel, zero overflow at desktop and 390 × 844, 104-pixel mobile insight tabs, no loading/`undefined`/`NaN` states, a clean browser console, 86 data files, 225 sources, 38 datasets, 33 claims, source lint, the Rome regression, the production build, and 100 byte-identical built assets. Next: audit the Bronze Age page's five claims and chart anatomy.
 
