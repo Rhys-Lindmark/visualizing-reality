@@ -58,12 +58,12 @@
     "id": "uruk-04-administrative-writing",
     "page": "uruk",
     "insight": 4,
-    "claim": "The earliest surviving proto-cuneiform writing was overwhelmingly administrative, while lexical lists became a substantially larger part of the following phase and extended the new system into teaching and organized knowledge.",
+    "claim": "Writing began as institutional memory: the earliest surviving proto-cuneiform archive was more than 99% administrative, while lexical lists expanded to roughly one fifth in the following phase.",
     "status": "working_synthesis",
     "evidence_type": "published_corpus_summary_and_scholarly_synthesis",
     "dataset_ids": ["uruk-writing-corpus"],
     "source_keys": ["ENGLUND2011", "BORN_KELLEY2021", "ORACC_DCCLT", "KELLEY_CARTOLANO_FERRARA2025"],
-    "note": "The claim supports an administrative origin for the surviving script, not invention solely for taxation. Percentages preserve Englund's less-than and approximate language. CDLI totals are a dated digital-corpus snapshot shaped by survival, excavation, publication, transliteration, and readability."
+    "note": "Administrative shares are the complementary remainder of Englund's published lexical shares and preserve his less-than and approximate language. The claim describes the surviving archive, not invention solely for taxation; CDLI totals remain a dated digital-corpus snapshot shaped by survival, excavation, publication, transliteration, and readability."
   },
   {
     "id": "uruk-01-first-megacity",
