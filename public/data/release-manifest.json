@@ -1,5 +1,5 @@
 {
-  "release_id": "20260830-qin-standardization1",
+  "release_id": "20260830-qin-logistics1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -26,6 +26,7 @@
     "/data/persia/20260830-coalition1/persian-coalition-windows.csv",
     "/data/persia/20260830-afterlives1/persian-institutional-afterlives.csv",
     "/data/qin-han/20260830-mobilization1/qin-mobilizing-system.csv",
-    "/data/qin-han/20260830-standardization1/qin-standardization-practice.csv"
+    "/data/qin-han/20260830-standardization1/qin-standardization-practice.csv",
+    "/data/qin-han/20260830-logistics1/qin-logistics-ecology.csv"
   ]
 }

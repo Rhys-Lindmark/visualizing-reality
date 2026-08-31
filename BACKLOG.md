@@ -50,6 +50,10 @@ graphics that explain the claim without decorative clutter.
 
 Every published page and new insight must look and work intentionally at 390 × 844 pixels before deployment. Test the full affected page—not only the new chart—for horizontal overflow, clipped labels, unreadably small controls, overlapping copy, touch targets, loading and error states, and interaction parity with desktop. Record the viewport and result in the completed-milestone note. A passing desktop build does not satisfy this gate.
 
+## P0 — OWID page-shell simplification
+
+Apply the shared editorial UX across every history page: plain topic titles without taxonomy/status clutter or promotional standfirst copy; one lean introduction with two or three related-topic links; fewer decorative dividers; and exact text parity between each insight selector and its selected article headline. Preserve all visualizations, evidence notes, downloads, mobile behavior, and source traceability.
+
 ## P0 — Page 01: Rome — five core insights live
 
 1. **Where Rome was:** annual territorial map, neighboring polities, political form — live, inspectable, and target-year audited.
@@ -122,7 +126,7 @@ when the evidence supports independent urban/state formation.
 
 1. **Victory was administrative before it was territorial:** live; five unlike capacities connect interstate pressure, household registration, ranked service, county reporting, and assigned transfers, while six political endpoints preserve the 230–221 BCE conquest sequence without army totals, continuous boundaries, or a state-capacity score.
 2. **A standard was an interface, not sameness:** live; six norm-to-practice windows compare certified measures, official script, tablet dimensions, text density, and grain-tally layout without one empire-wide compliance, literacy, efficiency, or state-capacity score.
-3. Grain, canals, roads, walls, and conscription linked ecology to empire.
+3. **Infrastructure worked as an ecology:** live; eight source-bounded windows connect productive irrigation, transport corridors, route records, ration reporting, storage, maintenance, and concentrated labor without annual grain flow, Qin granary back-projection, wall length, or megaproject workforce totals.
 4. The Han state balanced direct rule, local elites, and frontier strategy.
 5. Collapse and reunification became a recurrent political pattern, not a civilizational reset.
 
@@ -178,6 +182,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Qin and Han insight 03, **Infrastructure worked as an ecology**. Eight selectable evidence windows connect Zhengguo and Dujiangyan productive landscapes, the Ling Canal's two-basin crossing, a 41-entry late-Qin grain-route itinerary, Qianling ration-sufficiency reporting, the archaeological Western Han Capital Granary, recurrent locally coordinated maintenance, and concentrated imperial labor. The chronology locates unlike windows without interpolating them or encoding magnitude. The Western Han granary is not back-projected into Qin, and the transmitted 700,000-worker palace-and-mausoleum figure remains an explicitly excluded narrative claim. Added three source records, one public CSV, one registered dataset, one registered claim, an immutable client snapshot, a durable evidence audit, and automated guards against annual grain flow, irrigated area, throughput, route geometry, wall length, labor totals, soldier-month conversion, or a state-capacity score. Verified all eight selectors, the full input → interface → reach loop, the granary and megaproject-limit windows, zero loading/404/`undefined`/`NaN` states, zero horizontal overflow at desktop and 390 × 844, 65-pixel mobile insight controls, 76-pixel logistics controls, a clean browser console, 86 checked data files, 222 sources, 38 datasets, 33 claims, the Rome regression contract, lint, the production build, and 100 byte-identical built assets. Next: complete the site-wide OWID page-shell simplification requested by Rhys, then return to Qin and Han insight 04.
 
 - 2026-08-30 — Completed Qin and Han insight 02, **A standard was an interface, not sameness**. Six selectable norm-to-practice windows compare a pre-unification 980 ml palace scoop certified in 221 BCE and re-inscribed in 209 BCE, official small-seal norms against gradual epigraphic change, and Qin ordinances against excavated Qianling documents. The four bounded comparisons preserve 25/25 reports close to the common 23 cm length, 0/25 inside the legal width tolerance, 11/25 inside the stated character limit, and 16/22 grain tallies using dominant layout A; unlike rows are never averaged. Added four source records, one public CSV, one registered dataset, one registered claim, an immutable client snapshot, a durable evidence audit, and automated guards against an empire-wide compliance rate, modern conversion model, literacy, script-uniformity, loyalty, efficiency, or state-capacity score. Verified all six evidence selectors, four overview controls, the second outer insight, exactly one active outer panel, summary values 6 / 25 + 22 / None, zero loading/404/`undefined`/`NaN` states, zero horizontal overflow at desktop and 390 × 844, 65–66-pixel mobile insight controls, 76-pixel evidence controls, 54-pixel overview controls, a clean browser console, 84 checked data files, 219 sources, 37 datasets, 32 claims, the Rome regression contract, lint, the production build, and 98 byte-identical built assets. Next: compare grain, canals, roads, walls, granaries, and conscript labor without turning transmitted megaproject totals into accepted measurements.
 

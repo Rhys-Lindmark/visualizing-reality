@@ -499,5 +499,16 @@
     "dataset_ids": ["qin-standardization-practice"],
     "source_keys": ["STAACK2023_QIN_DOCUMENTS","SKRABAL2023_QIN_SCOOP","NMC_QIN_DOUBLE_EDICT","GALAMBOS2004_QIN_WRITING"],
     "note": "Six windows keep one object biography one epigraphic chronology twenty-five upward reports and twenty-two grain tallies separate. Four proportions remain row-specific; no empire-wide compliance script-uniformity literacy efficiency loyalty or state-capacity score is produced."
+  },
+  {
+    "id": "qin-han-03-infrastructure-ecology",
+    "page": "qin-han",
+    "insight": 3,
+    "claim": "Qin and Han imperial reach depended on a maintained logistics ecology that linked productive landscapes records stores transport corridors and recurrent labor rather than on any one megaproject.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_irrigation_archaeology_excavated_route_and_administrative_documents_storage_archaeology_legal_synthesis_and_retrospective_narrative",
+    "dataset_ids": ["qin-logistics-ecology"],
+    "source_keys": ["LANDER2023_QIN_ECOLOGY","TONG2026_QIN_LOGISTICS","KOROLKOV2024_WATER_MANAGEMENT","KOROLKOV2024_SOUTHERN_INSTITUTIONS","YAO_LAM2024_GUANZHONG"],
+    "note": "Eight unlike windows show production storage transport maintenance and extraction. Dates share a display axis but do not form a continuous series; no transported tonnage annual throughput irrigated area wall length labor total soldier-month conversion or state-capacity score is produced."
   }
 ]
