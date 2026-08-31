@@ -1,26 +1,38 @@
 'use client';
 import {useEffect,useMemo,useState} from 'react';
-import {fetchUrukText,urukDataUrl} from './lib/urukDataClient';
+import {fetchUrukText} from './lib/urukDataClient';
 
 type Row={slug:string;mechanism:string;place:string;start_year:string;end_year:string;display_date:string;observation:string;what_it_supports:string;what_it_does_not_prove:string;evidence_class:string;value:string;relation:string;unit:string;source_keys:string};
-const url=urukDataUrl('uruk-state-fragility-evidence.csv');
-const tones:Record<string,string>={Concentration:'concentrate',Provisioning:'provision',Fortification:'fortify',Conflict:'conflict','Violence and ritual':'violence',Dispersal:'disperse','Peripheral autonomy':'periphery','Regional reversal':'reversal'};
-const quantity=(row:Row)=>row.value?`${row.relation==='more_than'?'>':row.relation==='minimum'?'≥':row.relation==='approximate'?'≈':''}${Number(row.value).toLocaleString()} ${row.unit}`:'qualitative record';
+type Path='assemble'|'rupture'|'opt-out';
+
+const paths:{id:Path;label:string;description:string;slugs:string[]}[]=[
+  {id:'assemble',label:'Assemble power',description:'People, food, and defenses concentrated',slugs:['urban-concentration','institutional-provisioning','fortified-center']},
+  {id:'rupture',label:'Violent rupture',description:'Concentrated settlements could fail violently',slugs:['urban-conflict','mass-deposition']},
+  {id:'opt-out',label:'Opt out',description:'People dispersed, coexisted, or regionalized',slugs:['institutional-dispersal','autonomous-periphery','regional-reversal']},
+];
+
+const quantity=(row:Row)=>row.value?`${row.relation==='more_than'?'>':row.relation==='minimum'?'≥':row.relation==='approximate'?'≈':''}${Number(row.value).toLocaleString()} ${row.unit}`:'';
 function parseCSV(text:string):Row[]{const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;for(let index=0;index<text.length;index+=1){const c=text[index];if(c==='"'&&quoted&&text[index+1]==='"'){cell+='"';index+=1}else if(c==='"')quoted=!quoted;else if(c===','&&!quoted){row.push(cell);cell=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[index+1]==='\n')index+=1;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell=''}else cell+=c}if(cell||row.length){row.push(cell);rows.push(row)}const[headers,...body]=rows;return body.map(values=>Object.fromEntries(headers.map((header,index)=>[header,values[index]??''])) as Row)}
 
 export default function UrukFragilityChart(){
-  const[rows,setRows]=useState<Row[]>([]);const[error,setError]=useState('');const[selectedSlug,setSelectedSlug]=useState('institutional-dispersal');
+  const[rows,setRows]=useState<Row[]>([]);const[error,setError]=useState('');const[selectedPath,setSelectedPath]=useState<Path>('opt-out');const[selectedSlug,setSelectedSlug]=useState('institutional-dispersal');
   useEffect(()=>{const controller=new AbortController();fetchUrukText('uruk-state-fragility-evidence.csv',controller.signal).then(text=>{const parsed=parseCSV(text);if(parsed.length!==8)throw new Error('Required evidence rows missing');setRows(parsed)}).catch(reason=>{if(!controller.signal.aborted)setError(reason instanceof Error?reason.message:String(reason))});return()=>controller.abort()},[]);
-  const selected=useMemo(()=>rows.find(row=>row.slug===selectedSlug)??rows[0],[rows,selectedSlug]);
-  if(error)return <div className="uruk-data-error"><b>Fragility evidence did not load</b><span>{error}</span></div>;
-  if(!selected)return <div className="uruk-data-loading">Loading source-keyed evidence…</div>;
-  return <div className="uruk-fragility-chart">
-    <div className="fragility-thesis"><div><span>Observed cases</span><b>8</b><small>unlike evidence · not a score</small></div><div><span>Direct coercion counts</span><b>0</b><small>no slavery estimate inferred</small></div><div><span>Uruk disease series</span><b>None</b><small>plausible mechanism · missing local test</small></div></div>
-    <section className="fragility-ladder"><div className="uruk-chart-heading"><div><span>Evidence ladder</span><h5>Concentration created power—and exit points</h5></div><small>4200–3100 BCE · select a case</small></div>
-      <div className="fragility-rail" aria-label="Eight archaeological observations">{rows.map((row,index)=><button key={row.slug} className={`${tones[row.mechanism]??''} ${row.slug===selected.slug?'active':''}`} onClick={()=>setSelectedSlug(row.slug)} aria-pressed={row.slug===selected.slug}><i>{String(index+1).padStart(2,'0')}</i><span>{row.mechanism}</span><b>{row.place}</b><small>{row.display_date}</small></button>)}</div>
-      <article className="fragility-readout" role="tabpanel"><header><span>{selected.mechanism}</span><h6>{selected.place}</h6><small>{selected.display_date} · {selected.evidence_class.replaceAll('_',' ')}</small></header><div><section><span>Observed</span><p>{selected.observation}</p></section><section><span>Supports</span><p>{selected.what_it_supports}</p></section><aside><span>Does not prove</span><p>{selected.what_it_does_not_prove}</p></aside></div><footer><b>{quantity(selected)}</b><small>{selected.source_keys}</small></footer></article>
+  const activePath=paths.find(path=>path.id===selectedPath)??paths[2];
+  const cases=useMemo(()=>activePath.slugs.map(slug=>rows.find(row=>row.slug===slug)).filter((row):row is Row=>Boolean(row)),[activePath,rows]);
+  const selected=cases.find(row=>row.slug===selectedSlug)??cases[0];
+  const selectPath=(path:typeof paths[number])=>{setSelectedPath(path.id);setSelectedSlug(path.slugs[0])};
+  if(error)return <div className="uruk-data-error"><b>The centralization evidence did not load.</b><span>{error}</span><button type="button" onClick={()=>location.reload()}>Retry</button></div>;
+  if(!selected)return <div className="uruk-data-loading">Loading the archaeological record…</div>;
+  return <div className="uruk-optout-chart">
+    <div className="uruk-optout-paths" role="tablist" aria-label="Three outcomes of early centralization">{paths.map((path,index)=><button type="button" role="tab" aria-selected={selectedPath===path.id} className={selectedPath===path.id?'active':''} onClick={()=>selectPath(path)} key={path.id}><span>0{index+1}</span><b>{path.label}</b><small>{path.description}</small></button>)}</div>
+    <section className="uruk-optout-cases" aria-label={activePath.label}>
+      <header><span>{activePath.label}</span><b>{activePath.description}</b></header>
+      <div>{cases.map(row=><button type="button" className={selected.slug===row.slug?'active':''} aria-pressed={selected.slug===row.slug} onClick={()=>setSelectedSlug(row.slug)} key={row.slug}><b>{row.place}</b><span>{row.display_date}</span></button>)}</div>
     </section>
-    <section className="fragility-boundaries"><div><span>Strong inference</span><b>Centralization was reversible.</b><p>Institutions could assemble food, labor, walls, and records. Archaeology also shows violent failure, deliberate dismantling, dispersal, and local communities that retained agency.</p></div><div><span>Evidence boundary</span><b>Fragility is not one collapse variable.</b><p>No annual population series, coercion share, epidemic curve, or common “state strength” unit links these cases. The visual therefore compares claims, not magnitudes.</p></div></section>
-    <div className="fiscal-downloads"><a href={url} download>Evidence ladder CSV ↓</a><a href="https://doi.org/10.15184/aqy.2024.189">Open Shakhi Kora study ↗</a><a href="https://doi.org/10.1017/S0959774324000404">Open regional synthesis ↗</a></div>
+    <article className="uruk-optout-readout" aria-live="polite">
+      <header><div><span>{selected.mechanism}</span><h5>{selected.place}</h5></div>{quantity(selected)&&<b>{quantity(selected)}</b>}</header>
+      <div><section><span>What archaeologists found</span><p>{selected.observation}</p></section><section><span>What it shows</span><p>{selected.what_it_supports}</p></section></div>
+    </article>
+    <div className="uruk-optout-conclusion"><span>The result</span><b>Centralization was a choice, not an evolutionary endpoint.</b><p>Fourth-millennium communities assembled large institutions, but they also dismantled them, lived alongside them, and returned to more dispersed regional systems.</p></div>
   </div>;
 }

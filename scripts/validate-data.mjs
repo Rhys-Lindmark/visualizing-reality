@@ -338,6 +338,7 @@ if (!hamoukarConflict || Number(hamoukarConflict.value) !== 1000 || hamoukarConf
 const brakDeposit = urukFragility.find(row => row.slug === 'mass-deposition');
 if (!brakDeposit || Number(brakDeposit.value) !== 33 || brakDeposit.relation !== 'minimum' || !/does not by itself identify a state execution/i.test(brakDeposit.what_it_does_not_prove)) fail('Tell Brak evidence must preserve the 33–45 minimum and block a state-execution inference');
 const shakhiDispersal = urukFragility.find(row => row.slug === 'institutional-dispersal');
+if (!shakhiDispersal || Number(shakhiDispersal.value) !== 4 || !/almost 1,500 years/i.test(shakhiDispersal.observation)) fail('Shakhi Kora must preserve four institutional phases and the almost 1,500-year local interval');
 if (!shakhiDispersal || Number(shakhiDispersal.value) !== 4 || !/deliberate dismantling and population dispersal/i.test(shakhiDispersal.observation) || !/not synonymous with civilizational collapse/i.test(shakhiDispersal.what_it_does_not_prove)) fail('Shakhi Kora must remain a four-phase reversible path rather than a generic collapse');
 const provisioning = urukFragility.find(row => row.slug === 'institutional-provisioning');
 if (!provisioning || !/does not by itself prove a grain wage forced labor slavery/i.test(provisioning.what_it_does_not_prove.replaceAll(',', ''))) fail('Provisioning evidence must not turn bevel-rim bowls into a slavery estimate');
