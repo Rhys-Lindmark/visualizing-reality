@@ -3,12 +3,12 @@
     "id": "rome-01-territorial-scale",
     "page": "rome",
     "insight": 1,
-    "claim": "At its height, Rome governed territory across Europe, North Africa, and western Asia and remained a Mediterranean-scale state through repeated political reorganizations.",
+    "claim": "Rome took centuries to reach imperial scale: its reconstructed territorial curve rose far more gradually than the selected Achaemenid Persian or Western Han curves.",
     "status": "working_synthesis",
-    "evidence_type": "historical_reconstruction",
-    "dataset_ids": ["rome-territorial-boundaries", "natural-earth-basemap"],
-    "source_keys": ["CLIOPATRIA"],
-    "note": "The map supports continental reach and political-form chronology without asserting an unsupported cross-empire area ranking."
+    "evidence_type": "comparative_historical_territorial_reconstruction",
+    "dataset_ids": ["rome-territorial-growth", "rome-territorial-boundaries", "natural-earth-basemap"],
+    "source_keys": ["TAAGEPERA1979_GROWTH_CURVES", "CHASE_DUNN2015_POLITY_SIZES", "LEESE_MESSING2020_HAN", "CLIOPATRIA"],
+    "note": "The comparison resets each polity to its first selected published anchor and connects sparse observations for legibility. Western Han begins at inherited Qin scale; no line is an annual observation or a measure of equally intensive control."
   },
   {
     "id": "rome-02-military-capacity",

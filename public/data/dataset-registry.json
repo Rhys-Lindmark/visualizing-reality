@@ -410,5 +410,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "six dated windows from 184 to 229 CE",
     "notes": "The sequence presents a mechanism, not a single-cause model; army, rebel, and casualty totals are excluded."
+  },
+  {
+    "id": "rome-territorial-growth",
+    "title": "Published territorial-growth anchors for Achaemenid Persia, Western Han, and Rome",
+    "path": "/data/rome-territorial-growth.csv",
+    "schema": "observation",
+    "evidence_type": "published_historical_territorial_reconstruction",
+    "source_key_field": "source_keys",
+    "time_resolution": "twenty-five sparse published anchors reset to the first selected estimate for each polity",
+    "notes": "Lines between anchors are visual interpolation, not annual observations. Western Han begins at inherited Qin scale; the comparison does not treat frontier control as equally intensive or splice Cliopatria map areas into the Taagepera series."
   }
 ]
