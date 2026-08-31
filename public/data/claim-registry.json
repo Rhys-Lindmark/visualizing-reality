@@ -488,5 +488,16 @@
     "dataset_ids": ["qin-mobilizing-system"],
     "source_keys": ["LANDER2023_QIN_ECOLOGY","TONG2026_QIN_LOGISTICS","PINES2017_LORD_SHANG","BOOK_LORD_SHANG_COLUMBIA","SHIJI_QIN_ANNALS"],
     "note": "Five capacities and six conquest endpoints remain unlike evidence windows. The visual excludes army totals casualties continuous boundaries population and territory series and any common state-capacity score; Qin is not treated as the only reforming state."
+  },
+  {
+    "id": "qin-han-02-standard-interface",
+    "page": "qin-han",
+    "insight": 2,
+    "claim": "Qin standards made distant objects and records mutually legible through certification, official scripts, dimensions, and shared fields without making local practice identical.",
+    "status": "working_synthesis",
+    "evidence_type": "excavated_object_epigraphy_ordinance_to_local_document_comparison_and_script_historiography",
+    "dataset_ids": ["qin-standardization-practice"],
+    "source_keys": ["STAACK2023_QIN_DOCUMENTS","SKRABAL2023_QIN_SCOOP","NMC_QIN_DOUBLE_EDICT","GALAMBOS2004_QIN_WRITING"],
+    "note": "Six windows keep one object biography one epigraphic chronology twenty-five upward reports and twenty-two grain tallies separate. Four proportions remain row-specific; no empire-wide compliance script-uniformity literacy efficiency loyalty or state-capacity score is produced."
   }
 ]

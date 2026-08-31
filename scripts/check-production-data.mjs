@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260830-qin-mobilization1';
+const releaseId='20260830-qin-standardization1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -56,6 +56,7 @@ const assets=[
   ['csv','/data/persia/20260830-coalition1/persian-coalition-windows.csv'],
   ['csv','/data/persia/20260830-afterlives1/persian-institutional-afterlives.csv'],
   ['csv','/data/qin-han/20260830-mobilization1/qin-mobilizing-system.csv'],
+  ['csv','/data/qin-han/20260830-standardization1/qin-standardization-practice.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],

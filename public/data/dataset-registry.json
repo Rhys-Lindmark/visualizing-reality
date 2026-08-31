@@ -370,5 +370,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "five unlike institutional windows from 453 to 208 BCE and six political endpoints from 230 to 221 BCE",
     "notes": "The capacities form a causal synthesis rather than five dated inventions. Qin is the best-documented winner rather than the only reforming state. Conquest dates mark courts rather than annual boundaries; no army total casualty count population series territory series combat-power estimate or state-capacity score is inferred."
+  },
+  {
+    "id": "qin-standardization-practice",
+    "title": "Six Qin norm-to-practice windows across measures, script, tablets, and grain tallies",
+    "path": "/data/qin-standardization-practice.csv",
+    "schema": "observation",
+    "evidence_type": "excavated_object_epigraphy_ordinance_to_local_document_comparison_and_script_historiography",
+    "source_key_field": "source_keys",
+    "time_resolution": "six unlike windows centered on 222 to 208 BCE with the script critique extending across a longer epigraphic chronology",
+    "notes": "Four row-specific bounded counts use twenty-five Qianling reports or twenty-two grain tallies; they are not averaged. Certification does not prove replacement, official script does not imply spoken-language unity, and no empire-wide compliance literacy efficiency loyalty or state-capacity score is inferred."
   }
 ]
