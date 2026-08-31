@@ -1,5 +1,5 @@
 {
-  "release_id": "20260831-core-alphas1",
+  "release_id": "20260831-next-alphas1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -13,7 +13,10 @@
     "/india",
     "/steppe",
     "/christianity",
-    "/caliphates"
+    "/caliphates",
+    "/greek-city-states",
+    "/hellenistic-kingdoms",
+    "/silk-roads"
   ],
   "newest_visualization_assets": [
     "/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv",
@@ -41,6 +44,9 @@
     "/data/india/20260831-metrology1/indus-ruler-monuments.csv",
     "/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv",
     "/data/christianity/20260831-alpha1/pauline-letter-network.csv",
-    "/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv"
+    "/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv",
+    "/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv",
+    "/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv",
+    "/data/silk-roads/20260831-alpha1/turfan-money-forms.csv"
   ]
 }

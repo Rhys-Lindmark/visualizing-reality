@@ -576,5 +576,38 @@
     "dataset_ids": ["early-caliphate-expansion"],
     "source_keys": ["LAPIDUS2012_ARAB_MUSLIM_EMPIRES"],
     "note": "The 632 to 654 comparison uses broad political endpoints and does not imply uniform control conversion or demographic replacement."
+  },
+  {
+    "id": "greek-01-small-poleis",
+    "page": "greek-city-states",
+    "insight": 1,
+    "claim": "Four in five approximately classified polis territories were no larger than 200 square kilometres.",
+    "status": "working_synthesis",
+    "evidence_type": "academic_inventory_and_synthesis",
+    "dataset_ids": ["greek-polis-territory-distribution"],
+    "source_keys": ["HANSEN2006_POLIS","HANSEN_NIELSEN2004_INVENTORY"],
+    "note": "The 80 percent is an approximate cumulative category among 636 classified territories; it is not a simultaneous map or a population distribution."
+  },
+  {
+    "id": "hellenistic-01-multinational-armies",
+    "page": "hellenistic-kingdoms",
+    "insight": 1,
+    "claim": "At Raphia both kings assembled armies from many regions and military traditions rather than fielding simple Macedonian replicas.",
+    "status": "working_synthesis",
+    "evidence_type": "ancient_reported_order_of_battle_with_academic_reference_check",
+    "dataset_ids": ["raphia-contingents"],
+    "source_keys": ["POLYBIUS_HISTORIES5_RAPHIA","OCD_RAPHIA"],
+    "note": "The comparison uses selected named contingents and preserves the Egyptian/phalanx textual ambiguity instead of recomputing totals or ethnic shares."
+  },
+  {
+    "id": "silk-roads-01-oasis-money",
+    "page": "silk-roads",
+    "insight": 1,
+    "claim": "At Turfan textiles grain and coins all functioned as money between 273 and 796 CE.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_documentary_synthesis",
+    "dataset_ids": ["turfan-money-forms"],
+    "source_keys": ["HANSEN_RONG2013_TURFAN"],
+    "note": "The evidence establishes coexistence in one oasis but not market shares total trade values or a universal Silk Road currency system."
   }
 ]

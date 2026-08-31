@@ -184,11 +184,32 @@ when the evidence supports independent urban/state formation.
 4. **Trade tied together seas that no caliph controlled alone** — beta candidate; connect ports, caravan cities, merchant institutions, and commodities without one caliphal trade map.
 5. **A shared scholarly world outlived political unity** — beta candidate; trace books, scholars, legal schools, scientific texts, and commercial practice after fragmentation.
 
-## P2 — Later pre-industrial pages — ready after the core sequence
+## P2 — Page 12: Greek city-states — alpha live
 
-- Greek city-states and the problem of collective action.
-- Hellenistic kingdoms and the military-fiscal state.
-- Silk Roads: many routes, many intermediaries, no single road.
+1. **The typical Greek state was smaller than its famous exceptions** — alpha live; cumulative territory categories show four in five approximately classified poleis at or below 200 km² without converting territory into population or power.
+2. **Citizenship made armies and assemblies overlap** — beta candidate; compare voting, taxation, equipment, and military obligation across constitutions.
+3. **Democracy expanded participation while excluding most residents** — beta candidate; bound women, enslaved people, resident foreigners, and dependants without imposing one polis-wide denominator.
+4. **Leagues scaled collective action without erasing local poleis** — beta candidate; compare federal councils, citizenship, taxation, and military coordination.
+5. **Macedon ended autonomy before it ended the polis** — beta candidate; separate lost foreign-policy autonomy from continuing local civic institutions.
+
+## P2 — Page 13: Hellenistic kingdoms — alpha live
+
+1. **Hellenistic armies were multinational systems, not Macedonian replicas** — alpha live; selected Raphia contingents preserve ancient reported figures and the disputed Egyptian/phalanx total without recomputing a clean army total.
+2. **Royal capitals concentrated people, taxes, and spectacle** — beta candidate; compare Alexandria, Antioch, Seleucia, and other court-port systems with bounded estimates.
+3. **Kings paid soldiers with land, cash, and privilege** — beta candidate; compare settlements, cleruchies, pay, tax privileges, and royal gifts.
+4. **Coinage made rival kingdoms legible to each other** — beta candidate; compare denominations, mints, portraits, and bullion zones without treating coin finds as GDP.
+5. **Greek institutions spread without making populations Greek** — beta candidate; map civic forms and language beside durable Egyptian, Babylonian, Iranian, Jewish, and other institutions.
+
+## P2 — Page 14: Silk Roads — alpha live
+
+1. **Silk Road exchange was an oasis economy, not just silk crossing continents** — alpha live; Turfan documents show textiles, grain, and coins coexisting as money from 273 to 796 CE without market-share or total-trade claims.
+2. **No caravan crossed one permanent Silk Road** — beta candidate; compare route windows shaped by states, wars, climate, and oasis investment.
+3. **Sogdian merchants connected states without belonging to one empire** — beta candidate; use letters, contracts, colonies, and multilingual networks.
+4. **Religions traveled by translation and institutions—not cargo alone** — beta candidate; compare monasteries, translators, pilgrims, scripts, and patronage.
+5. **Sea routes carried more bulk than overland caravans** — beta candidate; build a bounded transport-and-goods comparison rather than an unsourced volume model.
+
+## P2 — Later pre-industrial pages — next alpha queue
+
 - Medieval Europe: fragmentation, lordship, church, towns, and state rebuilding.
 - African states and trade systems: Nile, Sahel, Horn, Great Lakes, and southern Africa.
 - Southeast Asian mandalas and maritime trade.
@@ -204,6 +225,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed the second breadth-first alpha batch: Greek City-States, Hellenistic Kingdoms, and Silk Roads. Each route now has an introduction, five affirmative claim selectors, one live source-bounded visual, and four explicit beta targets. The live evidence shows the small territorial scale of most classified poleis; the organizational diversity of the Ptolemaic and Seleucid armies at Raphia while preserving the disputed Egyptian/phalanx total; and the coexistence of textiles, grain, and coins as money at Turfan from 273 to 796 CE. Added four new scholarly or primary-source records while reusing the existing Oxford Raphia reference, three public CSVs, three datasets, three claims, atlas and related-topic links, release smoke coverage, and automated anchor checks. Verified 97 historical data files, 257 sources, 51 datasets, 42 claims, the immutable Rome client contract, lint, the production build, 117 byte-identical built assets, all fifteen selectors, exact selector/headline parity, one active panel, live downloads, no corrupt state, zero desktop or 390 × 844 overflow, 104-pixel mobile controls, and a clean browser console. Next: open Medieval Europe, African states and trade systems, and Southeast Asian mandalas with the same 80/20 alpha contract.
 
 - 2026-08-31 — Completed the breadth-first alpha opening for the Steppe, Christianity, and the Caliphates. Each page now has an introduction, five clear claim selectors with exact article-title parity, and one live source-bounded visual: Begash shows pastoralism preceding horse-centered herding; seven generally accepted Pauline letters show Christianity operating as a city-and-household communications network c. 51–57 CE; and Lapidus's chronology bounds the twenty-two years from 632 to the incorporation of Iran in 654. Added five scholarly sources, three public CSVs, three registered datasets, three registered claims, reusable alpha evidence-strip and queued-insight components, live atlas routes, and automated schema, source, row-count, and claim-anchor checks. Verified 94 historical data files, 253 sources, 48 datasets, 39 claims, the immutable Rome client contract, lint, the production build, 114 byte-identical built assets, all fifteen claim selectors, exact title parity, one active panel per page, one source footer and download per live visual, no corrupt state, zero desktop or 390 × 844 overflow, 104-pixel mobile controls, and a clean browser console. Next: continue the same 80/20 alpha pass with Greek city-states, Hellenistic kingdoms, and Silk Roads before returning for beta depth.
 

@@ -28,6 +28,9 @@ const relatedByTitle:Record<string,Array<{href:string;label:string}>>={
   'The Steppe':[{href:'/iron-age',label:'The Iron Age transformation'},{href:'/qin-han',label:'Qin and Han China'},{href:'/caliphates',label:'The Caliphates'}],
   'Christianity':[{href:'/rome',label:'Rome'},{href:'/caliphates',label:'The Caliphates'},{href:'/persia',label:'Persia and territorial empire'}],
   'The Caliphates':[{href:'/christianity',label:'Christianity'},{href:'/persia',label:'Persia and territorial empire'},{href:'/steppe',label:'The Steppe'}],
+  'Greek City-States':[{href:'/persia',label:'Persia and territorial empire'},{href:'/rome',label:'Rome'},{href:'/hellenistic-kingdoms',label:'Hellenistic Kingdoms'}],
+  'Hellenistic Kingdoms':[{href:'/greek-city-states',label:'Greek City-States'},{href:'/persia',label:'Persia and territorial empire'},{href:'/rome',label:'Rome'}],
+  'Silk Roads':[{href:'/steppe',label:'The Steppe'},{href:'/qin-han',label:'Qin and Han China'},{href:'/caliphates',label:'The Caliphates'}],
 };
 
 export default function HistoryPageShell({ title, published, introduction, insightLabels, children, methods }: HistoryPageShellProps) {

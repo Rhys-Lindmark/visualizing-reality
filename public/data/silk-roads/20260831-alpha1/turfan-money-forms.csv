@@ -1,0 +1,4 @@
+form,year_start,year_end,role,evidence,source_keys,limits
+Textiles,273,796,commodity money,Contracts and excavated documents record cloth used as currency,HANSEN_RONG2013_TURFAN,No market share or universal Silk Road use
+Grain,273,796,commodity money,Documents record grain used as a payment medium,HANSEN_RONG2013_TURFAN,No market share or universal Silk Road use
+Coins,273,796,coined money,Coins circulated alongside textiles and grain,HANSEN_RONG2013_TURFAN,No market share or claim that coins were absent elsewhere

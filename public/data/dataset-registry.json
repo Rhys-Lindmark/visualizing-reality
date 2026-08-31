@@ -493,5 +493,35 @@
     "source_key_field": "source_keys",
     "time_resolution": "six endpoints or intervals from 632 to 751 CE rather than annual boundaries",
     "notes": "Broad political incorporation does not mean uniform control conversion cultural unity or demographic replacement."
+  },
+  {
+    "id": "greek-polis-territory-distribution",
+    "title": "Cumulative territory categories among 636 approximately classified poleis",
+    "path": "/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv",
+    "schema": "observation",
+    "evidence_type": "academic_inventory_and_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "one bounded distribution assembled from Archaic and Classical poleis rather than annual boundaries",
+    "notes": "Cumulative approximate categories are not simultaneous borders; territory is not population wealth military power democracy or independence."
+  },
+  {
+    "id": "raphia-contingents",
+    "title": "Selected named contingents in Polybius's order of battle at Raphia",
+    "path": "/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv",
+    "schema": "observation",
+    "evidence_type": "ancient_reported_order_of_battle_with_academic_reference_check",
+    "source_key_field": "source_keys",
+    "time_resolution": "one battle in 217 BCE",
+    "notes": "Ancient transmitted figures are not audited payrolls. The Egyptian/phalanx textual ambiguity is preserved and no new army total or ethnic share is calculated."
+  },
+  {
+    "id": "turfan-money-forms",
+    "title": "Three documented forms of money at the Turfan oasis",
+    "path": "/data/silk-roads/20260831-alpha1/turfan-money-forms.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_documentary_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "documentary evidence spanning 273 to 796 CE",
+    "notes": "Coexistence does not measure market shares total trade values or use across every Silk Road economy."
   }
 ]

@@ -1,0 +1,9 @@
+side,sort_order,contingent,reported_number,recruiting_label,equipment_or_role,source_keys,limits
+Ptolemaic,1,Macedonian-style phalangites,25000,Macedonian and Greek command,phalanx,POLYBIUS_HISTORIES5_RAPHIA;OCD_RAPHIA,Ancient transmitted figure and Egyptian inclusion is textually ambiguous
+Ptolemaic,2,Egyptians,20000,Egyptian,trained and equipped in Macedonian manner,POLYBIUS_HISTORIES5_RAPHIA;OCD_RAPHIA,May be included in rather than additional to the 25000 phalanx
+Ptolemaic,3,Greek mercenaries,8000,Greek,mercenary infantry,POLYBIUS_HISTORIES5_RAPHIA;OCD_RAPHIA,Ancient transmitted figure
+Ptolemaic,4,Thracians and Gauls,6000,Thracian and Gallic,infantry recruited in Egypt and Europe,POLYBIUS_HISTORIES5_RAPHIA;OCD_RAPHIA,Ancient grouping and transmitted figure
+Seleucid,5,Macedonian-style phalangites,30000,Macedonian-style,10000 Silver Shields plus 20000 phalangites,POLYBIUS_HISTORIES5_RAPHIA;OCD_RAPHIA,Ancient transmitted figure and institutional label not ethnicity count
+Seleucid,6,Arabians,10000,Arabian,infantry under Zabdibelus,POLYBIUS_HISTORIES5_RAPHIA;OCD_RAPHIA,Ancient grouping and transmitted figure
+Seleucid,7,Eastern peoples,5000,Medes Cissians Cadusians and Carmanians,mixed infantry under Aspasianus,POLYBIUS_HISTORIES5_RAPHIA;OCD_RAPHIA,Ancient ethnographic grouping and transmitted figure
+Seleucid,8,Greek mercenaries,5000,Greek,mercenary infantry,POLYBIUS_HISTORIES5_RAPHIA;OCD_RAPHIA,Ancient transmitted figure

@@ -1,0 +1,6 @@
+measure_id,territory_relation,territory_km2,value,value_type,universe,source_keys,limits
+at_most_25,at most,25,15,cumulative percent,636 approximately classified territories,HANSEN2006_POLIS;HANSEN_NIELSEN2004_INVENTORY,Approximate classification and not simultaneous boundaries
+at_most_100,at most,100,60,cumulative percent,636 approximately classified territories,HANSEN2006_POLIS;HANSEN_NIELSEN2004_INVENTORY,Approximate classification and not population or power
+at_most_200,at most,200,80,cumulative percent,636 approximately classified territories,HANSEN2006_POLIS;HANSEN_NIELSEN2004_INVENTORY,Approximate classification and not population or power
+over_500,over,500,10,maximum percent,636 approximately classified territories,HANSEN2006_POLIS;HANSEN_NIELSEN2004_INVENTORY,At most ten percent rather than an exact share
+over_1000,over,1000,13,count of poleis,636 approximately classified territories,HANSEN2006_POLIS;HANSEN_NIELSEN2004_INVENTORY,Count and percentage measures must not be combined

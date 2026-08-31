@@ -1175,6 +1175,35 @@ const caliphateBaseline=caliphatesAlpha.find(row=>row.event_type==='baseline');
 const iranEndpoint=caliphatesAlpha.find(row=>row.region==='Iran');
 if(Number(caliphateBaseline?.year_start)!==632||Number(iranEndpoint?.year_end)!==654||Number(iranEndpoint?.year_end)-Number(caliphateBaseline?.year_start)!==22)fail('Caliphates alpha must preserve the bounded 632–654 twenty-two-year comparison');
 
+const greekTerritories=csv('public/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv');
+for(const[index,row]of greekTerritories.entries()){
+  const context=`polis-territory-distribution.csv row ${index+2}`;
+  requireFields(row,['measure_id','territory_relation','territory_km2','value','value_type','universe','source_keys','limits'],context);
+  numeric(row,['territory_km2','value'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(greekTerritories.length!==5)fail(`Greek polis alpha requires five bounded distribution rows; found ${greekTerritories.length}`);
+const greek200=greekTerritories.find(row=>row.measure_id==='at_most_200');
+const greek1000=greekTerritories.find(row=>row.measure_id==='over_1000');
+if(Number(greek200?.value)!==80||Number(greek200?.territory_km2)!==200||Number(greek1000?.value)!==13)fail('Greek polis alpha must preserve the 80 percent at 200 km² and thirteen over 1,000 km² anchors');
+
+const raphia=csv('public/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv');
+for(const[index,row]of raphia.entries()){
+  const context=`raphia-contingents.csv row ${index+2}`;
+  requireFields(row,['side','sort_order','contingent','reported_number','recruiting_label','equipment_or_role','source_keys','limits'],context);
+  numeric(row,['sort_order','reported_number'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(raphia.length!==8||new Set(raphia.map(row=>row.side)).size!==2)fail(`Hellenistic alpha requires eight selected contingents across two sides; found ${raphia.length}`);
+const egyptians=raphia.find(row=>row.side==='Ptolemaic'&&row.contingent==='Egyptians');
+if(Number(egyptians?.reported_number)!==20000||!/included in rather than additional/i.test(egyptians?.limits??''))fail('Hellenistic alpha must preserve the 20,000 Egyptian figure and its inclusion ambiguity');
+
+const turfanMoney=csv('public/data/silk-roads/20260831-alpha1/turfan-money-forms.csv');
+for(const[index,row]of turfanMoney.entries()){
+  const context=`turfan-money-forms.csv row ${index+2}`;
+  requireFields(row,['form','year_start','year_end','role','evidence','source_keys','limits'],context);
+  numeric(row,['year_start','year_end'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(turfanMoney.length!==3||new Set(turfanMoney.map(row=>row.form)).size!==3||turfanMoney.some(row=>Number(row.year_start)!==273||Number(row.year_end)!==796))fail('Silk Roads alpha requires textiles grain and coins bounded to 273–796 CE');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
