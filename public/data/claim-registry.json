@@ -91,12 +91,12 @@
     "id": "uruk-03-grain-institution-fit",
     "page": "uruk",
     "insight": 3,
-    "claim": "Cereals fit institutional appropriation unusually well, but the direct evidence for Uruk shows a mixed grain animal fish wetland and orchard economy and does not establish that grain alone caused the state.",
+    "claim": "Grain gave institutions power because seasonal above-ground harvests were unusually visible divisible portable and storable.",
     "status": "working_synthesis",
     "evidence_type": "comparative_model_published_critique_direct_archive_regional_synthesis_and_later_methodological_comparison",
     "dataset_ids": ["uruk-grain-state-evidence"],
-    "source_keys": ["MAYSHAR_MOAV_PASCALI2022", "COOK_ET_AL2026", "POURNELLE_ALGAZE2014", "ALIVERNINI_GRECO_WIDELL2026", "CORCORAN_TADD_ET_AL2023", "ENGLUND2011", "ORACC_DCCLT"],
-    "note": "The visual assigns no numeric legibility score. It labels the 2022 result as a global comparative claim, includes the 2026 published statistical challenge, distinguishes direct Late Uruk records from regional synthesis and later Ur III analogy, and treats institutional archives as selected records rather than diet surveys."
+    "source_keys": ["MAYSHAR_MOAV_PASCALI2022", "COOK_ET_AL2023_REPLICATION", "COOK_ET_AL2026", "POURNELLE_ALGAZE2014", "ALIVERNINI_GRECO_WIDELL2026", "CORCORAN_TADD_ET_AL2023", "ENGLUND2011", "ORACC_DCCLT"],
+    "note": "The visual reports the matched 2SLS estimates from Tables 1 and 7 of the replication: 0.892 with p 0.046 in the full 952-society sample and 0.691 with p 0.109 after winsorizing the top 3 percent or 31 cereal-advantage observations. These are global estimates on an ordinal hierarchy scale, not a local causal estimate for Uruk; direct archives show institutional attention rather than diet or economic shares."
   },
   {
     "id": "uruk-05-reversible-concentration",

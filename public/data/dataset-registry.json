@@ -131,13 +131,13 @@
   },
   {
     "id": "uruk-grain-state-evidence",
-    "title": "Competing evidence for cereal appropriability and Uruk's mixed resource economy",
+    "title": "Cereal appropriability estimates and direct Uruk resource records",
     "path": "/data/uruk-grain-state-evidence.csv",
     "schema": "observation",
     "evidence_type": "comparative_model_published_critique_direct_archive_regional_synthesis_and_later_methodological_comparison",
     "source_key_field": "source_keys",
-    "time_resolution": "five qualitative resource comparisons plus five claim-test observations spanning direct Late Uruk evidence global comparative studies and an explicitly later Ur III methodological comparison",
-    "notes": "No numeric legibility or causal score is computed. The original global model, its 2026 published challenge, direct Late Uruk records, regional deltaic ecology, and later evidence of institutional archive bias remain separate. Archive visibility is not treated as dietary or economic share."
+    "time_resolution": "five qualitative resource comparisons, five claim-test observations, and two matched 952-society model estimates spanning direct Late Uruk evidence global comparative studies and an explicitly later Ur III methodological comparison",
+    "notes": "The numeric fields reproduce matched 2SLS specifications from the published model's replication and its top-three-percent winsorization test; they are not a legibility score or local Uruk estimate. Direct Late Uruk records, regional deltaic ecology, and later evidence of archive bias remain separate, and archive visibility is not treated as dietary or economic share."
   },
   {
     "id": "uruk-state-fragility-evidence",

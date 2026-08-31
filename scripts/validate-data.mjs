@@ -277,21 +277,31 @@ const urukGrain = csv('public/data/uruk-grain-state-evidence.csv');
 const urukGrainSlugs = new Set();
 const grainResourceClasses = new Set(['model_and_direct_archive', 'model_counterfactual', 'mixed_direct_and_later_comparison', 'mixed_landscape_and_archive', 'direct_late_uruk_archive']);
 const grainTestClasses = new Set(['published_model', 'published_critique', 'direct_archive', 'regional_synthesis', 'methodological_counterexample']);
+const grainEstimateClasses = new Set(['replicated_model_estimate', 'replicated_robustness_estimate']);
 for (const [index, row] of urukGrain.entries()) {
   const context = `uruk-grain-state-evidence.csv row ${index + 2}`;
   requireFields(row, ['row_type', 'slug', 'label', 'role', 'model_claim', 'uruk_evidence', 'chronology', 'evidence_class', 'source_keys', 'limits'], context);
   validateKeys(sourceKeys(row.source_keys), context);
-  if (!['resource', 'test'].includes(row.row_type)) fail(`${context} has unsupported row type ${row.row_type}`);
+  if (!['resource', 'test', 'estimate'].includes(row.row_type)) fail(`${context} has unsupported row type ${row.row_type}`);
   if (urukGrainSlugs.has(row.slug)) fail(`${context} duplicates slug ${row.slug}`); urukGrainSlugs.add(row.slug);
   if (row.row_type === 'resource' && !grainResourceClasses.has(row.evidence_class)) fail(`${context} has unsupported resource evidence class ${row.evidence_class}`);
   if (row.row_type === 'test' && !grainTestClasses.has(row.evidence_class)) fail(`${context} has unsupported test evidence class ${row.evidence_class}`);
+  if (row.row_type === 'estimate') {
+    if (!grainEstimateClasses.has(row.evidence_class)) fail(`${context} has unsupported estimate evidence class ${row.evidence_class}`);
+    numeric(row, ['estimate', 'p_value', 'observations'], context);
+    if (Number(row.observations) !== 952) fail(`${context} must preserve the 952-society sample`);
+  }
   if (Object.keys(row).some(key => /score|rank|weight|index/i.test(key))) fail(`${context} introduces an unsupported aggregate score field`);
   const claimText = `${row.model_claim} ${row.uruk_evidence}`;
   if (/grain alone caused (uruk'?s )?(state|hierarchy)/i.test(claimText) && !/(not|does not|cannot|no evidence)/i.test(claimText)) fail(`${context} presents grain causation as established`);
 }
-if (urukGrain.length !== 10) fail(`Expected ten Uruk grain-state evidence rows, found ${urukGrain.length}`);
-if (urukGrain.filter(row => row.row_type === 'resource').length !== 5 || urukGrain.filter(row => row.row_type === 'test').length !== 5) fail('Uruk grain-state evidence must retain five resource rows and five claim-test rows');
-for (const slug of ['cereal-grain', 'roots-and-tubers', 'herd-animals', 'fish-and-wetlands', 'fruit-orchards', 'original-study', 'published-comment', 'uruk-archive', 'deltaic-economy', 'archive-bias']) if (!urukGrainSlugs.has(slug)) fail(`Uruk grain-state evidence is missing ${slug}`);
+if (urukGrain.length !== 12) fail(`Expected twelve Uruk grain-state evidence rows, found ${urukGrain.length}`);
+if (urukGrain.filter(row => row.row_type === 'resource').length !== 5 || urukGrain.filter(row => row.row_type === 'test').length !== 5 || urukGrain.filter(row => row.row_type === 'estimate').length !== 2) fail('Uruk grain-state evidence must retain five resource rows, five claim-test rows, and two replicated estimate rows');
+for (const slug of ['cereal-grain', 'roots-and-tubers', 'herd-animals', 'fish-and-wetlands', 'fruit-orchards', 'original-study', 'published-comment', 'uruk-archive', 'deltaic-economy', 'archive-bias', 'full-2sls', 'winsorized-2sls']) if (!urukGrainSlugs.has(slug)) fail(`Uruk grain-state evidence is missing ${slug}`);
+const fullGrainEstimate = urukGrain.find(row => row.slug === 'full-2sls');
+const robustGrainEstimate = urukGrain.find(row => row.slug === 'winsorized-2sls');
+if (!fullGrainEstimate || Number(fullGrainEstimate.estimate) !== 0.892 || Number(fullGrainEstimate.p_value) !== 0.046 || !sourceKeys(fullGrainEstimate.source_keys).includes('COOK_ET_AL2023_REPLICATION')) fail('Uruk grain-state evidence must preserve the replicated Table 1 column 3 estimate');
+if (!robustGrainEstimate || Number(robustGrainEstimate.estimate) !== 0.691 || Number(robustGrainEstimate.p_value) !== 0.109 || !/thirty-one observations/i.test(robustGrainEstimate.model_claim)) fail('Uruk grain-state evidence must preserve the top-three-percent winsorized Table 7 estimate');
 const originalGrainStudy = urukGrain.find(row => row.slug === 'original-study');
 if (!originalGrainStudy || !sourceKeys(originalGrainStudy.source_keys).includes('MAYSHAR_MOAV_PASCALI2022') || originalGrainStudy.evidence_class !== 'published_model') fail('Uruk grain-state evidence is missing the 2022 published model');
 const grainComment = urukGrain.find(row => row.slug === 'published-comment');
