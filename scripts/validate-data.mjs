@@ -237,10 +237,11 @@ for (const [index, row] of urukUrbanization.entries()) {
   const key = `${row.kind}|${row.system}|${row.place}|${row.start_year}|${row.end_year}|${row.measure}`;
   if (urukUrbanKeys.has(key)) fail(`${context} duplicates ${key}`); urukUrbanKeys.add(key);
 }
-if (urukUrbanization.length !== 10) fail(`Expected ten Uruk urbanization rows, found ${urukUrbanization.length}`);
+if (urukUrbanization.length !== 11) fail(`Expected eleven Uruk urbanization rows, found ${urukUrbanization.length}`);
 for (const [year, value] of [[-3100, 250], [-2900, 400]]) if (!urukUrbanization.some(row => row.kind === 'footprint' && row.place === 'Uruk' && Number(row.start_year) === year && Number(row.value) === value && row.unit === 'hectares')) fail(`Uruk urbanization data is missing the ${Math.abs(year)} BCE footprint of ${value} hectares`);
 if (!urukUrbanization.some(row => row.kind === 'timeline' && row.place === 'Shakhi Kora' && Number(row.start_year) === -3941 && Number(row.end_year) === -3377)) fail('Uruk urbanization data is missing the 3941–3377 cal BCE Shakhi Kora institutional sequence');
 if (!urukUrbanization.some(row => row.kind === 'timeline' && row.system === 'Political inference' && row.place === 'Uruk' && Number(row.start_year) === -3800 && Number(row.end_year) === -3300)) fail('Uruk urbanization data is missing the bounded 3800–3300 BCE political interpretation');
+if (!urukUrbanization.some(row => row.kind === 'context' && row.place === 'Khirbet al-Fakhar' && Number(row.value) === 300 && /sparse/i.test(row.limits) && /possibly seasonal/i.test(row.limits))) fail('Uruk urbanization data must preserve the sparse, possibly seasonal Khirbet al-Fakhar counterexample');
 
 const urukWater = csv('public/data/uruk-water-ecology.csv');
 const urukWaterKeys = new Set();

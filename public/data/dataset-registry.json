@@ -111,13 +111,13 @@
   },
   {
     "id": "uruk-urbanization-clocks",
-    "title": "Uruk urbanization evidence clocks and settlement footprints",
+    "title": "Uruk and comparative Mesopotamian settlement footprints",
     "path": "/data/uruk-urbanization-clocks.csv",
     "schema": "observation",
     "evidence_type": "mixed_archaeological_chronology_survey_and_scholarly_interpretation",
     "source_key_field": "source_keys",
-    "time_resolution": "five irregular chronology intervals and five phase-level settlement-footprint observations from 4400 to 2900 BCE",
-    "notes": "Urban scale, public institutions, record-keeping, and political interpretation remain separate evidence lanes. Settlement hectares are not converted into population, and no annual growth or state-birth threshold is interpolated."
+    "time_resolution": "five irregular chronology intervals and six phase-level settlement-footprint observations from 4400 to 2900 BCE",
+    "notes": "The primary visual compares published settlement footprints. Hectares are not converted into population; density and site-edge definitions vary; and the sparse Khirbet al-Fakhar scatter is not treated as equivalent to a dense city."
   },
   {
     "id": "uruk-water-ecology",
