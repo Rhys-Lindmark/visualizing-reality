@@ -263,9 +263,10 @@ for (const [index, row] of urukWater.entries()) {
   const key = `${row.kind}|${row.system}|${row.place}|${row.measure}`;
   if (urukWaterKeys.has(key)) fail(`${context} duplicates ${key}`); urukWaterKeys.add(key);
 }
-if (urukWater.length !== 11) fail(`Expected eleven Uruk water-ecology rows, found ${urukWater.length}`);
+if (urukWater.length !== 12) fail(`Expected twelve Uruk water-ecology rows, found ${urukWater.length}`);
 if (!urukWater.some(row => row.measure === 'freshwater_environment' && Number(row.start_year) === -7750 && Number(row.end_year) === -4900 && row.source_keys === 'ALTAWEEL_ET_AL2019')) fail('Uruk water ecology is missing the bounded M38 freshwater sequence');
 if (!urukWater.some(row => row.kind === 'map_boundary' && row.measure === 'palaeochannel_palimpsest' && row.start_year === '' && row.end_year === '' && row.source_keys === 'JOTHERI_ET_AL2025')) fail('Uruk water ecology must keep the palaeochannel map explicitly undated');
+if (!urukWater.some(row => row.kind === 'timeline' && row.measure === 'stable_anthropogenic_channels' && Number(row.start_year) === -4000 && Number(row.end_year) === -1000 && row.source_keys === 'JOTHERI_ET_AL2018' && /one builder/i.test(row.limits))) fail('Uruk water ecology must preserve the long Uruk-region canal interval without assigning one builder');
 for (const [measure, value] of [['primary_canals', 200], ['branch_canals', 4000], ['farms', 700]]) if (!urukWater.some(row => row.measure === measure && Number(row.value) === value && row.relation === 'more_than' && row.start_year === '-6000' && row.end_year === '-1000')) fail(`Uruk water ecology is missing the non-simultaneous Eridu ${measure} lower bound`);
 if (!urukWater.some(row => row.measure === 'canal_archaeological_context' && Number(row.start_year) === -2900 && Number(row.end_year) === -2600 && row.source_keys === 'EGBERTS_ET_AL2023')) fail('Uruk water ecology is missing the Girsu canal stratigraphic interval');
 if (!urukWater.some(row => row.measure === 'developed_irrigation_terminology' && Number(row.start_year) === -2475 && Number(row.end_year) === -2315 && row.source_keys === 'EGBERTS_ET_AL2023')) fail('Uruk water ecology is missing the bounded Lagash textual interval');

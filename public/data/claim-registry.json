@@ -77,15 +77,15 @@
     "note": "Published footprints are approximate site extents rather than populations. Khirbet al-Fakhar's 300-hectare scatter is shown as the key counterexample but remains sparse, discontinuous, short-lived, and possibly seasonal; the claim concerns the first known city at this scale, not the first large occupation area."
   },
   {
-    "id": "uruk-02-moving-waterscape",
+    "id": "uruk-02-domesticated-waterscape",
     "page": "uruk",
     "insight": 2,
-    "claim": "Uruk's concentration depended on a dynamic freshwater marsh channel and field mosaic, but current evidence does not support one precise fourth-millennium river or irrigation map or a monocausal hydraulic origin for the state.",
+    "claim": "Uruk grew by domesticating a moving waterscape: people overlaid long-lived canals on shifting rivers and marshes, turning water into irrigation, transport, and urban infrastructure.",
     "status": "working_synthesis",
     "evidence_type": "mixed_environmental_proxy_remote_sensing_stratigraphy_text_and_synthesis",
     "dataset_ids": ["uruk-water-ecology"],
-    "source_keys": ["ALTAWEEL_ET_AL2019", "JOTHERI_ET_AL2025", "EGBERTS_ET_AL2023", "SELZ2020"],
-    "note": "The M38 borehole predates Uruk's urban peak; the visible alluvial channels form a mixed-age palimpsest; Eridu counts combine many occupations and were not simultaneous; directly dated Girsu canals and developed Lagash irrigation terminology are later. These gaps are evidence limits, not permission to interpolate a 3300 BCE network."
+    "source_keys": ["ALTAWEEL_ET_AL2019", "JOTHERI_ET_AL2018", "JOTHERI_ET_AL2025", "EGBERTS_ET_AL2023", "SELZ2020"],
+    "note": "Jotheri et al. identify anthropogenic canals superimposed on natural channel patterns and an earliest mapped interval beginning in the early fourth millennium BCE. The interval spans millennia; the visible alluvial channels form a mixed-age palimpsest; Eridu counts were not simultaneous; and the evidence does not identify one central builder or a sole cause of the state."
   },
   {
     "id": "uruk-03-grain-institution-fit",
