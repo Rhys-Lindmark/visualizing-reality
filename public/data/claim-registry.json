@@ -14,12 +14,12 @@
     "id": "rome-02-military-capacity",
     "page": "rome",
     "insight": 2,
-    "claim": "Rome's military advantage combined unusually deep mobilization with a comparatively metal-intensive heavy-infantry system.",
+    "claim": "Rome won because its Italian alliance could survive defeat and furnish another army.",
     "status": "modeled_argument",
     "evidence_type": "historical_model",
-    "dataset_ids": ["rome-military-capacity", "rival-campaign-forces", "republican-equipment-index"],
-    "source_keys": ["POLYBIUS2_24", "LIVY25_LEGIONS", "TACITUS4_5", "CAMPBELL1994", "HASSALL2000", "MACMULLEN1980", "ELTON1996", "TREADGOLD1995", "NOTITIA", "KALDELLIS_KRUSE2023", "RANCE2024", "ACOU_SOCII", "ACOU_MAIL", "ACOU_METAL", "ACOU_PILUM", "ACOU_GLADIUS"],
-    "note": "Roman points are limited to an ancient reported deployment, an explicit Republican unit model, and published modern estimates. Short lines connect only definition-consistent segments; gaps are not interpolated. The lone post-395 marker is explicitly eastern and its date reflects a live dispute over the Notitia Dignitatum. Rival points remain particular campaign forces. The equipment comparison is a third–second-century BCE relative index; the public evidence does not support absolute kilograms or tonnes across the full timeline."
+    "dataset_ids": ["iron-mobilization-cases", "rome-military-capacity", "rival-campaign-forces", "republican-equipment-index"],
+    "source_keys": ["TAYLOR2020_SOLDIERS_SILVER", "TAYLOR_CARTHAGINIAN_MANPOWER", "POLYBIUS2_24", "LIVY25_LEGIONS", "ACOU_SOCII", "ACOU_METAL", "TACITUS4_5", "CAMPBELL1994", "HASSALL2000", "MACMULLEN1980", "ELTON1996", "TREADGOLD1995", "NOTITIA", "KALDELLIS_KRUSE2023", "RANCE2024"],
+    "note": "Taylor's like-for-like strategic-deployment models put Carthage at approximately 170,000 in 215 BCE and Rome with the Italian allies at approximately 185,000 in 212 BCE. Their closeness rejects a simple peak-size explanation. Recruitment and replacement structures remain qualitative historical interpretations, not measured causal shares. The equipment comparison is a separate third–second-century BCE relative index; the public evidence does not support absolute kilograms or a combined combat-power score."
   },
   {
     "id": "rome-03-fiscal-machine",

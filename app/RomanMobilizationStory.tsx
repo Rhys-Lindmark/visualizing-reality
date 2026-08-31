@@ -1,0 +1,7 @@
+'use client';
+import { useState } from 'react';
+import MilitaryCapacityChart from './MilitaryCapacityChart';
+import RomanAllianceComparison from './RomanAllianceComparison';
+import ChartFooter from './components/ChartFooter';
+
+export default function RomanMobilizationStory(){const[view,setView]=useState<'argument'|'estimates'>('argument');return <div className="roman-mobilization-story"><nav className="roman-story-tabs" aria-label="Choose the Rome military view"><button type="button" className={view==='argument'?'active':''} onClick={()=>setView('argument')}>Why Rome won</button><button type="button" className={view==='estimates'?'active':''} onClick={()=>setView('estimates')}>Published estimates</button></nav>{view==='argument'?<RomanAllianceComparison/>:<div className="viz-card manpower-viz-v2"><div className="viz-title"><div><h4>Published estimates do not form one continuous series</h4><p>Roman deployments and establishments use different definitions; rival points are individual campaigns.</p></div></div><MilitaryCapacityChart/><ChartFooter source="Ancient force reports and modern reconstructions by Brunt, Taylor, Elton, and Devereaux" note="Blank years are evidence gaps, not zeroes, and are not interpolated. Later establishment estimates do not measure the same thing as Republican wartime deployment." dataHref="/data/rome/20260830-client4/comparison-forces.csv"/></div>}</div>}
