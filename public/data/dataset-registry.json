@@ -350,5 +350,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "six unlike windows between 509 and 331 BCE rather than a continuous force series",
     "notes": "Contributor labels command links battlefield functions supply evidence and coordination tests remain separate. Ancient headline army and fleet totals are excluded, and the dataset does not infer ethnic shares equipment ranks combat power or exact army composition."
+  },
+  {
+    "id": "persian-institutional-afterlives",
+    "title": "Eighteen source-bounded episodes across five Achaemenid institutional afterlife pathways",
+    "path": "/data/persian-institutional-afterlives.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_primary_narrative_administrative_epigraphic_numismatic_and_political_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "eighteen unlike episodes from 550 BCE to 651 CE grouped into five pathways rather than a continuous institutional index",
+    "notes": "Provincial retention military experiment script descent local recombination and royal-title revival remain distinct relationships. Bar length marks evidence dates only; the dataset does not calculate continuity influence centralization Persianization state capacity institutional strength or importance."
   }
 ]

@@ -453,5 +453,29 @@
       "DANDAMAYEV2002_PFT"
     ],
     "note": "Six unlike windows connect contributors command battlefield function support and coordination. Catalogue labels are not soldiers or ethnic shares, the Persepolis archive is regional rather than a campaign ledger, and no ancient headline army or fleet total is accepted."
+  },
+  {
+    "id": "persia-05-toolkit-outlasted-dynasty",
+    "page": "persia",
+    "insight": 5,
+    "claim": "The Achaemenid dynasty ended but parts of its imperial toolkit were retained reallocated transformed recombined or revived through different historical pathways.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_primary_narrative_administrative_epigraphic_numismatic_and_political_synthesis",
+    "dataset_ids": [
+      "persian-institutional-afterlives"
+    ],
+    "source_keys": [
+      "JACOBS2006_SATRAPIES",
+      "BRIANT1985_ALEXANDER",
+      "DIODORUS_18_3_PARTITION",
+      "ARRIAN_7_6_11_OPIS",
+      "STROOTMAN2015_SELEUCID_EMPIRE",
+      "HUMBACH1998_EPIGRAPHY",
+      "WIESEHOFER2000_FRATARAKA",
+      "DABROWA2016_PARTHIAN_KINGSHIP",
+      "DARYAEE2022_SASANIAN_KINGSHIP",
+      "SHAHBAZI2005_SASANIAN_DYNASTY"
+    ],
+    "note": "Five pathways distinguish immediate administrative reuse a contested military experiment script descent local political recombination and royal-title revival after a gap. No common continuity score is calculated and shared words or images do not establish unchanged government."
   }
 ]
