@@ -340,5 +340,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "twenty reported districts and seven unlike evidence windows from the early fifth through mid-fifth century BCE",
     "notes": "Only the nineteen silver district rows share an internal Herodotean scale. Indian gold dust horses grain people services gifts cuneiform assessments and Apadana imagery remain unlike evidence. No modern value per-capita burden tax rate effective incidence or empire-wide revenue total is inferred."
+  },
+  {
+    "id": "persian-coalition-armies",
+    "title": "Six source-bounded windows on Achaemenid military assembly, command, support, and coordination",
+    "path": "/data/persian-coalition-windows.csv",
+    "schema": "observation",
+    "evidence_type": "comparative_literary_campaign_catalogue_logistics_and_administrative_archive",
+    "source_key_field": "source_keys",
+    "time_resolution": "six unlike windows between 509 and 331 BCE rather than a continuous force series",
+    "notes": "Contributor labels command links battlefield functions supply evidence and coordination tests remain separate. Ancient headline army and fleet totals are excluded, and the dataset does not infer ethnic shares equipment ranks combat power or exact army composition."
   }
 ]

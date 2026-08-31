@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260830-persia-tribute1';
+const releaseId='20260830-persia-coalition1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -52,6 +52,7 @@ const assets=[
   ['csv','/data/persia/20260830-satrapies1/persian-satrapal-portfolios.csv'],
   ['csv','/data/persia/20260830-tribute1/persian-tribute-districts.csv'],
   ['csv','/data/persia/20260830-tribute1/persian-obligation-portfolios.csv'],
+  ['csv','/data/persia/20260830-coalition1/persian-coalition-windows.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],
