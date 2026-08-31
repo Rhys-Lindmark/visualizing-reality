@@ -25,7 +25,6 @@ function project([lon,lat]:Point,width:number,height:number):Point{return[((lon+
 function clockLeft(value:string){return `${((Number(value)-MIN_YEAR)/SPAN)*100}%`;}
 function clockWidth(start:string,end:string){return `${Math.max(1.4,((Number(end)-Number(start))/SPAN)*100)}%`;}
 function displayYear(year:number){return year<0?`${Math.abs(year)} BCE`:`${year} CE`;}
-function titleCase(value:string){return value.replaceAll('_',' ').replace(/\b\w/g,letter=>letter.toUpperCase());}
 
 export default function CradlesEvidenceClocks(){
   const canvas=useRef<HTMLCanvasElement>(null);
@@ -49,17 +48,15 @@ export default function CradlesEvidenceClocks(){
   const chooseFromMap=(clientX:number,clientY:number)=>{const element=canvas.current;if(!element)return;const rect=element.getBoundingClientRect();const point:[number,number]=[((clientX-rect.left)/rect.width)*element.width,((clientY-rect.top)/rect.height)*element.height];let winner:string|undefined,nearest=32;for(const region of regions){const marker=project([Number(region.longitude),Number(region.latitude)],element.width,element.height);const distance=Math.hypot(marker[0]-point[0],marker[1]-point[1]);if(distance<nearest){winner=region.region_slug;nearest=distance;}}if(winner)chooseRegion(winner);};
   const retry=()=>{setRows([]);setLand(null);setError('');setLoadState('loading');setAttempt(value=>value+1);};
 
-  if(loadState!=='ready'||!selected)return <div className={`data-state cradle-data-state ${loadState}`} role={loadState==='error'?'alert':'status'}><b>{loadState==='error'?'The comparative clocks did not load':'Loading six regional chronologies…'}</b><span>{loadState==='error'?error:'18 sourced observations · three clocks per region'}</span>{loadState==='error'&&<button type="button" onClick={retry}>Retry comparison</button>}</div>;
+  if(loadState!=='ready'||!selected)return <div className={`data-state cradle-data-state ${loadState}`} role={loadState==='error'?'alert':'status'}><b>{loadState==='error'?'The comparative clocks did not load':'Loading regional chronologies…'}</b><span>{loadState==='error'?error:'Comparing cities, states, and notation'}</span>{loadState==='error'&&<button type="button" onClick={retry}>Retry comparison</button>}</div>;
 
   return <div className="cradle-clock-chart">
-    <div className="cradle-summary"><div><span>Comparative frame</span><b>6 regions</b><small>not a canonical rank</small></div><div><span>Evidence clocks</span><b>3 per region</b><small>cities · states · notation</small></div><div><span>Explicit gap</span><b>Not zero</b><small>Andean script remains unplotted</small></div></div>
     <section className="cradle-map"><canvas ref={canvas} width="1080" height="500" onPointerDown={event=>chooseFromMap(event.clientX,event.clientY)} aria-label={`World map with ${regions.length} selectable early urban and state-formation regions; ${selected.region} selected`}/><div className="cradle-map-note">Select a region</div></section>
     <nav className="cradle-regions" aria-label="Choose a regional evidence chronology">{regions.map(region=><button type="button" key={region.region_slug} className={region.region_slug===selectedRegion?'active':''} aria-pressed={region.region_slug===selectedRegion} onClick={()=>chooseRegion(region.region_slug)}><i style={{background:regionColors[region.region_slug]}}/><b>{region.region}</b><small>{rows.find(row=>row.region_slug===region.region_slug&&row.clock==='urban_scale')?.display_date}</small></button>)}</nav>
-    <section className="cradle-clocks"><div className="cradle-clock-heading"><div><span>{selected.region} · three independent questions</span><h5>No single birthday</h5></div><small>4000–100 BCE · phase ranges, not annual data</small></div>
+    <section className="cradle-clocks"><div className="cradle-clock-heading"><div><span>{selected.region}</span><h5>City, state, and notation followed different schedules</h5></div></div>
       <div className="cradle-axis">{[-4000,-3000,-2000,-1000,-100].map(year=><span key={year} style={{left:clockLeft(String(year))}}>{displayYear(year)}</span>)}</div>
       <div className="cradle-lanes">{clockOrder.map(clock=>{const row=selectedRows.find(item=>item.clock===clock);if(!row)return null;const gap=row.evidence_status==='evidence_gap';return <div className="cradle-lane" key={clock}><div><i style={{background:clockColors[clock]}}/><b>{clockLabels[clock]}</b></div><div>{gap?<button type="button" className={`gap ${selected===row?'active':''}`} aria-pressed={selected===row} onClick={()=>setSelectedClock(clock)}>Evidence gap · not year zero</button>:<button type="button" className={selected===row?'active':''} style={{left:clockLeft(row.start_year),width:clockWidth(row.start_year,row.end_year),'--clock-color':clockColors[clock]} as React.CSSProperties} aria-pressed={selected===row} onClick={()=>setSelectedClock(clock)}><span>{row.display_date}</span></button>}</div></div>})}</div>
-      <div className="cradle-readout"><div><span>{clockLabels[selected.clock]} · {titleCase(selected.evidence_status)}</span><h5>{selected.observation}</h5><b>{selected.place} · {selected.display_date}</b></div><div><p>{selected.interpretation}</p><small><b>Limit:</b> {selected.limits}</small></div><div><span>Source keys</span><b>{selected.source_keys}</b></div></div>
+      <div className="cradle-readout"><div><span>{clockLabels[selected.clock]}</span><h5>{selected.observation}</h5><b>{selected.place} · {selected.display_date}</b></div><div><p>{selected.interpretation}</p></div></div>
     </section>
-    <div className="cradle-downloads"><p><b>Read across, not upward.</b> Earlier is not “more civilized”; each lane asks a different archaeological question.</p><a href={dataUrl} download>Evidence clocks CSV ↓</a></div>
   </div>;
 }
