@@ -1144,6 +1144,37 @@ for(const[index,row]of indusMonumentRows.entries()){
 if(indusMonumentRows.length!==4||indusMonumentIndex.size!==4)fail(`Indus monumental-ruler comparison requires four unique categories; found ${indusMonumentRows.length}`);
 for(const id of ['palaces','royal_tombs','large_temples','ruler_monuments'])if(!indusMonumentIndex.has(id))fail(`Indus monumental-ruler evidence is missing ${id}`);
 
+const steppeAlpha=csv('public/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv');
+for(const[index,row]of steppeAlpha.entries()){
+  const context=`begash-pastoral-sequence.csv row ${index+2}`;
+  requireFields(row,['year_start','year_end','display_date','label','evidence','measure','source_keys','limits'],context);
+  numeric(row,['year_start','year_end'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(Number(row.year_start)>Number(row.year_end))fail(`${context} starts after it ends`);
+}
+if(steppeAlpha.length!==4)fail(`Steppe alpha requires four source-bounded observations; found ${steppeAlpha.length}`);
+if(!/horses absent/i.test(steppeAlpha[0]?.measure??'')||!/below 4 percent/i.test(steppeAlpha[2]?.measure??''))fail('Steppe alpha must preserve horse absence in the earliest phase and the below-four-percent second-millennium limit');
+
+const christianityAlpha=csv('public/data/christianity/20260831-alpha1/pauline-letter-network.csv');
+for(const[index,row]of christianityAlpha.entries()){
+  const context=`pauline-letter-network.csv row ${index+2}`;
+  requireFields(row,['year_start','year_end','display_date','letter','audience','network_type','source_keys','limits'],context);
+  numeric(row,['year_start','year_end'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(Number(row.year_start)>Number(row.year_end))fail(`${context} starts after it ends`);
+}
+if(christianityAlpha.length!==7||Math.min(...christianityAlpha.map(row=>Number(row.year_start)))!==51||Math.max(...christianityAlpha.map(row=>Number(row.year_end)))!==57)fail('Christianity alpha requires seven generally accepted Pauline letters bounded c. 51–57 CE');
+
+const caliphatesAlpha=csv('public/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv');
+for(const[index,row]of caliphatesAlpha.entries()){
+  const context=`early-caliphate-expansion.csv row ${index+2}`;
+  requireFields(row,['year_start','year_end','display_date','region','event_type','evidence','source_keys','limits'],context);
+  numeric(row,['year_start','year_end'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(Number(row.year_start)>Number(row.year_end))fail(`${context} starts after it ends`);
+}
+if(caliphatesAlpha.length!==6)fail(`Caliphates alpha requires six source-bounded chronology rows; found ${caliphatesAlpha.length}`);
+const caliphateBaseline=caliphatesAlpha.find(row=>row.event_type==='baseline');
+const iranEndpoint=caliphatesAlpha.find(row=>row.region==='Iran');
+if(Number(caliphateBaseline?.year_start)!==632||Number(iranEndpoint?.year_end)!==654||Number(iranEndpoint?.year_end)-Number(caliphateBaseline?.year_start)!==22)fail('Caliphates alpha must preserve the bounded 632–654 twenty-two-year comparison');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {

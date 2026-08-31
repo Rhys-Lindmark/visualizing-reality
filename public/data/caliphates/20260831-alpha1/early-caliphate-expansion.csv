@@ -1,0 +1,7 @@
+year_start,year_end,display_date,region,event_type,evidence,source_keys,limits
+632,632,632 CE,Arabian Peninsula,baseline,Muhammad died after authority had expanded across much of Arabia,LAPIDUS2012_ARAB_MUSLIM_EMPIRES,Baseline is not a complete boundary
+632,641,by 641,Iraq Syria and Egypt,conquest endpoint,Former Sasanian and eastern Roman provinces incorporated,LAPIDUS2012_ARAB_MUSLIM_EMPIRES,Broad endpoint not annual control
+641,654,by 654,Iran,conquest endpoint,Sasanian imperial realm incorporated,LAPIDUS2012_ARAB_MUSLIM_EMPIRES,Does not imply uniform control conversion or population replacement
+643,711,643–711,North Africa,conquest interval,Regional conquest unfolded across nearly seven decades,LAPIDUS2012_ARAB_MUSLIM_EMPIRES,Interval includes reversals and local resistance
+711,759,711–759,Iberia,conquest interval,Expansion began across the Strait of Gibraltar,LAPIDUS2012_ARAB_MUSLIM_EMPIRES,Not one event or complete continuous control
+711,751,by 751,Transoxiana,conquest endpoint,Region between the Oxus and Jaxartes incorporated,LAPIDUS2012_ARAB_MUSLIM_EMPIRES,Broad endpoint not cultural or demographic uniformity

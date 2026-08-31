@@ -162,27 +162,27 @@ when the evidence supports independent urban/state formation.
 
 ## P2 — Page 09: Steppe, horse, and mobile power — ready
 
-1. Pastoral mobility was an adaptation, not failed agriculture.
-2. Horses expanded transport, herding, communication, and raiding ranges.
-3. Composite bows and remount systems produced unusual operational reach.
-4. Steppe confederations and agrarian states co-produced one another.
-5. Migration and exchange reshaped languages, genes, military systems, and trade.
+1. **Steppe pastoralism began with sheep and goats—not cavalry** — alpha live; four source-bounded observations from Begash separate mobile pastoralism from later horse-centered herding and retain the one-site, fragment-share limits.
+2. **Horses turned mobility into military reach** — beta candidate; compare riding, carts, breeding, communication, herding, and raiding without assigning one horse-revolution date.
+3. **Remounts mattered as much as bows** — beta candidate; separate weapons from spare horses, fodder, intelligence, and command.
+4. **Confederations grew by bargaining with agrarian states** — beta candidate; compare tribute, trade, marriage, hostages, and frontier arrangements.
+5. **Steppe migrations moved genes and languages without erasing everyone** — beta candidate; distinguish movement, mixture, replacement, and cultural transmission.
 
 ## P2 — Page 10: Christianity as an infrastructure — ready
 
-1. A small movement spread through Roman cities and networks.
-2. Texts, letters, bishops, ritual, and charity formed durable institutions.
-3. Imperial adoption transformed both church and state.
-4. Christianity fragmented geographically and doctrinally while remaining connected.
-5. Monasteries, law, calendars, education, and sacred geography outlasted western imperial rule.
+1. **Christianity became a letter network before it became an empire** — alpha live; the seven generally accepted Pauline letters are ordered c. 51–57 CE without turning surviving texts into a population or congregation census.
+2. **Bishops and charity made congregations durable** — beta candidate; test offices, property, ritual, and mutual aid.
+3. **Constantine changed the church faster than he Christianized the empire** — beta candidate; separate patronage, institutions, and uneven conversion.
+4. **One creed did not produce one Christianity** — beta candidate; compare councils, rival bishops, languages, and regional churches.
+5. **Monasteries carried Christian institutions beyond western empire** — beta candidate; test institutional persistence through education, law, calendars, and charity.
 
 ## P2 — Page 11: The caliphates — ready
 
-1. Early Islamic expansion changed political scale with remarkable speed.
-2. Existing Roman and Sasanian fiscal-administrative systems were adapted rather than erased.
-3. Arabic, coinage, law, and paper supported a connected imperial sphere.
-4. Cities and trade linked the Atlantic, Mediterranean, Indian Ocean, and Central Asia.
-5. Political fragmentation did not end the wider intellectual and commercial system.
+1. **The first caliphates joined former Roman and Sasanian lands within twenty-two years** — alpha live; six dated endpoints and intervals preserve the 632–654 comparison without implying annual boundaries, uniform control, conversion, or replacement.
+2. **Conquest reused tax systems before it standardized them** — beta candidate; compare inherited and redesigned offices, taxes, documents, and mints.
+3. **Arabic became an administrative interface over generations—not overnight** — beta candidate; compare administrative languages by region and medium.
+4. **Trade tied together seas that no caliph controlled alone** — beta candidate; connect ports, caravan cities, merchant institutions, and commodities without one caliphal trade map.
+5. **A shared scholarly world outlived political unity** — beta candidate; trace books, scholars, legal schools, scientific texts, and commercial practice after fragmentation.
 
 ## P2 — Later pre-industrial pages — ready after the core sequence
 
@@ -204,6 +204,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed the breadth-first alpha opening for the Steppe, Christianity, and the Caliphates. Each page now has an introduction, five clear claim selectors with exact article-title parity, and one live source-bounded visual: Begash shows pastoralism preceding horse-centered herding; seven generally accepted Pauline letters show Christianity operating as a city-and-household communications network c. 51–57 CE; and Lapidus's chronology bounds the twenty-two years from 632 to the incorporation of Iran in 654. Added five scholarly sources, three public CSVs, three registered datasets, three registered claims, reusable alpha evidence-strip and queued-insight components, live atlas routes, and automated schema, source, row-count, and claim-anchor checks. Verified 94 historical data files, 253 sources, 48 datasets, 39 claims, the immutable Rome client contract, lint, the production build, 114 byte-identical built assets, all fifteen claim selectors, exact title parity, one active panel per page, one source footer and download per live visual, no corrupt state, zero desktop or 390 × 844 overflow, 104-pixel mobile controls, and a clean browser console. Next: continue the same 80/20 alpha pass with Greek city-states, Hellenistic kingdoms, and Silk Roads before returning for beta depth.
 
 - 2026-08-31 — Opened India with insight 01, **Indus cities coordinated without monumentalizing rulers**. Transcribed twenty-four published weight-series means and sample sizes from Kenoyer's Table 9.3 across the HARP, Vats, and Mackay excavations. The plot divides each observed mean by its published ratio and retains the high-ratio HARP deviation rather than smoothing it away. A second evidence panel records the continuing absence of securely identified palaces, elaborate royal tombs, large temples, and ruler-aggrandizing monuments without claiming that rulers, elites, inequality, coercion, or ritual institutions were absent. Added the five-question India editorial audit, five source records, two public CSVs, one dataset, one registered claim, an interactive downloadable visual, and the first live India route. Verified 91 historical data files, 248 sources, 45 datasets, 36 claims, all 24 weight rows and four monumental-evidence categories, the immutable Rome client contract, lint, the production build, 111 byte-identical built assets, all five India tabs, chart-point selection, exact claim-title parity, one active panel, no corrupt or alert state, zero desktop or 390 × 844 overflow, 104-pixel mobile insight controls, and a clean browser console. Next: ship breadth-first page alphas before returning to India insight 02 for the beta pass.
 

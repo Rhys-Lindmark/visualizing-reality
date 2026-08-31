@@ -25,6 +25,9 @@ const relatedByTitle:Record<string,Array<{href:string;label:string}>>={
   'Persia and territorial empire':[{href:'/iron-age',label:'The Iron Age transformation'},{href:'/rome',label:'Rome'},{href:'/india',label:'India from cities to empires'}],
   'Qin and Han China':[{href:'/persia',label:'Persia and territorial empire'},{href:'/india',label:'India from cities to empires'},{href:'/cradles',label:'The cradles of civilization'}],
   'India from cities to empires':[{href:'/cradles',label:'The cradles of civilization'},{href:'/persia',label:'Persia and territorial empire'},{href:'/qin-han',label:'Qin and Han China'}],
+  'The Steppe':[{href:'/iron-age',label:'The Iron Age transformation'},{href:'/qin-han',label:'Qin and Han China'},{href:'/caliphates',label:'The Caliphates'}],
+  'Christianity':[{href:'/rome',label:'Rome'},{href:'/caliphates',label:'The Caliphates'},{href:'/persia',label:'Persia and territorial empire'}],
+  'The Caliphates':[{href:'/christianity',label:'Christianity'},{href:'/persia',label:'Persia and territorial empire'},{href:'/steppe',label:'The Steppe'}],
 };
 
 export default function HistoryPageShell({ title, published, introduction, insightLabels, children, methods }: HistoryPageShellProps) {

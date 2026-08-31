@@ -1,0 +1,1 @@
+export default function AlphaPendingInsight({number,title,question}:{number:string;title:string;question:string}){return <section className="insight insight-placeholder"><div className="insight-copy"><span className="insight-number">{number}</span><h3>{title}</h3><p>{question}</p><i className="status status-research">Beta evidence review queued</i></div></section>;}

@@ -543,5 +543,38 @@
     "dataset_ids": ["indus-metrology-and-monumental-power"],
     "source_keys": ["MARSHALL_HEMMY1931_WEIGHTS","KENOYER2010_MEASURING","GREEN2021_PRIEST_KING","CONINGHAM_MANUEL2009_PRIEST_KINGS","PETRIE_ET_AL2024_INDUS_MOVEMENT"],
     "note": "The weight points reproduce published means divided by category ratios, with unequal sample sizes and the high-ratio HARP deviation retained. Shared measurement does not establish one centralized state, and missing monumental signals do not prove that rulers, elites, inequality, ritual institutions, or coercion were absent."
+  },
+  {
+    "id": "steppe-01-pastoralism-before-cavalry",
+    "page": "steppe",
+    "insight": 1,
+    "claim": "The Begash faunal sequence shows that eastern Eurasian mountain pastoralism began with sheep and goats rather than horse-centered cavalry.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_archaeozoological_sequence_and_comparative_synthesis",
+    "dataset_ids": ["begash-pastoral-sequence"],
+    "source_keys": ["FRACHETTI_BENECKE2009_BEGASH","FRACHETTI2012_MOBILE_PASTORALISM"],
+    "note": "One regional site reverses a horse-first origin story but does not establish one sequence for every steppe society."
+  },
+  {
+    "id": "christianity-01-letter-network-before-empire",
+    "page": "christianity",
+    "insight": 1,
+    "claim": "The earliest surviving Christian literature shows a city-to-city and household letter network decades before imperial patronage.",
+    "status": "working_synthesis",
+    "evidence_type": "surviving_primary_letters_and_scholarly_authorship_chronology",
+    "dataset_ids": ["pauline-letter-network"],
+    "source_keys": ["HARRILL2012_PAUL_CHRONOLOGY","SANDERS1996_PAUL"],
+    "note": "Seven generally accepted letters are surviving texts rather than a census of Christians or congregations; approximate dates remain source bounded."
+  },
+  {
+    "id": "caliphates-01-two-imperial-worlds-in-22-years",
+    "page": "caliphates",
+    "insight": 1,
+    "claim": "Within twenty-two years after 632, the first caliphates joined the former Sasanian realm to several of the richest eastern Roman provinces.",
+    "status": "working_synthesis",
+    "evidence_type": "scholarly_conquest_chronology",
+    "dataset_ids": ["early-caliphate-expansion"],
+    "source_keys": ["LAPIDUS2012_ARAB_MUSLIM_EMPIRES"],
+    "note": "The 632 to 654 comparison uses broad political endpoints and does not imply uniform control conversion or demographic replacement."
   }
 ]

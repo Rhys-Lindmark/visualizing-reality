@@ -463,5 +463,35 @@
     "source_key_field": "source_keys",
     "time_resolution": "three excavation series grouped into eight common weight ratios and four century-scale archaeological absence categories",
     "notes": "Published means and sample sizes remain series-specific. Implied units are exact mean divided by ratio. No political-centralization score, ruler count, market volume, bulk-goods flow, social-equality score, or claim that rulers were absent is inferred."
+  },
+  {
+    "id": "begash-pastoral-sequence",
+    "title": "Four source-bounded windows in the Begash pastoral and horse sequence",
+    "path": "/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_archaeozoological_sequence_and_comparative_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four broad windows from the third to first millennia BCE at one south-eastern Kazakhstan settlement",
+    "notes": "Faunal fragment shares are not herd population diet wealth cavalry or pan-steppe adoption rates."
+  },
+  {
+    "id": "pauline-letter-network",
+    "title": "Seven generally accepted Pauline letters in rough chronological order",
+    "path": "/data/christianity/20260831-alpha1/pauline-letter-network.csv",
+    "schema": "observation",
+    "evidence_type": "surviving_primary_letters_and_scholarly_authorship_chronology",
+    "source_key_field": "source_keys",
+    "time_resolution": "seven approximate dates from 51 to 57 CE",
+    "notes": "Surviving letters are not a census of Christians congregations travel or transmission; Philemon has no securely assigned destination here."
+  },
+  {
+    "id": "early-caliphate-expansion",
+    "title": "Six broad regional incorporation windows from Arabia to Transoxiana",
+    "path": "/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv",
+    "schema": "observation",
+    "evidence_type": "scholarly_conquest_chronology",
+    "source_key_field": "source_keys",
+    "time_resolution": "six endpoints or intervals from 632 to 751 CE rather than annual boundaries",
+    "notes": "Broad political incorporation does not mean uniform control conversion cultural unity or demographic replacement."
   }
 ]

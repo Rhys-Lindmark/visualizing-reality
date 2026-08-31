@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260831-india-metrology1';
+const releaseId='20260831-core-alphas1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -11,6 +11,9 @@ const routes=new Map([
   ['/persia','<title>Persia and territorial empire — How Everything Evolved</title>'],
   ['/qin-han','<title>Qin and Han China — How Everything Evolved</title>'],
   ['/india','<title>India from cities to empires — How Everything Evolved</title>'],
+  ['/steppe','<title>The Steppe — How Everything Evolved</title>'],
+  ['/christianity','<title>Christianity — How Everything Evolved</title>'],
+  ['/caliphates','<title>The Caliphates — How Everything Evolved</title>'],
 ]);
 // Every asset fetched by a live visualization. A release is unhealthy when even
 // one URL returns the app's HTML 404 shell instead of its data payload.
@@ -64,6 +67,9 @@ const assets=[
   ['csv','/data/qin-han/20260830-logistics1/qin-logistics-ecology.csv'],
   ['csv','/data/india/20260831-metrology1/indus-weight-series.csv'],
   ['csv','/data/india/20260831-metrology1/indus-ruler-monuments.csv'],
+  ['csv','/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv'],
+  ['csv','/data/christianity/20260831-alpha1/pauline-letter-network.csv'],
+  ['csv','/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],
