@@ -553,5 +553,35 @@
     "source_key_field": "source_keys",
     "time_resolution": "one port settlement broadly dated to the fourth through second centuries BCE",
     "notes": "Industry categories show local production evidence and technological analogies rather than comparable output workforce or artisan ethnicity."
+  },
+  {
+    "id": "maya-lidar-findings",
+    "title": "Five published measures from the PACUNAM lidar survey",
+    "path": "/data/mesoamerica/20260831-alpha1/maya-lidar-findings.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_lidar_survey_and_population_model",
+    "source_key_field": "source_keys",
+    "time_resolution": "one 2016 survey and a modeled Late Classic regional peak",
+    "notes": "The mapped survey footprint and structures are direct lidar results; population density and total population are regional models with different scope."
+  },
+  {
+    "id": "qhapaq-nan-scale",
+    "title": "Five unlike measures of the Qhapaq Ñan",
+    "path": "/data/andes/20260831-alpha1/qhapaq-nan-scale.csv",
+    "schema": "observation",
+    "evidence_type": "official_heritage_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "multi-century network at its fifteenth-century maximum plus a modern selected heritage property",
+    "notes": "Network length route count topographic reach imperial extent and the inscribed sample retain different scopes and are not combined."
+  },
+  {
+    "id": "black-death-origin-evidence",
+    "title": "Historical and genomic evidence for a Central Eurasian plague source",
+    "path": "/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_ancient_dna_and_historical_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "one 1338–1339 epidemic context compared with published plague genomes",
+    "notes": "Sample counts detections reconstructed genomes and phylogenetic placement are unlike observations. The study does not establish a transmission route or political cause."
   }
 ]

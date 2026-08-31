@@ -1,5 +1,5 @@
 {
-  "release_id": "20260831-world-alphas1",
+  "release_id": "20260831-world-alphas2",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -19,7 +19,10 @@
     "/silk-roads",
     "/medieval-europe",
     "/african-states",
-    "/southeast-asia"
+    "/southeast-asia",
+    "/mesoamerica",
+    "/andes",
+    "/mongol-eurasia"
   ],
   "newest_visualization_assets": [
     "/data/bronze-age/20260830-collapse1/bronze-collapse-windows.csv",
@@ -53,6 +56,9 @@
     "/data/silk-roads/20260831-alpha1/turfan-money-forms.csv",
     "/data/medieval-europe/20260831-alpha1/manuscript-production.csv",
     "/data/african-states/20260831-alpha1/ghana-trade-dues.csv",
-    "/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv"
+    "/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv",
+    "/data/mesoamerica/20260831-alpha1/maya-lidar-findings.csv",
+    "/data/andes/20260831-alpha1/qhapaq-nan-scale.csv",
+    "/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv"
   ]
 }

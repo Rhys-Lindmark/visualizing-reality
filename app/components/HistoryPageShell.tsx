@@ -34,6 +34,9 @@ const relatedByTitle:Record<string,Array<{href:string;label:string}>>={
   'Medieval Europe':[{href:'/christianity',label:'Christianity'},{href:'/rome',label:'Rome'},{href:'/caliphates',label:'The Caliphates'}],
   'African States and Trade':[{href:'/caliphates',label:'The Caliphates'},{href:'/silk-roads',label:'Silk Roads'},{href:'/southeast-asia',label:'Southeast Asian Mandalas'}],
   'Southeast Asian Mandalas':[{href:'/silk-roads',label:'Silk Roads'},{href:'/india',label:'India from cities to empires'},{href:'/qin-han',label:'Qin and Han China'}],
+  'Mesoamerican Cities and States':[{href:'/cradles',label:'The cradles of civilization'},{href:'/andes',label:'Andean Worlds and the Inka'}],
+  'Andean Worlds and the Inka':[{href:'/mesoamerica',label:'Mesoamerican Cities and States'},{href:'/cradles',label:'The cradles of civilization'}],
+  'Mongol Eurasia':[{href:'/steppe',label:'The Steppe'},{href:'/silk-roads',label:'Silk Roads'},{href:'/qin-han',label:'Qin and Han China'}],
 };
 
 export default function HistoryPageShell({ title, published, introduction, insightLabels, children, methods }: HistoryPageShellProps) {

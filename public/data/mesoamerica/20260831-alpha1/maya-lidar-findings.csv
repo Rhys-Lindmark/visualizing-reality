@@ -1,0 +1,6 @@
+measure_id,display_value,numeric_value,unit,scope,interpretation,source_keys,limits
+survey_area,"2,144 km²",2144,square kilometres,PACUNAM survey region,"Twelve lidar survey blocks in northern Guatemala",CANUTO_ETAL2018_MAYA_LIDAR,"Survey footprint; not the full Maya Lowlands"
+structures,"61,480",61480,classified structures,PACUNAM survey region,"Mapped ancient structures and landscape features",CANUTO_ETAL2018_MAYA_LIDAR,"Feature classification does not supply occupants dates or political affiliation automatically"
+structure_density,"29 / km²",29,structures per square kilometre,PACUNAM survey region,"Survey-wide mapped structure density",CANUTO_ETAL2018_MAYA_LIDAR,"Area-wide ratio; local densities vary"
+population_density,"80–120 / km²",,persons per square kilometre,central Maya Lowlands,"Modeled Late Classic average population-density range",CANUTO_ETAL2018_MAYA_LIDAR,"Regional model rather than a direct count"
+regional_population,"7–11 million",,people,central Maya Lowlands,"Population implied by the modeled Late Classic density range",CANUTO_ETAL2018_MAYA_LIDAR,"Regional extrapolation rather than the surveyed population"

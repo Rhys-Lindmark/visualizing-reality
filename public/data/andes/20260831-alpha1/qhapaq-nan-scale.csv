@@ -1,0 +1,6 @@
+measure_id,display_value,numeric_value,unit,scope,interpretation,source_keys,limits
+network_length,"30,000+ km",30000,kilometres,full Andean road system,"UNESCO description of roads and associated structures",UNESCO_QHAPAQ_NAN,"Approximate lower bound; partly based on pre-Inka infrastructure"
+main_routes,"4 routes",4,principal routes,network organization,"Principal routes originating at Cusco and joining lower-order roads",UNESCO_QHAPAQ_NAN,"Does not mean only four roads existed"
+maximum_altitude,"6,600+ m",6600,metres above sea level,topographic reach,"High mountain terrain connected to coasts forests valleys and deserts",UNESCO_QHAPAQ_NAN,"Topographic range rather than a typical road elevation"
+imperial_extent,"4,200 km",4200,kilometres,fifteenth-century Tawantinsuyu,"Maximum north–south extent described by UNESCO",UNESCO_QHAPAQ_NAN,"Extent is not road length or uniformly controlled territory"
+heritage_subset,"616.06 km",616.06,kilometres,World Heritage property,"137 component areas and 308 associated archaeological sites",UNESCO_QHAPAQ_NAN,"Selected representative property rather than the full network"

@@ -642,5 +642,38 @@
     "dataset_ids": ["khao-sam-kaeo-industries"],
     "source_keys": ["LANKTON_ETAL2006_KSK_GLASS","MURILLO_BARROSO_ETAL2010_KSK_METAL","BELLINA2018_TRADE_POLITIES"],
     "note": "One port does not represent every Southeast Asian polity; industry categories are not output scores and technological analogies are not artisan ethnicity."
+  },
+  {
+    "id": "mesoamerica-01-dense-landscape",
+    "page": "mesoamerica",
+    "insight": 1,
+    "claim": "PACUNAM lidar shows Maya cities embedded in a densely built and intensively modified countryside.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_lidar_survey_and_population_model",
+    "dataset_ids": ["maya-lidar-findings"],
+    "source_keys": ["CANUTO_ETAL2018_MAYA_LIDAR"],
+    "note": "The 2,144 km² survey and 61,480 mapped structures are distinct from regional Late Classic population models; lidar does not automatically date classify or assign occupants to every feature."
+  },
+  {
+    "id": "andes-01-road-integration",
+    "page": "andes",
+    "insight": 1,
+    "claim": "The Qhapaq Ñan turned extreme ecological and topographic variation into imperial reach.",
+    "status": "working_synthesis",
+    "evidence_type": "official_heritage_synthesis",
+    "dataset_ids": ["qhapaq-nan-scale"],
+    "source_keys": ["UNESCO_QHAPAQ_NAN"],
+    "note": "The full network exceeds 30,000 km while the 616.06 km inscribed property is a selected subset; neither length measures traffic speed or uniform control."
+  },
+  {
+    "id": "mongol-eurasia-01-plague-integration",
+    "page": "mongol-eurasia",
+    "insight": 1,
+    "claim": "A 1338–1339 Central Eurasian plague strain was ancestral to published Black Death genomes, revealing the epidemiological stakes of continental integration.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_ancient_dna_and_historical_synthesis",
+    "dataset_ids": ["black-death-origin-evidence"],
+    "source_keys": ["SPYROU_ETAL2022_BLACK_DEATH"],
+    "note": "The genetics supports place date and ancestry; the exact westward route remains unknown and the evidence does not establish Mongol rule or trade as a sole cause."
   }
 ]

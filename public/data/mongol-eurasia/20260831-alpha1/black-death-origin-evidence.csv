@@ -1,0 +1,6 @@
+observation_id,display_value,numeric_value,unit,scope,interpretation,source_keys,limits
+epidemic_dates,"1338–1339",,CE years,Kara-Djigach and Burana,"Dated tombstones naming pestilence as cause of death",SPYROU_ETAL2022_BLACK_DEATH,"Historical context; not a pathogen diagnosis by itself"
+screened_individuals,"7 people",7,individuals,two cemeteries,"Ancient DNA screening sample",SPYROU_ETAL2022_BLACK_DEATH,"Small archaeological sample"
+plague_positive,"3 positives",3,individuals,Kara-Djigach,"Individuals with ancient Yersinia pestis DNA evidence",SPYROU_ETAL2022_BLACK_DEATH,"Detection count is not epidemic prevalence"
+reconstructed_genomes,"2 genomes",2,reconstructed genomes,Kara-Djigach,"Probably identical genomes representing one strain",SPYROU_ETAL2022_BLACK_DEATH,"Two genomes do not represent two strains"
+phylogenetic_placement,"1 ancestral strain",1,strain,comparative phylogeny,"Most recent common ancestor of the major diversification associated with pandemic emergence",SPYROU_ETAL2022_BLACK_DEATH,"Does not identify the westward route or prove Mongol political causation"

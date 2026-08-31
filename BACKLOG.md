@@ -232,11 +232,32 @@ when the evidence supports independent urban/state formation.
 4. **Temples stored labor and legitimacy—not only belief** — beta candidate; compare labor, land, storage, inscriptions, pilgrimage, and construction.
 5. **Maritime centers survived by shifting alliances and routes** — beta candidate; trace relocation, competition, and political rewiring as sea routes changed.
 
+## P2 — Page 18: Mesoamerican cities and states — alpha live
+
+1. **Maya cities were embedded in a densely built countryside** — alpha live; the PACUNAM lidar survey keeps its 2,144 km² footprint and 61,480 mapped structures separate from the regional Late Classic population model.
+2. **Maize supported states only with water and labor systems** — beta candidate; compare reservoirs, terraces, raised fields, soils, maintenance, and climatic risk without making maize a sufficient cause.
+3. **Writing made dynasties and tribute durable** — beta candidate; connect inscriptions and codices to descent, office, tribute, conquest, calendrics, and ritual claims.
+4. **Markets coordinated households beyond palace redistribution** — beta candidate; test market spaces, household goods, production debris, and price evidence.
+5. **Political collapse moved people more than it erased Maya society** — beta candidate; compare depopulation, persistence, reorganization, and migration on regional clocks.
+
+## P2 — Page 19: Andean worlds and the Inka — alpha live
+
+1. **Roads turned ecological extremes into imperial reach** — alpha live; UNESCO's full network, four main routes, topographic reach, imperial extent, and selected heritage subset remain distinct measures.
+2. **Households combined resources from different ecological floors** — beta candidate; compare separated access to crops, herds, salt, coca, fish, and other resources without one universal verticality model.
+3. **Labor obligations moved value without coin taxes** — beta candidate; connect labor to roads, fields, armies, workshops, reciprocity, and extraction.
+4. **Knotted cords made people and stores administratively legible** — beta candidate; test what khipu recorded about people, tribute, stores, labor, and hierarchy.
+5. **Spanish conquest captured a civil war as well as an emperor** — beta candidate; compare succession conflict, epidemic disruption, alliances, horses, steel, and capture without a single-cause conquest score.
+
+## P2 — Page 20: Mongol Eurasia — alpha live
+
+1. **Mongol-era integration connected disease ecologies as well as markets** — alpha live; the 1338–1339 cemetery context, seven screened people, three plague detections, two reconstructed genomes, and ancestral strain remain unlike observations; the route west is unknown.
+2. **Mounted armies won through organization, intelligence, and remounts** — beta candidate; compare decimal units, scouting, signaling, discipline, remounts, and converging columns.
+3. **Relay stations made continental command faster** — beta candidate; test stations, mounts, provisions, passports, and local obligations without accepting transmitted station counts uncritically.
+4. **The empire protected merchants selectively—not uniformly** — beta candidate; compare capital, protection, tax privileges, coercion, war, and fragmentation.
+5. **Successor states localized Mongol institutions instead of simply disappearing** — beta candidate; compare Yuan, Ilkhanid, Chaghatayid, and Golden Horde adaptations.
+
 ## P2 — Later pre-industrial pages — next alpha queue
 
-- Mesoamerican cities, states, and ecological engineering.
-- Andean vertical economies and imperial logistics.
-- Mongol Eurasia: conquest, relay networks, trade, and epidemiological exchange.
 - Gunpowder empires and the rising cost of fortification and war.
 - Oceanic navigation and the integration of the pre-industrial world.
 - The great divergence before industry: wages, energy, institutions, empire, and ecology.
@@ -246,6 +267,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed the fourth breadth-first alpha batch: Mesoamerican Cities and States, Andean Worlds and the Inka, and Mongol Eurasia. Each route has five affirmative claims, one source-bounded opening visual, and four explicit beta targets. The live evidence distinguishes PACUNAM's 2,144 km² lidar survey and 61,480 mapped structures from its regional population models; separates the Qhapaq Ñan's full network, organization, topography, imperial reach, and selected heritage subset; and preserves Spyrou et al.'s 1338–1339 context, seven screened individuals, three plague detections, two reconstructed genomes, and one ancestral strain without claiming a proven transmission route or Mongol political cause. Added three authoritative source records, three public CSVs, three datasets, three claims, atlas and related-topic links, release smoke coverage, and automated anchor checks. Next: open Gunpowder Empires, Oceanic Navigation, and the Great Divergence before Industry with the same 80/20 alpha contract.
 
 - 2026-08-31 — Completed the third breadth-first alpha batch: Medieval Europe, African States and Trade, and Southeast Asian Mandalas. Each route has five affirmative claims, one source-bounded opening visual, and four explicit beta targets. The live evidence reproduces Buringh and van Zanden’s ten modeled Western European manuscript-production totals; preserves al-Bakri’s reported Ghanaian trade dues and gold-nugget rule without combining dinars and mithqals; and records five Khao Sam Kaeo workshop industries without converting technological analogies into output or ethnicity scores. Added six scholarly or primary source records, three public CSVs, three datasets, three claims, atlas and related-topic links, release smoke coverage, and automated anchor checks. Next: open Mesoamerican cities and states, Andean vertical economies, and Mongol Eurasia with the same 80/20 alpha contract.
 

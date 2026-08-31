@@ -1229,6 +1229,33 @@ for(const[index,row]of khaoIndustries.entries()){
 }
 if(khaoIndustries.length!==5||new Set(khaoIndustries.map(row=>row.industry)).size!==5||!khaoIndustries.some(row=>row.industry==='Glass ornaments'&&/over 1000 samples/i.test(row.measure))||!khaoIndustries.some(row=>row.industry==='Copper alloys'&&/^3 technological traditions$/i.test(row.measure)))fail('Southeast Asia alpha must preserve five industry lenses plus the bounded glass and copper-alloy anchors');
 
+const mayaLidar=csv('public/data/mesoamerica/20260831-alpha1/maya-lidar-findings.csv');
+for(const[index,row]of mayaLidar.entries()){
+  const context=`maya-lidar-findings.csv row ${index+2}`;
+  requireFields(row,['measure_id','display_value','unit','scope','interpretation','source_keys','limits'],context);
+  if(row.numeric_value)numeric(row,['numeric_value'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+const mayaArea=mayaLidar.find(row=>row.measure_id==='survey_area');
+const mayaStructures=mayaLidar.find(row=>row.measure_id==='structures');
+const mayaDensity=mayaLidar.find(row=>row.measure_id==='structure_density');
+if(mayaLidar.length!==5||Number(mayaArea?.numeric_value)!==2144||Number(mayaStructures?.numeric_value)!==61480||Number(mayaDensity?.numeric_value)!==29||!mayaLidar.some(row=>row.measure_id==='regional_population'&&row.display_value==='7–11 million'))fail('Mesoamerica alpha must preserve the 2,144 km² survey, 61,480 structures, 29/km² density, and 7–11 million regional model');
+
+const qhapaqNan=csv('public/data/andes/20260831-alpha1/qhapaq-nan-scale.csv');
+for(const[index,row]of qhapaqNan.entries()){
+  const context=`qhapaq-nan-scale.csv row ${index+2}`;
+  requireFields(row,['measure_id','display_value','numeric_value','unit','scope','interpretation','source_keys','limits'],context);
+  numeric(row,['numeric_value'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(qhapaqNan.length!==5||Number(qhapaqNan.find(row=>row.measure_id==='network_length')?.numeric_value)!==30000||Number(qhapaqNan.find(row=>row.measure_id==='main_routes')?.numeric_value)!==4||Number(qhapaqNan.find(row=>row.measure_id==='maximum_altitude')?.numeric_value)!==6600||Number(qhapaqNan.find(row=>row.measure_id==='heritage_subset')?.numeric_value)!==616.06)fail('Andes alpha must preserve the 30,000 km network, four routes, 6,600 m reach, and selected 616.06 km property');
+
+const blackDeathOrigin=csv('public/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv');
+for(const[index,row]of blackDeathOrigin.entries()){
+  const context=`black-death-origin-evidence.csv row ${index+2}`;
+  requireFields(row,['observation_id','display_value','unit','scope','interpretation','source_keys','limits'],context);
+  if(row.numeric_value)numeric(row,['numeric_value'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(blackDeathOrigin.length!==5||Number(blackDeathOrigin.find(row=>row.observation_id==='screened_individuals')?.numeric_value)!==7||Number(blackDeathOrigin.find(row=>row.observation_id==='plague_positive')?.numeric_value)!==3||Number(blackDeathOrigin.find(row=>row.observation_id==='reconstructed_genomes')?.numeric_value)!==2||Number(blackDeathOrigin.find(row=>row.observation_id==='phylogenetic_placement')?.numeric_value)!==1)fail('Mongol Eurasia alpha must preserve seven screened people, three positives, two reconstructed genomes, and one ancestral strain');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
