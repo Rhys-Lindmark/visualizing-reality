@@ -875,6 +875,48 @@ if (!dascyliumSatrapy || !/Achaemenid family/i.test(dascyliumSatrapy.top_office)
 const persianSatrapySnapshot = read('public/data/persia/20260830-satrapies1/persian-satrapal-portfolios.csv');
 if (persianSatrapySnapshot !== readFileSync(path.join(root, 'public/data/persian-satrapal-portfolios.csv'), 'utf8')) fail('Persian satrapy immutable snapshot diverges from the canonical dataset');
 
+const persianTributeDistricts = csv('public/data/persian-tribute-districts.csv');
+const persianTributeIndex = new Map();
+for (const [index, row] of persianTributeDistricts.entries()) {
+  const context = `persian-tribute-districts.csv row ${index + 2}`;
+  requireFields(row, ['district_id', 'sort_order', 'district_label', 'peoples', 'material', 'reported_amount', 'reported_unit', 'source_keys', 'interpretation', 'limits'], context);
+  numeric(row, ['sort_order', 'reported_amount'], context); validateKeys(sourceKeys(row.source_keys), context);
+  if (persianTributeIndex.has(row.district_id)) fail(`${context} duplicates ${row.district_id}`); persianTributeIndex.set(row.district_id, row);
+  if (!['silver', 'gold_dust'].includes(row.material)) fail(`${context} has unsupported material ${row.material}`);
+  if (Object.keys(row).some(field => /tax_rate|per_capita|population|modern_currency|kilograms|revenue_share|district_rank|wealth_score|burden_score/i.test(field))) fail(`${context} introduces a prohibited common-denominator field`);
+}
+if (persianTributeDistricts.length !== 20 || persianTributeIndex.size !== 20) fail(`Persian tribute schedule requires twenty unique districts, found ${persianTributeDistricts.length}`);
+const persianSilverDistricts = persianTributeDistricts.filter(row=>row.material==='silver');
+if (persianSilverDistricts.length !== 19 || persianSilverDistricts.reduce((sum,row)=>sum+Number(row.reported_amount),0)!==7740) fail('Herodotean district schedule must preserve nineteen silver rows totaling 7740 Babylonian talents');
+const expectedTributeAmounts = [400,500,360,500,350,700,170,300,1000,450,200,360,400,600,250,300,400,200,300,360];
+for (const [index, amount] of expectedTributeAmounts.entries()) { const row=persianTributeIndex.get(`district_${String(index+1).padStart(2,'0')}`); if (!row || Number(row.reported_amount)!==amount) fail(`Persian tribute district ${index+1} does not preserve the reported amount`); }
+const ciliciaTribute=persianTributeIndex.get('district_04');
+if (!ciliciaTribute || !/360 white horses/i.test(ciliciaTribute.additional_obligation) || !/140 talents.*local cavalry guard.*360.*Darius/i.test(ciliciaTribute.additional_obligation)) fail('Cilicia must preserve horses and the 140/360 silver allocation');
+const indiaTribute=persianTributeIndex.get('district_20');
+if (!indiaTribute || indiaTribute.material!=='gold_dust' || indiaTribute.reported_unit!=='Euboic talents' || Number(indiaTribute.reported_amount)!==360 || !/outside the silver bar scale/i.test(indiaTribute.interpretation)) fail('India must remain a separate gold-dust unit outside the silver scale');
+const persianTributeSnapshot = read('public/data/persia/20260830-tribute1/persian-tribute-districts.csv');
+if (persianTributeSnapshot !== readFileSync(path.join(root, 'public/data/persian-tribute-districts.csv'), 'utf8')) fail('Persian tribute immutable snapshot diverges from the canonical dataset');
+
+const persianObligationPortfolios = csv('public/data/persian-obligation-portfolios.csv');
+const persianObligationIndex = new Map();
+for (const [index, row] of persianObligationPortfolios.entries()) {
+  const context = `persian-obligation-portfolios.csv row ${index + 2}`;
+  requireFields(row, ['case_id', 'sort_order', 'title', 'date_label', 'evidence_class', 'reported_obligation', 'political_logic', 'interpretation', 'limits', 'source_keys'], context);
+  numeric(row, ['sort_order'], context); validateKeys(sourceKeys(row.source_keys), context);
+  if (persianObligationIndex.has(row.case_id)) fail(`${context} duplicates ${row.case_id}`); persianObligationIndex.set(row.case_id, row);
+  if (Object.keys(row).some(field => /score|tax_rate|modern_value|effective_burden|revenue_total/i.test(field))) fail(`${context} introduces a prohibited synthetic field`);
+}
+for (const id of ['silver_schedule','cilicia_mixed','egypt_provisions','india_gold','babylonia_documents','frontier_gifts','apadana_image']) if (!persianObligationIndex.has(id)) fail(`Persian obligation comparison is missing ${id}`);
+if (persianObligationPortfolios.length!==7 || persianObligationIndex.size!==7) fail(`Persian obligation comparison requires seven unique windows, found ${persianObligationPortfolios.length}`);
+const babylonianObligations=persianObligationIndex.get('babylonia_documents');
+if (!babylonianObligations || !/silver; barley; flour; small livestock; beer/i.test(babylonianObligations.reported_obligation) || !/regional and uneven/i.test(babylonianObligations.limits)) fail('Babylonian documentary window must preserve varied tax bases and regional limits');
+const frontierGifts=persianObligationIndex.get('frontier_gifts');
+if (!frontierGifts || !/every third year.*every fifth year.*annually/i.test(frontierGifts.reported_obligation)) fail('Frontier gifts must preserve three different cadences');
+const apadanaImage=persianObligationIndex.get('apadana_image');
+if (!apadanaImage || !/23 delegations/i.test(apadanaImage.reported_obligation) || !/not an annual fiscal ledger/i.test(apadanaImage.limits)) fail('Apadana must preserve twenty-three delegations without becoming a fiscal ledger');
+const persianObligationSnapshot = read('public/data/persia/20260830-tribute1/persian-obligation-portfolios.csv');
+if (persianObligationSnapshot !== readFileSync(path.join(root, 'public/data/persian-obligation-portfolios.csv'), 'utf8')) fail('Persian obligation immutable snapshot diverges from the canonical dataset');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {
@@ -940,4 +982,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${ironSmeltingExperiments.length} Iron fuel experiments, ${ironQualityExperiments.length} Iron quality samples, ${ironMobilizationCases.length} Iron mobilization cases, ${ironInstitutionCases.length} Iron production institutions, ${persianRoadSegments.length} Persian itinerary segments, ${persianRoadEvidence.length} Persian road evidence lenses, ${persianSatrapyCases.length} Persian satrapal portfolios, ${geo.features.length} boundary features.`);
+console.log(`Historical data validation passed: ${checked.length} files, ${sources.length} sources, ${datasets.length} datasets, ${claims.length} claims, ${rome.length} Roman force estimates, ${rivals.length} rival campaign observations, ${equipment.length} equipment-index rows, ${fiscalBudget.length} fiscal-budget rows, ${fiscalObservations.length} fiscal observations, ${collapseEvents.length} collapse events, ${africaEquivalents.length} African fiscal-equivalent rows, ${afterlives.length} Roman-afterlife rows, ${urukWriting.length} Uruk-writing rows, ${urukUrbanization.length} Uruk-urbanization rows, ${urukWater.length} Uruk-water rows, ${urukGrain.length} Uruk-grain rows, ${urukFragility.length} Uruk-fragility rows, ${cradles.length} cradles evidence-clock rows, ${cradleEcologies.length} cradles ecology rows, ${cradleSequences.length} cradles sequence rows, ${cradleCoordination.length} cradles coordination routes, ${cradleAfterlives.length} cradles afterlife pathways, ${bronzeNodes.length} Bronze network nodes, ${bronzeLinks.length} Bronze evidence links, ${bronzePalaceCircuits.length} Bronze palace circuits, ${bronzeChariotSystems.length} Bronze chariot records, ${bronzeMaritimeCases.length} Bronze maritime cases, ${bronzeMaritimeLinks.length} maritime associations, ${bronzeCollapseWindows.length} Bronze collapse windows, ${ironAdoptionWindows.length} Iron adoption windows, ${ironSmeltingExperiments.length} Iron fuel experiments, ${ironQualityExperiments.length} Iron quality samples, ${ironMobilizationCases.length} Iron mobilization cases, ${ironInstitutionCases.length} Iron production institutions, ${persianRoadSegments.length} Persian itinerary segments, ${persianRoadEvidence.length} Persian road evidence lenses, ${persianSatrapyCases.length} Persian satrapal portfolios, ${persianTributeDistricts.length} Persian tribute districts, ${persianObligationPortfolios.length} Persian obligation windows, ${geo.features.length} boundary features.`);

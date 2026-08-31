@@ -62,7 +62,7 @@ Reliability repair: the Rome map and military chart now load from an immutable, 
 
 Immediate project work:
 
-- Build Persia insight 03: compare tribute districts, local obligations, royal gifts, and negotiated extraction without one empire-wide tax rate.
+- Build Persia insight 04: compare coalition contingents, command, supply, and battlefield coordination without converting Herodotus's ethnographic catalogue into exact army composition.
 
 ## P0 — Page 02: Uruk and the first states — ready
 
@@ -114,7 +114,7 @@ when the evidence supports independent urban/state formation.
 
 1. **Distance became a relay problem:** live; Herodotus's six-segment itinerary, ninety-day traveler arithmetic, relay mechanism, and the regional Persepolis provisioning archive remain separate evidence classes with no kilometre conversion, route geometry, courier-duration estimate, or imperial-speed score.
 2. **A satrapy was an interface, not a copy:** live; five source-bounded provincial portfolios compare royal appointment, local partners, obligations, royal connection, and visible action without one autonomy, centralization, loyalty, tax, or control score.
-3. Tribute was a political system, not simply a tax rate.
+3. **Obligation was a portfolio, not a rate:** live; twenty reported districts and seven source-bounded obligation windows keep silver, gold dust, horses, grain, people, service, gifts, documents, and royal imagery separate without one tax rate or modern value.
 4. Imperial armies were coalitions of distinct peoples and military systems.
 5. Persian institutions outlasted dynasties and shaped successor empires.
 
@@ -178,6 +178,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-30 — Completed Persia insight 03, **Obligation was a portfolio, not a rate**. Herodotus's twenty reported districts remain a literary accounting model: nineteen silver assessments share one internal bar scale totaling 7,740 Babylonian talents, while India's 360 Euboic talents of gold dust stays outside it. Seven source-bounded windows then compare the silver schedule, Cilician silver plus horses and local cavalry support, Egyptian garrison grain, Indian gold dust, varied Babylonian documentary tax bases, frontier gifts on three calendars, and the Apadana's twenty-three delegations. Added five scholarly and primary source records, two public CSVs, one registered dataset, one registered claim, immutable client snapshots, a durable evidence audit, and automated guards against modern money, metal-weight conversion, per-capita burden, tax rates, revenue totals, wealth ranks, and treating tax districts as satrapies. Verified all twenty district rows, seven obligation selectors, the Cilician 140/360 allocation, India's separate unit, 7,740 silver total, exactly five outer tabs and one active panel, zero exact corrupt/error states, zero horizontal overflow at 1280 × 900 and 390 × 844, 44-pixel mobile mode controls, 58–66-pixel mobile insight controls, a clean browser console, 76 checked data files, 192 sources, 33 datasets, 28 claims, lint, the production build, and 90 byte-identical built assets. Next: compare Persian coalition contingents, command, supply, and battlefield coordination without turning Herodotus's ethnographic catalogue into exact army composition.
 
 - 2026-08-30 — Finished the site-wide OWID reading treatment requested for Key Insights. Rome, Uruk, Cradles, Bronze Age, Iron Age, and Persia keep exactly five clickable claim cards and mount one argument at a time in a text-left, visualization-right frame. The active argument now begins with its headline, follows with calm sans-serif explanatory prose, and removes the presentation-style number badge and red pull quote; the selector cards also drop their decorative numbering and become shorter, quieter controls. Methods and source detail remain collapsed below the argument. Verified all six routes at 1280 × 900 and 390 × 844, every third and fifth selector, exactly five outer tabs and one outer panel per page, a 434/730-pixel desktop copy/visual split where a live visual exists, 65–66-pixel mobile touch targets, headline-before-prose ordering, zero horizontal overflow, zero exact loading/404/`undefined`/`NaN` states, a clean browser console, 72 checked data files, 187 sources, 32 datasets, 27 claims, lint, the production build, and 86 byte-identical built assets. Next: compare Persian tribute districts, local obligations, royal gifts, and negotiated extraction without one empire-wide tax rate.
 

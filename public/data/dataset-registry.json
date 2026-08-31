@@ -327,5 +327,18 @@
     "source_key_field": "source_keys",
     "time_resolution": "five unlike administrative windows between 522 and 334 BCE rather than a continuous provincial series",
     "notes": "Top office local partners obligations royal connection visible action and inference limit remain separate. The dataset does not treat tribute districts as identical to satrapies or calculate autonomy centralization loyalty tax control population revenue or a universal provincial hierarchy."
+  },
+  {
+    "id": "persian-tribute-obligations",
+    "title": "Herodotus's twenty tribute districts and seven source-bounded obligation portfolios",
+    "paths": [
+      "/data/persian-tribute-districts.csv",
+      "/data/persian-obligation-portfolios.csv"
+    ],
+    "schema": "observation",
+    "evidence_type": "primary_literary_accounting_schedule_cuneiform_documentary_synthesis_and_royal_monumental_program",
+    "source_key_field": "source_keys",
+    "time_resolution": "twenty reported districts and seven unlike evidence windows from the early fifth through mid-fifth century BCE",
+    "notes": "Only the nineteen silver district rows share an internal Herodotean scale. Indian gold dust horses grain people services gifts cuneiform assessments and Apadana imagery remain unlike evidence. No modern value per-capita burden tax rate effective incidence or empire-wide revenue total is inferred."
   }
 ]
