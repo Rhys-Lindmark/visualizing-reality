@@ -1173,6 +1173,20 @@ if(indiaUrbanIndex.get('phase_1')?.quantitative_anchor!=='7 named fortified-site
 if(!/one large imperial framework/.test(indiaUrbanIndex.get('phase_2')?.quantitative_anchor??'')||!/multiple regional powers/.test(indiaUrbanIndex.get('phase_3')?.political_order??''))fail('India urban phases must preserve Mauryan integration followed by multiple regional powers');
 if(indiaUrbanRows.some(row=>sourceKeys(row.source_keys).length!==2))fail('Every India urban phase must cite both Sawant 2023 and Smith 2006');
 
+const indiaMauryaRows=csv('public/data/india/20260831-maurya1/mauryan-regional-relationships.csv');
+const indiaMauryaIndex=new Map();
+for(const[index,row]of indiaMauryaRows.entries()){
+  const context=`mauryan-regional-relationships.csv row ${index+2}`;
+  requireFields(row,['relation_id','relation_order','display_region','relation_title','political_relationship','administrative_instrument','inscriptional_evidence','named_places','quantitative_anchor','source_keys','limits'],context);numeric(row,['relation_order'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(indiaMauryaIndex.has(row.relation_id))fail(`${context} duplicates ${row.relation_id}`);indiaMauryaIndex.set(row.relation_id,row);
+  if(Object.keys(row).some(field=>/control_score|boundary_area|compliance_rate|province_count|state_capacity/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(indiaMauryaRows.length!==4||indiaMauryaIndex.size!==4)fail(`Mauryan relationship comparison requires four unique windows; found ${indiaMauryaRows.length}`);
+if(indiaMauryaIndex.get('court_core')?.quantitative_anchor!=='5-year and 3-year inspection cycles'||!/Pataliputra; Ujjain; Taxila/.test(indiaMauryaIndex.get('court_core')?.named_places??''))fail('Mauryan court window must preserve the five- and three-year inspection schedules and three dispatch centers');
+if(indiaMauryaIndex.get('regional_centers')?.quantitative_anchor!=='4 regional centers named in the synthesis')fail('Mauryan regional window must preserve four named centers without claiming a complete province list');
+if(!/unconquered border peoples/.test(indiaMauryaIndex.get('kalinga')?.inscriptional_evidence??'')||!/not evidence of annexation/.test(indiaMauryaIndex.get('neighbors')?.limits??''))fail('Mauryan frontier windows must separate Kalinga reassurance from independent neighbors');
+if(indiaMauryaRows.some(row=>sourceKeys(row.source_keys).length!==2))fail('Every Mauryan relationship must cite the edict translation and academic synthesis');
+
 const steppeAlpha=csv('public/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv');
 for(const[index,row]of steppeAlpha.entries()){
   const context=`begash-pastoral-sequence.csv row ${index+2}`;

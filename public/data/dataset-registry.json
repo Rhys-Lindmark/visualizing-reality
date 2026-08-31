@@ -633,5 +633,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "three broad and regionally asynchronous phases from 600 BCE through 300 CE",
     "notes": "Named sites polities and material features are illustrative examples rather than a complete census or one urbanization score."
+  },
+  {
+    "id": "mauryan-regional-relationships",
+    "title": "Four inscriptional windows onto Mauryan regional rule",
+    "path": "/data/india/20260831-maurya1/mauryan-regional-relationships.csv",
+    "schema": "observation",
+    "evidence_type": "primary_inscriptions_plus_academic_reference_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "selected third-century-BCE royal prescriptions and named administrative relationships",
+    "notes": "Edict locations, inspection schedules, regional centers, and named neighbors are not combined into a boundary, control score, or measure of compliance."
   }
 ]

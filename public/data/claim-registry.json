@@ -730,5 +730,16 @@
     "dataset_ids": ["early-historic-urban-phases"],
     "source_keys": ["SAWANT2023_EARLY_HISTORIC_URBANISM", "SMITH2006_SOUTH_ASIAN_CITIES"],
     "note": "The broad phases keep urban evidence and political integration distinct; they do not assign one cause to urban revival."
+  },
+  {
+    "id": "india-04-several-kinds-of-rule",
+    "page": "india",
+    "insight": 4,
+    "claim": "One Mauryan empire contained several kinds of rule.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_inscriptions_plus_academic_reference_synthesis",
+    "dataset_ids": ["mauryan-regional-relationships"],
+    "source_keys": ["THAPAR1997_ASOKA_EDICTS", "CHAKRAVARTI2014_MAURYAN_EMPIRE"],
+    "note": "Royal orders distinguish direct inspection, delegated centers, post-conquest Kalinga policy, and independent neighbors without producing a complete boundary or control-intensity score."
   }
 ]
