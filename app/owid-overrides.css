@@ -14,3 +14,112 @@
 .map-module .map-foot p:last-child {
   text-align: left;
 }
+
+/* OWID chart anatomy: headline, one useful subtitle, visual, source, note. */
+.viz-title {
+  min-height: 0;
+  padding: 18px 20px 16px;
+  display: block;
+}
+
+.viz-title > div {
+  gap: 5px;
+}
+
+.viz-title h4 {
+  order: 1;
+  font-size: 26px;
+  line-height: 1.08;
+}
+
+.viz-title span {
+  order: 2;
+  font-size: 11px;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.viz-title > small {
+  display: none;
+}
+
+.owid-chart-footer {
+  position: relative;
+  border-top: 1px solid var(--line);
+  padding: 13px 20px 15px;
+  color: #56636c;
+  font: 400 10px/1.45 var(--font-sans);
+}
+
+.owid-chart-footer p {
+  margin: 0;
+}
+
+.owid-chart-footer b {
+  color: var(--ink);
+}
+
+.owid-chart-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.owid-chart-credit {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.owid-chart-credit p:last-child {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.owid-chart-note {
+  max-width: calc(100% - 145px);
+  margin-top: 5px !important;
+}
+
+.owid-chart-download {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  font-weight: 650;
+}
+
+.capacity-readout {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.afterlife-readout {
+  grid-template-columns: 1.05fr 1.8fr;
+}
+
+.afterlife-thesis {
+  grid-template-columns: auto 1fr;
+}
+
+@media (max-width: 700px) {
+  .owid-chart-credit {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .owid-chart-credit p:last-child {
+    text-align: left;
+  }
+
+  .owid-chart-note {
+    max-width: none;
+    margin-top: 7px !important;
+  }
+
+  .owid-chart-download {
+    position: static;
+    display: inline-block;
+    margin-top: 8px;
+  }
+}
