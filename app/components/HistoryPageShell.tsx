@@ -31,6 +31,9 @@ const relatedByTitle:Record<string,Array<{href:string;label:string}>>={
   'Greek City-States':[{href:'/persia',label:'Persia and territorial empire'},{href:'/rome',label:'Rome'},{href:'/hellenistic-kingdoms',label:'Hellenistic Kingdoms'}],
   'Hellenistic Kingdoms':[{href:'/greek-city-states',label:'Greek City-States'},{href:'/persia',label:'Persia and territorial empire'},{href:'/rome',label:'Rome'}],
   'Silk Roads':[{href:'/steppe',label:'The Steppe'},{href:'/qin-han',label:'Qin and Han China'},{href:'/caliphates',label:'The Caliphates'}],
+  'Medieval Europe':[{href:'/christianity',label:'Christianity'},{href:'/rome',label:'Rome'},{href:'/caliphates',label:'The Caliphates'}],
+  'African States and Trade':[{href:'/caliphates',label:'The Caliphates'},{href:'/silk-roads',label:'Silk Roads'},{href:'/southeast-asia',label:'Southeast Asian Mandalas'}],
+  'Southeast Asian Mandalas':[{href:'/silk-roads',label:'Silk Roads'},{href:'/india',label:'India from cities to empires'},{href:'/qin-han',label:'Qin and Han China'}],
 };
 
 export default function HistoryPageShell({ title, published, introduction, insightLabels, children, methods }: HistoryPageShellProps) {

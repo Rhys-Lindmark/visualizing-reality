@@ -208,11 +208,32 @@ when the evidence supports independent urban/state formation.
 4. **Religions traveled by translation and institutions—not cargo alone** — beta candidate; compare monasteries, translators, pilgrims, scripts, and patronage.
 5. **Sea routes carried more bulk than overland caravans** — beta candidate; build a bounded transport-and-goods comparison rather than an unsourced volume model.
 
+## P2 — Page 15: Medieval Europe — alpha live
+
+1. **Manuscript production accelerated centuries before printing** — alpha live; ten published century totals retain the modeled Western European sequence and do not turn copies into surviving books, readers, literacy, or annual observations.
+2. **Towns recovered collective rights through charters** — beta candidate; compare rights to tax, judge, trade, defend, and govern without treating every charter as sovereignty.
+3. **Power was layered—not one feudal pyramid** — beta candidate; compare lordship, kinship, office, property, and negotiated allegiance across regions.
+4. **The church connected polities that no king controlled** — beta candidate; compare dioceses, monasteries, canon law, schools, and correspondence.
+5. **War and taxation rebuilt territorial states** — beta candidate; connect debt, taxation, representation, records, and military competition with bounded state cases.
+
+## P2 — Page 16: African states and trade — alpha live
+
+1. **West African rulers turned trade corridors into revenue** — alpha live; al-Bakri’s reported Ghanaian dues retain dinars, mithqals, goods, and the nugget rule as unlike observations rather than a fictional total budget.
+2. **Nile states linked Mediterranean and African worlds** — beta candidate; compare Nubian, Ethiopian, and Egyptian river, highland, Red Sea, and interior connections.
+3. **Swahili cities were African ports in an Indian Ocean system** — beta candidate; join archaeology, language, architecture, and imports without reducing urbanism to foreign contact.
+4. **Great Zimbabwe converted cattle, gold, and distance into authority** — beta candidate; connect plateau settlement, tribute, stone building, and coastward exchange.
+5. **African political scale followed more than one path** — beta candidate; compare cities, courts, age systems, clans, ritual authority, trade, and armies without a continent-wide ladder.
+
+## P2 — Page 17: Southeast Asian mandalas — alpha live
+
+1. **Early ports manufactured imported technologies locally** — alpha live; five Khao Sam Kaeo industry lenses show workshop production and technological analogies without output or ethnicity scores.
+2. **Political authority radiated from centers instead of stopping at borders** — beta candidate; test tribute, marriage, ritual status, and allegiance across overlapping centers.
+3. **River basins linked upland products to coastal exchange** — beta candidate; compare upstream-downstream product and institutional routes.
+4. **Temples stored labor and legitimacy—not only belief** — beta candidate; compare labor, land, storage, inscriptions, pilgrimage, and construction.
+5. **Maritime centers survived by shifting alliances and routes** — beta candidate; trace relocation, competition, and political rewiring as sea routes changed.
+
 ## P2 — Later pre-industrial pages — next alpha queue
 
-- Medieval Europe: fragmentation, lordship, church, towns, and state rebuilding.
-- African states and trade systems: Nile, Sahel, Horn, Great Lakes, and southern Africa.
-- Southeast Asian mandalas and maritime trade.
 - Mesoamerican cities, states, and ecological engineering.
 - Andean vertical economies and imperial logistics.
 - Mongol Eurasia: conquest, relay networks, trade, and epidemiological exchange.
@@ -225,6 +246,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed the third breadth-first alpha batch: Medieval Europe, African States and Trade, and Southeast Asian Mandalas. Each route has five affirmative claims, one source-bounded opening visual, and four explicit beta targets. The live evidence reproduces Buringh and van Zanden’s ten modeled Western European manuscript-production totals; preserves al-Bakri’s reported Ghanaian trade dues and gold-nugget rule without combining dinars and mithqals; and records five Khao Sam Kaeo workshop industries without converting technological analogies into output or ethnicity scores. Added six scholarly or primary source records, three public CSVs, three datasets, three claims, atlas and related-topic links, release smoke coverage, and automated anchor checks. Next: open Mesoamerican cities and states, Andean vertical economies, and Mongol Eurasia with the same 80/20 alpha contract.
 
 - 2026-08-31 — Completed the second breadth-first alpha batch: Greek City-States, Hellenistic Kingdoms, and Silk Roads. Each route now has an introduction, five affirmative claim selectors, one live source-bounded visual, and four explicit beta targets. The live evidence shows the small territorial scale of most classified poleis; the organizational diversity of the Ptolemaic and Seleucid armies at Raphia while preserving the disputed Egyptian/phalanx total; and the coexistence of textiles, grain, and coins as money at Turfan from 273 to 796 CE. Added four new scholarly or primary-source records while reusing the existing Oxford Raphia reference, three public CSVs, three datasets, three claims, atlas and related-topic links, release smoke coverage, and automated anchor checks. Verified 97 historical data files, 257 sources, 51 datasets, 42 claims, the immutable Rome client contract, lint, the production build, 117 byte-identical built assets, all fifteen selectors, exact selector/headline parity, one active panel, live downloads, no corrupt state, zero desktop or 390 × 844 overflow, 104-pixel mobile controls, and a clean browser console. Next: open Medieval Europe, African states and trade systems, and Southeast Asian mandalas with the same 80/20 alpha contract.
 

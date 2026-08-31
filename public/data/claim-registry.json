@@ -609,5 +609,38 @@
     "dataset_ids": ["turfan-money-forms"],
     "source_keys": ["HANSEN_RONG2013_TURFAN"],
     "note": "The evidence establishes coexistence in one oasis but not market shares total trade values or a universal Silk Road currency system."
+  },
+  {
+    "id": "medieval-europe-01-manuscripts-before-print",
+    "page": "medieval-europe",
+    "insight": 1,
+    "claim": "Modeled Western European manuscript production accelerated centuries before print.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_bibliometric_reconstruction",
+    "dataset_ids": ["medieval-manuscript-production"],
+    "source_keys": ["BURINGH_VANZANDEN2009_BOOKS"],
+    "note": "The sequence is a loss-corrected production model by century and not a series of surviving books readers literacy or annual observations."
+  },
+  {
+    "id": "african-states-01-corridor-revenue",
+    "page": "african-states",
+    "insight": 1,
+    "claim": "Al-Bakri's account shows Ghana's court turning control of trade interfaces into reported dues and a claim on rare gold nuggets.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_written_account_with_scholarly_interpretation",
+    "dataset_ids": ["ghana-trade-dues"],
+    "source_keys": ["ALBAKRI_GHANA_TRADE","LEVTZION1973_GHANA_MALI"],
+    "note": "The rules are reported rather than audited; source units and unlike goods remain separate and no total revenue is calculated."
+  },
+  {
+    "id": "southeast-asia-01-ports-as-workshops",
+    "page": "southeast-asia",
+    "insight": 1,
+    "claim": "Khao Sam Kaeo was a production center where imported materials and technological traditions were worked locally.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_archaeological_and_technological_synthesis",
+    "dataset_ids": ["khao-sam-kaeo-industries"],
+    "source_keys": ["LANKTON_ETAL2006_KSK_GLASS","MURILLO_BARROSO_ETAL2010_KSK_METAL","BELLINA2018_TRADE_POLITIES"],
+    "note": "One port does not represent every Southeast Asian polity; industry categories are not output scores and technological analogies are not artisan ethnicity."
   }
 ]

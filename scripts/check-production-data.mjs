@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260831-next-alphas1';
+const releaseId='20260831-world-alphas1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -17,6 +17,9 @@ const routes=new Map([
   ['/greek-city-states','<title>Greek City-States — How Everything Evolved</title>'],
   ['/hellenistic-kingdoms','<title>Hellenistic Kingdoms — How Everything Evolved</title>'],
   ['/silk-roads','<title>Silk Roads — How Everything Evolved</title>'],
+  ['/medieval-europe','<title>Medieval Europe — How Everything Evolved</title>'],
+  ['/african-states','<title>African States and Trade — How Everything Evolved</title>'],
+  ['/southeast-asia','<title>Southeast Asian Mandalas — How Everything Evolved</title>'],
 ]);
 // Every asset fetched by a live visualization. A release is unhealthy when even
 // one URL returns the app's HTML 404 shell instead of its data payload.
@@ -76,6 +79,9 @@ const assets=[
   ['csv','/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv'],
   ['csv','/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv'],
   ['csv','/data/silk-roads/20260831-alpha1/turfan-money-forms.csv'],
+  ['csv','/data/medieval-europe/20260831-alpha1/manuscript-production.csv'],
+  ['csv','/data/african-states/20260831-alpha1/ghana-trade-dues.csv'],
+  ['csv','/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],

@@ -523,5 +523,35 @@
     "source_key_field": "source_keys",
     "time_resolution": "documentary evidence spanning 273 to 796 CE",
     "notes": "Coexistence does not measure market shares total trade values or use across every Silk Road economy."
+  },
+  {
+    "id": "medieval-manuscript-production",
+    "title": "Modeled Western European manuscript production by century",
+    "path": "/data/medieval-europe/20260831-alpha1/manuscript-production.csv",
+    "schema": "modeled-series",
+    "evidence_type": "peer_reviewed_bibliometric_reconstruction",
+    "source_key_field": "source_keys",
+    "time_resolution": "ten century totals from the sixth through fifteenth centuries",
+    "notes": "Estimated copies produced are corrected from surviving manuscripts and are not surviving-book counts readership literacy or annual observations."
+  },
+  {
+    "id": "ghana-trade-dues",
+    "title": "Reported Ghanaian trade dues and gold-nugget rule in al-Bakri",
+    "path": "/data/african-states/20260831-alpha1/ghana-trade-dues.csv",
+    "schema": "observation",
+    "evidence_type": "primary_written_account_with_scholarly_interpretation",
+    "source_key_field": "source_keys",
+    "time_resolution": "one eleventh-century written account of reported rules",
+    "notes": "Reported dues are not observed receipts or volumes. Dinars mithqals goods and the nugget rule are kept unlike and unsummed."
+  },
+  {
+    "id": "khao-sam-kaeo-industries",
+    "title": "Five archaeological industry lenses at Khao Sam Kaeo",
+    "path": "/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_archaeological_and_technological_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "one port settlement broadly dated to the fourth through second centuries BCE",
+    "notes": "Industry categories show local production evidence and technological analogies rather than comparable output workforce or artisan ethnicity."
   }
 ]

@@ -1204,6 +1204,31 @@ for(const[index,row]of turfanMoney.entries()){
 }
 if(turfanMoney.length!==3||new Set(turfanMoney.map(row=>row.form)).size!==3||turfanMoney.some(row=>Number(row.year_start)!==273||Number(row.year_end)!==796))fail('Silk Roads alpha requires textiles grain and coins bounded to 273–796 CE');
 
+const medievalManuscripts=csv('public/data/medieval-europe/20260831-alpha1/manuscript-production.csv');
+for(const[index,row]of medievalManuscripts.entries()){
+  const context=`manuscript-production.csv row ${index+2}`;
+  requireFields(row,['century','year_start','year_end','estimated_manuscripts','region','source_keys','limits'],context);
+  numeric(row,['century','year_start','year_end','estimated_manuscripts'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(medievalManuscripts.length!==10||Number(medievalManuscripts[0]?.estimated_manuscripts)!==13552||Number(medievalManuscripts.at(-1)?.estimated_manuscripts)!==4999161)fail('Medieval Europe alpha must preserve all ten published century totals and the 13,552 to 4,999,161 endpoints');
+
+const ghanaDues=csv('public/data/african-states/20260831-alpha1/ghana-trade-dues.csv');
+for(const[index,row]of ghanaDues.entries()){
+  const context=`ghana-trade-dues.csv row ${index+2}`;
+  requireFields(row,['observation_id','good','direction','unit','rule_type','source_keys','limits'],context);
+  if(row.reported_due)numeric(row,['reported_due'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+const saltIn=ghanaDues.find(row=>row.observation_id==='salt_in');
+const saltOut=ghanaDues.find(row=>row.observation_id==='salt_out');
+if(ghanaDues.length!==5||Number(saltIn?.reported_due)!==1||Number(saltOut?.reported_due)!==2||saltIn?.unit!=='gold dinar'||saltOut?.unit!=='gold dinars')fail('African states alpha must preserve the one-dinar entering and two-dinar leaving salt dues without unit conversion');
+
+const khaoIndustries=csv('public/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv');
+for(const[index,row]of khaoIndustries.entries()){
+  const context=`khao-sam-kaeo-industries.csv row ${index+2}`;
+  requireFields(row,['industry','evidence','technology_connection','measure','source_keys','limits'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(khaoIndustries.length!==5||new Set(khaoIndustries.map(row=>row.industry)).size!==5||!khaoIndustries.some(row=>row.industry==='Glass ornaments'&&/over 1000 samples/i.test(row.measure))||!khaoIndustries.some(row=>row.industry==='Copper alloys'&&/^3 technological traditions$/i.test(row.measure)))fail('Southeast Asia alpha must preserve five industry lenses plus the bounded glass and copper-alloy anchors');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {

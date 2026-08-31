@@ -20,9 +20,12 @@ const pages: AtlasPage[] = [
   { number:'12', title:'Greek City-States', years:'800–338 BCE', era:'Classical', region:'Mediterranean', system:'States', status:'draft', progress:'1 of 5 live', thesis:'Small political territories made citizenship intensely local while leagues and empires repeatedly tested the limits of the polis.', href:'/greek-city-states' },
   { number:'13', title:'Hellenistic Kingdoms', years:'323–30 BCE', era:'Classical', region:'Mediterranean', system:'War', status:'draft', progress:'1 of 5 live', thesis:'Alexander’s successors built royal systems from mixed armies, capitals, settlements, money, and durable local institutions.', href:'/hellenistic-kingdoms' },
   { number:'14', title:'Silk Roads', years:'200 BCE–1500 CE', era:'Long duration', region:'Eurasia', system:'Trade', status:'draft', progress:'1 of 5 live', thesis:'Changing chains of oasis economies, merchants, states, religious institutions, and sea lanes connected Eurasia.', href:'/silk-roads' },
+  { number:'15', title:'Medieval Europe', years:'500–1500 CE', era:'Medieval', region:'Europe', system:'States', status:'draft', progress:'1 of 5 live', thesis:'Layered power coexisted with expanding manuscripts, towns, church institutions, markets, and territorial states.', href:'/medieval-europe' },
+  { number:'16', title:'African States and Trade', years:'300–1500 CE', era:'Medieval', region:'Africa', system:'Trade', status:'draft', progress:'1 of 5 live', thesis:'River valleys, highlands, cattle landscapes, ports, mines, and corridors produced many routes to political scale.', href:'/african-states' },
+  { number:'17', title:'Southeast Asian Mandalas', years:'500 BCE–1500 CE', era:'Long duration', region:'Southeast Asia', system:'Trade', status:'draft', progress:'1 of 5 live', thesis:'Workshop ports, river systems, temples, and overlapping centers made authority mobile across a maritime region.', href:'/southeast-asia' },
 ];
 
-const filterValues = { era:['All','First cities','Bronze Age','Iron Age','Classical','Late Antiquity','Medieval','Long duration'], region:['All','Global','Mesopotamia','Mediterranean','Eurasia','East Asia','South Asia','Afro-Eurasia'], system:['All','States','Ecology','Trade','Technology','War','Belief'] } as const;
+const filterValues = { era:['All','First cities','Bronze Age','Iron Age','Classical','Late Antiquity','Medieval','Long duration'], region:['All','Global','Mesopotamia','Mediterranean','Eurasia','East Asia','South Asia','Afro-Eurasia','Europe','Africa','Southeast Asia'], system:['All','States','Ecology','Trade','Technology','War','Belief'] } as const;
 
 export default function AtlasExplorer(){
   const [dimension,setDimension]=useState<keyof typeof filterValues>('era');

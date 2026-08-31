@@ -1,0 +1,6 @@
+observation_id,good,direction,reported_due,unit,rule_type,source_keys,limits
+salt_in,salt,entering,1,gold dinar,trade due,ALBAKRI_GHANA_TRADE;LEVTZION1973_GHANA_MALI,Reported rule rather than audited collection or trade volume
+salt_out,salt,leaving,2,gold dinars,trade due,ALBAKRI_GHANA_TRADE;LEVTZION1973_GHANA_MALI,Reported rule rather than audited collection or trade volume
+copper,copper,unspecified,5,mithqals,trade due,ALBAKRI_GHANA_TRADE;LEVTZION1973_GHANA_MALI,Dinars and mithqals are not combined
+other_goods,other merchandise,unspecified,10,mithqals,trade due,ALBAKRI_GHANA_TRADE;LEVTZION1973_GHANA_MALI,Goods category is broad and value or volume is unknown
+gold_nuggets,rare gold nuggets,production,,royal reservation,resource rule,ALBAKRI_GHANA_TRADE;LEVTZION1973_GHANA_MALI,Gold dust remained available and this is not a quantified monopoly share
