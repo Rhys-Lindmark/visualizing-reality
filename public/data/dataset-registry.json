@@ -80,6 +80,16 @@
     "notes": "Each rate retains its own payer, base, geography, destination, and unit. The values are not combined into an empire-wide tax rate or a purchasing-power series."
   },
   {
+    "id": "rome-western-fall-mechanism",
+    "title": "Western Roman fiscal–military feedback evidence",
+    "path": "/data/rome/20260831-fall1/rome-fall-mechanism.csv",
+    "schema": "observation",
+    "evidence_type": "historical_mechanism_with_bounded_proxies",
+    "source_key_field": "source_keys",
+    "time_resolution": "seven selected mechanism anchors from 407 to 476 CE grouped by causal stage rather than plotted as a continuous chronology",
+    "notes": "The rows expose the proposed chain from internal war through territorial and revenue loss to constrained recovery. They do not assign causal weights. The 445 assessment is local, the 58,000 figure is a fiscal equivalent, and 476 ends the western court only."
+  },
+  {
     "id": "western-roman-collapse-events",
     "title": "Selected western Roman fiscal-political shocks and recoveries",
     "path": "/data/western-roman-collapse-events.csv",

@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260831-rome-thin-state1';
+const releaseId='20260831-rome-fall1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -22,6 +22,7 @@ const assets=[
   ['csv','/data/rome/20260830-client4/roman-military-capacity.csv'],
   ['csv','/data/rome/20260830-client4/comparison-forces.csv'],
   ['csv','/data/rome/20260831-thin-state1/rome-han-administration.csv'],
+  ['csv','/data/rome/20260831-fall1/rome-fall-mechanism.csv'],
   ['csv','/data/roman-imperial-budget.csv'],
   ['csv','/data/roman-fiscal-observations.csv'],
   ['csv','/data/western-roman-collapse-events.csv'],

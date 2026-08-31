@@ -1,5 +1,5 @@
 {
-  "release_id": "20260831-rome-thin-state1",
+  "release_id": "20260831-rome-fall1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -30,6 +30,7 @@
     "/data/qin-han/20260830-logistics1/qin-logistics-ecology.csv",
     "/data/rome-territorial-growth.csv",
     "/data/rome/20260830-client4/rome-territorial-growth.csv",
-    "/data/rome/20260831-thin-state1/rome-han-administration.csv"
+    "/data/rome/20260831-thin-state1/rome-han-administration.csv",
+    "/data/rome/20260831-fall1/rome-fall-mechanism.csv"
   ]
 }

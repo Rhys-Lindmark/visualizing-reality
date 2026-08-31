@@ -1,0 +1,31 @@
+'use client';
+
+import { useEffect, useMemo, useState } from 'react';
+import ChartFooter from './components/ChartFooter';
+import { fetchClientText } from './lib/clientAsset';
+
+type EvidenceRow={stage:string;stage_order:number;evidence_order:number;date_label:string;evidence:string;measure_label:string;measure_value:number|null;measure_relation:string;source_keys:string;note:string};
+type FiscalRow={region_group:string;loss_status:string;infantry_equivalent:number;cavalry_equivalent:number;cavalry_relation:string};
+const MECHANISM_URL='/data/rome/20260831-fall1/rome-fall-mechanism.csv';
+
+function parseCSV(text:string):Record<string,string>[]{const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;for(let index=0;index<text.length;index+=1){const character=text[index];if(character==='"'&&quoted&&text[index+1]==='"'){cell+='"';index+=1;}else if(character==='"')quoted=!quoted;else if(character===','&&!quoted){row.push(cell);cell='';}else if((character==='\n'||character==='\r')&&!quoted){if(character==='\r'&&text[index+1]==='\n')index+=1;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=character;}if(cell||row.length){row.push(cell);rows.push(row);}const[headers,...body]=rows;return body.map(values=>Object.fromEntries(headers.map((header,index)=>[header,values[index]])));}
+function mechanismRows(text:string):EvidenceRow[]{return parseCSV(text).map(row=>({...row,stage_order:Number(row.stage_order),evidence_order:Number(row.evidence_order),measure_value:row.measure_value?Number(row.measure_value):null}) as EvidenceRow);}
+function fiscalRows(text:string):FiscalRow[]{return parseCSV(text).map(row=>({...row,infantry_equivalent:Number(row.infantry_equivalent),cavalry_equivalent:Number(row.cavalry_equivalent)}) as FiscalRow);}
+
+export default function WesternFallMechanism(){
+  const[rows,setRows]=useState<EvidenceRow[]>([]);const[fiscal,setFiscal]=useState<FiscalRow[]>([]);const[view,setView]=useState<'mechanism'|'africa'>('mechanism');const[metric,setMetric]=useState<'infantry'|'cavalry'>('infantry');const[error,setError]=useState('');
+  useEffect(()=>{const controller=new AbortController();Promise.all([fetchClientText(`${MECHANISM_URL}?v=20260831-fall1`,{signal:controller.signal,label:'Western fall mechanism'}),fetchClientText('/data/africa-fiscal-equivalents.csv?v=20260829-collapse1',{signal:controller.signal,label:'Africa fiscal model'})]).then(([mechanismText,fiscalText])=>{const parsed=mechanismRows(mechanismText);if(parsed.length!==7||new Set(parsed.map(row=>row.stage)).size!==4)throw new Error('The causal evidence chain was incomplete.');setRows(parsed);setFiscal(fiscalRows(fiscalText));}).catch(reason=>{if(!controller.signal.aborted)setError(reason instanceof Error?reason.message:'The fall mechanism could not be loaded.');});return()=>controller.abort();},[]);
+  const stages=useMemo(()=>[...new Map(rows.sort((a,b)=>a.stage_order-b.stage_order).map(row=>[row.stage,row])).keys()],[rows]);
+  const value=(row:FiscalRow)=>metric==='infantry'?row.infantry_equivalent:row.cavalry_equivalent;const total=fiscal.reduce((sum,row)=>sum+value(row),0);const maximum=metric==='infantry'?60000:32000;
+  return <div className="western-fall-mechanism">
+    <header><span>POLITICAL COMPETITION → REVENUE LOSS → MILITARY CONSTRAINT</span><h4>The West fell when war stripped away the taxes that paid its armies</h4><p>Invasions mattered because civil wars and territorial losses turned military pressure into a self-reinforcing fiscal crisis.</p></header>
+    <nav aria-label="Choose a western fall view"><button type="button" className={view==='mechanism'?'active':''} onClick={()=>setView('mechanism')}>Causal mechanism</button><button type="button" className={view==='africa'?'active':''} onClick={()=>setView('africa')}>The African shock</button></nav>
+    {error?<div className="data-state error" role="alert"><b>The western fall evidence did not load</b><p>{error}</p></div>:view==='mechanism'?<div className="fall-chain">{stages.map((stage,index)=><div className="fall-chain-step" key={stage}><article><span>0{index+1}</span><h5>{stage}</h5>{rows.filter(row=>row.stage===stage).map(row=><div key={`${row.date_label}-${row.evidence_order}`}><b>{row.date_label}</b><p>{row.evidence}</p>{row.measure_value!==null&&<strong>{row.measure_relation==='approximately'?'≈ ':''}{row.measure_value.toLocaleString()}{row.measure_label==='remaining assessment'?'% of former assessment':row.measure_label==='lost-revenue equivalent'?' infantry-equivalent':row.measure_label==='failed recovery attempts'?' attempts':''}</strong>}</div>)}</article>{index<stages.length-1&&<i aria-hidden="true">→</i>}</div>)}</div>:<div className="fall-africa">
+      <div className="fall-africa-head"><div><span>LOST REVENUE, EXPRESSED AS ANNUAL MAINTENANCE</span><h5>What the African tax base could have funded</h5></div><div><button type="button" className={metric==='infantry'?'active':''} onClick={()=>setMetric('infantry')}>Infantry</button><button type="button" className={metric==='cavalry'?'active':''} onClick={()=>setMetric('cavalry')}>Cavalry</button></div></div>
+      <div className="fall-africa-total"><span>Combined equivalent</span><b>{metric==='cavalry'?'more than ':''}{total.toLocaleString()}</b><small>{metric} soldier-years</small></div>
+      <div className="fall-africa-bars">{fiscal.map((row,index)=><article key={row.region_group}><div><b>{row.region_group}</b><span>{row.loss_status}</span></div><i><em style={{width:`${value(row)/maximum*100}%`,background:index?'#bd1f2e':'#d6a34a'}} /></i><strong>{metric==='cavalry'&&row.cavalry_relation==='lower_bound'?'> ':''}{value(row).toLocaleString()}</strong></article>)}</div>
+      <div className="fall-africa-note"><b>This is a revenue model, not a disappearing-army count.</b><p>Heather converts estimated lost revenues using Elton&apos;s annual maintenance costs. It shows why Carthage mattered to recovery; it does not say 58,000 observed soldiers vanished in 439.</p></div>
+    </div>}
+    <ChartFooter source="Heather; Halsall; Valentinian III, Novel XIII; Devereaux" note="The chain identifies a fiscal–military mechanism, not causal percentages. The 445 one-eighth assessment applies only to two named provinces; 476 ended the western court, not the eastern Roman state." dataHref={MECHANISM_URL}/>
+  </div>;
+}

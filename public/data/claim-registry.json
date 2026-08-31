@@ -36,12 +36,12 @@
     "id": "rome-04-western-collapse",
     "page": "rome",
     "insight": 4,
-    "claim": "The western court lost taxable territory while civil wars and external threats kept demanding armies; the seizure of the richest African provinces made recovery much harder, while the Roman state continued in the East.",
+    "claim": "The western court fell when civil wars and invasions stripped away the taxable provinces needed to rebuild Roman armies, turning military pressure into a self-reinforcing fiscal crisis.",
     "status": "modeled_argument",
-    "evidence_type": "historical_chronology_and_published_model",
-    "dataset_ids": ["western-roman-collapse-events", "africa-fiscal-equivalents"],
-    "source_keys": ["HEATHER2005", "ELTON1996", "ACOU_SAVING_EMPIRE", "NOV_VAL_13"],
-    "note": "The chronology does not assign causal scores. Heather's Africa calculations are revenue-to-maintenance equivalents, not observed headcount losses. Novel XIII's one-eighth assessment applies only to Numidia and Mauretania Sitifensis. The 476 endpoint marks the western imperial office, not the end of the eastern Roman state."
+    "evidence_type": "historical_mechanism_and_published_model",
+    "dataset_ids": ["rome-western-fall-mechanism", "africa-fiscal-equivalents"],
+    "source_keys": ["HEATHER2005", "ELTON1996", "ACOU_SAVING_EMPIRE", "NOV_VAL_13", "HALSALL2012_ROMAN_WEST", "LACEY2022_STRATEGY"],
+    "note": "The causal chain identifies a fiscal–military feedback rather than assigning causal percentages. Heather's Africa calculations are revenue-to-maintenance equivalents, not observed headcount losses. Novel XIII's one-eighth assessment applies only to Numidia and Mauretania Sitifensis. The 476 endpoint marks the western imperial office, not the end of the eastern Roman state."
   },
   {
     "id": "rome-05-afterlives",

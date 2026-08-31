@@ -157,6 +157,25 @@ for (const measure of ['monthly_grain_allotment', 'subsidized_grain_price', 'sic
 const payYears = fiscalObservations.filter(row => row.series === 'legionary_pay').map(row => Number(row.year));
 if (payYears.some(year => year > 197)) fail('Legionary pay series extends beyond the defensible 197 CE cutoff');
 
+const fallMechanism = csv('public/data/rome/20260831-fall1/rome-fall-mechanism.csv');
+if (fallMechanism.length !== 7) fail(`Expected seven western-fall mechanism anchors, found ${fallMechanism.length}`);
+const fallStages = new Set();
+for (const [index, row] of fallMechanism.entries()) {
+  const context = `rome-fall-mechanism.csv row ${index + 2}`;
+  requireFields(row, ['stage', 'stage_order', 'evidence_order', 'date_label', 'evidence', 'measure_label', 'source_keys', 'note'], context);
+  numeric(row, ['stage_order', 'evidence_order'], context);
+  if (row.measure_value) numeric(row, ['measure_value'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+  fallStages.add(row.stage);
+}
+if (fallStages.size !== 4) fail(`Expected four western-fall causal stages, found ${fallStages.size}`);
+const fallAssessment = fallMechanism.find(row => row.measure_label === 'remaining assessment');
+if (!fallAssessment || Number(fallAssessment.measure_value) !== 12.5 || !fallAssessment.note.includes('Numidia and Mauretania Sitifensis')) fail('Western-fall chain must keep the 445 one-eighth assessment local to its two named provinces');
+const fallEquivalent = fallMechanism.find(row => row.measure_label === 'lost-revenue equivalent');
+if (!fallEquivalent || Number(fallEquivalent.measure_value) !== 58000 || !fallEquivalent.note.includes('not an observed headcount')) fail('Western-fall chain must preserve the 58,000 infantry fiscal equivalent and anti-headcount limit');
+const fallRecoveries = fallMechanism.find(row => row.measure_label === 'failed recovery attempts');
+if (!fallRecoveries || Number(fallRecoveries.measure_value) !== 2) fail('Western-fall chain must preserve the two failed African recovery attempts');
+
 const collapseEvents = csv('public/data/western-roman-collapse-events.csv');
 const collapseYears = new Set();
 const allowedEventTypes = new Set(['political division', 'external pressure', 'civil war', 'capital shock', 'fiscal workaround', 'territorial loss', 'territorial settlement', 'fiscal evidence', 'failed recovery', 'political ending']);
