@@ -708,5 +708,16 @@
     "dataset_ids": ["urban-subsistence-ratios"],
     "source_keys": ["ALLEN_MURPHY_SCHNEIDER2012_WAGES"],
     "note": "Selected city and occupation ratios are not national incomes or proof of a single divergence date."
+  },
+  {
+    "id": "india-02-regional-crop-calendars",
+    "page": "india",
+    "insight": 2,
+    "claim": "Indus farmers answered rainfall risk with different crop calendars.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_archaeobotanical_synthesis",
+    "dataset_ids": ["indus-cropping-strategies"],
+    "source_keys": ["BATES_CHOI2023_INDUS_AGRICULTURE"],
+    "note": "Crop assemblages document regional strategies but are not acreage output yield diets or proof that diversity alone produced resilience."
   }
 ]

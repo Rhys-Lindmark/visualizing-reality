@@ -1144,6 +1144,21 @@ for(const[index,row]of indusMonumentRows.entries()){
 if(indusMonumentRows.length!==4||indusMonumentIndex.size!==4)fail(`Indus monumental-ruler comparison requires four unique categories; found ${indusMonumentRows.length}`);
 for(const id of ['palaces','royal_tombs','large_temples','ruler_monuments'])if(!indusMonumentIndex.has(id))fail(`Indus monumental-ruler evidence is missing ${id}`);
 
+const indusCropRows=csv('public/data/india/20260831-monsoon1/indus-cropping-strategies.csv');
+const indusCropIndex=new Map();
+for(const[index,row]of indusCropRows.entries()){
+  const context=`indus-cropping-strategies.csv row ${index+2}`;
+  requireFields(row,['observation_id','region','site','phase','season_strategy','interpretation','source_keys','limits'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(indusCropIndex.has(row.observation_id))fail(`${context} duplicates ${row.observation_id}`);indusCropIndex.set(row.observation_id,row);
+  if(row.numeric_value){numeric(row,['numeric_value'],context);if(!row.numeric_measure)fail(`${context} has a value without a measure`);}
+  if(Object.keys(row).some(field=>/yield|acreage|output|diet_share|resilience_score|state_capacity/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(indusCropRows.length!==7||indusCropIndex.size!==7)fail(`Indus crop-calendar comparison requires seven unique observations; found ${indusCropRows.length}`);
+if(indusCropIndex.get('harappa_all')?.numeric_value!=='7'||!/20%/.test(indusCropIndex.get('harappa_all')?.limits??''))fail('Harappa must preserve the seven-percent millet maximum and incomplete-publication limit');
+if(indusCropIndex.get('khirsara_early')?.numeric_value!=='90'||indusCropIndex.get('khirsara_harappan')?.numeric_value!=='49')fail('Khirsara must preserve the published ninety- and forty-nine-percent barley anchors');
+if(indusCropRows.filter(row=>row.site==='Masudpur VII').length!==3)fail('Masudpur VII must preserve all three phase observations');
+if(indusCropRows.some(row=>row.source_keys!=='BATES_CHOI2023_INDUS_AGRICULTURE'))fail('Every Indus crop-calendar row must cite Bates and Choi 2023');
+
 const steppeAlpha=csv('public/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv');
 for(const[index,row]of steppeAlpha.entries()){
   const context=`begash-pastoral-sequence.csv row ${index+2}`;

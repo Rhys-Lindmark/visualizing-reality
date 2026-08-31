@@ -613,5 +613,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "two half-century averages per city from 1700 through 1799",
     "notes": "Ratios depend on a bare-bones family basket and full-employment assumptions and are not citywide or national median incomes."
+  },
+  {
+    "id": "indus-cropping-strategies",
+    "title": "Regional Indus crop calendars at Harappa Khirsara and Masudpur VII",
+    "path": "/data/india/20260831-monsoon1/indus-cropping-strategies.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_archaeobotanical_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "site-specific phase sequences rather than synchronized annual observations",
+    "notes": "Exact assemblage shares are preserved only where published. Qualitative crop presence is not converted into acreage output yield or diet."
   }
 ]

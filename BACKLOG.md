@@ -155,7 +155,7 @@ when the evidence supports independent urban/state formation.
 ## P1 — Page 08: India from cities to empires — ready
 
 1. **Indus cities coordinated without monumentalizing rulers** — live; twenty-four published means across three Harappa and Mohenjo-daro excavation series test the shared binary-decimal weight system, while four archaeological absence categories keep palaces, royal tombs, large temples, and ruler-aggrandizing monuments distinct. The visual does not infer one centralized state or the absence of rulers, elites, coercion, or inequality.
-2. **Monsoon diversity kept one political rhythm from fitting all India** — next; test regional winter and summer crops, rainfall, rivers, irrigation, and settlement rhythms without one monsoon or hydraulic-state score.
+2. **Indus farmers answered rainfall risk with different crop calendars** — live; seven source-bounded observations compare Harappa's winter-heavy urban assemblage, Khirsara's shift from 90% barley toward summer crops, and Masudpur VII's sequential winter/summer strategy without one resilience score. Archaeobotanical shares are not converted into acreage, output, yield, or diet.
 3. **Iron Age cities grew with coins, roads, and competing states** — candidate; test urban, numismatic, transport, and political clocks without making iron or coinage a single cause.
 4. **Mauryan rule was strongest in cores and thinner at frontiers** — candidate; compare inscriptions, languages, provincial centers, roads, and administrative evidence without turning edict locations into complete boundaries.
 5. **Religions and trade traveled farther than Indian empires** — candidate; compare dated institutional and exchange networks without treating contact or affiliation as political control.
@@ -282,7 +282,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- India insight 02: monsoon diversity and political rhythms.
+- India insight 03: test whether coins, roads, fortified centers, and dense settlements moved together in the first-millennium-BCE urban revival.
 - Steppe insight 02: horses, mobility, and military reach.
 - Christianity insight 02: bishops, charity, and durable congregations.
 - Continue in atlas order, one beta insight per focused worktree.
@@ -292,6 +292,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed India insight 02, **Indus farmers answered rainfall risk with different crop calendars**. Added a compact three-case interactive based on Bates and Choi's peer-reviewed archaeobotanical synthesis: Harappa's winter-heavy urban supply pattern, Khirsara's phase-by-phase transition from 90% barley to summer crops, and Masudpur VII's continuing sequential winter/summer cropping. Exact percentages appear only where published; qualitative crop presence stays qualitative. Added one public CSV, one source, one dataset, one claim, release coverage, and automated anchor/caveat checks. Verified 107 historical data files, 270 sources, 61 datasets, 52 claims, targeted lint, production build, all three case selectors, exact claim-title parity, no loading failure, zero desktop or 390 × 844 overflow, and a clean browser console. Next: India insight 03 on the first-millennium-BCE urban revival.
 
 - 2026-08-31 — Completed the fifth breadth-first alpha batch: Gunpowder Empires, Oceanic Navigation, and the Great Divergence. Each route now has five affirmative claims, one source-bounded opening visual, and four explicit beta targets. The live evidence keeps European largest-army multipliers separate from Spain’s differently based war-cost multiplier; defines Manila-galleon failure as wreck or damaged return and keeps descriptive subgroup shares distinct from causal estimates; and presents six city/occupation subsistence ratios without treating them as national incomes or one universal divergence date. Added three peer-reviewed source records, three public CSVs, three datasets, three claims, atlas and related-topic links, release smoke coverage, and automated anchor checks. The breadth-first alpha inventory is now complete through page 23. Next: return to the beta queue in atlas order, beginning with India insight 02.
 
