@@ -104,6 +104,20 @@ const romanEquipment = equipment.find(row => row.profile === 'Roman heavy infant
 const benchmarkEquipment = equipment.find(row => row.profile === 'Nearest comparator benchmark');
 if (!romanEquipment || !benchmarkEquipment || Number(romanEquipment.worked_metal_index) / Number(benchmarkEquipment.worked_metal_index) !== 1.25) fail('Equipment comparison must preserve the cited 25% Roman-to-nearest-comparator relationship');
 
+const administration = csv('public/data/rome/20260831-thin-state1/rome-han-administration.csv');
+if (administration.length !== 2) fail(`Expected two Rome–Han administration rows, found ${administration.length}`);
+for (const [index, row] of administration.entries()) {
+  const context = `rome-han-administration.csv row ${index + 2}`;
+  requireFields(row, ['polity', 'date_label', 'official_index', 'official_count_label', 'population_label', 'administrative_model', 'city_governance', 'source_keys', 'note'], context);
+  numeric(row, ['official_index'], context);
+  validateKeys(sourceKeys(row.source_keys), context);
+}
+const romanAdministration = administration.find(row => row.polity === 'Roman Empire');
+const hanAdministration = administration.find(row => row.polity === 'Western Han');
+if (!romanAdministration || Number(romanAdministration.official_index) !== 1) fail('Rome must remain the normalized administration baseline of 1');
+if (!hanAdministration || Number(hanAdministration.official_index) !== 20 || hanAdministration.official_count_label !== '130,285 recorded officials') fail('Western Han must preserve the published approximate 20× comparison and recorded 130,285 count');
+if (!hanAdministration?.note.includes('excludes military')) fail('The Han administration row must preserve the military-official exclusion');
+
 const fiscalBudget = csv('public/data/roman-imperial-budget.csv');
 const budgetGroups = new Map();
 for (const [index, row] of fiscalBudget.entries()) {

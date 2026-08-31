@@ -50,6 +50,16 @@
     "notes": "Modern coastlines, rivers, and borders provide orientation only and are not evidence for ancient political boundaries."
   },
   {
+    "id": "rome-han-administration",
+    "title": "Roman and Western Han administrative scale and city-level governance",
+    "path": "/data/rome/20260831-thin-state1/rome-han-administration.csv",
+    "schema": "comparison",
+    "evidence_type": "published_count_and_comparative_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "Western Han count at 5 BCE compared with an early-imperial Roman order-of-magnitude estimate",
+    "notes": "Rome is normalized to 1 and Western Han to the published approximate ratio of 20. The Han count is recorded; the Roman ratio is a scholarly approximation. Governance descriptions are qualitative and do not convert local elites into imperial headcount."
+  },
+  {
     "id": "roman-imperial-budget",
     "title": "Reconstructed Roman imperial budget scenarios",
     "path": "/data/roman-imperial-budget.csv",

@@ -22,15 +22,15 @@
     "note": "Taylor's like-for-like strategic-deployment models put Carthage at approximately 170,000 in 215 BCE and Rome with the Italian allies at approximately 185,000 in 212 BCE. Their closeness rejects a simple peak-size explanation. Recruitment and replacement structures remain qualitative historical interpretations, not measured causal shares. The equipment comparison is a separate third–second-century BCE relative index; the public evidence does not support absolute kilograms or a combined combat-power score."
   },
   {
-    "id": "rome-03-fiscal-machine",
+    "id": "rome-03-city-mediated-state",
     "page": "rome",
     "insight": 3,
-    "claim": "Rome financed a permanent military system through heterogeneous provincial and citizen levies, and the army absorbed roughly three quarters of reconstructed central imperial expenditure around 150 and 215 CE.",
-    "status": "modeled_argument",
-    "evidence_type": "historical_model_and_source_observations",
-    "dataset_ids": ["roman-imperial-budget", "roman-fiscal-observations"],
-    "source_keys": ["ACOU_PROVINCES", "ACOU_BREAD_CIRCUSES", "ACOU_GRACCHI2", "CICERO_VERRES3", "RES_GESTAE17", "DIO55_25", "TACITUS1_17", "TACITUS1_78", "SPEIDEL1992", "OXFORD_TAX_PRINCIPATE", "OXFORD_PORTORIA", "DUNCAN_JONES1994", "MATTINGLY2011"],
-    "note": "The budget shares are modern reconstructions, not surviving imperial accounts. Fiscal rates apply to distinct bases and jurisdictions and are not added into one Roman tax rate. Nominal pay and budget figures are not treated as a real-value time series."
+    "claim": "Rome governed an empire of roughly 60–70 million people with about one-twentieth as many officials as Han China by delegating day-to-day administration to cities and local elites.",
+    "status": "working_synthesis",
+    "evidence_type": "comparative_historical_count_and_institutional_synthesis",
+    "dataset_ids": ["rome-han-administration"],
+    "source_keys": ["HANSHU7A", "BIELENSTEIN1980", "FENG2008_BUREAUCRACY", "SCHEIDEL2015_STATE_POWER", "ALFANI_BOLLA_SCHEIDEL2025"],
+    "note": "The Western Han count of 130,285 officials excludes the military. The 20-to-1 comparison is a published order-of-magnitude estimate rather than a matched census; Roman municipal elites are part of the governing mechanism but are not counted as salaried imperial officials."
   },
   {
     "id": "rome-04-western-collapse",
