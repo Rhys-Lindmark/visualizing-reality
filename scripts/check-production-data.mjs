@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260831-hellenistic-capitals1';
+const releaseId='20260831-silk-routes1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -94,6 +94,7 @@ const assets=[
   ['csv','/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv'],
   ['csv','/data/hellenistic-kingdoms/20260831-capitals1/royal-capital-machines.csv'],
   ['csv','/data/silk-roads/20260831-alpha1/turfan-money-forms.csv'],
+  ['csv','/data/silk-roads/20260831-routes1/silk-route-rerouting.csv'],
   ['csv','/data/medieval-europe/20260831-alpha1/manuscript-production.csv'],
   ['csv','/data/african-states/20260831-alpha1/ghana-trade-dues.csv'],
   ['csv','/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv'],

@@ -203,7 +203,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 14: Silk Roads — alpha live
 
 1. **Silk Road exchange was an oasis economy, not just silk crossing continents** — alpha live; Turfan documents show textiles, grain, and coins coexisting as money from 273 to 796 CE without market-share or total-trade claims.
-2. **No caravan crossed one permanent Silk Road** — beta candidate; compare route windows shaped by states, wars, climate, and oasis investment.
+2. **The Silk Roads survived by rerouting around political and ecological bottlenecks** — live; four route mechanisms compare desert forks, a geopolitical detour, river-corridor shifts, and oasis-to-oasis legs without reconstructing annual paths, traffic shares, travel times, hydrology, safety, or one complete itinerary.
 3. **Sogdian merchants connected states without belonging to one empire** — beta candidate; use letters, contracts, colonies, and multilingual networks.
 4. **Religions traveled by translation and institutions—not cargo alone** — beta candidate; compare monasteries, translators, pilgrims, scripts, and patronage.
 5. **Sea routes carried more bulk than overland caravans** — beta candidate; build a bounded transport-and-goods comparison rather than an unsourced volume model.
@@ -282,7 +282,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Silk Roads insight 02: no caravan crossed one permanent Silk Road.
+- Medieval Europe insight 02: towns recovered collective rights through charters.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -290,6 +290,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed Silk Roads insight 02, **The Silk Roads survived by rerouting around political and ecological bottlenecks**. Added four deliberately bounded route mechanisms: northern and southern forks around the Taklamakan basin; a Caucasus–Caspian detour around the Roman–Parthian frontier; corridor shifts as Central Asian rivers changed; and short oasis-to-oasis legs joined by exchange nodes and intermediaries. The visual treats “the Silk Roads” as a changing chain rather than one permanent highway and does not invent annual paths, traffic shares, travel times, hydrology, safety, route volume, or one end-to-end itinerary. Added one public CSV, three sources, one dataset, one claim, release coverage, and automated guards. Verified 116 historical data files, 300 sources, 70 datasets, 61 claims, targeted lint, the Rome client contract, the production build, 136 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and no load-error alerts. Next: Medieval Europe insight 02 on towns recovering collective rights through charters.
 
 - 2026-08-31 — Completed Hellenistic kingdoms insight 02, **Hellenistic capitals turned imperial resources into visible kingship**. Added four deliberately unlike capital portraits: Alexandria's harbour-palace-Museum complex in Strabo's later description; Seleucia on the Tigris as one regional capital of a peripatetic Seleucid court; Antioch's festivals as political theater drawing civic representatives toward the king; and Pergamon's excavated palace, theater, library, sanctuaries, and Great Altar. The visual treats monumentality as observable political performance while refusing population, revenue, expenditure, traffic, consent, or capital-score estimates. Added one public CSV, five sources, one dataset, one claim, release coverage, and automated guards. Verified 115 historical data files, 297 sources, 69 datasets, 60 claims, targeted lint, Rome client contract, the production build, 135 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Silk Roads insight 02 on routes as changing chains rather than one permanent road.
 

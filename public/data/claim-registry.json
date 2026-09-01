@@ -807,5 +807,16 @@
     "dataset_ids": ["hellenistic-royal-capital-machines"],
     "source_keys": ["STRABO_GEOGRAPHY17_ALEXANDRIA", "STROOTMAN2014_ROYAL_PROCESSIONS", "IRANICA_SELEUCID_EMPIRE", "MET2016_PERGAMON_CAPITAL", "OCD_PERGAMUM"],
     "note": "The four cases expose how resources court presence and political performance met in capitals without estimating their population budgets tax take traffic or political consent."
+  },
+  {
+    "id": "silk-roads-02-rerouting-bottlenecks",
+    "page": "silk-roads",
+    "insight": 2,
+    "claim": "The Silk Roads survived by rerouting around political and ecological bottlenecks.",
+    "status": "working_synthesis",
+    "evidence_type": "academic_and_institutional_route_synthesis",
+    "dataset_ids": ["silk-route-rerouting"],
+    "source_keys": ["UNESCO_SILK_ROADS_ABOUT", "IRANICA_COMMERCE_BEFORE_MONGOLS", "HANSEN2012_SILK_ROAD_HISTORY"],
+    "note": "Multiple paths and local nodes made alternate links possible; the comparison does not estimate route traffic travel time safety hydrology or prove that no traveler ever covered a long distance."
   }
 ]

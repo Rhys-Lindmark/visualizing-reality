@@ -1,5 +1,5 @@
 {
-  "release_id": "20260831-hellenistic-capitals1",
+  "release_id": "20260831-silk-routes1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -66,6 +66,7 @@
     "/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv",
     "/data/hellenistic-kingdoms/20260831-capitals1/royal-capital-machines.csv",
     "/data/silk-roads/20260831-alpha1/turfan-money-forms.csv",
+    "/data/silk-roads/20260831-routes1/silk-route-rerouting.csv",
     "/data/medieval-europe/20260831-alpha1/manuscript-production.csv",
     "/data/african-states/20260831-alpha1/ghana-trade-dues.csv",
     "/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv",

@@ -1332,6 +1332,20 @@ for(const[index,row]of turfanMoney.entries()){
 }
 if(turfanMoney.length!==3||new Set(turfanMoney.map(row=>row.form)).size!==3||turfanMoney.some(row=>Number(row.year_start)!==273||Number(row.year_end)!==796))fail('Silk Roads alpha requires textiles grain and coins bounded to 273–796 CE');
 
+const silkRerouting=csv('public/data/silk-roads/20260831-routes1/silk-route-rerouting.csv');
+const silkReroutingIndex=new Map();
+for(const[index,row]of silkRerouting.entries()){
+  const context=`silk-route-rerouting.csv row ${index+2}`;
+  requireFields(row,['route_case','constraint','route_response','institution','evidence','visual_anchor','source_keys','limits'],context);
+  validateKeys(sourceKeys(row.source_keys),context);
+  if(silkReroutingIndex.has(row.route_case))fail(`${context} duplicates ${row.route_case}`);silkReroutingIndex.set(row.route_case,row);
+  if(Object.keys(row).some(field=>/traffic_share|travel_time|river_level|safety_score|route_volume|distance|network_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(silkRerouting.length!==4||silkReroutingIndex.size!==4)fail(`Silk route rerouting requires four unique mechanisms; found ${silkRerouting.length}`);
+if(silkReroutingIndex.get('Taklamakan basin')?.visual_anchor!=='fork + oases + rejoin'||!/forked north and south/.test(silkReroutingIndex.get('Taklamakan basin')?.route_response??''))fail('Taklamakan row must preserve the fork and oasis structure');
+if(silkReroutingIndex.get('Roman-Parthian frontier')?.visual_anchor!=='enemy frontier + northern detour'||!/traffic share/.test(silkReroutingIndex.get('Roman-Parthian frontier')?.limits??''))fail('Roman-Parthian row must preserve the detour and traffic limit');
+if(silkReroutingIndex.get('Oasis-to-oasis exchange')?.visual_anchor!=='local leg + exchange node + next leg'||!/no individual ever traveled/.test(silkReroutingIndex.get('Oasis-to-oasis exchange')?.limits??''))fail('Oasis row must preserve local legs and the long-distance-traveler limit');
+
 const medievalManuscripts=csv('public/data/medieval-europe/20260831-alpha1/manuscript-production.csv');
 for(const[index,row]of medievalManuscripts.entries()){
   const context=`manuscript-production.csv row ${index+2}`;
