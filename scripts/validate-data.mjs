@@ -1275,6 +1275,21 @@ if(!/administrative continuity/.test(caliphalFiscalIndex.get('egypt_muawiya')?.e
 if(caliphalFiscalIndex.get('iran_inherited_mints')?.quantitative_anchor!=='late-Sasanian standard · about 4 g')fail('Iran mint window must preserve the late-Sasanian silver standard');
 if(caliphalFiscalIndex.get('abdalmalik_reforms')?.quantitative_anchor!=='survey 691–2 · coin 697 · mints by 703')fail('Standardization window must preserve the survey coin and mint anchors');
 
+const arabicAdministration=csv('public/data/caliphates/20260901-arabic1/arabic-administration-clocks.csv');
+const arabicAdministrationIndex=new Map();
+for(const[index,row]of arabicAdministration.entries()){
+  const context=`arabic-administration-clocks.csv row ${index+2}`;
+  requireFields(row,['window_id','window_order','display_period','region','medium','languages','headline','evidence','source_keys','limits'],context);
+  numeric(row,['window_order'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(arabicAdministrationIndex.has(row.window_id))fail(`${context} duplicates ${row.window_id}`);arabicAdministrationIndex.set(row.window_id,row);
+  if(Object.keys(row).some(field=>/language_share|speaker_count|staff_count|switch_score|arabicization_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(arabicAdministration.length!==5||arabicAdministrationIndex.size!==5)fail(`Arabic administration requires five unique documentary clocks; found ${arabicAdministration.length}`);
+if(arabicAdministrationIndex.get('egypt_643')?.languages!=='Greek + Arabic'||!/25 April 643/.test(arabicAdministrationIndex.get('egypt_643')?.evidence??''))fail('Arabic administration must preserve the dated bilingual PERF 558 anchor');
+if(!/107 texts/.test(arabicAdministrationIndex.get('egypt_670s')?.evidence??'')||arabicAdministrationIndex.get('egypt_670s')?.languages!=='mostly Greek')fail('Arabic administration must preserve the Flavius Papas archive scope');
+if(arabicAdministrationIndex.get('iraq_697')?.languages!=='Persian → Arabic'||!/probably gradual/.test(arabicAdministrationIndex.get('iraq_697')?.evidence??''))fail('Arabic administration must preserve the bounded Iraqi reform tradition');
+if(arabicAdministrationIndex.get('egypt_709_714')?.languages!=='Greek + Arabic + Coptic'||!/multilingual/.test(arabicAdministrationIndex.get('egypt_709_714')?.headline??''))fail('Arabic administration must preserve multilingual practice after the reform wave');
+
 const greekTerritories=csv('public/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv');
 for(const[index,row]of greekTerritories.entries()){
   const context=`polis-territory-distribution.csv row ${index+2}`;

@@ -939,5 +939,16 @@
     "dataset_ids": ["imperial-church-transition"],
     "source_keys": ["LACTANTIUS313_RESTITUTION", "EUSEBIUS325_NICAEA", "CODEX380_CUNCTOS_POPULOS"],
     "note": "Property restitution in 313 and Constantine's Nicaean council in 325 preceded the explicit Nicene imperial legal prescription in 380 by decades; none of these documents measures population belief enforcement or compliance."
+  },
+  {
+    "id": "caliphates-03-arabic-administration",
+    "page": "caliphates",
+    "insight": 3,
+    "claim": "Arabic became an imperial administrative language around 700—but local government remained multilingual.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_papyri_coin_and_peer_reviewed_administrative_synthesis",
+    "dataset_ids": ["arabic-administration-clocks"],
+    "source_keys": ["DEMIRI_ROMER2009_EARLY_ISLAMIC_PAPYRI", "FOSS2009_EGYPT_MUAWIYA_I", "IRANICA_DIVAN_GOVERNMENT", "MET_DINAR_698", "ISAC_QURRA_PAPYRI"],
+    "note": "The five windows show Arabic entering bilingual fiscal practice at conquest and becoming a public imperial language around 697–700 while Greek Arabic bilingual and Coptic documentary work continued in Egypt in 709–714. They do not form an empire-wide language census."
   }
 ]

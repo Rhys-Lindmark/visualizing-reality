@@ -574,5 +574,13 @@
     "visual_answer": "Yes: the published comparison shows returns of 38 percent in England, 2.5 percent in France, and minus 5.2 percent in India while keeping machine cost assumptions explicit.",
     "default_visual": "three_country_spinning_jenny_return_comparison",
     "status": "pass"
+  },
+  {
+    "claim_id": "caliphates-03-arabic-administration",
+    "claim": "Arabic became an imperial administrative language around 700—but local government remained multilingual.",
+    "visual_question": "Does the default visual show both the reform wave that elevated Arabic and continued multilingual local administration afterward?",
+    "visual_answer": "Yes: five documentary clocks move from a 643 bilingual receipt and a mostly Greek 670s archive through Iraqi and coin reforms around 697–699 to Greek Arabic bilingual and Coptic practice in Egypt in 709–714.",
+    "default_visual": "five_overlapping_administrative_language_clocks",
+    "status": "pass"
   }
 ]

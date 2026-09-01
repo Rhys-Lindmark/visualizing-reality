@@ -833,5 +833,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "three dated documentary windows in 313 325 and 380 CE",
     "notes": "Imperial orders council involvement and a legal religious norm show institutional change but are not converted into Christian population belief enforcement compliance or a Christianization score."
+  },
+  {
+    "id": "arabic-administration-clocks",
+    "title": "Five documentary clocks for Arabic administrative reform and multilingual local practice",
+    "path": "/data/caliphates/20260901-arabic1/arabic-administration-clocks.csv",
+    "schema": "observation",
+    "evidence_type": "primary_papyri_coin_and_peer_reviewed_administrative_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "five unlike documentary windows from 643 to 714 CE",
+    "notes": "Bilingual papyri one local archive a later narrative reform date epigraphic coinage and one gubernatorial dossier show overlapping change without producing language shares or one empire-wide switch date."
   }
 ]
