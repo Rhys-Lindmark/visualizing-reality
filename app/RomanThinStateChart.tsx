@@ -24,11 +24,11 @@ function parseCSV(text:string):Row[]{
 }
 
 export default function RomanThinStateChart(){
-  const[rows,setRows]=useState<Row[]>([]);const[mode,setMode]=useState<'scale'|'mechanism'>('scale');const[error,setError]=useState('');
+  const[rows,setRows]=useState<Row[]>([]);const[mode,setMode]=useState<'scale'|'mechanism'>('mechanism');const[error,setError]=useState('');
   useEffect(()=>{const controller=new AbortController();fetchClientText(`${DATA_URL}?v=20260831-thin-state1`,{signal:controller.signal,label:'Rome–Han administration data'}).then(text=>{const parsed=parseCSV(text);if(parsed.length!==2||parsed.some(row=>!row.polity||!Number.isFinite(row.official_index)||row.official_index<=0))throw new Error('The administration comparison was incomplete.');setRows(parsed);}).catch(reason=>{if(!controller.signal.aborted)setError(reason instanceof Error?reason.message:'The comparison could not be loaded.');});return()=>controller.abort();},[]);
   return <div className="roman-thin-state-chart">
     <header><span>ROME AND WESTERN HAN · SIMILAR POPULATIONS, DIFFERENT STATES</span><h4>Rome governed through cities, not a giant bureaucracy</h4><p>At comparable imperial scale, Han China employed roughly twenty times as many officials.</p></header>
-    <nav aria-label="Choose an administration comparison"><button type="button" className={mode==='scale'?'active':''} onClick={()=>setMode('scale')}>Administrative scale</button><button type="button" className={mode==='mechanism'?'active':''} onClick={()=>setMode('mechanism')}>How rule reached cities</button></nav>
+    <nav aria-label="Choose an administration comparison"><button type="button" className={mode==='mechanism'?'active':''} onClick={()=>setMode('mechanism')}>How rule reached cities</button><button type="button" className={mode==='scale'?'active':''} onClick={()=>setMode('scale')}>Compare official counts</button></nav>
     {error?<div className="data-state error" role="alert"><b>The administration comparison did not load</b><p>{error}</p></div>:mode==='scale'?<div className="thin-state-scale">
       <div className="thin-state-axis"><span>Relative number of officials · Rome = 1</span><i><em>1</em><em>5</em><em>10</em><em>15</em><em>20</em></i></div>
       <div className="thin-state-bars">{rows.map(row=><article key={row.polity}><div><b>{row.polity}</b><span>{row.date_label} · {row.population_label}</span></div><i><em style={{width:`${row.official_index/20*100}%`}} /></i><strong>{row.official_index}×</strong><small>{row.official_count_label}</small></article>)}</div>

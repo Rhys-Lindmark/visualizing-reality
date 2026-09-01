@@ -1,10 +1,82 @@
 [
   {
+    "claim_id": "rome-01-territorial-scale",
+    "claim": "Rome took centuries to reach imperial scale: its reconstructed territorial curve rose far more gradually than the selected Achaemenid Persian or Western Han curves.",
+    "visual_question": "Does the default visual make Rome's unusually gradual territorial growth visible against the selected imperial comparators?",
+    "visual_answer": "Yes: the aligned growth curves show Persia reaching the selected peak in 80 years, Han in 156 years, and Rome in 617 years.",
+    "default_visual": "aligned_empire_growth_curves",
+    "status": "pass"
+  },
+  {
     "claim_id": "rome-02-military-capacity",
     "claim": "Rome won because its Italian alliance could survive defeat and furnish another army.",
     "visual_question": "Does the default visual show defeat followed by renewed mobilization?",
     "visual_answer": "Yes: it sequences Cannae's destroyed field army, the alliance remaining in the war, and roughly 185000 troops deployed again by 212 BCE.",
     "default_visual": "defeat_to_replacement_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "rome-03-city-mediated-state",
+    "claim": "Rome governed an empire of roughly 60–70 million people with about one-twentieth as many officials as Han China by delegating day-to-day administration to cities and local elites.",
+    "visual_question": "Does the default visual show how a small imperial apparatus reached local populations?",
+    "visual_answer": "Yes: the default mechanism view contrasts Rome's city-mediated chain with Han bureaucratic rule; the official-count comparison remains a secondary view.",
+    "default_visual": "city_mediated_governance_chain",
+    "status": "pass"
+  },
+  {
+    "claim_id": "rome-04-western-collapse",
+    "claim": "The western court fell when civil wars and invasions stripped away the taxable provinces needed to rebuild Roman armies, turning military pressure into a self-reinforcing fiscal crisis.",
+    "visual_question": "Does the default visual depict the fiscal-military feedback loop rather than only a chronology?",
+    "visual_answer": "Yes: the causal sequence links political competition and territorial loss to falling revenue, constrained armies, and further territorial loss.",
+    "default_visual": "western_fiscal_military_feedback_loop",
+    "status": "pass"
+  },
+  {
+    "claim_id": "rome-05-afterlives",
+    "claim": "Roman roads predicted modern roads and economic activity in Europe, but not in MENA after wheeled transport and road maintenance were abandoned.",
+    "visual_question": "Does the default visual show that road persistence differs between Europe and MENA?",
+    "visual_answer": "Yes: the side-by-side published regression results show strong later correlations in Europe and their disappearance in MENA.",
+    "default_visual": "europe_mena_road_persistence_comparison",
+    "status": "pass"
+  },
+  {
+    "claim_id": "uruk-01-first-megacity",
+    "claim": "By about 3100 BCE Uruk became the first known city to reach approximately 250 hectares, nearly twice Tell Brak's published maximum; its scale was urban concentration rather than footprint alone.",
+    "visual_question": "Does the default visual show Uruk crossing 250 hectares and distinguish dense urban concentration from a wide sparse footprint?",
+    "visual_answer": "Yes: the dated settlement comparison places Uruk at 250 hectares beside Tell Brak's 130-hectare maximum and separately labels Khirbet al-Fakhar's sparse scatter.",
+    "default_visual": "dated_settlement_footprint_comparison",
+    "status": "pass"
+  },
+  {
+    "claim_id": "uruk-02-domesticated-waterscape",
+    "claim": "Uruk grew by domesticating a moving waterscape: people overlaid long-lived canals on shifting rivers and marshes, turning water into irrigation, transport, and urban infrastructure.",
+    "visual_question": "Does the default visual show human-managed channels over a naturally shifting waterscape?",
+    "visual_answer": "Yes: the palaeochannel map leads into dated evidence for artificial canals, irrigation, and transport, with a preserved canal-network view one click away.",
+    "default_visual": "managed_channels_over_moving_waterscape",
+    "status": "pass"
+  },
+  {
+    "claim_id": "uruk-03-grain-institution-fit",
+    "claim": "Grain gave institutions power because seasonal above-ground harvests were unusually visible divisible portable and storable.",
+    "visual_question": "Does the default visual state the physical traits that made cereal harvests appropriable before presenting correlations?",
+    "visual_answer": "Yes: the visual opens with the visible, divisible, portable, and storable mechanism, then shows the global hierarchy comparison and direct Uruk records.",
+    "default_visual": "grain_appropriability_mechanism",
+    "status": "pass"
+  },
+  {
+    "claim_id": "uruk-04-administrative-writing",
+    "claim": "Writing began as institutional memory: the earliest surviving proto-cuneiform archive was more than 99% administrative, while lexical lists expanded to roughly one fifth in the following phase.",
+    "visual_question": "Does the default visual make the administrative composition of the earliest archive unmistakable?",
+    "visual_answer": "Yes: it directly compares more than 99% administrative records in Uruk IV with the later expansion of lexical lists to roughly one fifth.",
+    "default_visual": "proto_cuneiform_genre_share_comparison",
+    "status": "pass"
+  },
+  {
+    "claim_id": "uruk-05-reversible-concentration",
+    "claim": "People could opt out of the first states: fourth-millennium communities dismantled centralized institutions, dispersed, retained local autonomy beside Uruk enclaves, and returned to regional systems.",
+    "visual_question": "Does the default visual lead with an observed opt-out rather than generic fragility?",
+    "visual_answer": "Yes: the default opt-out path starts with Shakhi Kora's deliberate dismantling and dispersal, then exposes coexistence and regional reversal as comparable alternatives.",
+    "default_visual": "archaeological_opt_out_cases",
     "status": "pass"
   }
 ]
