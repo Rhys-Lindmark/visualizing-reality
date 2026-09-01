@@ -753,5 +753,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four asynchronous site-level cases spanning the Classic period",
     "notes": "Survey areas dam dimensions infrastructure descriptions and functional interpretations retain their original scopes and are not converted into output population labor or engineering scores."
+  },
+  {
+    "id": "andean-ecological-floor-access",
+    "title": "Four Andean systems for reaching resources in unlike ecological floors",
+    "path": "/data/andes/20260901-floors1/andean-ecological-floor-access.csv",
+    "schema": "observation",
+    "evidence_type": "colonial_visitas_archaeology_archaeobotany_and_ethnohistory",
+    "source_key_field": "source_keys",
+    "time_resolution": "four asynchronous windows from Tiwanaku colonies through early-colonial visitas",
+    "notes": "Travel times elevations route distances and institutional mechanisms retain their original scopes and are not converted into resource shares tribute flows household budgets or a verticality score."
   }
 ]

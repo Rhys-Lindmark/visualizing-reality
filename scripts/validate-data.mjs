@@ -1423,6 +1423,20 @@ if(mayaWaterIndex.get('Tamarindito')?.visual_anchor!=='60 m dam → ~2,000 m³ r
 if(!/little or no permanent surface water/.test(mayaWaterIndex.get('Tikal')?.constraint??''))fail('Tikal row must preserve the surface-water constraint');
 if(!/Channels, ditches/.test(mayaWaterIndex.get("Lamanai–Ka'kabish")?.system??''))fail('Lamanai row must preserve the wetland channel mechanism');
 
+const andeanFloors=csv('public/data/andes/20260901-floors1/andean-ecological-floor-access.csv');
+const andeanFloorIndex=new Map();
+for(const[index,row]of andeanFloors.entries()){
+  const context=`andean-ecological-floor-access.csv row ${index+2}`;
+  requireFields(row,['case','date_label','core','distant_floor','access_mechanism','resources','evidence','visual_anchor','source_keys','limits'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(andeanFloorIndex.has(row.case))fail(`${context} duplicates ${row.case}`);andeanFloorIndex.set(row.case,row);
+  for(const field of ['resource_share','yield','population_supported','verticality_score','control_score','trade_volume'])if(field in row)fail(`${context} must not include synthetic ${field}`);
+}
+if(andeanFloors.length!==4||andeanFloorIndex.size!==4)fail(`Andean ecological-floor comparison requires four unique cases; found ${andeanFloors.length}`);
+if(andeanFloorIndex.get('Chupaychu')?.visual_anchor!=='3–4 days → forest products')fail('Chupaychu row must preserve the travel-time anchor');
+if(andeanFloorIndex.get('Lupaqa in Sama')?.visual_anchor!=='~40 km caravan → guano')fail('Sama row must preserve the guano-caravan anchor');
+if(andeanFloorIndex.get('Tiwanaku colonies')?.visual_anchor!=='3,860 m ↔ 600–900 m')fail('Tiwanaku row must preserve the altitude anchor');
+if(andeanFloorIndex.get('Inka Cochabamba')?.visual_anchor!=='multiethnic labor → state maize')fail('Cochabamba row must preserve the state-labor mechanism');
+
 const qhapaqNan=csv('public/data/andes/20260831-alpha1/qhapaq-nan-scale.csv');
 for(const[index,row]of qhapaqNan.entries()){
   const context=`qhapaq-nan-scale.csv row ${index+2}`;

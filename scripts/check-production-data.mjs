@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260901-mesoamerica-water1';
+const releaseId='20260901-andes-floors1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -103,6 +103,7 @@ const assets=[
   ['csv','/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv'],
   ['csv','/data/mesoamerica/20260831-alpha1/maya-lidar-findings.csv'],
   ['csv','/data/mesoamerica/20260901-water1/maya-water-infrastructure.csv'],
+  ['csv','/data/andes/20260901-floors1/andean-ecological-floor-access.csv'],
   ['csv','/data/andes/20260831-alpha1/qhapaq-nan-scale.csv'],
   ['csv','/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv'],
   ['csv','/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv'],

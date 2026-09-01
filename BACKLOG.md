@@ -244,7 +244,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 19: Andean worlds and the Inka — alpha live
 
 1. **Roads turned ecological extremes into imperial reach** — alpha live; UNESCO's full network, four main routes, topographic reach, imperial extent, and selected heritage subset remain distinct measures.
-2. **Households combined resources from different ecological floors** — beta candidate; compare separated access to crops, herds, salt, coca, fish, and other resources without one universal verticality model.
+2. **Households combined resources from different ecological floors** — beta live; Chupaychu outliers, Lupaqa caravans, Tiwanaku colonies, and Inka Cochabamba show different ways to reach unlike production zones without one universal verticality model.
 3. **Labor obligations moved value without coin taxes** — beta candidate; connect labor to roads, fields, armies, workshops, reciprocity, and extraction.
 4. **Knotted cords made people and stores administratively legible** — beta candidate; test what khipu recorded about people, tribute, stores, labor, and hierarchy.
 5. **Spanish conquest captured a civil war as well as an emperor** — beta candidate; compare succession conflict, epidemic disruption, alliances, horses, steel, and capture without a single-cause conquest score.
@@ -283,7 +283,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Andean worlds and the Inka insight 02: compare household access to multiple ecological floors without turning unlike resources into one verticality score.
+- Mongol Eurasia insight 02: compare organization, intelligence, remounts, and converging columns without one military-power score.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -291,6 +291,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-09-01 — Completed Andean worlds and the Inka insight 02, **Households combined resources from different ecological floors**. Added four bounded systems: Chupaychu outlying settlements linked to puna and montaña resources; Lupaqa settlement and caravans in Sama; Tiwanaku agrarian colonies at 600–900 m connected to a 3,860 m altiplano homeland; and state-directed land and labor in Inka Cochabamba. The comparison preserves visitas, archaeology, archaeobotany, and archival reconstruction as unlike evidence and refuses resource shares, tribute flows, household budgets, or a verticality score. Added one public CSV, four scholarly sources, one dataset, one claim, release coverage, and automated anchors. Verified 121 historical data files, 321 sources, 75 datasets, 66 claims, targeted lint, the Rome client contract, the production build, 141 byte-identical built assets, all four selectors, zero desktop or 390 × 844 overflow, 87-pixel mobile controls, no load-error alerts, and a clean browser console. Next: Mongol Eurasia insight 02.
 
 - 2026-09-01 — Completed Mesoamerican cities and states insight 02, **Maya cities turned seasonal rainfall into urban infrastructure**. Added four bounded site-level systems: Tikal's hilltop catchments and reservoirs; Caracol's terraces and residential reservoirs across a 200 km² lidar survey; Tamarindito's roughly 60 m dam and 2,000 m³ reservoir; and wetland-edge channelization near Lamanai and Ka'kabish. The comparison refuses annual output, population supported, labor totals, centralized ownership, or an engineering score. Added one public CSV, four scholarly sources, one dataset, one claim, release coverage, and automated anchors. Verified 120 historical data files, 317 sources, 74 datasets, 65 claims, targeted lint, the Rome client contract, production build, 140 byte-identical built assets, all four selectors, zero desktop or 390 × 844 overflow, 69-pixel mobile controls, and no load-error alerts. Next: Andean worlds and the Inka insight 02.
 

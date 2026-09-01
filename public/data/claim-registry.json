@@ -862,5 +862,16 @@
     "dataset_ids": ["maya-water-infrastructure"],
     "source_keys": ["LUCERO_ETAL2015_URBAN_DIASPORA", "CHASE_WEISHAMPEL2017_CARACOL", "BEACH_DUNNING1997_TAMARINDITO", "MCLELLAN_ETAL2026_LAMANAI"],
     "note": "Four sites show distinct responses to dry seasons runoff erosion and wetland flooding without implying one Maya master plan output series or engineering score."
+  },
+  {
+    "id": "andes-02-ecological-floor-access",
+    "page": "andes",
+    "insight": 2,
+    "claim": "Households combined resources from different ecological floors.",
+    "status": "working_synthesis",
+    "evidence_type": "colonial_visitas_archaeology_archaeobotany_and_ethnohistory",
+    "dataset_ids": ["andean-ecological-floor-access"],
+    "source_keys": ["MURRA1972_VERTICAL_CONTROL", "BAITZEL_RIVERA2019_SAMA", "GARVIN_SUERO_ETAL2023_TIWANAKU", "WACHTEL1982_COCHABAMBA"],
+    "note": "Four cases show outlying settlements caravans colonies and state relocation joining unlike production zones without treating verticality as one universal institution or score."
   }
 ]
