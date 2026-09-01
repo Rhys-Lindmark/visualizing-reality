@@ -741,5 +741,16 @@
     "dataset_ids": ["mauryan-regional-relationships"],
     "source_keys": ["THAPAR1997_ASOKA_EDICTS", "CHAKRAVARTI2014_MAURYAN_EMPIRE"],
     "note": "Royal orders distinguish direct inspection, delegated centers, post-conquest Kalinga policy, and independent neighbors without producing a complete boundary or control-intensity score."
+  },
+  {
+    "id": "india-05-networks-beyond-empires",
+    "page": "india",
+    "insight": 5,
+    "claim": "Religions and trade traveled farther than Indian empires.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_archaeology_and_academic_cultural_history",
+    "dataset_ids": ["india-networks-beyond-empires"],
+    "source_keys": ["LANKTON_ETAL2006_KSK_GLASS", "MURILLO_BARROSO_ETAL2010_KSK_METAL", "BELLINA2018_TRADE_POLITIES", "SELAND2014_WESTERN_INDIAN_OCEAN", "POLLOCK2006_LANGUAGE_GODS"],
+    "note": "Three source-bounded cases show goods production knowledge and courtly language crossing political borders without treating contact language or affiliation as annexation."
   }
 ]

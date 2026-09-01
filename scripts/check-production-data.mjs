@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260831-india-maurya1';
+const releaseId='20260831-india-networks1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -82,6 +82,7 @@ const assets=[
   ['csv','/data/india/20260831-monsoon1/indus-cropping-strategies.csv'],
   ['csv','/data/india/20260831-urban1/early-historic-urban-phases.csv'],
   ['csv','/data/india/20260831-maurya1/mauryan-regional-relationships.csv'],
+  ['csv','/data/india/20260831-networks1/india-networks-beyond-empires.csv'],
   ['csv','/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv'],
   ['csv','/data/christianity/20260831-alpha1/pauline-letter-network.csv'],
   ['csv','/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv'],

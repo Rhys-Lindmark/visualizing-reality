@@ -1187,6 +1187,19 @@ if(indiaMauryaIndex.get('regional_centers')?.quantitative_anchor!=='4 regional c
 if(!/unconquered border peoples/.test(indiaMauryaIndex.get('kalinga')?.inscriptional_evidence??'')||!/not evidence of annexation/.test(indiaMauryaIndex.get('neighbors')?.limits??''))fail('Mauryan frontier windows must separate Kalinga reassurance from independent neighbors');
 if(indiaMauryaRows.some(row=>sourceKeys(row.source_keys).length!==2))fail('Every Mauryan relationship must cite the edict translation and academic synthesis');
 
+const indiaNetworkRows=csv('public/data/india/20260831-networks1/india-networks-beyond-empires.csv');
+const indiaNetworkIndex=new Map();
+for(const[index,row]of indiaNetworkRows.entries()){
+  const context=`india-networks-beyond-empires.csv row ${index+2}`;
+  requireFields(row,['case_id','case_order','display_period','destination','carrier','observed_evidence','what_traveled','political_context','quantitative_anchor','source_keys','limits'],context);numeric(row,['case_order'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(indiaNetworkIndex.has(row.case_id))fail(`${context} duplicates ${row.case_id}`);indiaNetworkIndex.set(row.case_id,row);
+  if(Object.keys(row).some(field=>/diffusion_score|boundary_area|trade_volume|population_share|cultural_influence|political_control/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(indiaNetworkRows.length!==3||indiaNetworkIndex.size!==3)fail(`India networks comparison requires three unique cases; found ${indiaNetworkRows.length}`);
+if(!/1,000\+ glass samples · 3 metal traditions/.test(indiaNetworkIndex.get('khao_sam_kaeo')?.quantitative_anchor??'')||sourceKeys(indiaNetworkIndex.get('khao_sam_kaeo')?.source_keys??'').length!==3)fail('Khao Sam Kaeo must preserve the glass and metal anchors plus all three archaeological sources');
+if(indiaNetworkIndex.get('berenike')?.quantitative_anchor!=='7.55 kg black pepper in one vessel'||!/not total trade volume/.test(indiaNetworkIndex.get('berenike')?.limits??''))fail('Berenike must preserve the vessel-level pepper find and its scope limit');
+if(!/not a single empire/.test(indiaNetworkIndex.get('sanskrit_cosmopolis')?.political_context??'')||!/difficult to date/.test(indiaNetworkIndex.get('sanskrit_cosmopolis')?.limits??''))fail('Sanskrit cosmopolis must remain distinct from empire and preserve the dating limit');
+
 const steppeAlpha=csv('public/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv');
 for(const[index,row]of steppeAlpha.entries()){
   const context=`begash-pastoral-sequence.csv row ${index+2}`;

@@ -158,7 +158,7 @@ when the evidence supports independent urban/state formation.
 2. **Indus farmers answered rainfall risk with different crop calendars** — live; seven source-bounded observations compare Harappa's winter-heavy urban assemblage, Khirsara's shift from 90% barley toward summer crops, and Masudpur VII's sequential winter/summer strategy without one resilience score. Archaeobotanical shares are not converted into acreage, output, yield, or diet.
 3. **Cities returned before one empire united them** — live; three broad phases keep Early Historic urban fabric separate from political order. The opening phase preserves four notable rival monarchies, seven named fortified-site examples, civic planning, early coinage, script, and NBPW before Mauryan integration; the later phase returns to multiple regional powers. Named cases are illustrative, not a census or one urbanization score.
 4. **One Mauryan empire contained several kinds of rule** — live; four inscriptional windows distinguish direct court inspection, delegated regional centers, special post-conquest orders in Kalinga, and relations with independent neighbors. Edict locations are not complete borders, royal prescriptions are not observed compliance, and the evidence is not combined into a control score.
-5. **Religions and trade traveled farther than Indian empires** — candidate; compare dated institutional and exchange networks without treating contact or affiliation as political control.
+5. **Religions and trade traveled farther than Indian empires** — live; three unlike evidence windows show production knowledge at Khao Sam Kaeo, South Indian pepper at Roman Berenike, and Sanskrit courtly practice across distinct Southeast Asian courts without turning contact into political control.
 
 ## P2 — Page 09: Steppe, horse, and mobile power — ready
 
@@ -282,7 +282,6 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- India insight 05: compare how Buddhist, Jain, Brahmanical, mercantile, and maritime networks crossed political boundaries without treating religious affiliation or contact as political control.
 - Steppe insight 02: horses, mobility, and military reach.
 - Christianity insight 02: bishops, charity, and durable congregations.
 - Continue in atlas order, one beta insight per focused worktree.
@@ -292,6 +291,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed India insight 05 and the five-claim page contract, **Religions and trade traveled farther than Indian empires**. Added three deliberately unlike evidence windows: Khao Sam Kaeo's locally rooted workshops and cross-Asian technical traditions, a 7.55-kilogram South Indian pepper find in a vessel at Roman Berenike, and Pollock's Sanskrit cosmopolis among distinct Southeast Asian courts. The visual keeps workshop samples, one preserved commodity find, and literary-political practice in separate lanes rather than drawing one diffusion map or treating contact as annexation. Added one public CSV, two sources, one dataset, one claim, release coverage, and automated guards. Verified 110 historical data files, 276 sources, 64 datasets, 55 claims, targeted lint, Rome client contract, the production build, all three selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Steppe insight 02 on horses, mobility, and military reach.
 
 - 2026-08-31 — Completed India insight 04, **One Mauryan empire contained several kinds of rule**. Replaced the unmeasurable core/frontier gradient with four inscriptional relationships: direct court inspection, delegated regional centers, post-conquest Kalinga orders, and independent neighbors. Preserved Ashoka's five- and three-year inspection prescriptions, four regional-center synthesis, two separate-edict locations, and the domain-versus-neighbor distinction without converting them into observed compliance, complete borders, province counts, or a control score. Added one public CSV, two sources, one dataset, one claim, release coverage, and automated guards. Verified 109 historical data files, 274 sources, 63 datasets, 54 claims, targeted lint, Rome client contract, production build, all four relationship selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 61–62 pixel mobile controls, and a clean browser console. Next: India insight 05 on religious and trade networks beyond imperial borders.
 

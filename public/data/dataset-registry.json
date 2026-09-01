@@ -643,5 +643,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "selected third-century-BCE royal prescriptions and named administrative relationships",
     "notes": "Edict locations, inspection schedules, regional centers, and named neighbors are not combined into a boundary, control score, or measure of compliance."
+  },
+  {
+    "id": "india-networks-beyond-empires",
+    "title": "Three material and literary networks beyond South Asian political rule",
+    "path": "/data/india/20260831-networks1/india-networks-beyond-empires.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_archaeology_and_academic_cultural_history",
+    "source_key_field": "source_keys",
+    "time_resolution": "three asynchronous case windows from the fourth century BCE through the fifth century CE onward",
+    "notes": "Unlike workshop commodity and language evidence is compared without creating one diffusion score political boundary or continuous cultural zone."
   }
 ]

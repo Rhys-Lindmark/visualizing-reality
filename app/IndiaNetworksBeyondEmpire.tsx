@@ -1,0 +1,17 @@
+'use client';
+
+import { useEffect, useMemo, useState } from 'react';
+import { fetchClientText } from './lib/clientAsset';
+
+type NetworkRow={case_id:string;case_order:string;display_period:string;destination:string;carrier:string;observed_evidence:string;what_traveled:string;political_context:string;quantitative_anchor:string;source_keys:string;limits:string};
+const dataUrl='/data/india/20260831-networks1/india-networks-beyond-empires.csv';
+
+function parseCSV<T>(text:string):T[]{const rows:string[][]=[];let row:string[]=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'&&quoted&&text[i+1]==='"'){cell+='"';i++;}else if(c==='"')quoted=!quoted;else if(c===','&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=c;}if(cell||row.length){row.push(cell);rows.push(row);}const[headers,...body]=rows;return body.map(values=>Object.fromEntries(headers.map((header,index)=>[header,values[index]??''])) as T);}
+
+export default function IndiaNetworksBeyondEmpire(){
+  const[rows,setRows]=useState<NetworkRow[]>([]);const[state,setState]=useState<'loading'|'ready'|'error'>('loading');const[error,setError]=useState('');const[attempt,setAttempt]=useState(0);const[selectedId,setSelectedId]=useState('khao_sam_kaeo');
+  useEffect(()=>{const controller=new AbortController();fetchClientText(dataUrl,{signal:controller.signal,label:'India networks beyond empires'}).then(text=>{const parsed=parseCSV<NetworkRow>(text);if(parsed.length!==3||parsed.some(row=>!row.case_id||!row.destination||!row.carrier||!row.observed_evidence||!row.political_context||!row.source_keys))throw new Error('The network evidence used an incompatible data contract.');setRows(parsed);setState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The evidence could not be loaded.');setState('error');});return()=>controller.abort();},[attempt]);
+  const selected=useMemo(()=>rows.find(row=>row.case_id===selectedId)??rows[0],[rows,selectedId]);const retry=()=>{setRows([]);setError('');setState('loading');setAttempt(value=>value+1);};
+  if(state!=='ready'||!selected)return <div className={`data-state india-networks-state ${state}`} role={state==='error'?'alert':'status'}><b>{state==='error'?'The cross-border evidence did not load':'Loading networks beyond empires…'}</b><span>{state==='error'?error:'workshops · shipping · courtly language'}</span>{state==='error'&&<button type="button" onClick={retry}>Retry evidence</button>}</div>;
+  return <div className="india-networks-chart"><nav aria-label="Choose a network beyond empire">{rows.map(row=><button type="button" key={row.case_id} className={selected.case_id===row.case_id?'active':''} aria-pressed={selected.case_id===row.case_id} onClick={()=>setSelectedId(row.case_id)}><span>{row.display_period}</span><b>{row.destination}</b></button>)}</nav><section aria-live="polite"><header><div><span>{selected.carrier}</span><h5>{selected.destination}</h5></div><strong>{selected.quantitative_anchor}</strong></header><div className="india-networks-lanes"><article><span>Observed evidence</span><p>{selected.observed_evidence}</p></article><article><span>What traveled</span><p>{selected.what_traveled}</p></article><article><span>What did not</span><p>{selected.political_context}</p></article></div></section></div>;
+}
