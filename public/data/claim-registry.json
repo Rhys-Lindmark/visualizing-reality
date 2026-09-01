@@ -818,5 +818,16 @@
     "dataset_ids": ["silk-route-rerouting"],
     "source_keys": ["UNESCO_SILK_ROADS_ABOUT", "IRANICA_COMMERCE_BEFORE_MONGOLS", "HANSEN2012_SILK_ROAD_HISTORY"],
     "note": "Multiple paths and local nodes made alternate links possible; the comparison does not estimate route traffic travel time safety hydrology or prove that no traveler ever covered a long distance."
+  },
+  {
+    "id": "medieval-europe-02-portable-charter-rights",
+    "page": "medieval-europe",
+    "insight": 2,
+    "claim": "Towns turned negotiated privileges into portable collective rights.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_charters_and_peer_reviewed_urban_history",
+    "dataset_ids": ["medieval-town-charter-rights"],
+    "source_keys": ["OXFORD_HANDBOOK_CENTRAL_EUROPE", "DALTEROCHE2015_LORRIS", "OXFORD_HENRYII_CHARTER", "PORTER2024_TOWNS_POLITIES"],
+    "note": "Charters and civic registers made custom and negotiated privileges more durable and portable; they did not create equal citizenship full independence or universal enforcement."
   }
 ]

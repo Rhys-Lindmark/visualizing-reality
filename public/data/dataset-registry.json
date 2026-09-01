@@ -713,5 +713,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four asynchronous network mechanisms spanning antiquity through the early medieval period",
     "notes": "The cases identify forks detours water-driven shifts and local legs without reconstructing annual paths traffic shares travel times hydrology security or one complete itinerary."
+  },
+  {
+    "id": "medieval-town-charter-rights",
+    "title": "Four mechanisms that made negotiated urban privileges durable and portable",
+    "path": "/data/medieval-europe/20260831-charters1/town-charter-rights.csv",
+    "schema": "observation",
+    "evidence_type": "primary_charters_and_peer_reviewed_urban_history",
+    "source_key_field": "source_keys",
+    "time_resolution": "four asynchronous cases from 1120 through the fourteenth century",
+    "notes": "The cases compare distinct privileges and documentary strategies without producing an autonomy score or treating privileged citizens as every resident."
   }
 ]

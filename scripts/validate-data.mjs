@@ -1354,6 +1354,19 @@ for(const[index,row]of medievalManuscripts.entries()){
 }
 if(medievalManuscripts.length!==10||Number(medievalManuscripts[0]?.estimated_manuscripts)!==13552||Number(medievalManuscripts.at(-1)?.estimated_manuscripts)!==4999161)fail('Medieval Europe alpha must preserve all ten published century totals and the 13,552 to 4,999,161 endpoints');
 
+const medievalCharters=csv('public/data/medieval-europe/20260831-charters1/town-charter-rights.csv');
+const medievalCharterIndex=new Map();
+for(const[index,row]of medievalCharters.entries()){
+  const context=`town-charter-rights.csv row ${index+2}`;
+  requireFields(row,['case','date_label','bargain','collective_right','how_it_endured','evidence','visual_anchor','source_keys','limits'],context);
+  validateKeys(sourceKeys(row.source_keys),context);
+  if(medievalCharterIndex.has(row.case))fail(`${context} duplicates ${row.case}`);medievalCharterIndex.set(row.case,row);
+  if(Object.keys(row).some(field=>/autonomy_score|population|revenue|enforcement_rate|freedom_index/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(medievalCharters.length!==4||medievalCharterIndex.size!==4)fail(`Medieval charter comparison requires four unique cases; found ${medievalCharters.length}`);
+if(medievalCharterIndex.get('Oxford')?.visual_anchor!=='custom + confirmation → enforceable privilege'||!/merchant gild/.test(medievalCharterIndex.get('Oxford')?.collective_right??''))fail('Oxford row must preserve merchant-gild and confirmation mechanisms');
+if(medievalCharterIndex.get('Bristol network')?.visual_anchor!=='copy + civic register → portable right'||!/more than twenty-five towns/.test(medievalCharterIndex.get('Bristol network')?.how_it_endured??''))fail('Bristol row must preserve the inter-urban register evidence');
+
 const ghanaDues=csv('public/data/african-states/20260831-alpha1/ghana-trade-dues.csv');
 for(const[index,row]of ghanaDues.entries()){
   const context=`ghana-trade-dues.csv row ${index+2}`;
