@@ -994,5 +994,16 @@
     "dataset_ids": ["steppe-migration-outcomes"],
     "source_keys": ["HAAK2015_STEPPE_MIGRATION", "OLALDE2018_BEAKER_BRITAIN", "OLALDE2019_IBERIA", "NARASIMHAN2019_SOUTH_CENTRAL_ASIA"],
     "note": "Four published estimates show outcomes ranging from an upper bound near twenty percent steppe-derived ancestry in sampled South Asian groups to approximately ninety percent gene-pool replacement in Beaker-period Britain. The comparison does not equate ancestry with ethnicity or language."
+  },
+  {
+    "id": "christianity-04-council-borders",
+    "page": "christianity",
+    "insight": 4,
+    "claim": "Chalcedon became a durable border through Christianity instead of making it one church.",
+    "status": "working_synthesis",
+    "evidence_type": "ecumenical_church_family_histories",
+    "dataset_ids": ["christian-council-church-borders"],
+    "source_keys": ["WCC_ORIENTAL_ORTHODOX_FAMILY", "WCC_ASSYRIAN_CHURCH_EAST", "WCC_SYRIAC_ORTHODOX", "WCC_ARMENIAN_APOSTOLIC"],
+    "note": "Four institutional trajectories show Chalcedonian reception alongside Coptic Syriac and Armenian non-reception while keeping the Church of East's earlier separate trajectory visible. The matrix does not estimate population shares individual belief or one-day schisms."
   }
 ]

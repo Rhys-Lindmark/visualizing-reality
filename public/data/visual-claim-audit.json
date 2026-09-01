@@ -614,5 +614,13 @@
     "visual_answer": "Yes: four bars simultaneously show up to about twenty percent Western Steppe-derived ancestry in a sampled South Asian context, about forty percent incoming steppe-related ancestry in Iberia, about seventy-five percent Yamnaya-related ancestry in Corded Ware Germany, and about ninety percent continental Beaker-related gene-pool replacement in Britain. Selected notes keep language separate.",
     "default_visual": "four_published_ancestry_bars_from_mixture_to_near_replacement",
     "status": "pass"
+  },
+  {
+    "claim_id": "christianity-04-council-borders",
+    "claim": "Chalcedon became a durable border through Christianity instead of making it one church.",
+    "visual_question": "Does the default visual show Chalcedon's reception dividing durable church traditions rather than merely naming a council?",
+    "visual_answer": "Yes: four rows remain visible together. The imperial churches receive Chalcedon while Coptic and Syriac-Armenian rows do not, and the Church of the East's earlier separate trajectory prevents a false one-council origin story. Liturgical carriers show why the borders endured.",
+    "default_visual": "four_church_trajectories_across_ephesus_and_chalcedon",
+    "status": "pass"
   }
 ]

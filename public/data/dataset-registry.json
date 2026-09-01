@@ -883,5 +883,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four sampled population comparisons from the third and second millennia BCE",
     "notes": "Published model estimates describe different sampled populations and source proxies. They do not identify ethnicity language or one pan-Eurasian replacement rate."
+  },
+  {
+    "id": "christian-council-church-borders",
+    "title": "Four church trajectories across Ephesus and Chalcedon",
+    "path": "/data/christianity/20260901-councils1/council-church-borders.csv",
+    "schema": "observation",
+    "evidence_type": "ecumenical_church_family_histories",
+    "source_key_field": "source_keys",
+    "time_resolution": "two council boundaries in 431 and 451 with later durable institutional reception",
+    "notes": "The matrix compares church-family reception and liturgical carriers without estimating population shares individual belief or a one-day schism. Church of the East and Armenian separations unfolded across longer histories."
   }
 ]

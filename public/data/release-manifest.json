@@ -1,5 +1,5 @@
 {
-  "release_id": "20260901-steppe-migration1",
+  "release_id": "20260901-christianity-councils1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -92,6 +92,7 @@
     "/data/steppe/20260901-bargains1/frontier-bargain-packages.csv",
     "/data/steppe/20260901-migration1/steppe-migration-outcomes.csv",
     "/data/christianity/20260901-constantine1/imperial-church-transition.csv",
+    "/data/christianity/20260901-councils1/council-church-borders.csv",
     "/data/rome/20260901-replacement1/roman-defeat-replacement.csv",
     "/data/visual-claim-audit.json"
   ]
