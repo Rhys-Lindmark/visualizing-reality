@@ -18,7 +18,7 @@ function label(value:string){return value.replaceAll('_',' ').replace(/\b\w/g,c=
 function position(value:number){return `${((value+1250)/200)*100}%`;}
 
 export default function BronzeCollapseSystems(){
-  const[rows,setRows]=useState<CollapseCase[]>([]);const[state,setState]=useState<'loading'|'ready'|'error'>('loading');const[error,setError]=useState('');const[selected,setSelected]=useState('eastern-mediterranean');const[lens,setLens]=useState<Lens>('institution');const[attempt,setAttempt]=useState(0);
+  const[rows,setRows]=useState<CollapseCase[]>([]);const[state,setState]=useState<'loading'|'ready'|'error'>('loading');const[error,setError]=useState('');const[selected,setSelected]=useState('eastern-mediterranean');const[lens,setLens]=useState<Lens>('persistence');const[attempt,setAttempt]=useState(0);
   useEffect(()=>{const controller=new AbortController();fetchClientText(dataUrl,{signal:controller.signal,label:'Late Bronze Age chronology'}).then(text=>{const parsed=parseCSV<CollapseCase>(text);if(parsed.length!==6||new Set(parsed.map(row=>row.case_id)).size!==6||parsed.some(row=>!row.limits||!row.source_keys||lenses.some(item=>!row[item.key])||!Number.isFinite(Number(row.start_year))||!Number.isFinite(Number(row.end_year))))throw new Error('The collapse chronology used an incompatible schema.');setRows(parsed);setState('ready');}).catch(problem=>{if(controller.signal.aborted)return;setError(problem instanceof Error?problem.message:'The chronology could not be loaded.');setState('error');});return()=>controller.abort();},[attempt]);
   const active=useMemo(()=>rows.find(row=>row.case_id===selected)??rows[0],[rows,selected]);
   const retry=()=>{setRows([]);setError('');setState('loading');setAttempt(value=>value+1);};

@@ -78,5 +78,85 @@
     "visual_answer": "Yes: the default opt-out path starts with Shakhi Kora's deliberate dismantling and dispersal, then exposes coexistence and regional reversal as comparable alternatives.",
     "default_visual": "archaeological_opt_out_cases",
     "status": "pass"
+  },
+  {
+    "claim_id": "cradles-01-three-clocks",
+    "claim": "Cities, states, and writing emerged on different schedules across six frequently compared regions, showing that urban scale, political centralization, and durable notation were assembled in different orders.",
+    "visual_question": "Does the default visual make all six city, state, and notation sequences visible rather than only one selected region?",
+    "visual_answer": "Yes: a new six-region comparison exposes all three dated clocks in each region while the selected regional timeline preserves the underlying ranges.",
+    "default_visual": "six_region_three_clock_comparison",
+    "status": "pass"
+  },
+  {
+    "claim_id": "cradles-02-ecological-pathways",
+    "claim": "The first cities adapted to radically different water regimes, combining floods, monsoons, seasonal rain, canals, local storage, transport, and exchange in region-specific ways.",
+    "visual_question": "Does the default visual show both one regional ecological system and how its water regime differs from the other five?",
+    "visual_answer": "Yes: Mesopotamia's five-part ecological fingerprint is paired with a six-region water-regime comparison that makes the contrasts visible.",
+    "default_visual": "regional_ecology_fingerprint_and_water_comparison",
+    "status": "pass"
+  },
+  {
+    "claim_id": "cradles-03-no-technology-package",
+    "claim": "Cities and states could appear without writing or bronze: across six regional sequences, urban and political clocks often preceded secure notation or regional bronze adoption.",
+    "visual_question": "Does the default visual reveal city and state clocks preceding notation or bronze across the regional sequences?",
+    "visual_answer": "Yes: the selected Mesoamerican timeline shows the long separation directly and the six ordinal signatures expose the ordering for every region.",
+    "default_visual": "six_region_technology_sequence_signatures",
+    "status": "pass"
+  },
+  {
+    "claim_id": "cradles-04-coordination-portfolios",
+    "claim": "Records, standards, markets, and monuments turned surplus into power by making resources countable, movable, transformable, or available for coordinated action.",
+    "visual_question": "Does the default visual depict resources passing through institutions into coordinated outcomes?",
+    "visual_answer": "Yes: four visible input-to-coordinator-to-outcome routes make the mechanism explicit, with all six institutional portfolios summarized below.",
+    "default_visual": "institutional_coordination_routes",
+    "status": "pass"
+  },
+  {
+    "claim_id": "cradles-05-different-afterlives",
+    "claim": "Capitals fell, but people and institutions reorganized through dispersal, political relocation, deurbanization, regional fragmentation, or continued occupation in altered form.",
+    "visual_question": "Does the default visual show a political break followed by a concrete afterlife rather than ending at collapse?",
+    "visual_answer": "Yes: the selected Mesopotamian path runs from centralization through dismantling to dispersal, while the six-case overview exposes five other forms of reorganization.",
+    "default_visual": "before_break_afterlife_paths",
+    "status": "pass"
+  },
+  {
+    "claim_id": "bronze-age-01-metal-network",
+    "claim": "Bronze tied copper-producing regions to scarcer and more distant tin sources through overlapping archaeological analytical and textual networks but surviving evidence does not support one route map or annual flow series.",
+    "visual_question": "Does the default visual show copper and tin converging across distant geographies without pretending to know one complete route?",
+    "visual_answer": "Yes: the Uluburun view visibly joins copper and tin in one cargo and labels every line as a sourced association rather than a voyage or annual flow.",
+    "default_visual": "uluburun_copper_tin_convergence_map",
+    "status": "pass"
+  },
+  {
+    "claim_id": "bronze-age-02-selective-palaces",
+    "claim": "Bronze Age palaces made selected flows of food animals metal labor and information visible storable or steerable without controlling whole economies.",
+    "visual_question": "Does the default visual show both the palace-controlled circuit and what remained outside it?",
+    "visual_answer": "Yes: Mari's input-to-palace-to-output flow is paired with an explicit outside-the-aperture boundary, and the overview compares five selective palace systems.",
+    "default_visual": "palace_aperture_and_outside_flow",
+    "status": "pass"
+  },
+  {
+    "claim_id": "bronze-age-03-chariot-system",
+    "claim": "Bronze Age chariots were systems of paired horses vehicles control gear specialist people upkeep and elite institutions rather than stand-alone wonder weapons.",
+    "visual_question": "Does the default visual display the full dependency system around a chariot rather than only the vehicle?",
+    "visual_answer": "Yes: the Hattusha view presents vehicle, horse team, control gear, people, upkeep, and institution as six co-required components.",
+    "default_visual": "six_part_chariot_dependency_system",
+    "status": "pass"
+  },
+  {
+    "claim_id": "bronze-age-04-plural-maritime-networks",
+    "claim": "Late Bronze Age maritime connectivity crossed political worlds through overlapping elite voyages freelance metal ventures coasting cargoes and harbor communities rather than one centrally owned trade system.",
+    "visual_question": "Does the default visual reveal multiple carrier types sharing one maritime network?",
+    "visual_answer": "Yes: the Uluburun network window is paired with a five-case carrier ledger spanning elite shipment, travelling metalworkers, mixed cargo, and harbor communities.",
+    "default_visual": "maritime_network_and_carrier_ledger",
+    "status": "pass"
+  },
+  {
+    "claim_id": "bronze-age-05-nonsynchronous-collapse",
+    "claim": "The Late Bronze Age transition was not one synchronized event or universal causal chain: palaces capitals ports archives and states changed on different dates and some political systems survived.",
+    "visual_question": "Does the default visual show both asynchronous breaks and what persisted afterward?",
+    "visual_answer": "Yes: six dated source windows show the uneven chronology, and the default evidence lens now opens on survival and reorganization rather than institutional breakage alone.",
+    "default_visual": "asynchronous_breaks_with_persistence_lens",
+    "status": "pass"
   }
 ]
