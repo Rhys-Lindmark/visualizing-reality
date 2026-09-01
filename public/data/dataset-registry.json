@@ -783,5 +783,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four design mechanisms developed across the late fifteenth through seventeenth centuries",
     "notes": "Mass profile crossfire and depth are design responses rather than a time series and are not converted into dimensions breach times costs casualties or a fortress-strength score."
+  },
+  {
+    "id": "wind-shaped-ocean-routes",
+    "title": "Four sailing routes organized around prevailing winds and seasonal reversal",
+    "path": "/data/oceanic-navigation/20260901-winds1/wind-shaped-routes.csv",
+    "schema": "observation",
+    "evidence_type": "historical_voyage_research_physical_oceanography_and_academic_navigation_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four route logics spanning pilot calendars through the early modern Pacific and Indian Oceans",
+    "notes": "Wind regimes and preferred sailing windows are schematic mechanisms and are not converted into exact tracks distances speeds traffic shares or one route used by every voyage."
   }
 ]

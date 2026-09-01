@@ -895,5 +895,16 @@
     "dataset_ids": ["artillery-fortress-adaptations"],
     "source_keys": ["LORGE2008_ASIAN_MILITARY_REVOLUTION", "PARKER2004_ARMY_FLANDERS", "UNESCO2017_VENETIAN_DEFENCES"],
     "note": "Four mechanisms show how defenses answered artillery without estimating universal dimensions breach times construction costs casualties or one fortress-strength score."
+  },
+  {
+    "id": "oceanic-navigation-02-wind-shaped-routes",
+    "page": "oceanic-navigation",
+    "insight": 2,
+    "claim": "Ocean routes followed winds and currents, not shortest lines.",
+    "status": "working_synthesis",
+    "evidence_type": "historical_voyage_research_physical_oceanography_and_academic_navigation_synthesis",
+    "dataset_ids": ["wind-shaped-ocean-routes"],
+    "source_keys": ["NOAA2004_MANILA_GALLEON", "NOAA2024_TRADE_WINDS", "BEAUJARD2019_INDIAN_OCEAN_NAVIGATION", "MARCOCCI2025_SEASONALITY_EMPIRE"],
+    "note": "Pacific westerlies and trades plus Indian Ocean monsoon calendars show why sailing routes were directional and seasonal without reconstructing exact tracks speeds traffic or a universal optimal route."
   }
 ]

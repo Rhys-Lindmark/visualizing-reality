@@ -110,6 +110,7 @@ const assets=[
   ['csv','/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv'],
   ['csv','/data/gunpowder-empires/20260901-fortress1/artillery-fortress-adaptations.csv'],
   ['csv','/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv'],
+  ['csv','/data/oceanic-navigation/20260901-winds1/wind-shaped-routes.csv'],
   ['csv','/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],

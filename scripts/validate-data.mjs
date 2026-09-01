@@ -1495,6 +1495,20 @@ for(const[index,row]of galleonRisk.entries()){
 }
 if(galleonRisk.length!==5||Number(galleonRisk.find(row=>row.observation_id==='legal_cap')?.numeric_value)!==2||Number(galleonRisk.find(row=>row.observation_id==='all_failures')?.numeric_value)!==20||Number(galleonRisk.find(row=>row.observation_id==='on_time_failures')?.numeric_value)!==17||Number(galleonRisk.find(row=>row.observation_id==='late_failures')?.numeric_value)!==22.5)fail('Oceanic navigation alpha must preserve the two-ship cap and 20% 17% and 22.5% failure shares');
 
+const windRoutes=csv('public/data/oceanic-navigation/20260901-winds1/wind-shaped-routes.csv');
+const windRouteIndex=new Map();
+for(const[index,row]of windRoutes.entries()){
+  const context=`wind-shaped-routes.csv row ${index+2}`;
+  requireFields(row,['route','period','direction','start','turn','end','wind_system','sailing_logic','seasonal_anchor','evidence','source_keys','limits'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(windRouteIndex.has(row.route))fail(`${context} duplicates ${row.route}`);windRouteIndex.set(row.route,row);
+  for(const field of ['distance_km','speed_km_day','traffic_share','voyage_count','optimality_score','exact_latitude','exact_longitude'])if(field in row)fail(`${context} must not include synthetic ${field}`);
+}
+if(windRoutes.length!==4||windRouteIndex.size!==4)fail(`Wind-shaped route comparison requires four unique routes; found ${windRoutes.length}`);
+if(windRouteIndex.get('Pacific eastbound')?.seasonal_anchor!=='eastward = westerlies')fail('Pacific eastbound row must preserve the westerly mechanism');
+if(windRouteIndex.get('Pacific westbound')?.seasonal_anchor!=='westward = trades')fail('Pacific westbound row must preserve the trade-wind mechanism');
+if(windRouteIndex.get('Aden to Malabar')?.seasonal_anchor!=='late Aug–Feb')fail('Aden–Malabar row must preserve the bounded sailing window');
+if(windRouteIndex.get('Carreira da Índia')?.seasonal_anchor!=='a route run by the calendar')fail('Carreira da Índia row must preserve the seasonal operating logic');
+
 const urbanSubsistence=csv('public/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv');
 for(const[index,row]of urbanSubsistence.entries()){
   const context=`urban-subsistence-ratios.csv row ${index+2}`;
