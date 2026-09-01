@@ -1544,6 +1544,12 @@ constantineTransition.forEach((row,index)=>{
   validateKeys(sourceKeys(row.source_keys),context);
 });
 if(constantineTransition.length!==3||constantineTransition.map(row=>Number(row.year)).join(',')!=='313,325,380')fail('Christianity imperial transition must preserve the three 313 325 and 380 documentary windows');
+const romanReplacement=csv('public/data/rome/20260901-replacement1/roman-defeat-replacement.csv');
+for(const[index,row]of romanReplacement.entries()){
+  const context=`roman-defeat-replacement.csv row ${index+2}`;
+  requireFields(row,['stage','date_label','headline','display_value','visual_scale','proof','source_keys','limits'],context);numeric(row,['visual_scale'],context);validateKeys(sourceKeys(row.source_keys),context);
+}
+if(romanReplacement.length!==3||romanReplacement[0].display_value!=='≈86k fielded'||romanReplacement[2].display_value!=='≈185k deployed')fail('Rome replacement sequence must preserve the bounded Cannae and 212 BCE scale anchors');
 if(steppeWarSystem.length!==4||steppeWarIndex.size!==4)fail(`Steppe warfare system requires four unique mechanisms; found ${steppeWarSystem.length}`);
 if(steppeWarIndex.get('Remounts')?.observable_anchor!=='up to 6–7 reported')fail('Steppe remount row must preserve the bounded six-to-seven report');
 if(steppeWarIndex.get('Maneuver')?.observable_anchor!=='withdraw → surround')fail('Steppe maneuver row must preserve feigned retreat and encirclement');

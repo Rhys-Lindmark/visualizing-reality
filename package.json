@@ -11,7 +11,7 @@
     "verify:build-assets": "node scripts/check-build-assets.mjs",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "validate:data": "node scripts/validate-data.mjs && node scripts/test-rome-client-data.mjs",
+    "validate:data": "node scripts/validate-data.mjs && node scripts/test-rome-client-data.mjs && node scripts/check-visual-claim-fit.mjs",
     "smoke:production-data": "node scripts/check-production-data.mjs"
   },
   "dependencies": {

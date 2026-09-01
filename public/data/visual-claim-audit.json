@@ -1,0 +1,10 @@
+[
+  {
+    "claim_id": "rome-02-military-capacity",
+    "claim": "Rome won because its Italian alliance could survive defeat and furnish another army.",
+    "visual_question": "Does the default visual show defeat followed by renewed mobilization?",
+    "visual_answer": "Yes: it sequences Cannae's destroyed field army, the alliance remaining in the war, and roughly 185000 troops deployed again by 212 BCE.",
+    "default_visual": "defeat_to_replacement_sequence",
+    "status": "pass"
+  }
+]

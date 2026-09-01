@@ -17,9 +17,9 @@
     "claim": "Rome won because its Italian alliance could survive defeat and furnish another army.",
     "status": "modeled_argument",
     "evidence_type": "historical_model",
-    "dataset_ids": ["iron-mobilization-cases", "rome-military-capacity", "rival-campaign-forces", "republican-equipment-index"],
-    "source_keys": ["TAYLOR2020_SOLDIERS_SILVER", "TAYLOR_CARTHAGINIAN_MANPOWER", "POLYBIUS2_24", "LIVY25_LEGIONS", "ACOU_SOCII", "ACOU_METAL", "TACITUS4_5", "CAMPBELL1994", "HASSALL2000", "MACMULLEN1980", "ELTON1996", "TREADGOLD1995", "NOTITIA", "KALDELLIS_KRUSE2023", "RANCE2024"],
-    "note": "Taylor's like-for-like strategic-deployment models put Carthage at approximately 170,000 in 215 BCE and Rome with the Italian allies at approximately 185,000 in 212 BCE. Their closeness rejects a simple peak-size explanation. Recruitment and replacement structures remain qualitative historical interpretations, not measured causal shares. The equipment comparison is a separate third–second-century BCE relative index; the public evidence does not support absolute kilograms or a combined combat-power score."
+    "dataset_ids": ["roman-defeat-replacement", "rome-military-capacity", "rival-campaign-forces", "republican-equipment-index"],
+    "source_keys": ["TAYLOR2020_SOLDIERS_SILVER", "POLYBIUS_CANNAE", "LIVY25_LEGIONS", "ACOU_SOCII", "ACOU_METAL", "POLYBIUS2_24", "TACITUS4_5", "CAMPBELL1994", "HASSALL2000", "MACMULLEN1980", "ELTON1996", "TREADGOLD1995", "NOTITIA", "KALDELLIS_KRUSE2023", "RANCE2024"],
+    "note": "The default sequence now shows Cannae's destroyed field army, most of the Italian alliance remaining in the war, and Taylor's approximately 185,000 strategic-deployment reconstruction for 212 BCE. Field army and strategic deployment are unlike scopes, so the sequence demonstrates recovery rather than a precise net increase. A secondary annual working estimate linearly interpolates seven published Roman anchors and keeps every anchor visible."
   },
   {
     "id": "rome-03-city-mediated-state",
