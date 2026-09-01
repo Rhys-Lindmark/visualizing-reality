@@ -928,5 +928,16 @@
     "dataset_ids": ["steppe-war-system"],
     "source_keys": ["MAY2018_NOMADIC_WARFARE", "MAY2015_CHINGGIS_EXCHANGE", "MARTIN1943_MONGOL_ARMY"],
     "note": "Composite bows maneuver remounts and scouting explain distinct parts of a mobile operating system without estimating range speed endurance army size or each mechanism's causal share."
+  },
+  {
+    "id": "christianity-03-imperial-government",
+    "page": "christianity",
+    "insight": 3,
+    "claim": "Constantine brought the church into imperial government before Nicene Christianity became imperial law.",
+    "status": "source_observation",
+    "evidence_type": "primary_literary_and_legal_documents",
+    "dataset_ids": ["imperial-church-transition"],
+    "source_keys": ["LACTANTIUS313_RESTITUTION", "EUSEBIUS325_NICAEA", "CODEX380_CUNCTOS_POPULOS"],
+    "note": "Property restitution in 313 and Constantine's Nicaean council in 325 preceded the explicit Nicene imperial legal prescription in 380 by decades; none of these documents measures population belief enforcement or compliance."
   }
 ]

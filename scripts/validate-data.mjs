@@ -1537,6 +1537,13 @@ for(const[index,row]of steppeWarSystem.entries()){
   if(steppeWarIndex.has(row.mechanism))fail(`${context} duplicates ${row.mechanism}`);steppeWarIndex.set(row.mechanism,row);
   for(const field of ['range_meters','speed_km_day','endurance_days','army_size','causal_share','military_power_score'])if(field in row)fail(`${context} must not include synthetic ${field}`);
 }
+const constantineTransition=csv('public/data/christianity/20260901-constantine1/imperial-church-transition.csv');
+constantineTransition.forEach((row,index)=>{
+  const context=`imperial-church-transition.csv row ${index+2}`;
+  requireFields(row,['year','window','imperial_action','institutional_change','observable_anchor','evidence','source_keys','limits'],context);
+  validateKeys(sourceKeys(row.source_keys),context);
+});
+if(constantineTransition.length!==3||constantineTransition.map(row=>Number(row.year)).join(',')!=='313,325,380')fail('Christianity imperial transition must preserve the three 313 325 and 380 documentary windows');
 if(steppeWarSystem.length!==4||steppeWarIndex.size!==4)fail(`Steppe warfare system requires four unique mechanisms; found ${steppeWarSystem.length}`);
 if(steppeWarIndex.get('Remounts')?.observable_anchor!=='up to 6–7 reported')fail('Steppe remount row must preserve the bounded six-to-seven report');
 if(steppeWarIndex.get('Maneuver')?.observable_anchor!=='withdraw → surround')fail('Steppe maneuver row must preserve feigned retreat and encirclement');

@@ -813,5 +813,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "one broad pre-firearm synthesis plus two thirteenth-century Mongol evidence windows",
     "notes": "Weapons maneuver remounts and information remain unlike mechanisms and are not converted into range speed endurance army size or a military-power score."
+  },
+  {
+    "id": "imperial-church-transition",
+    "title": "Three documentary windows from church-property restitution to Nicene imperial law",
+    "path": "/data/christianity/20260901-constantine1/imperial-church-transition.csv",
+    "schema": "observation",
+    "evidence_type": "primary_literary_and_legal_documents",
+    "source_key_field": "source_keys",
+    "time_resolution": "three dated documentary windows in 313 325 and 380 CE",
+    "notes": "Imperial orders council involvement and a legal religious norm show institutional change but are not converted into Christian population belief enforcement compliance or a Christianization score."
   }
 ]
