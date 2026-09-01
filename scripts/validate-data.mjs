@@ -1210,6 +1210,20 @@ for(const[index,row]of steppeAlpha.entries()){
 if(steppeAlpha.length!==4)fail(`Steppe alpha requires four source-bounded observations; found ${steppeAlpha.length}`);
 if(!/horses absent/i.test(steppeAlpha[0]?.measure??'')||!/below 4 percent/i.test(steppeAlpha[2]?.measure??''))fail('Steppe alpha must preserve horse absence in the earliest phase and the below-four-percent second-millennium limit');
 
+const steppeMobility=csv('public/data/steppe/20260831-mobility1/horse-mobility-stages.csv');
+const steppeMobilityIndex=new Map();
+for(const[index,row]of steppeMobility.entries()){
+  const context=`horse-mobility-stages.csv row ${index+2}`;
+  requireFields(row,['stage_id','stage_order','year_start','year_end','display_period','stage_title','evidence','capability','military_reach','quantitative_anchor','source_keys','limits'],context);numeric(row,['stage_order','year_start','year_end'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(steppeMobilityIndex.has(row.stage_id))fail(`${context} duplicates ${row.stage_id}`);steppeMobilityIndex.set(row.stage_id,row);
+  if(Number(row.year_start)>Number(row.year_end))fail(`${context} starts after it ends`);
+  if(Object.keys(row).some(field=>/travel_speed|action_radius|army_size|mobility_score|military_power|adoption_date/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(steppeMobility.length!==4||steppeMobilityIndex.size!==4)fail(`Steppe mobility comparison requires four unique stages; found ${steppeMobility.length}`);
+if(steppeMobilityIndex.get('dom2_breeding')?.quantitative_anchor!=='475 genomes · expansion around 2200 BCE'||!/not a measured daily travel speed/.test(steppeMobilityIndex.get('dom2_breeding')?.military_reach??''))fail('DOM2 stage must preserve the 475-genome anchor and mobility limit');
+if(steppeMobilityIndex.get('sintashta_chariot')?.display_period!=='1950–1880 BCE'||!/vehicle itself may have been removed/.test(steppeMobilityIndex.get('sintashta_chariot')?.limits??''))fail('Sintashta stage must preserve the modeled grave range and vehicle-preservation limit');
+if(!/cavalry before stirrups/.test(steppeMobilityIndex.get('mounted_cavalry')?.quantitative_anchor??''))fail('Mounted-cavalry stage must distinguish soft saddles from later stirrups');
+
 const christianityAlpha=csv('public/data/christianity/20260831-alpha1/pauline-letter-network.csv');
 for(const[index,row]of christianityAlpha.entries()){
   const context=`pauline-letter-network.csv row ${index+2}`;

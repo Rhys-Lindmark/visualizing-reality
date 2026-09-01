@@ -653,5 +653,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "three asynchronous case windows from the fourth century BCE through the fifth century CE onward",
     "notes": "Unlike workshop commodity and language evidence is compared without creating one diffusion score political boundary or continuous cultural zone."
+  },
+  {
+    "id": "steppe-horse-mobility-stages",
+    "title": "Four evidence windows from local horse husbandry to mounted cavalry",
+    "path": "/data/steppe/20260831-mobility1/horse-mobility-stages.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_genomics_archaeology_and_technology_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four asynchronous windows from the fourth millennium BCE through the mid-first millennium BCE",
+    "notes": "Genomes graves and surviving tack identify different capabilities and are not converted into one adoption date travel speed action radius or military-power score."
   }
 ]

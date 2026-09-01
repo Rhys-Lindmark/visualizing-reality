@@ -752,5 +752,16 @@
     "dataset_ids": ["india-networks-beyond-empires"],
     "source_keys": ["LANKTON_ETAL2006_KSK_GLASS", "MURILLO_BARROSO_ETAL2010_KSK_METAL", "BELLINA2018_TRADE_POLITIES", "SELAND2014_WESTERN_INDIAN_OCEAN", "POLLOCK2006_LANGUAGE_GODS"],
     "note": "Three source-bounded cases show goods production knowledge and courtly language crossing political borders without treating contact language or affiliation as annexation."
+  },
+  {
+    "id": "steppe-02-horse-mobility-stages",
+    "page": "steppe",
+    "insight": 2,
+    "claim": "Horse power became military reach in stages—not one revolution.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_genomics_archaeology_and_technology_synthesis",
+    "dataset_ids": ["steppe-horse-mobility-stages"],
+    "source_keys": ["LIBRADO_ETAL2024_HORSE_MOBILITY", "LINDNER2020_STEPPE_CHARIOTS", "BAYARSAIKHAN_ETAL2023_SADDLES"],
+    "note": "Local husbandry widespread breeding chariots and mounted cavalry are kept as separate stages without inferring travel speed action radius or one universal adoption date."
   }
 ]

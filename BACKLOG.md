@@ -163,7 +163,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 09: Steppe, horse, and mobile power — ready
 
 1. **Steppe pastoralism began with sheep and goats—not cavalry** — alpha live; four source-bounded observations from Begash separate mobile pastoralism from later horse-centered herding and retain the one-site, fragment-share limits.
-2. **Horses turned mobility into military reach** — beta candidate; compare riding, carts, breeding, communication, herding, and raiding without assigning one horse-revolution date.
+2. **Horse power became military reach in stages—not one revolution** — live; four unlike evidence windows separate local husbandry, DOM2 breeding and dispersal, Sintashta chariots, and mounted cavalry without inventing travel speeds or one adoption date.
 3. **Remounts mattered as much as bows** — beta candidate; separate weapons from spare horses, fodder, intelligence, and command.
 4. **Confederations grew by bargaining with agrarian states** — beta candidate; compare tribute, trade, marriage, hostages, and frontier arrangements.
 5. **Steppe migrations moved genes and languages without erasing everyone** — beta candidate; distinguish movement, mixture, replacement, and cultural transmission.
@@ -282,7 +282,6 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Steppe insight 02: horses, mobility, and military reach.
 - Christianity insight 02: bishops, charity, and durable congregations.
 - Continue in atlas order, one beta insight per focused worktree.
 
@@ -291,6 +290,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed Steppe insight 02, **Horse power became military reach in stages—not one revolution**. Added four unlike evidence windows separating Botai's local horse husbandry, reproductive control and expansion of the modern domestic lineage around 2200 BCE, a 1950–1880 BCE modeled Sintashta chariot grave, and mounted cavalry with soft saddles by the mid-first millennium BCE. The visual keeps genomes, graves, and surviving tack on separate evidentiary clocks and does not invent travel speeds, action radii, army sizes, or one adoption date. Added one public CSV, three sources, one dataset, one claim, release coverage, and automated guards. Verified 111 historical data files, 279 sources, 65 datasets, 56 claims, targeted lint, Rome client contract, the production build, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Christianity insight 02 on bishops, charity, and durable congregations.
 
 - 2026-08-31 — Completed India insight 05 and the five-claim page contract, **Religions and trade traveled farther than Indian empires**. Added three deliberately unlike evidence windows: Khao Sam Kaeo's locally rooted workshops and cross-Asian technical traditions, a 7.55-kilogram South Indian pepper find in a vessel at Roman Berenike, and Pollock's Sanskrit cosmopolis among distinct Southeast Asian courts. The visual keeps workshop samples, one preserved commodity find, and literary-political practice in separate lanes rather than drawing one diffusion map or treating contact as annexation. Added one public CSV, two sources, one dataset, one claim, release coverage, and automated guards. Verified 110 historical data files, 276 sources, 64 datasets, 55 claims, targeted lint, Rome client contract, the production build, all three selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Steppe insight 02 on horses, mobility, and military reach.
 
