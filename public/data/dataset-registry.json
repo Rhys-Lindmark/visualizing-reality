@@ -773,5 +773,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four asynchronous evidence windows centered on the thirteenth century",
     "notes": "Command units scouting remount reports and campaign movements remain unlike evidence and are not converted into army size speed detection time endurance or one military-power score."
+  },
+  {
+    "id": "artillery-fortress-adaptations",
+    "title": "Four defensive adaptations to early modern siege artillery",
+    "path": "/data/gunpowder-empires/20260901-fortress1/artillery-fortress-adaptations.csv",
+    "schema": "observation",
+    "evidence_type": "academic_military_history_and_surviving_heritage_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four design mechanisms developed across the late fifteenth through seventeenth centuries",
+    "notes": "Mass profile crossfire and depth are design responses rather than a time series and are not converted into dimensions breach times costs casualties or a fortress-strength score."
   }
 ]

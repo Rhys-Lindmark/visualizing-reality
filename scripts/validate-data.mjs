@@ -1474,6 +1474,19 @@ for(const[index,row]of gunpowderScale.entries()){
 }
 if(gunpowderScale.length!==5||Number(gunpowderScale.find(row=>row.observation_id==='england_army')?.multiplier)!==2.8||Number(gunpowderScale.find(row=>row.observation_id==='france_army')?.multiplier)!==3.8||Number(gunpowderScale.find(row=>row.observation_id==='spain_army')?.multiplier)!==15||Number(gunpowderScale.find(row=>row.observation_id==='spain_war_cost')?.multiplier)!==4.5)fail('Gunpowder alpha must preserve the 2.8× 3.8× and 15× army multipliers plus Spain’s separate 4.5× cost multiplier');
 
+const fortressAdaptations=csv('public/data/gunpowder-empires/20260901-fortress1/artillery-fortress-adaptations.csv');
+const fortressAdaptationIndex=new Map();
+for(const[index,row]of fortressAdaptations.entries()){
+  const context=`artillery-fortress-adaptations.csv row ${index+2}`;
+  requireFields(row,['adaptation','date_label','artillery_problem','defensive_response','visual_anchor','operational_effect','evidence','source_keys','limits'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(fortressAdaptationIndex.has(row.adaptation))fail(`${context} duplicates ${row.adaptation}`);fortressAdaptationIndex.set(row.adaptation,row);
+  for(const field of ['wall_thickness','breach_time','construction_cost','garrison_size','casualties','fortress_strength_score'])if(field in row)fail(`${context} must not include synthetic ${field}`);
+}
+if(fortressAdaptations.length!==4||fortressAdaptationIndex.size!==4)fail(`Artillery-fortress comparison requires four unique adaptations; found ${fortressAdaptations.length}`);
+if(fortressAdaptationIndex.get('Mass')?.visual_anchor!=='stone → earth-backed mass')fail('Fortress mass row must preserve the earth-backed response');
+if(fortressAdaptationIndex.get('Crossfire')?.visual_anchor!=='dead ground → overlapping fire')fail('Fortress crossfire row must preserve the flanking-fire response');
+if(fortressAdaptationIndex.get('Depth')?.visual_anchor!=='one wall → layered approach')fail('Fortress depth row must preserve the layered-defense response');
+
 const galleonRisk=csv('public/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv');
 for(const[index,row]of galleonRisk.entries()){
   const context=`manila-galleon-risk.csv row ${index+2}`;

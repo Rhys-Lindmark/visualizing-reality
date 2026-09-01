@@ -260,7 +260,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 21: Gunpowder Empires — alpha live
 
 1. **Gunpowder warfare rewarded fiscal scale more than possession of cannon** — alpha live; European largest-army and Spanish war-cost multipliers remain separate measures with separate baselines.
-2. **Fortresses adapted, so artillery did not simply erase walls** — beta candidate.
+2. **Cannon made walls evolve—not disappear** — beta live; earth-backed mass, lower profiles, angled bastions, and layered outworks answered artillery without one fortress-strength score.
 3. **Firearms worked with cavalry and logistics—not instead of them** — beta candidate.
 4. **Drill converted guns into repeatable battlefield fire** — beta candidate.
 5. **Gunpowder states remained politically diverse** — beta candidate.
@@ -283,7 +283,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Gunpowder Empires insight 02: show how fortresses adapted to artillery without claiming cannon simply erased walls.
+- Oceanic Navigation insight 02: show how winds and currents shaped routes rather than shortest-line distance.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -292,6 +292,7 @@ when the evidence supports independent urban/state formation.
 
 ## Completed
 
+- 2026-09-01 — Completed Gunpowder Empires insight 02, **Cannon made walls evolve—not disappear**. Added four selectable defensive mechanisms: earth-backed mass, lower profiles, angled bastions for overlapping fire, and layered outworks. The comparison explains the artillery problem each response addressed without inventing universal dimensions, breach times, construction costs, casualties, or a fortress-strength score. Added one public CSV, three scholarly or institutional sources, one dataset, one claim, release coverage, and automated anchors. Verified 123 historical data files, 327 sources, 77 datasets, 68 claims, targeted lint, the Rome client contract, the production build, 143 byte-identical built assets, all four selectors, the crossfire interaction, exact claim-title parity, no desktop or 390 × 844 overflow, 69-pixel mobile controls, no load-error alerts, and a clean browser console. Next: Oceanic Navigation insight 02.
 - 2026-09-01 — Completed Mongol Eurasia insight 02, **Mounted armies won through organization, intelligence, and remounts**. Reframed the argument as “Mongol mobility was organized—not just fast” and added four selectable evidence windows for named command units, scout screens, remount depth, and converging columns. The comparison preserves unit designations and a reported maximum of six or seven spare horses without reconstructing army sizes, speeds, detection times, endurance, or a military-power score. Added one public CSV, three scholarly sources, one dataset, one claim, release coverage, and automated anchors. Verified 122 historical data files, 324 sources, 76 datasets, 67 claims, targeted lint, the Rome client contract, the production build, 142 byte-identical built assets, all four selectors, the remount interaction, no desktop or 390 × 844 overflow, 69–93 pixel mobile controls, no load-error alerts, and a clean browser console. Next: Gunpowder Empires insight 02.
 - 2026-09-01 — Completed Andean worlds and the Inka insight 02, **Households combined resources from different ecological floors**. Added four bounded systems: Chupaychu outlying settlements linked to puna and montaña resources; Lupaqa settlement and caravans in Sama; Tiwanaku agrarian colonies at 600–900 m connected to a 3,860 m altiplano homeland; and state-directed land and labor in Inka Cochabamba. The comparison preserves visitas, archaeology, archaeobotany, and archival reconstruction as unlike evidence and refuses resource shares, tribute flows, household budgets, or a verticality score. Added one public CSV, four scholarly sources, one dataset, one claim, release coverage, and automated anchors. Verified 121 historical data files, 321 sources, 75 datasets, 66 claims, targeted lint, the Rome client contract, the production build, 141 byte-identical built assets, all four selectors, zero desktop or 390 × 844 overflow, 87-pixel mobile controls, no load-error alerts, and a clean browser console. Next: Mongol Eurasia insight 02.
 

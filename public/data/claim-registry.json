@@ -884,5 +884,16 @@
     "dataset_ids": ["mongol-operational-system"],
     "source_keys": ["MAY2024_MILITARY_MACHINE", "MAY2015_CHINGGIS_EXCHANGE", "MARTIN1943_MONGOL_ARMY"],
     "note": "The evidence supports a system of command information remount depth and concentration without estimating one army-size series mobility score or causal share of victory."
+  },
+  {
+    "id": "gunpowder-empires-02-fortress-adaptation",
+    "page": "gunpowder-empires",
+    "insight": 2,
+    "claim": "Cannon made walls evolve—not disappear.",
+    "status": "working_synthesis",
+    "evidence_type": "academic_military_history_and_surviving_heritage_synthesis",
+    "dataset_ids": ["artillery-fortress-adaptations"],
+    "source_keys": ["LORGE2008_ASIAN_MILITARY_REVOLUTION", "PARKER2004_ARMY_FLANDERS", "UNESCO2017_VENETIAN_DEFENCES"],
+    "note": "Four mechanisms show how defenses answered artillery without estimating universal dimensions breach times construction costs casualties or one fortress-strength score."
   }
 ]
