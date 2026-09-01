@@ -6,7 +6,7 @@ import ChartFooter from '../components/ChartFooter';
 import HistoryPageShell from '../components/HistoryPageShell';
 
 export const metadata:Metadata={title:'Andean Worlds and the Inka',description:'Five visual arguments about roads, ecological floors, labor, knotted records, and conquest.',openGraph:{title:'Andean Worlds and the Inka — How Everything Evolved',description:'Roads turned ecological extremes into imperial reach.',images:[]},twitter:{card:'summary',title:'Andean Worlds and the Inka — How Everything Evolved',description:'Roads turned ecological extremes into imperial reach.',images:[]}};
-const labels=['Roads turned ecological extremes into imperial reach','Households combined resources from different ecological floors','Labor obligations moved value without coin taxes','Knotted cords made people and stores administratively legible','Spanish conquest captured a civil war as well as an emperor'];
+const labels=['Roads turned ecological extremes into imperial reach','Andean communities and states reached across ecological floors','Labor obligations moved value without coin taxes','Knotted cords made people and stores administratively legible','Spanish conquest captured a civil war as well as an emperor'];
 const events=[
   {year:1,displayYear:'30,000+ km',label:'Andean road network',detail:'UNESCO describes the Qhapaq Ñan and associated structures as a network exceeding thirty thousand kilometres.',kind:'full network estimate'},
   {year:2,displayYear:'4 routes',label:'Cusco as a junction',detail:'Four principal routes began at Cusco and connected to lower-order roads and cross-connections.',kind:'network organization'},

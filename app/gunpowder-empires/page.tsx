@@ -5,8 +5,8 @@ import ChartFooter from '../components/ChartFooter';
 import HistoryPageShell from '../components/HistoryPageShell';
 import FortressAdaptation from '../FortressAdaptation';
 
-export const metadata:Metadata={title:'Gunpowder Empires',description:'Five visual arguments about firearms, fortification, armies, drill, and fiscal scale.',openGraph:{title:'Gunpowder Empires — How Everything Evolved',description:'Gunpowder warfare rewarded fiscal scale more than possession of cannon.',images:[]},twitter:{card:'summary',title:'Gunpowder Empires — How Everything Evolved',description:'Gunpowder warfare rewarded fiscal scale more than possession of cannon.',images:[]}};
-const labels=['Gunpowder warfare rewarded fiscal scale more than possession of cannon','Cannon made walls evolve—not disappear','Firearms worked with cavalry and logistics—not instead of them','Drill converted guns into repeatable battlefield fire','Gunpowder states remained politically diverse'];
+export const metadata:Metadata={title:'Gunpowder Empires',description:'Five visual arguments about firearms, fortification, armies, drill, and fiscal scale.',openGraph:{title:'Gunpowder Empires — How Everything Evolved',description:"European armies grew—and Spain's war costs multiplied—in the gunpowder age.",images:[]},twitter:{card:'summary',title:'Gunpowder Empires — How Everything Evolved',description:"European armies grew—and Spain's war costs multiplied—in the gunpowder age.",images:[]}};
+const labels=["European armies grew—and Spain's war costs multiplied—in the gunpowder age",'Cannon made walls evolve—not disappear','Firearms worked with cavalry and logistics—not instead of them','Drill converted guns into repeatable battlefield fire','Gunpowder states remained politically diverse'];
 const events=[
   {year:1,displayYear:'1470s',label:'1× baseline',detail:'The comparison normalizes the largest armies of the 1470s to one.',kind:'comparison baseline'},
   {year:2,displayYear:'England',label:'2.8×',detail:'The largest English armies of the seventeenth century were 2.8 times the 1470s comparison.',kind:'published multiplier'},

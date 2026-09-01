@@ -462,5 +462,117 @@
     "visual_answer": "Yes: four charter cases pair a negotiated bargain with a collective right and its persistence mechanism, culminating in Bristol's inter-urban registration of toll exemptions.",
     "default_visual": "four_charter_bargain_right_and_persistence_cases",
     "status": "pass"
+  },
+  {
+    "claim_id": "southeast-asia-01-ports-as-workshops",
+    "claim": "Khao Sam Kaeo worked imported materials and technological traditions locally.",
+    "visual_question": "Does the default visual show several forms of local production and imported technological connection at Khao Sam Kaeo?",
+    "visual_answer": "Yes: five industry lenses show local glass, stone, iron, ceramic, and metalworking evidence while keeping technological analogies distinct from output or artisan identity.",
+    "default_visual": "five_khao_sam_kaeo_local_industry_lenses",
+    "status": "pass"
+  },
+  {
+    "claim_id": "southeast-asia-02-relationship-hierarchy",
+    "claim": "Power was a hierarchy of relationships—not a hard-bordered state.",
+    "visual_question": "Does the default visual show overlapping political relationships instead of one bounded territorial hierarchy?",
+    "visual_answer": "Yes: four cases pair rulers, ports, uplands, temples, and outside powers through unlike tributary, ritual, and commercial relationships without drawing fixed borders.",
+    "default_visual": "four_relationship_cases_without_borders",
+    "status": "pass"
+  },
+  {
+    "claim_id": "mesoamerica-01-dense-landscape",
+    "claim": "PACUNAM lidar shows Maya cities embedded in a densely built and intensively modified countryside.",
+    "visual_question": "Does the default visual make settlement density and landscape modification beyond monuments visible?",
+    "visual_answer": "Yes: the 2,144-square-kilometre survey, 61,480 mapped structures, density estimate, and regional population model are shown together without treating monuments as the whole settlement system.",
+    "default_visual": "pacunam_survey_counts_density_and_regional_model",
+    "status": "pass"
+  },
+  {
+    "claim_id": "mesoamerica-02-seasonal-water-infrastructure",
+    "claim": "Maya cities turned seasonal rainfall into urban infrastructure.",
+    "visual_question": "Does the default visual connect seasonal water constraints to built storage and drainage responses?",
+    "visual_answer": "Yes: four site systems visibly pair local hydrological constraints with reservoirs, channels, dams, or wetland management.",
+    "default_visual": "four_site_water_constraint_and_response_systems",
+    "status": "pass"
+  },
+  {
+    "claim_id": "andes-01-road-integration",
+    "claim": "The Qhapaq Ñan turned extreme ecological and topographic variation into imperial reach.",
+    "visual_question": "Does the default visual show a road system spanning exceptional distance and relief?",
+    "visual_answer": "Yes: network length, four route environments, roughly 6,600 metres of relief, and about 4,200 kilometres of imperial extent make the integration problem visible.",
+    "default_visual": "network_length_topographic_range_and_imperial_extent",
+    "status": "pass"
+  },
+  {
+    "claim_id": "andes-02-ecological-floor-access",
+    "claim": "Andean communities and states reached across ecological floors.",
+    "visual_question": "Does the default visual show multiple institutions reaching production zones at different elevations?",
+    "visual_answer": "Yes: Chupaychu outliers, Lupaqa caravans, Tiwanaku colonies, and Inka resettlement make four unlike access systems visible without reducing them to one household model.",
+    "default_visual": "four_ecological_floor_access_institutions",
+    "status": "pass"
+  },
+  {
+    "claim_id": "mongol-eurasia-01-plague-integration",
+    "claim": "A 1338–1339 Central Eurasian plague strain was ancestral to Black Death genomes.",
+    "visual_question": "Does the default visual show the evidentiary chain from cemetery samples to an ancestral plague strain?",
+    "visual_answer": "Yes: the sequence separates graves, screened people, positive detections, reconstructed genomes, and phylogenetic ancestry while declining to invent the route west.",
+    "default_visual": "cemetery_sample_detection_genome_and_ancestry_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "mongol-eurasia-02-organized-mobility",
+    "claim": "Mongol mobility was organized—not just fast.",
+    "visual_question": "Does the default visual show the organizational system behind mounted mobility?",
+    "visual_answer": "Yes: command, scouts, remounts, and separated columns appear as four interdependent parts rather than horse speed alone.",
+    "default_visual": "four_part_command_information_remount_column_system",
+    "status": "pass"
+  },
+  {
+    "claim_id": "gunpowder-empires-01-fiscal-scale",
+    "claim": "European armies grew—and Spain's war costs multiplied—in the gunpowder age.",
+    "visual_question": "Does the default visual show both army growth and the separately measured multiplication of Spanish war costs?",
+    "visual_answer": "Yes: three army-size multipliers remain visually separate from Spain's war-cost multiplier, with distinct baselines and no cannon-only causal claim.",
+    "default_visual": "three_army_multipliers_and_one_separate_war_cost_multiplier",
+    "status": "pass"
+  },
+  {
+    "claim_id": "gunpowder-empires-02-fortress-adaptation",
+    "claim": "Cannon made walls evolve—not disappear.",
+    "visual_question": "Does the default visual connect artillery problems to specific fortress adaptations?",
+    "visual_answer": "Yes: mass, profile, crossfire, and depth each pair a gunpowder-age problem with a visible defensive response.",
+    "default_visual": "four_artillery_problem_to_fortress_response_mechanisms",
+    "status": "pass"
+  },
+  {
+    "claim_id": "oceanic-navigation-01-monopoly-risk",
+    "claim": "The Manila galleon crossed the Pacific through a two-ship monopoly—and one in five voyages failed.",
+    "visual_question": "Does the default visual show the monopoly's scale, crossing duration, and observed failure rate without claiming causation?",
+    "visual_answer": "Yes: the route duration, two-ship annual cap, and one-in-five voyage failure share are visible together, while subgroup shares remain descriptive.",
+    "default_visual": "route_duration_two_ship_cap_and_failure_shares",
+    "status": "pass"
+  },
+  {
+    "claim_id": "oceanic-navigation-02-wind-shaped-routes",
+    "claim": "Ocean routes followed winds and currents, not shortest lines.",
+    "visual_question": "Does the default visual contrast direct geometry with routes shaped by winds and currents?",
+    "visual_answer": "Yes: four route cases place a direct line beside the wind- or current-shaped sailing logic that displaced it.",
+    "default_visual": "four_direct_line_vs_wind_shaped_route_logics",
+    "status": "pass"
+  },
+  {
+    "claim_id": "great-divergence-01-urban-wages",
+    "claim": "Northwestern Europe's urban building-laborer wage advantage was visible before factories dominated output.",
+    "visual_question": "Does the default visual show northwestern European urban wage ratios separating from selected Asian comparators before industrial dominance?",
+    "visual_answer": "Yes: London and Amsterdam subsistence ratios sit beside Beijing and other city-period observations in the pre-factory comparison.",
+    "default_visual": "six_city_period_subsistence_ratios",
+    "status": "pass"
+  },
+  {
+    "claim_id": "great-divergence-02-invention-incentives",
+    "claim": "High wages made the spinning jenny far more profitable in England than in France or India.",
+    "visual_question": "Does the default visual show how wage context changes the same spinning-jenny investment calculation?",
+    "visual_answer": "Yes: the published comparison shows returns of 38 percent in England, 2.5 percent in France, and minus 5.2 percent in India while keeping machine cost assumptions explicit.",
+    "default_visual": "three_country_spinning_jenny_return_comparison",
+    "status": "pass"
   }
 ]

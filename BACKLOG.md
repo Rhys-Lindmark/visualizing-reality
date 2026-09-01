@@ -227,7 +227,7 @@ when the evidence supports independent urban/state formation.
 
 ## P2 — Page 17: Southeast Asian mandalas — alpha live
 
-1. **Early ports manufactured imported technologies locally** — alpha live; five Khao Sam Kaeo industry lenses show workshop production and technological analogies without output or ethnicity scores.
+1. **Khao Sam Kaeo worked imported materials and technological traditions locally** — alpha live; five industry lenses show workshop production and technological analogies without output or ethnicity scores.
 2. **Power was a hierarchy of relationships—not a hard-bordered state** — beta live; Srivijaya's oath hierarchy, Khmer rival capitals, Majapahit's differentiated courtly geography, and a center-bias critique make unlike political relationships visible without inventing borders or a sovereignty score.
 3. **River basins linked upland products to coastal exchange** — beta candidate; compare upstream-downstream product and institutional routes.
 4. **Temples stored labor and legitimacy—not only belief** — beta candidate; compare labor, land, storage, inscriptions, pilgrimage, and construction.
@@ -244,14 +244,14 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 19: Andean worlds and the Inka — alpha live
 
 1. **Roads turned ecological extremes into imperial reach** — alpha live; UNESCO's full network, four main routes, topographic reach, imperial extent, and selected heritage subset remain distinct measures.
-2. **Households combined resources from different ecological floors** — beta live; Chupaychu outliers, Lupaqa caravans, Tiwanaku colonies, and Inka Cochabamba show different ways to reach unlike production zones without one universal verticality model.
+2. **Andean communities and states reached across ecological floors** — beta live; Chupaychu outliers, Lupaqa caravans, Tiwanaku colonies, and Inka Cochabamba show different institutions reaching unlike production zones without one universal verticality model.
 3. **Labor obligations moved value without coin taxes** — beta candidate; connect labor to roads, fields, armies, workshops, reciprocity, and extraction.
 4. **Knotted cords made people and stores administratively legible** — beta candidate; test what khipu recorded about people, tribute, stores, labor, and hierarchy.
 5. **Spanish conquest captured a civil war as well as an emperor** — beta candidate; compare succession conflict, epidemic disruption, alliances, horses, steel, and capture without a single-cause conquest score.
 
 ## P2 — Page 20: Mongol Eurasia — alpha live
 
-1. **Mongol-era integration connected disease ecologies as well as markets** — alpha live; the 1338–1339 cemetery context, seven screened people, three plague detections, two reconstructed genomes, and ancestral strain remain unlike observations; the route west is unknown.
+1. **A 1338–1339 Central Eurasian plague strain was ancestral to Black Death genomes** — alpha live; cemetery context, seven screened people, three plague detections, two reconstructed genomes, and the ancestral strain remain unlike observations; the route west is unknown.
 2. **Mounted armies won through organization, intelligence, and remounts** — beta live; command units, scout screens, spare mounts, and converging columns show an organized operating system without one military-power score.
 3. **Relay stations made continental command faster** — beta candidate; test stations, mounts, provisions, passports, and local obligations without accepting transmitted station counts uncritically.
 4. **The empire protected merchants selectively—not uniformly** — beta candidate; compare capital, protection, tax privileges, coercion, war, and fragmentation.
@@ -259,7 +259,7 @@ when the evidence supports independent urban/state formation.
 
 ## P2 — Page 21: Gunpowder Empires — alpha live
 
-1. **Gunpowder warfare rewarded fiscal scale more than possession of cannon** — alpha live; European largest-army and Spanish war-cost multipliers remain separate measures with separate baselines.
+1. **European armies grew—and Spain's war costs multiplied—in the gunpowder age** — alpha live; largest-army and Spanish war-cost multipliers remain separate measures with separate baselines.
 2. **Cannon made walls evolve—not disappear** — beta live; earth-backed mass, lower profiles, angled bastions, and layered outworks answered artillery without one fortress-strength score.
 3. **Firearms worked with cavalry and logistics—not instead of them** — beta candidate.
 4. **Drill converted guns into repeatable battlefield fire** — beta candidate.
@@ -267,7 +267,7 @@ when the evidence supports independent urban/state formation.
 
 ## P2 — Page 22: Oceanic Navigation — alpha live
 
-1. **The Manila galleon connected Asia and America—and monopoly made the crossing more dangerous** — alpha live; route chronology, the two-ship cap, and 20%, 17%, and 22.5% voyage-failure shares remain distinct observations.
+1. **The Manila galleon crossed the Pacific through a two-ship monopoly—and one in five voyages failed** — alpha live; route chronology, the two-ship cap, and 20%, 17%, and 22.5% voyage-failure shares remain distinct observations without turning subgroup differences into a causal estimate.
 2. **Ocean routes followed winds and currents, not shortest lines** — beta live; Pacific westerlies and trades plus Indian Ocean monsoon calendars show directional and seasonal route logic without reconstructed tracks.
 3. **Sailors combined celestial, dead-reckoning, and local knowledge** — beta candidate.
 4. **Shipyards were global production systems** — beta candidate.
@@ -276,7 +276,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 23: The Great Divergence — alpha live
 
 1. **Northwestern Europe’s urban wage advantage was visible before factories dominated output** — alpha live; six London, Amsterdam, and Beijing building-laborer subsistence ratios retain their basket and full-employment assumptions.
-2. **High wages and cheap energy made labor-saving invention unusually profitable** — beta live; Allen’s central spinning-jenny model yields 38%, 2.5%, and −5.2% returns in England, France, and India while retaining its assumption and debate limits.
+2. **High wages made the spinning jenny far more profitable in England than in France or India** — beta live; Allen’s central model yields 38%, 2.5%, and −5.2% returns while retaining its assumption and debate limits; the visual does not measure cheap energy.
 3. **Coal and New World resources loosened land constraints** — beta candidate.
 4. **Institutions mattered through particular markets and state capacities—not one score** — beta candidate.
 5. **The divergence was regional and late, not an eternal West–East gap** — beta candidate.
@@ -284,7 +284,6 @@ when the evidence supports independent urban/state formation.
 ## Next beta queue
 
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree; target roughly 15 minutes for each source-bounded page slice before polishing later.
-- **P0 — Visual-claim audit:** finish the claim-fit contract with **Southeast Asia → Great Divergence**. For each claim ask whether the default image alone makes the mechanism visible; rebuild failures in fast page batches and preserve each human judgment in `visual-claim-audit.json`. Rome through African States are complete (58 of 58 live arguments audited).
 - Caliphates insight 03: show how Arabic became an administrative interface over generations rather than overnight.
 
 ## Blocked
@@ -293,6 +292,7 @@ when the evidence supports independent urban/state formation.
 
 ## Completed
 
+- 2026-09-01 — Completed the site-wide visual-claim audit across all 72 registered arguments. The final fourteen defaults from Southeast Asia through Great Divergence passed after six headlines were tightened to the evidence their images actually show: one Khao Sam Kaeo workshop case rather than ports in general; communities and states rather than households alone in the Andes; plague-genome ancestry without an invented westward route; separate army-growth and Spanish war-cost multipliers without a cannon-only causal claim; a two-ship Manila monopoly and observed voyage failures without a causal delay model; and wage-conditioned spinning-jenny returns without claiming the chart measures energy prices. Preserved all fourteen final human judgments in `visual-claim-audit.json`. Verified 128 historical data files, 72 claims, all 72 audit-to-registry matches, targeted lint, the production build, and 149 byte-identical built assets. Browser QA exercised both audited panels on all seven pages at 1280 × 900 and 390 × 844; selector, article, and chart titles matched exactly, mobile tabs remained 104 pixels tall, no load-error states appeared, and every page had zero horizontal overflow. Next: Caliphates insight 03, Arabic administration.
 - 2026-09-01 — Audited all eighteen live visuals from Steppe through African States against their exact reader-facing claims, bringing the durable claim-fit registry to 58 arguments. The visuals make pastoral sequencing, staged horse power, a four-part war system, letter networks, recurring care, imperial incorporation, rapid caliphal expansion, administrative continuity, small poleis, military leverage, Raphia's mixed armies, royal-capital machines, Turfan's three monies, route redundancy, pre-print manuscripts, portable charter rights, Ghana's trade interfaces, and Northeast African gateways visible by default. Tightened four headlines whose old wording outran a bounded case: Begash, Ghana, Raphia, and Turfan. Removed the duplicated mini-title and “source-bounded observations” count from the shared chronology used by sixteen live charts while preserving exact outer claim titles, event evidence, downloads, notes, and Methods. Verified 128 historical data files, 72 claims, all 58 audited claim-registry matches, targeted lint, the production build, and 149 byte-identical built assets. Production browser QA exercised all eighteen live panels across eight pages at 1280 × 900 and 390 × 844; exact selector/article/chart-title parity held, mobile tabs remained 104 pixels tall, no load-error alerts appeared, and every page had zero horizontal overflow. The production smoke test returned 200 for all 90 visualization assets from both the live site and public GitHub mirror. Next: audit Southeast Asia through Great Divergence and complete all 72 registered arguments.
 - 2026-09-01 — Audited all ten Qin/Han and India visuals against their exact reader-facing claims, bringing the durable claim-fit registry to 40 arguments. Qin/Han's defaults visibly carry the administrative buildup, standards-as-interface, logistics ecology, center–kingdom bargain, and emergency-command mechanisms. India's first four defaults visibly carry shared metrology without ruler monuments, regional crop calendars, cities before empire, and several Mauryan relationships. India insight 05 failed its wording audit because the evidence showed goods, production knowledge, and courtly language—not religion; tightened the selector, article, chart, registry, and audit to the supported claim. Verified 128 historical data files, 72 claims, all 40 claim-registry matches, targeted lint, the production build, and 149 byte-identical built assets. Browser QA exercised all ten insight selectors plus a Qin local-compliance control and the Berenike network case; exact title parity held, no load-error alerts appeared, and both pages had zero horizontal overflow at 1280 × 900 and 390 × 844. Next: audit Steppe and African States in the same fast page batch.
 - 2026-09-01 — Audited all ten Iron Age and Persia visuals against their exact reader-facing claims. Every default already made its core mechanism visible: adoption clocks and dependencies, experimental-smelt outcomes, the hardness/forgeability counterexample, the mobilization ledger, five production architectures, relay handoffs, provincial interfaces, mixed obligations, coalition assembly, and institutional reuse after 330 BCE. Preserved all ten human judgments in `visual-claim-audit.json`. Removed leftover raw source keys and duplicated limitation blocks from the ten chart faces; the evidence remains in each dataset and the compact source/note footer or Methods section. Verified 128 historical data files, 72 claims, all 30 audited claim-registry matches, targeted lint, the production build, and 149 byte-identical built assets. Browser QA exercised all ten insight selectors plus the Iron chemistry lens, Persian district view, and Persian coalition matrix; exact selector/article/chart title parity held, raw source keys were absent, no load-error alerts appeared, and both pages had zero horizontal overflow at 1280 × 900 and 390 × 844. Next: audit Qin/Han and India in the same fast page batch.
