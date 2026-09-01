@@ -1,5 +1,5 @@
 {
-  "release_id": "20260831-southeast-mandala1",
+  "release_id": "20260901-mesoamerica-water1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -74,6 +74,7 @@
     "/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv",
     "/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv",
     "/data/mesoamerica/20260831-alpha1/maya-lidar-findings.csv",
+    "/data/mesoamerica/20260901-water1/maya-water-infrastructure.csv",
     "/data/andes/20260831-alpha1/qhapaq-nan-scale.csv",
     "/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv",
     "/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv",

@@ -743,5 +743,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "three asynchronous historical cases from the seventh through fourteenth centuries plus one comparative interpretation",
     "notes": "Oaths rival capitals courtly categories and scholarly models are compared without reconstructing borders compliance tribute quantities or a sovereignty score."
+  },
+  {
+    "id": "maya-water-infrastructure",
+    "title": "Four Maya site-level systems for storing slowing draining or redirecting seasonal water",
+    "path": "/data/mesoamerica/20260901-water1/maya-water-infrastructure.csv",
+    "schema": "observation",
+    "evidence_type": "archaeology_lidar_hydrology_and_peer_reviewed_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four asynchronous site-level cases spanning the Classic period",
+    "notes": "Survey areas dam dimensions infrastructure descriptions and functional interpretations retain their original scopes and are not converted into output population labor or engineering scores."
   }
 ]

@@ -102,6 +102,7 @@ const assets=[
   ['csv','/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv'],
   ['csv','/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv'],
   ['csv','/data/mesoamerica/20260831-alpha1/maya-lidar-findings.csv'],
+  ['csv','/data/mesoamerica/20260901-water1/maya-water-infrastructure.csv'],
   ['csv','/data/andes/20260831-alpha1/qhapaq-nan-scale.csv'],
   ['csv','/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv'],
   ['csv','/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv'],

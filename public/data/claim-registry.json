@@ -851,5 +851,16 @@
     "dataset_ids": ["southeast-asian-mandala-relationships"],
     "source_keys": ["WISSEMAN_CHRISTIE1995_SRIVIJAYA", "UNESCO_KOH_KER", "HALL2017_EASTERN_INDIAN_OCEAN", "WOLTERS1999_REGION", "TOOKER1996_MANDALA"],
     "note": "Three historical windows and one model critique show differentiated relations among centers and peripheries without claiming one native constitutional system annual boundaries or complete control."
+  },
+  {
+    "id": "mesoamerica-02-seasonal-water-infrastructure",
+    "page": "mesoamerica",
+    "insight": 2,
+    "claim": "Maya cities turned seasonal rainfall into urban infrastructure.",
+    "status": "working_synthesis",
+    "evidence_type": "archaeology_lidar_hydrology_and_peer_reviewed_synthesis",
+    "dataset_ids": ["maya-water-infrastructure"],
+    "source_keys": ["LUCERO_ETAL2015_URBAN_DIASPORA", "CHASE_WEISHAMPEL2017_CARACOL", "BEACH_DUNNING1997_TAMARINDITO", "MCLELLAN_ETAL2026_LAMANAI"],
+    "note": "Four sites show distinct responses to dry seasons runoff erosion and wetland flooding without implying one Maya master plan output series or engineering score."
   }
 ]

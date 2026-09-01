@@ -236,7 +236,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 18: Mesoamerican cities and states — alpha live
 
 1. **Maya cities were embedded in a densely built countryside** — alpha live; the PACUNAM lidar survey keeps its 2,144 km² footprint and 61,480 mapped structures separate from the regional Late Classic population model.
-2. **Maize supported states only with water and labor systems** — beta candidate; compare reservoirs, terraces, raised fields, soils, maintenance, and climatic risk without making maize a sufficient cause.
+2. **Maya cities turned seasonal rainfall into urban infrastructure** — beta live; Tikal, Caracol, Tamarindito, and Lamanai–Ka'kabish show four site-level responses to dry seasons, runoff, erosion, and wetland flooding without an engineering score.
 3. **Writing made dynasties and tribute durable** — beta candidate; connect inscriptions and codices to descent, office, tribute, conquest, calendrics, and ritual claims.
 4. **Markets coordinated households beyond palace redistribution** — beta candidate; test market spaces, household goods, production debris, and price evidence.
 5. **Political collapse moved people more than it erased Maya society** — beta candidate; compare depopulation, persistence, reorganization, and migration on regional clocks.
@@ -283,7 +283,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Mesoamerican cities and states insight 02: compare urban political organization without turning unlike cities into one hierarchy score.
+- Andean worlds and the Inka insight 02: compare household access to multiple ecological floors without turning unlike resources into one verticality score.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -291,6 +291,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-09-01 — Completed Mesoamerican cities and states insight 02, **Maya cities turned seasonal rainfall into urban infrastructure**. Added four bounded site-level systems: Tikal's hilltop catchments and reservoirs; Caracol's terraces and residential reservoirs across a 200 km² lidar survey; Tamarindito's roughly 60 m dam and 2,000 m³ reservoir; and wetland-edge channelization near Lamanai and Ka'kabish. The comparison refuses annual output, population supported, labor totals, centralized ownership, or an engineering score. Added one public CSV, four scholarly sources, one dataset, one claim, release coverage, and automated anchors. Verified 120 historical data files, 317 sources, 74 datasets, 65 claims, targeted lint, the Rome client contract, production build, 140 byte-identical built assets, all four selectors, zero desktop or 390 × 844 overflow, 69-pixel mobile controls, and no load-error alerts. Next: Andean worlds and the Inka insight 02.
 
 - 2026-08-31 — Completed Southeast Asian mandalas insight 02, **Power was a hierarchy of relationships—not a hard-bordered state**. Added four bounded evidence windows: Srivijaya's Telaga Batu oath hierarchy; Angkor and Koh Ker as coexisting rival sacred capitals; the Nagarakertagama's differentiated Java, Nusantara, and Desantara; and a mandala-model critique that keeps enacted relationships and the center's bias visible. The comparison refuses annual borders, tribute quantities, compliance, complete control, or a sovereignty score. Added one public CSV, five sources, one dataset, one claim, release coverage, and automated guards. Verified 119 historical data files, 313 sources, 73 datasets, 64 claims, targeted lint, the Rome client contract, the production build, 139 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 69–87 pixel mobile controls, and no load-error alerts. Next: Mesoamerican cities and states insight 02.
 

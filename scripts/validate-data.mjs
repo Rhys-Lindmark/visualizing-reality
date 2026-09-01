@@ -1408,6 +1408,21 @@ const mayaStructures=mayaLidar.find(row=>row.measure_id==='structures');
 const mayaDensity=mayaLidar.find(row=>row.measure_id==='structure_density');
 if(mayaLidar.length!==5||Number(mayaArea?.numeric_value)!==2144||Number(mayaStructures?.numeric_value)!==61480||Number(mayaDensity?.numeric_value)!==29||!mayaLidar.some(row=>row.measure_id==='regional_population'&&row.display_value==='7–11 million'))fail('Mesoamerica alpha must preserve the 2,144 km² survey, 61,480 structures, 29/km² density, and 7–11 million regional model');
 
+const mayaWater=csv('public/data/mesoamerica/20260901-water1/maya-water-infrastructure.csv');
+const mayaWaterIndex=new Map();
+for(const[index,row]of mayaWater.entries()){
+  const context=`maya-water-infrastructure.csv row ${index+2}`;
+  requireFields(row,['case','date_label','constraint','system','mechanism','evidence','visual_anchor','source_keys','limits'],context);
+  validateKeys(sourceKeys(row.source_keys),context);
+  if(mayaWaterIndex.has(row.case))fail(`${context} duplicates ${row.case}`);mayaWaterIndex.set(row.case,row);
+  if(Object.keys(row).some(field=>/population_supported|labor_total|engineering_score|centralization_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(mayaWater.length!==4||mayaWaterIndex.size!==4)fail(`Maya water comparison requires four unique cases; found ${mayaWater.length}`);
+if(mayaWaterIndex.get('Caracol')?.visual_anchor!=='200 km² lidar → terraces + reservoirs')fail('Caracol row must preserve the bounded 200 km² lidar anchor');
+if(mayaWaterIndex.get('Tamarindito')?.visual_anchor!=='60 m dam → ~2,000 m³ reservoir')fail('Tamarindito row must preserve the published dam and reservoir anchors');
+if(!/little or no permanent surface water/.test(mayaWaterIndex.get('Tikal')?.constraint??''))fail('Tikal row must preserve the surface-water constraint');
+if(!/Channels, ditches/.test(mayaWaterIndex.get("Lamanai–Ka'kabish")?.system??''))fail('Lamanai row must preserve the wetland channel mechanism');
+
 const qhapaqNan=csv('public/data/andes/20260831-alpha1/qhapaq-nan-scale.csv');
 for(const[index,row]of qhapaqNan.entries()){
   const context=`qhapaq-nan-scale.csv row ${index+2}`;
