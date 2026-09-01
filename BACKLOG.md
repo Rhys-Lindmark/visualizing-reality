@@ -43,6 +43,7 @@ graphics that explain the claim without decorative clutter.
 - Preserve the site’s current public access setting. Never autonomously change access, domains, credentials, billing, or repository visibility.
 - Before publishing: run lint and the production build, test the affected interaction in a browser, inspect the diff, and parse every changed data file.
 - Commit and push to GitHub `Rhys-Lindmark/visualizing-reality`, push the same commit to Sites, and deploy that exact commit.
+- Package Sites from the validated milestone worktree's build output; never package a shared checkout whose `dist` predates its current commit.
 - After each run, update this file with the result, verification evidence, and next actionable item.
 - Stop and report a blocker when a product decision is genuinely ambiguous, evidence conflicts materially, or the change would be destructive or expand scope.
 
