@@ -1377,6 +1377,19 @@ const saltIn=ghanaDues.find(row=>row.observation_id==='salt_in');
 const saltOut=ghanaDues.find(row=>row.observation_id==='salt_out');
 if(ghanaDues.length!==5||Number(saltIn?.reported_due)!==1||Number(saltOut?.reported_due)!==2||saltIn?.unit!=='gold dinar'||saltOut?.unit!=='gold dinars')fail('African states alpha must preserve the one-dinar entering and two-dinar leaving salt dues without unit conversion');
 
+const africanGateways=csv('public/data/african-states/20260831-gateways1/northeast-african-gateways.csv');
+const africanGatewayIndex=new Map();
+for(const[index,row]of africanGateways.entries()){
+  const context=`northeast-african-gateways.csv row ${index+2}`;
+  requireFields(row,['case','date_label','geographic_joint','political_mechanism','external_link','evidence','visual_anchor','source_keys','limits'],context);
+  validateKeys(sourceKeys(row.source_keys),context);
+  if(africanGatewayIndex.has(row.case))fail(`${context} duplicates ${row.case}`);africanGatewayIndex.set(row.case,row);
+  if(Object.keys(row).some(field=>/traffic_volume|customs_revenue|control_score|population|border_geometry|connectivity_index/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(africanGateways.length!==4||africanGatewayIndex.size!==4)fail(`African gateway comparison requires four unique cases; found ${africanGateways.length}`);
+if(africanGatewayIndex.get('Makuria')?.visual_anchor!=='military resistance + pact → negotiated gateway'||!/variable reciprocal royal exchange/.test(africanGatewayIndex.get('Makuria')?.evidence??''))fail('Makuria row must preserve the contested reciprocal-exchange interpretation');
+if(africanGatewayIndex.get('Alwa at Soba')?.visual_anchor!=='confluence + city → multi-directional hub'||!/275-hectare/.test(africanGatewayIndex.get('Alwa at Soba')?.evidence??''))fail('Soba row must preserve the bounded site-area anchor');
+
 const khaoIndustries=csv('public/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv');
 for(const[index,row]of khaoIndustries.entries()){
   const context=`khao-sam-kaeo-industries.csv row ${index+2}`;

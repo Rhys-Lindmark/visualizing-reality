@@ -219,7 +219,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 16: African states and trade — alpha live
 
 1. **West African rulers turned trade corridors into revenue** — alpha live; al-Bakri’s reported Ghanaian dues retain dinars, mithqals, goods, and the nugget rule as unlike observations rather than a fictional total budget.
-2. **Nile states linked Mediterranean and African worlds** — beta candidate; compare Nubian, Ethiopian, and Egyptian river, highland, Red Sea, and interior connections.
+2. **Northeast African states turned geographic breaks into political gateways** — live; Meroe, Makuria, Soba, and Aksum compare overland corridors, a negotiated frontier, a river confluence, and a highland-port link without estimating traffic, revenue, complete borders, or exclusive control.
 3. **Swahili cities were African ports in an Indian Ocean system** — beta candidate; join archaeology, language, architecture, and imports without reducing urbanism to foreign contact.
 4. **Great Zimbabwe converted cattle, gold, and distance into authority** — beta candidate; connect plateau settlement, tribute, stone building, and coastward exchange.
 5. **African political scale followed more than one path** — beta candidate; compare cities, courts, age systems, clans, ritual authority, trade, and armies without a continent-wide ladder.
@@ -282,7 +282,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- African states insight 02: Nile states linked Mediterranean and African worlds.
+- Southeast Asian mandalas insight 02: authority radiated through overlapping centers rather than fixed borders.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -290,6 +290,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed African states insight 02, **Northeast African states turned geographic breaks into political gateways**. Added four bounded mechanisms: Kush at Meroe joining Nile, Red Sea, and savanna routes; Makuria turning military resistance into a negotiated Egyptian interface; Alwa concentrating a multi-directional network at Soba's Blue–White Nile confluence; and Aksum linking its highland court to the Red Sea through Adulis. The comparison treats the Baqt as historically contested and refuses traffic, customs-revenue, population, border, or control scores. Added one public CSV, four sources, one dataset, one claim, release coverage, and automated guards. Verified 118 historical data files, 308 sources, 72 datasets, 63 claims, targeted lint, the Rome client contract, the production build, 138 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 69–93 pixel mobile controls, and no load-error alerts. Next: Southeast Asian mandalas insight 02 on overlapping centers rather than fixed borders.
 
 - 2026-08-31 — Completed Medieval Europe insight 02, **Towns turned negotiated privileges into portable collective rights**. Added four bounded documentary mechanisms: Freiburg's settlement franchise, Lorris's collective liberties and more predictable obligations, Henry II's confirmation of Oxford's merchant-gild and toll privileges, and Bristol's registration of records from more than twenty-five towns so exemptions could travel with merchants. The comparison shows charters making custom and negotiated bargains durable without treating privileged citizens as every resident, eliminating lordship, or scoring autonomy and enforcement. Added one public CSV, four sources, one dataset, one claim, release coverage, and automated guards. Verified 117 historical data files, 304 sources, 71 datasets, 62 claims, targeted lint, the Rome client contract, the production build, 137 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 69-pixel mobile controls, and no load-error alerts. Next: African states insight 02 on Nile states linking Mediterranean and African worlds.
 

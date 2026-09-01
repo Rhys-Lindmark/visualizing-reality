@@ -829,5 +829,16 @@
     "dataset_ids": ["medieval-town-charter-rights"],
     "source_keys": ["OXFORD_HANDBOOK_CENTRAL_EUROPE", "DALTEROCHE2015_LORRIS", "OXFORD_HENRYII_CHARTER", "PORTER2024_TOWNS_POLITIES"],
     "note": "Charters and civic registers made custom and negotiated privileges more durable and portable; they did not create equal citizenship full independence or universal enforcement."
+  },
+  {
+    "id": "african-states-02-geographic-gateways",
+    "page": "african-states",
+    "insight": 2,
+    "claim": "Northeast African states turned geographic breaks into political gateways.",
+    "status": "working_synthesis",
+    "evidence_type": "archaeology_documentary_history_and_institutional_synthesis",
+    "dataset_ids": ["northeast-african-gateways"],
+    "source_keys": ["UNESCO_MEROE_CORRIDOR", "SPAULDING1995_BAQT", "DRZEWIECKI2021_SOBA", "BRITISH_MUSEUM_AKSUM_ADULIS"],
+    "note": "Meroe Makuria Alwa and Aksum joined distinct ecological and political zones through institutions; geography alone did not create a state or guarantee control."
   }
 ]

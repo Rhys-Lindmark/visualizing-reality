@@ -723,5 +723,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four asynchronous cases from 1120 through the fourteenth century",
     "notes": "The cases compare distinct privileges and documentary strategies without producing an autonomy score or treating privileged citizens as every resident."
+  },
+  {
+    "id": "northeast-african-gateways",
+    "title": "Four Northeast African geographic joints and their political gateway mechanisms",
+    "path": "/data/african-states/20260831-gateways1/northeast-african-gateways.csv",
+    "schema": "observation",
+    "evidence_type": "archaeology_documentary_history_and_institutional_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four asynchronous cases from late antiquity through the early sixteenth century",
+    "notes": "The cases compare route joints and political institutions without estimating traffic revenue complete borders or exclusive control."
   }
 ]
