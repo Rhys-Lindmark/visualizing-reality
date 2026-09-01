@@ -853,5 +853,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four unlike evidence windows from the ninth to twelfth centuries",
     "notes": "Dirham distributions one port one shipwreck and one Geniza letter show connections beyond caliphal political reach without reconstructing annual traffic total trade or one unified route map."
+  },
+  {
+    "id": "arabic-book-journeys",
+    "title": "Three Arabic book journeys and Gerard of Cremona's translation portfolio",
+    "path": "/data/caliphates/20260901-books1/arabic-book-journeys.csv",
+    "schema": "observation",
+    "evidence_type": "academic_translation_history_and_library_manuscript_catalogs",
+    "source_key_field": "source_keys",
+    "time_resolution": "four bibliographic windows from the ninth through twelfth centuries",
+    "notes": "Named composition and translation anchors show texts crossing political and linguistic boundaries without estimating manuscript counts readership curricular use textual fidelity or influence."
   }
 ]

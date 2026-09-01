@@ -961,5 +961,16 @@
     "dataset_ids": ["caliphate-cross-border-trade"],
     "source_keys": ["JANKOWIAK2017_SAQALIBA", "WHITEHOUSE1970_SIRAF", "POURKERMAN2020_SIRAF", "FLECKER2001_BELITUNG", "PRINCETON_GENIZA_ADEN_MANGALORE"],
     "note": "Four unlike traces show merchants goods ships and silver crossing political boundaries among Scandinavia Central Asia the Persian Gulf China Southeast Asia Aden and India. They do not form one caliphal trade volume or route map."
+  },
+  {
+    "id": "caliphates-05-arabic-books",
+    "page": "caliphates",
+    "insight": 5,
+    "claim": "Arabic books crossed the borders that split the caliphal world.",
+    "status": "working_synthesis",
+    "evidence_type": "academic_translation_history_and_library_manuscript_catalogs",
+    "dataset_ids": ["arabic-book-journeys"],
+    "source_keys": ["BURNETT2001_TOLEDO", "OXFORD2021_ISLAMIC_ALGEBRA", "NLM_AVICENNA_CANON", "NLM_MEDICAL_ENCYCLOPEDIAS", "NLM_ALZAHRAWI_CHIRURGIA", "NLM_GERARD_BIO"],
+    "note": "Three named works from Baghdad Cordoba and Iran plus Gerard's attributed portfolio show Arabic functioning as a bridge into Latin Toledo after political fragmentation. The evidence does not estimate copies readers curricular use textual fidelity or causal influence."
   }
 ]

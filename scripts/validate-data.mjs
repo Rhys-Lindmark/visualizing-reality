@@ -1305,6 +1305,21 @@ if(caliphateTradeIndex.get('siraf_port')?.quantitative_anchor!=='archaeologicall
 if(caliphateTradeIndex.get('belitung_wreck')?.quantitative_anchor!=='one wreck and one cargo'||!/not the intended destination/.test(caliphateTradeIndex.get('belitung_wreck')?.limits??''))fail('Belitung window must preserve the one-wreck scope and destination limit');
 if(!/first available ship/.test(caliphateTradeIndex.get('aden_mangalore')?.interface??'')||!/disputed/.test(caliphateTradeIndex.get('aden_mangalore')?.limits??''))fail('Aden–Mangalore window must preserve shipment coordination and the disputed island identification');
 
+const arabicBooks=csv('public/data/caliphates/20260901-books1/arabic-book-journeys.csv');
+const arabicBookIndex=new Map();
+for(const[index,row]of arabicBooks.entries()){
+  const context=`arabic-book-journeys.csv row ${index+2}`;
+  requireFields(row,['work_id','work_order','work_title','field','origin_period','origin_place','origin_political_context','origin_language','translation_period','translation_place','translation_political_context','output_language','evidence','quantitative_anchor','source_keys','limits'],context);
+  numeric(row,['work_order'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(arabicBookIndex.has(row.work_id))fail(`${context} duplicates ${row.work_id}`);arabicBookIndex.set(row.work_id,row);
+  if(Object.keys(row).some(field=>/manuscript_count|reader_count|curriculum_share|influence_score|translation_fidelity|scholarly_integration/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(arabicBooks.length!==4||arabicBookIndex.size!==4)fail(`Arabic book comparison requires three named works and one translator portfolio; found ${arabicBooks.length}`);
+if(arabicBookIndex.get('khwarizmi_algebra')?.translation_period!=='1145'||!/Robert of Chester/.test(arabicBookIndex.get('khwarizmi_algebra')?.evidence??''))fail('Al-Khwarizmi window must preserve Robert of Chester and the 1145 Latin translation');
+if(arabicBookIndex.get('alzahrawi_surgery')?.origin_place!=='Córdoba'||!/Gerard of Cremona/.test(arabicBookIndex.get('alzahrawi_surgery')?.evidence??''))fail('Al-Zahrawi window must preserve Cordoba and Gerard of Cremona');
+if(arabicBookIndex.get('ibnsina_canon')?.quantitative_anchor!=='Arabic → Latin · 5 books'||!/several Iranian courts/.test(arabicBookIndex.get('ibnsina_canon')?.evidence??''))fail('Ibn Sina window must preserve the five-book Canon and mobile Iranian composition context');
+if(arabicBookIndex.get('gerard_portfolio')?.quantitative_anchor!=='68 works credited'||!/Arabic versions of Greek/.test(arabicBookIndex.get('gerard_portfolio')?.evidence??''))fail('Gerard portfolio must preserve the 68-work attribution and both Arabic original and Greek-derived material');
+
 const greekTerritories=csv('public/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv');
 for(const[index,row]of greekTerritories.entries()){
   const context=`polis-territory-distribution.csv row ${index+2}`;

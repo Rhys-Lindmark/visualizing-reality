@@ -1,5 +1,5 @@
 {
-  "release_id": "20260901-caliphates-trade1",
+  "release_id": "20260901-caliphates-books1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -63,6 +63,7 @@
     "/data/caliphates/20260831-tax1/caliphal-fiscal-transition.csv",
     "/data/caliphates/20260901-arabic1/arabic-administration-clocks.csv",
     "/data/caliphates/20260901-trade1/caliphate-cross-border-trade.csv",
+    "/data/caliphates/20260901-books1/arabic-book-journeys.csv",
     "/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv",
     "/data/greek-city-states/20260831-citizens1/military-political-constituencies.csv",
     "/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv",

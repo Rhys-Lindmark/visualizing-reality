@@ -590,5 +590,13 @@
     "visual_answer": "Yes: four visible lanes join Scandinavia through Khazaria or Bulgar, the Persian Gulf through Siraf, China through a western Indian Ocean vessel tradition, and Aden through merchant correspondence with Mangalore.",
     "default_visual": "four_cross_border_trade_lanes_with_nonimperial_endpoints",
     "status": "pass"
+  },
+  {
+    "claim_id": "caliphates-05-arabic-books",
+    "claim": "Arabic books crossed the borders that split the caliphal world.",
+    "visual_question": "Does the default visual show named Arabic works moving between rival political settings and into Latin translation?",
+    "visual_answer": "Yes: visible lanes carry al-Khwarizmi from Baghdad to a 1145 Latin translation, al-Zahrawi from Cordoba to Toledo, Ibn Sina from Iranian courts to Toledo, and Gerard's broader Arabic-to-Latin portfolio.",
+    "default_visual": "three_named_book_journeys_and_one_translation_portfolio",
+    "status": "pass"
   }
 ]

@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260901-caliphates-trade1';
+const releaseId='20260901-caliphates-books1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -91,6 +91,7 @@ const assets=[
   ['csv','/data/caliphates/20260831-tax1/caliphal-fiscal-transition.csv'],
   ['csv','/data/caliphates/20260901-arabic1/arabic-administration-clocks.csv'],
   ['csv','/data/caliphates/20260901-trade1/caliphate-cross-border-trade.csv'],
+  ['csv','/data/caliphates/20260901-books1/arabic-book-journeys.csv'],
   ['csv','/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv'],
   ['csv','/data/greek-city-states/20260831-citizens1/military-political-constituencies.csv'],
   ['csv','/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv'],
