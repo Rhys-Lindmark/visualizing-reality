@@ -30,6 +30,5 @@ export default function PersianInstitutionalAfterlives(){
     </section>
     <nav className="persia-afterlife-tabs" aria-label="Choose one institutional pathway">{groups.map(([id,episodes])=><button type="button" key={id} className={selected===id?'active':''} onClick={()=>setSelected(id)}><span>0{episodes[0].thread_order}</span><b>{episodes[0].thread_title}</b></button>)}</nav>
     <section className="persia-afterlife-focus"><header><div><span>Selected pathway</span><h5>{active[0].thread_title}</h5></div><small>{active.length} windows · arrows are not a strength score</small></header><div className="persia-afterlife-chain">{active.map((episode,index)=><article key={episode.episode_id} style={{'--episode-color':colors[episode.relationship]} as React.CSSProperties}><div><span>{episode.date_label}</span><b>{relLabel(episode.relationship)}</b></div><h6>{episode.regime}</h6><p>{episode.observed_change}</p><small>{episode.evidence}</small>{index<active.length-1&&<i aria-hidden="true">→</i>}</article>)}</div></section>
-    <section className="persia-afterlife-limit"><div><p>{active.at(-1)?.limits}</p></div></section>
   </div>;
 }

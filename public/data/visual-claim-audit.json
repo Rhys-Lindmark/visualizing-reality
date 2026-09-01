@@ -158,5 +158,85 @@
     "visual_answer": "Yes: six dated source windows show the uneven chronology, and the default evidence lens now opens on survival and reorganization rather than institutional breakage alone.",
     "default_visual": "asynchronous_breaks_with_persistence_lens",
     "status": "pass"
+  },
+  {
+    "claim_id": "iron-age-01-adoption-clocks",
+    "claim": "First iron evidence and sustained regional adoption followed different clocks because iron depended on production skills fuel prior metallurgical traditions exchange and institutions rather than instant material superiority.",
+    "visual_question": "Does the default visual separate first evidence from sustained adoption and expose the production system required to bridge the gap?",
+    "visual_answer": "Yes: five paired chronology bars distinguish first evidence from wider adoption, while the selected regional readout exposes ore, fuel, furnace, smithing, prior craft, and institutional dependencies.",
+    "default_visual": "five_region_adoption_clocks_and_dependencies",
+    "status": "pass"
+  },
+  {
+    "claim_id": "iron-age-02-charcoal-process",
+    "claim": "Charcoal was necessary for bloomery iron but fuel mass alone did not determine a usable bloom because ore furnace airflow slag preparation weather and skilled operation interacted.",
+    "visual_question": "Does the default visual show similar or large fuel inputs producing sharply different bloom outcomes and connect those outcomes to operation?",
+    "visual_answer": "Yes: eleven smelts place charcoal, ore, and recovered bloom on one view, including two high-charcoal Meroe failures, while the selected run reports airflow, ore, and slag behavior.",
+    "default_visual": "experimental_smelts_input_outcome_comparison",
+    "status": "pass"
+  },
+  {
+    "claim_id": "iron-age-03-quality-was-made",
+    "claim": "Iron quality was a production history rather than one material constant because hardness chemistry carbon distribution inclusions and forgeability did not move together from bloom to worked bar.",
+    "visual_question": "Does the default visual make the counterexample to hardness-equals-quality visible?",
+    "visual_answer": "Yes: FEXP-6 opens as the hardest mean bloom in the series yet a softer forged bar labeled brittle and difficult, with chemistry and microstructure one click away.",
+    "default_visual": "paired_bloom_bar_hardness_counterexample",
+    "status": "pass"
+  },
+  {
+    "claim_id": "iron-age-04-metal-did-not-mobilize-itself",
+    "claim": "Cheaper iron equipment could widen military participation but large and durable armies still depended on recruitment supply command finance and replacement institutions.",
+    "visual_question": "Does the default visual show the institutional system around army size rather than treating metal as the mechanism?",
+    "visual_answer": "Yes: the selected Roman case visibly joins equipment, recruitment, supply, and replacement, while the like-for-like Carthage comparison rejects a uniquely iron-driven Roman scale advantage.",
+    "default_visual": "four_part_mobilization_ledger_with_like_for_like_scale",
+    "status": "pass"
+  },
+  {
+    "claim_id": "iron-age-05-scale-was-institutional",
+    "claim": "Iron production became durable through multiple institutional architectures—household networks distribution nodes urban workshop landscapes royal arsenals and state monopoly systems—rather than one universal path toward centralization.",
+    "visual_question": "Does the default visual make unlike production architectures visible as complete circuits rather than a centralization ladder?",
+    "visual_answer": "Yes: the household-network circuit follows inputs through making, coordination, distribution, and surviving evidence, while the five-case overview places it beside arsenal, market, monopoly, and urban-landscape forms.",
+    "default_visual": "five_institutional_production_circuits",
+    "status": "pass"
+  },
+  {
+    "claim_id": "persia-01-distance-became-relay-problem",
+    "claim": "Achaemenid roads did not abolish imperial distance; staffed stages, stores, authorizations, and fresh carriers let messages move as a relay while ordinary journeys remained long.",
+    "visual_question": "Does the default visual distinguish a long ordinary route from a message handed between fresh carriers?",
+    "visual_answer": "Yes: the 111-stage itinerary remains visible beside the selected relay lens, which explicitly shows the dispatch changing carriers rather than one traveler crossing the empire at implausible speed.",
+    "default_visual": "staged_itinerary_and_fresh_carrier_relay",
+    "status": "pass"
+  },
+  {
+    "claim_id": "persia-02-satrapies-negotiated-rule",
+    "claim": "Achaemenid satrapies were not identical provincial boxes: royal appointment and intervention operated through different local institutions households cities dynasties and military communities.",
+    "visual_question": "Does the default visual show royal authority operating through local partners and make the provincial bargains visibly unlike?",
+    "visual_answer": "Yes: Egypt opens as a five-stage chain from Persian top office through retained local institutions to visible action, with all five provincial interfaces compared below.",
+    "default_visual": "satrapal_interface_circuit_and_five_portfolios",
+    "status": "pass"
+  },
+  {
+    "claim_id": "persia-03-obligation-was-portfolio",
+    "claim": "Achaemenid extraction was a portfolio of silver goods provisions service gifts and status relationships rather than one comparable empire-wide tax rate.",
+    "visual_question": "Does the default visual lead with an unlike mixed obligation rather than forcing every district onto one monetary scale?",
+    "visual_answer": "Yes: Cilicia opens with silver, horses, and local cavalry maintenance in one obligation, while six other windows and the separate district view expose other materials, services, gifts, and statuses.",
+    "default_visual": "mixed_obligation_portfolio",
+    "status": "pass"
+  },
+  {
+    "claim_id": "persia-04-army-was-assembly",
+    "claim": "Achaemenid military scale came from assembling distinct military systems through command and supply rather than turning them into one uniform army.",
+    "visual_question": "Does the default visual trace how unlike contributors became one campaign assembly and reveal the coordination interface?",
+    "visual_answer": "Yes: Cunaxa follows contributors through command, battlefield role, supply, and a failed tactical handoff, while five other military windows remain available for comparison.",
+    "default_visual": "coalition_assembly_and_coordination_chain",
+    "status": "pass"
+  },
+  {
+    "claim_id": "persia-05-toolkit-outlasted-dynasty",
+    "claim": "The Achaemenid dynasty ended but parts of its imperial toolkit were retained reallocated transformed recombined or revived through different historical pathways.",
+    "visual_question": "Does the default visual begin at the dynastic break and show multiple institutions continuing through different relationships?",
+    "visual_answer": "Yes: five parallel timelines cross the 330 BCE break, and the selected province pathway shows retention, restaffing, reallocation, and redesign under Alexander and his successors.",
+    "default_visual": "five_institutional_afterlife_timelines",
+    "status": "pass"
   }
 ]
