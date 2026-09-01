@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260831-african-gateways1';
+const releaseId='20260831-southeast-mandala1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -100,6 +100,7 @@ const assets=[
   ['csv','/data/african-states/20260831-alpha1/ghana-trade-dues.csv'],
   ['csv','/data/african-states/20260831-gateways1/northeast-african-gateways.csv'],
   ['csv','/data/southeast-asia/20260831-alpha1/khao-sam-kaeo-industries.csv'],
+  ['csv','/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv'],
   ['csv','/data/mesoamerica/20260831-alpha1/maya-lidar-findings.csv'],
   ['csv','/data/andes/20260831-alpha1/qhapaq-nan-scale.csv'],
   ['csv','/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv'],

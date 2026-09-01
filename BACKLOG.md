@@ -227,7 +227,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 17: Southeast Asian mandalas — alpha live
 
 1. **Early ports manufactured imported technologies locally** — alpha live; five Khao Sam Kaeo industry lenses show workshop production and technological analogies without output or ethnicity scores.
-2. **Political authority radiated from centers instead of stopping at borders** — beta candidate; test tribute, marriage, ritual status, and allegiance across overlapping centers.
+2. **Power was a hierarchy of relationships—not a hard-bordered state** — beta live; Srivijaya's oath hierarchy, Khmer rival capitals, Majapahit's differentiated courtly geography, and a center-bias critique make unlike political relationships visible without inventing borders or a sovereignty score.
 3. **River basins linked upland products to coastal exchange** — beta candidate; compare upstream-downstream product and institutional routes.
 4. **Temples stored labor and legitimacy—not only belief** — beta candidate; compare labor, land, storage, inscriptions, pilgrimage, and construction.
 5. **Maritime centers survived by shifting alliances and routes** — beta candidate; trace relocation, competition, and political rewiring as sea routes changed.
@@ -282,7 +282,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Southeast Asian mandalas insight 02: authority radiated through overlapping centers rather than fixed borders.
+- Mesoamerican cities and states insight 02: compare urban political organization without turning unlike cities into one hierarchy score.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -290,6 +290,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed Southeast Asian mandalas insight 02, **Power was a hierarchy of relationships—not a hard-bordered state**. Added four bounded evidence windows: Srivijaya's Telaga Batu oath hierarchy; Angkor and Koh Ker as coexisting rival sacred capitals; the Nagarakertagama's differentiated Java, Nusantara, and Desantara; and a mandala-model critique that keeps enacted relationships and the center's bias visible. The comparison refuses annual borders, tribute quantities, compliance, complete control, or a sovereignty score. Added one public CSV, five sources, one dataset, one claim, release coverage, and automated guards. Verified 119 historical data files, 313 sources, 73 datasets, 64 claims, targeted lint, the Rome client contract, the production build, 139 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 69–87 pixel mobile controls, and no load-error alerts. Next: Mesoamerican cities and states insight 02.
 
 - 2026-08-31 — Completed African states insight 02, **Northeast African states turned geographic breaks into political gateways**. Added four bounded mechanisms: Kush at Meroe joining Nile, Red Sea, and savanna routes; Makuria turning military resistance into a negotiated Egyptian interface; Alwa concentrating a multi-directional network at Soba's Blue–White Nile confluence; and Aksum linking its highland court to the Red Sea through Adulis. The comparison treats the Baqt as historically contested and refuses traffic, customs-revenue, population, border, or control scores. Added one public CSV, four sources, one dataset, one claim, release coverage, and automated guards. Verified 118 historical data files, 308 sources, 72 datasets, 63 claims, targeted lint, the Rome client contract, the production build, 138 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 69–93 pixel mobile controls, and no load-error alerts. Next: Southeast Asian mandalas insight 02 on overlapping centers rather than fixed borders.
 

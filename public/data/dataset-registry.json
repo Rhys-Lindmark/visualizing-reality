@@ -733,5 +733,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four asynchronous cases from late antiquity through the early sixteenth century",
     "notes": "The cases compare route joints and political institutions without estimating traffic revenue complete borders or exclusive control."
+  },
+  {
+    "id": "southeast-asian-mandala-relationships",
+    "title": "Four evidence windows onto relationship-based political authority in Southeast Asia",
+    "path": "/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv",
+    "schema": "observation",
+    "evidence_type": "inscription_archaeology_court_text_and_academic_model_critique",
+    "source_key_field": "source_keys",
+    "time_resolution": "three asynchronous historical cases from the seventh through fourteenth centuries plus one comparative interpretation",
+    "notes": "Oaths rival capitals courtly categories and scholarly models are compared without reconstructing borders compliance tribute quantities or a sovereignty score."
   }
 ]

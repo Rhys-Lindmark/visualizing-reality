@@ -1450,6 +1450,14 @@ const ratioKey=row=>`${row.city}|${row.period}`;
 const ratios=new Map(urbanSubsistence.map(row=>[ratioKey(row),Number(row.subsistence_ratio)]));
 if(urbanSubsistence.length!==6||ratios.get('London|1700–1749')!==4.16||ratios.get('London|1750–1799')!==3.51||ratios.get('Amsterdam|1700–1749')!==4.2||ratios.get('Amsterdam|1750–1799')!==3.77||ratios.get('Beijing|1700–1749')!==1.25||ratios.get('Beijing|1750–1799')!==1.04)fail('Great Divergence alpha must preserve all six published London Amsterdam and Beijing subsistence ratios');
 
+const mandalaRelationships=csv('public/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv');
+for(const[index,row]of mandalaRelationships.entries()){
+  const context=`mandala-relationship-evidence.csv row ${index+2}`;
+  requireFields(row,['case','date_label','relationship','center','partner_or_periphery','mechanism','evidence','source_keys','limits'],context);
+  validateKeys(sourceKeys(row.source_keys),context);
+}
+if(mandalaRelationships.length!==4||!mandalaRelationships.some(row=>row.case==='Srivijaya'&&row.mechanism==='Water oath and curse')||!mandalaRelationships.some(row=>row.case==='Khmer Empire'&&row.date_label==='921–928 CE')||!mandalaRelationships.some(row=>row.case==='Majapahit'&&row.partner_or_periphery.includes('Nusantara'))||!mandalaRelationships.some(row=>row.case==='Mandala model'&&row.limits.includes('scholarly model')))fail('Southeast Asian mandala beta must preserve four unlike relationship windows and the model caveat');
+
 const datasets = json('public/data/dataset-registry.json') ?? [];
 const datasetIndex = new Map();
 for (const dataset of datasets) {

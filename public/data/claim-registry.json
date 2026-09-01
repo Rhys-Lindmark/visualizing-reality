@@ -840,5 +840,16 @@
     "dataset_ids": ["northeast-african-gateways"],
     "source_keys": ["UNESCO_MEROE_CORRIDOR", "SPAULDING1995_BAQT", "DRZEWIECKI2021_SOBA", "BRITISH_MUSEUM_AKSUM_ADULIS"],
     "note": "Meroe Makuria Alwa and Aksum joined distinct ecological and political zones through institutions; geography alone did not create a state or guarantee control."
+  },
+  {
+    "id": "southeast-asia-02-relationship-hierarchy",
+    "page": "southeast-asia",
+    "insight": 2,
+    "claim": "Power was a hierarchy of relationships—not a hard-bordered state.",
+    "status": "working_synthesis",
+    "evidence_type": "inscription_archaeology_court_text_and_academic_model_critique",
+    "dataset_ids": ["southeast-asian-mandala-relationships"],
+    "source_keys": ["WISSEMAN_CHRISTIE1995_SRIVIJAYA", "UNESCO_KOH_KER", "HALL2017_EASTERN_INDIAN_OCEAN", "WOLTERS1999_REGION", "TOOKER1996_MANDALA"],
+    "note": "Three historical windows and one model critique show differentiated relations among centers and peripheries without claiming one native constitutional system annual boundaries or complete control."
   }
 ]
