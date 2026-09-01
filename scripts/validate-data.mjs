@@ -1612,6 +1612,21 @@ if(steppeBargainIndex.get('han_xiongnu')?.visible_anchor!=='marriage + annual go
 if(steppeBargainIndex.get('song_liao')?.visible_anchor!=='300k annual units + parity')fail('Song-Liao bargain must preserve the two original annual quantities and diplomatic parity');
 if(steppeBargainIndex.get('song_xixia')?.visible_anchor!=='250k annual units + 2 markets')fail('Song-Western Xia bargain must preserve the reported mixed-unit total and two markets');
 
+const steppeMigration=csv('public/data/steppe/20260901-migration1/steppe-migration-outcomes.csv');
+const steppeMigrationIndex=new Map();
+for(const[index,row]of steppeMigration.entries()){
+  const context=`steppe-migration-outcomes.csv row ${index+2}`;
+  requireFields(row,['case_id','region','period','incoming_label','incoming_percent','remaining_percent','display_anchor','comparison','language_evidence','source_keys','limits'],context);numeric(row,['incoming_percent','remaining_percent'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(steppeMigrationIndex.has(row.case_id))fail(`${context} duplicates ${row.case_id}`);steppeMigrationIndex.set(row.case_id,row);
+  if(Number(row.incoming_percent)+Number(row.remaining_percent)!==100)fail(`${context} ancestry bars must sum to 100`);
+  for(const field of ['ethnicity','identity_score','language_probability','pan_eurasian_rate'])if(field in row)fail(`${context} must not include synthetic ${field}`);
+}
+if(steppeMigration.length!==4||steppeMigrationIndex.size!==4)fail(`Steppe migration comparison requires four unique published estimates; found ${steppeMigration.length}`);
+if(steppeMigrationIndex.get('corded_ware')?.display_anchor!=='≈75% Yamnaya-related')fail('Corded Ware must preserve the approximately seventy-five-percent Yamnaya-related estimate');
+if(steppeMigrationIndex.get('beaker_britain')?.display_anchor!=='≈90% gene-pool replacement')fail('Beaker-period Britain must preserve the approximate ninety-percent replacement estimate');
+if(steppeMigrationIndex.get('bronze_iberia')?.display_anchor!=='≈40% incoming · nearly all Y-lines'||!/plots only the autosomal estimate/.test(steppeMigrationIndex.get('bronze_iberia')?.limits??''))fail('Iberia must keep autosomal and Y-line turnover separate');
+if(steppeMigrationIndex.get('south_asia')?.display_anchor!=='up to ≈20% steppe-derived'||!/upper bound/.test(steppeMigrationIndex.get('south_asia')?.limits??''))fail('South Asia must preserve the upper-bound wording');
+
 const mandalaRelationships=csv('public/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv');
 for(const[index,row]of mandalaRelationships.entries()){
   const context=`mandala-relationship-evidence.csv row ${index+2}`;

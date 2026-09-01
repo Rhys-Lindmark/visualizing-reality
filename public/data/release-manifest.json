@@ -1,5 +1,5 @@
 {
-  "release_id": "20260901-steppe-bargains1",
+  "release_id": "20260901-steppe-migration1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -90,6 +90,7 @@
     "/data/great-divergence/20260901-incentives1/spinning-jenny-returns.csv",
     "/data/steppe/20260901-war-system1/steppe-war-system.csv",
     "/data/steppe/20260901-bargains1/frontier-bargain-packages.csv",
+    "/data/steppe/20260901-migration1/steppe-migration-outcomes.csv",
     "/data/christianity/20260901-constantine1/imperial-church-transition.csv",
     "/data/rome/20260901-replacement1/roman-defeat-replacement.csv",
     "/data/visual-claim-audit.json"

@@ -606,5 +606,13 @@
     "visual_answer": "Yes: all four visible case selectors name the bargain package, while the selected flow runs from pressure through recurring goods to political terms and trade access. Han-Xiongnu marriage and boundary terms, Türk tribute silk and market diplomacy, Song-Liao parity, and Western Xia markets remain distinct.",
     "default_visual": "four_frontier_bargain_packages_from_pressure_to_resources_and_access",
     "status": "pass"
+  },
+  {
+    "claim_id": "steppe-05-migration-outcomes",
+    "claim": "Steppe migrations mixed with some populations and nearly replaced others.",
+    "visual_question": "Does the default visual make the range from minority mixture to near replacement visible without equating ancestry with identity or language?",
+    "visual_answer": "Yes: four bars simultaneously show up to about twenty percent Western Steppe-derived ancestry in a sampled South Asian context, about forty percent incoming steppe-related ancestry in Iberia, about seventy-five percent Yamnaya-related ancestry in Corded Ware Germany, and about ninety percent continental Beaker-related gene-pool replacement in Britain. Selected notes keep language separate.",
+    "default_visual": "four_published_ancestry_bars_from_mixture_to_near_replacement",
+    "status": "pass"
   }
 ]

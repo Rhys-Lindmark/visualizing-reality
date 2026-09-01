@@ -873,5 +873,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four source-bounded agreements or diplomatic-commercial episodes from 200 BCE through 1044 CE",
     "notes": "Original quantities and units remain attached to their source cases; the comparison does not create tribute value confederation strength treaty durability or one continuous frontier series."
+  },
+  {
+    "id": "steppe-migration-outcomes",
+    "title": "Four published ancient-DNA estimates spanning mixture to near replacement",
+    "path": "/data/steppe/20260901-migration1/steppe-migration-outcomes.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_ancient_dna_population_models",
+    "source_key_field": "source_keys",
+    "time_resolution": "four sampled population comparisons from the third and second millennia BCE",
+    "notes": "Published model estimates describe different sampled populations and source proxies. They do not identify ethnicity language or one pan-Eurasian replacement rate."
   }
 ]

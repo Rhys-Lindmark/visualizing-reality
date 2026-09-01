@@ -983,5 +983,16 @@
     "dataset_ids": ["steppe-frontier-bargain-packages"],
     "source_keys": ["BARFIELD2001_SHADOW_EMPIRES", "IRANICA_SOGDIAN_TRADE", "SMITH2023_CHANYUAN"],
     "note": "Four bargains show military leverage converted into annual goods marriage or recognition fixed frontier terms diplomatic parity and market access without reducing unlike terms to one tribute value confederation-strength or peace-durability score."
+  },
+  {
+    "id": "steppe-05-migration-outcomes",
+    "page": "steppe",
+    "insight": 5,
+    "claim": "Steppe migrations mixed with some populations and nearly replaced others.",
+    "status": "working_synthesis",
+    "evidence_type": "peer_reviewed_ancient_dna_population_models",
+    "dataset_ids": ["steppe-migration-outcomes"],
+    "source_keys": ["HAAK2015_STEPPE_MIGRATION", "OLALDE2018_BEAKER_BRITAIN", "OLALDE2019_IBERIA", "NARASIMHAN2019_SOUTH_CENTRAL_ASIA"],
+    "note": "Four published estimates show outcomes ranging from an upper bound near twenty percent steppe-derived ancestry in sampled South Asian groups to approximately ninety percent gene-pool replacement in Beaker-period Britain. The comparison does not equate ancestry with ethnicity or language."
   }
 ]
