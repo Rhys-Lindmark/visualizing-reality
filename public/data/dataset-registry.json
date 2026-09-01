@@ -763,5 +763,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four asynchronous windows from Tiwanaku colonies through early-colonial visitas",
     "notes": "Travel times elevations route distances and institutional mechanisms retain their original scopes and are not converted into resource shares tribute flows household budgets or a verticality score."
+  },
+  {
+    "id": "mongol-operational-system",
+    "title": "Four mechanisms that turned mounted mobility into an organized operational system",
+    "path": "/data/mongol-eurasia/20260901-operations1/mongol-operational-system.csv",
+    "schema": "observation",
+    "evidence_type": "contemporary_report_and_academic_military_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four asynchronous evidence windows centered on the thirteenth century",
+    "notes": "Command units scouting remount reports and campaign movements remain unlike evidence and are not converted into army size speed detection time endurance or one military-power score."
   }
 ]

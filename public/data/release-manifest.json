@@ -1,5 +1,5 @@
 {
-  "release_id": "20260901-andes-floors1",
+  "release_id": "20260901-mongol-operations1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -78,6 +78,7 @@
     "/data/andes/20260901-floors1/andean-ecological-floor-access.csv",
     "/data/andes/20260831-alpha1/qhapaq-nan-scale.csv",
     "/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv",
+    "/data/mongol-eurasia/20260901-operations1/mongol-operational-system.csv",
     "/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv",
     "/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv",
     "/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv"

@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260901-andes-floors1';
+const releaseId='20260901-mongol-operations1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -106,6 +106,7 @@ const assets=[
   ['csv','/data/andes/20260901-floors1/andean-ecological-floor-access.csv'],
   ['csv','/data/andes/20260831-alpha1/qhapaq-nan-scale.csv'],
   ['csv','/data/mongol-eurasia/20260831-alpha1/black-death-origin-evidence.csv'],
+  ['csv','/data/mongol-eurasia/20260901-operations1/mongol-operational-system.csv'],
   ['csv','/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv'],
   ['csv','/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv'],
   ['csv','/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv'],

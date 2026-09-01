@@ -873,5 +873,16 @@
     "dataset_ids": ["andean-ecological-floor-access"],
     "source_keys": ["MURRA1972_VERTICAL_CONTROL", "BAITZEL_RIVERA2019_SAMA", "GARVIN_SUERO_ETAL2023_TIWANAKU", "WACHTEL1982_COCHABAMBA"],
     "note": "Four cases show outlying settlements caravans colonies and state relocation joining unlike production zones without treating verticality as one universal institution or score."
+  },
+  {
+    "id": "mongol-eurasia-02-organized-mobility",
+    "page": "mongol-eurasia",
+    "insight": 2,
+    "claim": "Mongol mobility was organized—not just fast.",
+    "status": "working_synthesis",
+    "evidence_type": "contemporary_report_and_academic_military_synthesis",
+    "dataset_ids": ["mongol-operational-system"],
+    "source_keys": ["MAY2024_MILITARY_MACHINE", "MAY2015_CHINGGIS_EXCHANGE", "MARTIN1943_MONGOL_ARMY"],
+    "note": "The evidence supports a system of command information remount depth and concentration without estimating one army-size series mobility score or causal share of victory."
   }
 ]

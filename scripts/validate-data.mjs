@@ -1453,6 +1453,19 @@ for(const[index,row]of blackDeathOrigin.entries()){
 }
 if(blackDeathOrigin.length!==5||Number(blackDeathOrigin.find(row=>row.observation_id==='screened_individuals')?.numeric_value)!==7||Number(blackDeathOrigin.find(row=>row.observation_id==='plague_positive')?.numeric_value)!==3||Number(blackDeathOrigin.find(row=>row.observation_id==='reconstructed_genomes')?.numeric_value)!==2||Number(blackDeathOrigin.find(row=>row.observation_id==='phylogenetic_placement')?.numeric_value)!==1)fail('Mongol Eurasia alpha must preserve seven screened people, three positives, two reconstructed genomes, and one ancestral strain');
 
+const mongolOperations=csv('public/data/mongol-eurasia/20260901-operations1/mongol-operational-system.csv');
+const mongolOperationIndex=new Map();
+for(const[index,row]of mongolOperations.entries()){
+  const context=`mongol-operational-system.csv row ${index+2}`;
+  requireFields(row,['mechanism','date_label','operational_problem','organized_response','observable_anchor','evidence','source_keys','limits'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(mongolOperationIndex.has(row.mechanism))fail(`${context} duplicates ${row.mechanism}`);mongolOperationIndex.set(row.mechanism,row);
+  for(const field of ['army_size','horse_count','speed_km_day','detection_time','military_power_score','mobility_score','casualties'])if(field in row)fail(`${context} must not include synthetic ${field}`);
+}
+if(mongolOperations.length!==4||mongolOperationIndex.size!==4)fail(`Mongol operational comparison requires four unique mechanisms; found ${mongolOperations.length}`);
+if(mongolOperationIndex.get('Named command')?.observable_anchor!=='units of 1,000')fail('Mongol command row must preserve the unit designation');
+if(mongolOperationIndex.get('Remount depth')?.observable_anchor!=='up to 6–7 spare horses reported')fail('Mongol remount row must preserve the bounded contemporary report');
+if(mongolOperationIndex.get('Converging columns')?.observable_anchor!=='separate → converge')fail('Mongol campaign row must preserve separation and convergence');
+
 const gunpowderScale=csv('public/data/gunpowder-empires/20260831-alpha1/military-scale-multipliers.csv');
 for(const[index,row]of gunpowderScale.entries()){
   const context=`military-scale-multipliers.csv row ${index+2}`;

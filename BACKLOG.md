@@ -252,7 +252,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 20: Mongol Eurasia — alpha live
 
 1. **Mongol-era integration connected disease ecologies as well as markets** — alpha live; the 1338–1339 cemetery context, seven screened people, three plague detections, two reconstructed genomes, and ancestral strain remain unlike observations; the route west is unknown.
-2. **Mounted armies won through organization, intelligence, and remounts** — beta candidate; compare decimal units, scouting, signaling, discipline, remounts, and converging columns.
+2. **Mounted armies won through organization, intelligence, and remounts** — beta live; command units, scout screens, spare mounts, and converging columns show an organized operating system without one military-power score.
 3. **Relay stations made continental command faster** — beta candidate; test stations, mounts, provisions, passports, and local obligations without accepting transmitted station counts uncritically.
 4. **The empire protected merchants selectively—not uniformly** — beta candidate; compare capital, protection, tax privileges, coercion, war, and fragmentation.
 5. **Successor states localized Mongol institutions instead of simply disappearing** — beta candidate; compare Yuan, Ilkhanid, Chaghatayid, and Golden Horde adaptations.
@@ -283,7 +283,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Mongol Eurasia insight 02: compare organization, intelligence, remounts, and converging columns without one military-power score.
+- Gunpowder Empires insight 02: show how fortresses adapted to artillery without claiming cannon simply erased walls.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -292,6 +292,7 @@ when the evidence supports independent urban/state formation.
 
 ## Completed
 
+- 2026-09-01 — Completed Mongol Eurasia insight 02, **Mounted armies won through organization, intelligence, and remounts**. Reframed the argument as “Mongol mobility was organized—not just fast” and added four selectable evidence windows for named command units, scout screens, remount depth, and converging columns. The comparison preserves unit designations and a reported maximum of six or seven spare horses without reconstructing army sizes, speeds, detection times, endurance, or a military-power score. Added one public CSV, three scholarly sources, one dataset, one claim, release coverage, and automated anchors. Verified 122 historical data files, 324 sources, 76 datasets, 67 claims, targeted lint, the Rome client contract, the production build, 142 byte-identical built assets, all four selectors, the remount interaction, no desktop or 390 × 844 overflow, 69–93 pixel mobile controls, no load-error alerts, and a clean browser console. Next: Gunpowder Empires insight 02.
 - 2026-09-01 — Completed Andean worlds and the Inka insight 02, **Households combined resources from different ecological floors**. Added four bounded systems: Chupaychu outlying settlements linked to puna and montaña resources; Lupaqa settlement and caravans in Sama; Tiwanaku agrarian colonies at 600–900 m connected to a 3,860 m altiplano homeland; and state-directed land and labor in Inka Cochabamba. The comparison preserves visitas, archaeology, archaeobotany, and archival reconstruction as unlike evidence and refuses resource shares, tribute flows, household budgets, or a verticality score. Added one public CSV, four scholarly sources, one dataset, one claim, release coverage, and automated anchors. Verified 121 historical data files, 321 sources, 75 datasets, 66 claims, targeted lint, the Rome client contract, the production build, 141 byte-identical built assets, all four selectors, zero desktop or 390 × 844 overflow, 87-pixel mobile controls, no load-error alerts, and a clean browser console. Next: Mongol Eurasia insight 02.
 
 - 2026-09-01 — Completed Mesoamerican cities and states insight 02, **Maya cities turned seasonal rainfall into urban infrastructure**. Added four bounded site-level systems: Tikal's hilltop catchments and reservoirs; Caracol's terraces and residential reservoirs across a 200 km² lidar survey; Tamarindito's roughly 60 m dam and 2,000 m³ reservoir; and wetland-edge channelization near Lamanai and Ka'kabish. The comparison refuses annual output, population supported, labor totals, centralized ownership, or an engineering score. Added one public CSV, four scholarly sources, one dataset, one claim, release coverage, and automated anchors. Verified 120 historical data files, 317 sources, 74 datasets, 65 claims, targeted lint, the Rome client contract, production build, 140 byte-identical built assets, all four selectors, zero desktop or 390 × 844 overflow, 69-pixel mobile controls, and no load-error alerts. Next: Andean worlds and the Inka insight 02.
