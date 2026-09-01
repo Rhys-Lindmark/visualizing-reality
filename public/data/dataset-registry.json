@@ -683,5 +683,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four asynchronous windows from 643 through 703 CE",
     "notes": "A papyrus regional administrative syntheses coin types and dated reforms answer different questions and are not one tax rate language share staff count or empire-wide switch date."
+  },
+  {
+    "id": "greek-military-political-constituencies",
+    "title": "Four military constituencies in Aristotle's constitutional typology",
+    "path": "/data/greek-city-states/20260831-citizens1/military-political-constituencies.csv",
+    "schema": "observation",
+    "evidence_type": "primary_political_theory_plus_modern_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "one late-fourth-century-BCE comparative theory with modern contextual synthesis",
+    "notes": "The four arms expose resource barriers and political tendencies but are not measured wealth thresholds population shares causal effects or a rule followed by every polis."
   }
 ]

@@ -785,5 +785,16 @@
     "dataset_ids": ["caliphal-fiscal-transition"],
     "source_keys": ["DEMIRI_ROMER2009_EARLY_ISLAMIC_PAPYRI", "SIJPESTEIJN2013_MUSLIM_STATE", "FOSS2009_EGYPT_MUAWIYA_II", "IRANICA_COINS_COINAGE", "BRITISH_MUSEUM_ARAB_SASANIAN", "BENFEY2024_MIDDLE_PERSIAN_FISCAL"],
     "note": "The four evidence windows preserve regional and medium differences without producing one imperial tax rate staffing series language share or administrative switch date."
+  },
+  {
+    "id": "greek-city-states-02-military-leverage",
+    "page": "greek-city-states",
+    "insight": 2,
+    "claim": "Military necessity gave poorer citizens political leverage.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_political_theory_plus_modern_synthesis",
+    "dataset_ids": ["greek-military-political-constituencies"],
+    "source_keys": ["ARISTOTLE_POLITICS6_MILITARY", "HUNT2009_WAR_SOCIETY"],
+    "note": "Aristotle's typology and modern synthesis support a relationship between entry cost military constituency and political leverage without proving that hoplite tactics automatically caused democracy."
   }
 ]

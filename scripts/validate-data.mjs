@@ -1286,6 +1286,20 @@ const greek200=greekTerritories.find(row=>row.measure_id==='at_most_200');
 const greek1000=greekTerritories.find(row=>row.measure_id==='over_1000');
 if(Number(greek200?.value)!==80||Number(greek200?.territory_km2)!==200||Number(greek1000?.value)!==13)fail('Greek polis alpha must preserve the 80 percent at 200 km² and thirteen over 1,000 km² anchors');
 
+const greekMilitary=csv('public/data/greek-city-states/20260831-citizens1/military-political-constituencies.csv');
+const greekMilitaryIndex=new Map();
+for(const[index,row]of greekMilitary.entries()){
+  const context=`military-political-constituencies.csv row ${index+2}`;
+  requireFields(row,['constituency_id','sort_order','military_arm','resource_barrier','political_pattern','aristotle_evidence','visual_anchor','source_keys','limits'],context);
+  numeric(row,['sort_order'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(greekMilitaryIndex.has(row.constituency_id))fail(`${context} duplicates ${row.constituency_id}`);greekMilitaryIndex.set(row.constituency_id,row);
+  if(Object.keys(row).some(field=>/wealth_threshold|population_share|voting_rate|causal_effect|democracy_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(greekMilitary.length!==4||greekMilitaryIndex.size!==4)fail(`Greek military comparison requires four unique constituencies; found ${greekMilitary.length}`);
+if(greekMilitaryIndex.get('cavalry')?.visual_anchor!=='horses + extensive estates'||greekMilitaryIndex.get('cavalry')?.political_pattern!=='Oligarchic')fail('Cavalry row must preserve the estate and oligarchy relationship');
+if(greekMilitaryIndex.get('heavy_infantry')?.visual_anchor!=='shield + armor + spear'||!/did not mechanically create/.test(greekMilitaryIndex.get('heavy_infantry')?.limits??''))fail('Heavy-infantry row must preserve the equipment barrier and anti-mechanical limit');
+if(greekMilitaryIndex.get('naval_forces')?.visual_anchor!=='state ship + citizen rowers'||greekMilitaryIndex.get('naval_forces')?.political_pattern!=='Democratic element')fail('Naval row must preserve the state-ship and democratic-element relationship');
+
 const raphia=csv('public/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv');
 for(const[index,row]of raphia.entries()){
   const context=`raphia-contingents.csv row ${index+2}`;

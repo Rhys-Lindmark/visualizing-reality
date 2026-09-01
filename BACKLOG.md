@@ -187,7 +187,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 12: Greek city-states — alpha live
 
 1. **The typical Greek state was smaller than its famous exceptions** — alpha live; cumulative territory categories show four in five approximately classified poleis at or below 200 km² without converting territory into population or power.
-2. **Citizenship made armies and assemblies overlap** — beta candidate; compare voting, taxation, equipment, and military obligation across constitutions.
+2. **Military necessity gave poorer citizens political leverage** — live; Aristotle's four-part military typology connects cavalry, heavy infantry, light infantry, and naval forces to different resource barriers and political tendencies while modern synthesis blocks an automatic hoplite-to-democracy claim.
 3. **Democracy expanded participation while excluding most residents** — beta candidate; bound women, enslaved people, resident foreigners, and dependants without imposing one polis-wide denominator.
 4. **Leagues scaled collective action without erasing local poleis** — beta candidate; compare federal councils, citizenship, taxation, and military coordination.
 5. **Macedon ended autonomy before it ended the polis** — beta candidate; separate lost foreign-policy autonomy from continuing local civic institutions.
@@ -282,7 +282,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Greek city-states insight 02: citizenship made armies and assemblies overlap.
+- Hellenistic kingdoms insight 02: royal capitals concentrated people, taxes, and spectacle.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -290,6 +290,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed Greek city-states insight 02, **Military necessity gave poorer citizens political leverage**. Added Aristotle's four-part comparison of cavalry, heavy infantry, light infantry, and naval forces, keeping each military role's resource barrier beside its political tendency. The visual treats Aristotle as an ancient comparative theory checked against modern synthesis: it does not claim that hoplite tactics automatically caused democracy, that soldiers and citizens were identical groups, or that every polis followed one constitutional rule. Added one public CSV, two sources, one dataset, one claim, release coverage, and automated guards. Verified 114 historical data files, 292 sources, 68 datasets, 59 claims, targeted lint, Rome client contract, the production build, 134 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Hellenistic kingdoms insight 02 on royal capitals as demographic, fiscal, and theatrical systems.
 
 - 2026-08-31 — Completed Caliphates insight 02, **Conquest changed the ruler before it changed the tax office**. Added four deliberately unlike evidence windows: PERF 558's bilingual Greek-Arabic tax receipt dated 25 April 643; papyrological continuity plus new levies and tighter control under Muʿāwiya; Arab-Sasanian silver retaining late-Sasanian standards and mints; and the 691–703 survey, coin, and mint-standardization wave. The visual keeps documents, regional administrative syntheses, coin types, and dated reforms separate rather than inventing one tax rate, language share, staff count, mint-output series, or empire-wide switch date. Added one public CSV, six sources, one dataset, one claim, release coverage, and automated guards. Verified 113 historical data files, 290 sources, 67 datasets, 58 claims, targeted lint, Rome client contract, the production build, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Greek city-states insight 02 on the overlap between citizenship, armies, and assemblies.
 
