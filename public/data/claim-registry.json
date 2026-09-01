@@ -950,5 +950,16 @@
     "dataset_ids": ["arabic-administration-clocks"],
     "source_keys": ["DEMIRI_ROMER2009_EARLY_ISLAMIC_PAPYRI", "FOSS2009_EGYPT_MUAWIYA_I", "IRANICA_DIVAN_GOVERNMENT", "MET_DINAR_698", "ISAC_QURRA_PAPYRI"],
     "note": "The five windows show Arabic entering bilingual fiscal practice at conquest and becoming a public imperial language around 697–700 while Greek Arabic bilingual and Coptic documentary work continued in Egypt in 709–714. They do not form an empire-wide language census."
+  },
+  {
+    "id": "caliphates-04-cross-border-trade",
+    "page": "caliphates",
+    "insight": 4,
+    "claim": "Trade tied together seas that no caliph controlled alone.",
+    "status": "working_synthesis",
+    "evidence_type": "numismatics_port_archaeology_shipwreck_and_primary_merchant_letter",
+    "dataset_ids": ["caliphate-cross-border-trade"],
+    "source_keys": ["JANKOWIAK2017_SAQALIBA", "WHITEHOUSE1970_SIRAF", "POURKERMAN2020_SIRAF", "FLECKER2001_BELITUNG", "PRINCETON_GENIZA_ADEN_MANGALORE"],
+    "note": "Four unlike traces show merchants goods ships and silver crossing political boundaries among Scandinavia Central Asia the Persian Gulf China Southeast Asia Aden and India. They do not form one caliphal trade volume or route map."
   }
 ]

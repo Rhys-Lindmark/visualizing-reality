@@ -582,5 +582,13 @@
     "visual_answer": "Yes: five documentary clocks move from a 643 bilingual receipt and a mostly Greek 670s archive through Iraqi and coin reforms around 697–699 to Greek Arabic bilingual and Coptic practice in Egypt in 709–714.",
     "default_visual": "five_overlapping_administrative_language_clocks",
     "status": "pass"
+  },
+  {
+    "claim_id": "caliphates-04-cross-border-trade",
+    "claim": "Trade tied together seas that no caliph controlled alone.",
+    "visual_question": "Does the default visual show exchange chains crossing beyond any one caliph's political reach?",
+    "visual_answer": "Yes: four visible lanes join Scandinavia through Khazaria or Bulgar, the Persian Gulf through Siraf, China through a western Indian Ocean vessel tradition, and Aden through merchant correspondence with Mangalore.",
+    "default_visual": "four_cross_border_trade_lanes_with_nonimperial_endpoints",
+    "status": "pass"
   }
 ]

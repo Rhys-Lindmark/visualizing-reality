@@ -843,5 +843,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "five unlike documentary windows from 643 to 714 CE",
     "notes": "Bilingual papyri one local archive a later narrative reform date epigraphic coinage and one gubernatorial dossier show overlapping change without producing language shares or one empire-wide switch date."
+  },
+  {
+    "id": "caliphate-cross-border-trade",
+    "title": "Four cross-border traces in caliphal-era exchange",
+    "path": "/data/caliphates/20260901-trade1/caliphate-cross-border-trade.csv",
+    "schema": "observation",
+    "evidence_type": "numismatics_port_archaeology_shipwreck_and_primary_merchant_letter",
+    "source_key_field": "source_keys",
+    "time_resolution": "four unlike evidence windows from the ninth to twelfth centuries",
+    "notes": "Dirham distributions one port one shipwreck and one Geniza letter show connections beyond caliphal political reach without reconstructing annual traffic total trade or one unified route map."
   }
 ]

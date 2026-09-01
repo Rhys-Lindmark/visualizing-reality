@@ -1290,6 +1290,21 @@ if(!/107 texts/.test(arabicAdministrationIndex.get('egypt_670s')?.evidence??'')|
 if(arabicAdministrationIndex.get('iraq_697')?.languages!=='Persian → Arabic'||!/probably gradual/.test(arabicAdministrationIndex.get('iraq_697')?.evidence??''))fail('Arabic administration must preserve the bounded Iraqi reform tradition');
 if(arabicAdministrationIndex.get('egypt_709_714')?.languages!=='Greek + Arabic + Coptic'||!/multilingual/.test(arabicAdministrationIndex.get('egypt_709_714')?.headline??''))fail('Arabic administration must preserve multilingual practice after the reform wave');
 
+const caliphateTrade=csv('public/data/caliphates/20260901-trade1/caliphate-cross-border-trade.csv');
+const caliphateTradeIndex=new Map();
+for(const[index,row]of caliphateTrade.entries()){
+  const context=`caliphate-cross-border-trade.csv row ${index+2}`;
+  requireFields(row,['route_id','route_order','display_period','network','endpoint_a','interface','endpoint_b','what_crossed','institution','evidence_class','evidence','quantitative_anchor','source_keys','limits'],context);
+  numeric(row,['route_order'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(caliphateTradeIndex.has(row.route_id))fail(`${context} duplicates ${row.route_id}`);caliphateTradeIndex.set(row.route_id,row);
+  if(Object.keys(row).some(field=>/annual_traffic|trade_total|market_share|route_geometry|merchant_count|cargo_total|integration_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(caliphateTrade.length!==4||caliphateTradeIndex.size!==4)fail(`Caliphate trade comparison requires four unique cross-border traces; found ${caliphateTrade.length}`);
+if(caliphateTradeIndex.get('baltic_dirhams')?.quantitative_anchor!=='≥400000 recovered dirhams conservative estimate'||!/two route phases/.test(caliphateTradeIndex.get('baltic_dirhams')?.limits??''))fail('Baltic silver window must preserve the conservative recovery estimate and distinct route phases');
+if(caliphateTradeIndex.get('siraf_port')?.quantitative_anchor!=='archaeologically important by 8th century')fail('Siraf window must preserve its bounded eighth-century archaeological anchor');
+if(caliphateTradeIndex.get('belitung_wreck')?.quantitative_anchor!=='one wreck and one cargo'||!/not the intended destination/.test(caliphateTradeIndex.get('belitung_wreck')?.limits??''))fail('Belitung window must preserve the one-wreck scope and destination limit');
+if(!/first available ship/.test(caliphateTradeIndex.get('aden_mangalore')?.interface??'')||!/disputed/.test(caliphateTradeIndex.get('aden_mangalore')?.limits??''))fail('Aden–Mangalore window must preserve shipment coordination and the disputed island identification');
+
 const greekTerritories=csv('public/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv');
 for(const[index,row]of greekTerritories.entries()){
   const context=`polis-territory-distribution.csv row ${index+2}`;
