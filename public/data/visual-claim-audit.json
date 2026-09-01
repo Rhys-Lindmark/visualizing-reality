@@ -318,5 +318,149 @@
     "visual_answer": "Yes: three cases pair a destination and carrier with observed evidence, what traveled, and what did not; the opening Khao Sam Kaeo case explicitly shows locally recombined technical traditions outside Indian political control.",
     "default_visual": "three_cross_border_carriers_and_non_annexation_contexts",
     "status": "pass"
+  },
+  {
+    "claim_id": "steppe-01-pastoralism-before-cavalry",
+    "claim": "At Begash, pastoralism began with sheep and goats—not cavalry.",
+    "visual_question": "Does the default visual show established pastoralism before horses enter the Begash sequence?",
+    "visual_answer": "Yes: the first event shows sheep-and-goat-dominated mobile herding around 2450 BCE, followed by later horse appearance, a below-four-percent horse share, and only then increasing horse use.",
+    "default_visual": "begash_pastoralism_then_horse_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "steppe-02-horse-mobility-stages",
+    "claim": "Horse power became military reach in stages—not one revolution.",
+    "visual_question": "Does the default visual separate husbandry, large-scale breeding, chariots, and mounted cavalry into distinct capability stages?",
+    "visual_answer": "Yes: four selectable stages move from local Botai husbandry through DOM2 breeding and Sintashta chariots to mounted cavalry, with the military limit of each evidence window visible.",
+    "default_visual": "four_stage_husbandry_to_cavalry_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "steppe-03-war-system",
+    "claim": "Steppe military power came from a system—not a wonder weapon.",
+    "visual_question": "Does the default visual show the weapon embedded in maneuver, remount, and information systems?",
+    "visual_answer": "Yes: weapon, maneuver, remounts, and information remain visible as four coequal mechanisms, while the selected panel links each military problem to a system response rather than a power score.",
+    "default_visual": "four_part_steppe_warfare_system",
+    "status": "pass"
+  },
+  {
+    "claim_id": "african-states-01-corridor-revenue",
+    "claim": "Ghana's court taxed trade interfaces and reserved rare gold nuggets.",
+    "visual_question": "Does the default visual expose the reported interface rules and distinguish them from the royal nugget claim?",
+    "visual_answer": "Yes: salt is shown paying one dinar on entry and two on onward movement, copper and other merchandise retain their separate reported units, and rare nuggets appear as a distinct royal rule.",
+    "default_visual": "ghana_interface_dues_and_nugget_rule",
+    "status": "pass"
+  },
+  {
+    "claim_id": "african-states-02-geographic-gateways",
+    "claim": "Northeast African states turned geographic breaks into political gateways.",
+    "visual_question": "Does the default visual join each geographic break to a political mechanism and the worlds it connected?",
+    "visual_answer": "Yes: four gateway cases stay visible together, and the selected Meroë panel explicitly links a river-overland junction to royal and ritual centers and wider exchange worlds.",
+    "default_visual": "four_geographic_joints_and_political_interfaces",
+    "status": "pass"
+  },
+  {
+    "claim_id": "christianity-01-letter-network-before-empire",
+    "claim": "The earliest surviving Christian literature shows a city-to-city and household letter network decades before imperial patronage.",
+    "visual_question": "Does the default visual make the pre-imperial city and household network visible in the surviving letters?",
+    "visual_answer": "Yes: seven accepted Pauline letters appear as dated city-to-city and household connections in the 50s CE, well before the imperial milestones shown elsewhere on the page.",
+    "default_visual": "seven_early_letters_across_cities_and_households",
+    "status": "pass"
+  },
+  {
+    "claim_id": "christianity-02-care-institutions",
+    "claim": "Recurring gifts and named offices made congregations durable.",
+    "visual_question": "Does the default visual show repeated contribution and organized care rather than charity as a one-off event?",
+    "visual_answer": "Yes: weekly collection, a registered care category, and pooled weekly aid each pair a recurring practice with an organizing office or delegate.",
+    "default_visual": "three_recurring_gift_and_care_institutions",
+    "status": "pass"
+  },
+  {
+    "claim_id": "christianity-03-imperial-government",
+    "claim": "Constantine brought the church into imperial government before Nicene Christianity became imperial law.",
+    "visual_question": "Does the default visual separate Constantine's institutional incorporation from the later legal prescription?",
+    "visual_answer": "Yes: property restitution in 313 and the emperor-convened council in 325 visibly precede the 380 Nicene law.",
+    "default_visual": "three_clock_property_council_law_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "caliphates-01-two-imperial-worlds-in-22-years",
+    "claim": "Within twenty-two years after 632, the first caliphates joined the former Sasanian realm to several of the richest eastern Roman provinces.",
+    "visual_question": "Does the default visual show both former imperial worlds joining the new polity within the stated interval?",
+    "visual_answer": "Yes: the chronology begins at 632, adds Iraq, Syria, and Egypt by 641, and reaches Iran by 654 while retaining broad endpoint labels rather than fictional annual borders.",
+    "default_visual": "six_endpoint_632_to_654_conquest_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "caliphates-02-ruler-before-tax-office",
+    "claim": "Conquest changed the ruler before it changed the tax office.",
+    "visual_question": "Does the default visual visibly distinguish political conquest from slower administrative replacement?",
+    "visual_answer": "Yes: a 643 bilingual receipt, inherited administrative practice, and inherited mints precede the 691–703 survey and coin standardization wave.",
+    "default_visual": "four_stage_conquest_then_administrative_change",
+    "status": "pass"
+  },
+  {
+    "claim_id": "greek-01-small-poleis",
+    "claim": "Four in five approximately classified polis territories were no larger than 200 square kilometres.",
+    "visual_question": "Does the default visual make the four-in-five threshold immediately legible?",
+    "visual_answer": "Yes: cumulative territory categories rise to 80 percent at 200 square kilometres, while the famous large exceptions remain visibly rare.",
+    "default_visual": "cumulative_polis_territory_distribution",
+    "status": "pass"
+  },
+  {
+    "claim_id": "greek-city-states-02-military-leverage",
+    "claim": "Military necessity gave poorer citizens political leverage.",
+    "visual_question": "Does the default visual connect lower resource barriers in military service to different political leverage?",
+    "visual_answer": "Yes: cavalry, heavy infantry, light infantry, and naval service are compared by resource barrier and political tendency, with the selected lower-cost case exposing the mechanism without claiming an automatic democracy effect.",
+    "default_visual": "four_military_resource_barriers_and_political_tendencies",
+    "status": "pass"
+  },
+  {
+    "claim_id": "hellenistic-01-multinational-armies",
+    "claim": "At Raphia, both kings assembled armies from many regions and military traditions.",
+    "visual_question": "Does the default visual show diverse named contingents on both the Ptolemaic and Seleucid sides?",
+    "visual_answer": "Yes: selected Ptolemaic Egyptian, Greek, Thracian, and Gallic contingents appear beside Seleucid Arab, Iranian, Greek, and Macedonian-style formations.",
+    "default_visual": "two_raphia_armies_with_diverse_named_contingents",
+    "status": "pass"
+  },
+  {
+    "claim_id": "hellenistic-kingdoms-02-capitals-visible-kingship",
+    "claim": "Hellenistic capitals turned imperial resources into visible kingship.",
+    "visual_question": "Does the default visual join resource concentration to a visible performance of kingship?",
+    "visual_answer": "Yes: Alexandria opens with harbour and Nile resources converging on palaces and the Museum, while three alternative capitals expose festivals, moving courts, and monumental acropolises.",
+    "default_visual": "four_capital_resource_and_kingship_machines",
+    "status": "pass"
+  },
+  {
+    "claim_id": "silk-roads-01-oasis-money",
+    "claim": "At Turfan, textiles, grain, and coins all functioned as money.",
+    "visual_question": "Does the default visual show all three documented payment media coexisting in the Turfan case?",
+    "visual_answer": "Yes: textiles, grain, and coins appear as three parallel documented monies across the same 273–796 CE evidence window.",
+    "default_visual": "three_coexisting_turfan_money_forms",
+    "status": "pass"
+  },
+  {
+    "claim_id": "silk-roads-02-rerouting-bottlenecks",
+    "claim": "The Silk Roads survived by rerouting around political and ecological bottlenecks.",
+    "visual_question": "Does the default visual connect each bottleneck to an alternate route response and the institution that kept it viable?",
+    "visual_answer": "Yes: desert forks, a geopolitical detour, shifting river corridors, and oasis legs each visibly pair a constraint with rerouting and a sustaining node or institution.",
+    "default_visual": "four_bottleneck_response_and_viability_cases",
+    "status": "pass"
+  },
+  {
+    "claim_id": "medieval-europe-01-manuscripts-before-print",
+    "claim": "Modeled Western European manuscript production accelerated centuries before print.",
+    "visual_question": "Does the default visual show the reconstructed acceleration before Gutenberg rather than only the print break?",
+    "visual_answer": "Yes: ten century totals rise unevenly but sharply after 1000, reaching roughly five million modeled copies in the fifteenth century before the page introduces printing.",
+    "default_visual": "ten_century_modeled_manuscript_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "medieval-europe-02-portable-charter-rights",
+    "claim": "Towns turned negotiated privileges into portable collective rights.",
+    "visual_question": "Does the default visual show both the initial bargain and how a collective right endured or traveled?",
+    "visual_answer": "Yes: four charter cases pair a negotiated bargain with a collective right and its persistence mechanism, culminating in Bristol's inter-urban registration of toll exemptions.",
+    "default_visual": "four_charter_bargain_right_and_persistence_cases",
+    "status": "pass"
   }
 ]

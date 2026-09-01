@@ -7,7 +7,7 @@ import SteppeHorseMobility from '../SteppeHorseMobility';
 import SteppeWarSystem from '../SteppeWarSystem';
 
 export const metadata:Metadata={title:'The Steppe',description:'Five visual arguments about pastoral mobility, horses, warfare, confederations, and Eurasian exchange.',openGraph:{title:'The Steppe — How Everything Evolved',description:'Pastoralism came before cavalry.',images:[]},twitter:{card:'summary',title:'The Steppe — How Everything Evolved',description:'Pastoralism came before cavalry.',images:[]}};
-const labels=['Steppe pastoralism began with sheep and goats—not cavalry','Horse power became military reach in stages—not one revolution','Steppe military power came from a system—not a wonder weapon','Confederations grew by bargaining with agrarian states','Steppe migrations moved genes and languages without erasing everyone'];
+const labels=['At Begash, pastoralism began with sheep and goats—not cavalry','Horse power became military reach in stages—not one revolution','Steppe military power came from a system—not a wonder weapon','Confederations grew by bargaining with agrarian states','Steppe migrations moved genes and languages without erasing everyone'];
 const events=[
   {year:-2450,displayYear:'c. 2450 BCE',label:'Mobile herding at Begash',detail:'The earliest occupation already shows a pastoral economy dominated by sheep and goats.',kind:'faunal assemblage'},
   {year:-1950,displayYear:'after c. 1950 BCE',label:'Horses enter the sequence',detail:'Horse remains are absent in the earliest phase and appear only later.',kind:'faunal assemblage'},
