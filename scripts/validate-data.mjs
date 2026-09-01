@@ -1529,6 +1529,18 @@ for(const[index,row]of jennyReturns.entries()){
 }
 if(jennyReturns.length!==3||jennyReturnIndex.get('England')!==38||jennyReturnIndex.get('France')!==2.5||jennyReturnIndex.get('India')!==-5.2)fail('Great Divergence incentive comparison must preserve Allen’s central 38% 2.5% and -5.2% spinning-jenny returns');
 
+const steppeWarSystem=csv('public/data/steppe/20260901-war-system1/steppe-war-system.csv');
+const steppeWarIndex=new Map();
+for(const[index,row]of steppeWarSystem.entries()){
+  const context=`steppe-war-system.csv row ${index+2}`;
+  requireFields(row,['mechanism','period','military_problem','system_response','observable_anchor','evidence','source_keys','limits'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(steppeWarIndex.has(row.mechanism))fail(`${context} duplicates ${row.mechanism}`);steppeWarIndex.set(row.mechanism,row);
+  for(const field of ['range_meters','speed_km_day','endurance_days','army_size','causal_share','military_power_score'])if(field in row)fail(`${context} must not include synthetic ${field}`);
+}
+if(steppeWarSystem.length!==4||steppeWarIndex.size!==4)fail(`Steppe warfare system requires four unique mechanisms; found ${steppeWarSystem.length}`);
+if(steppeWarIndex.get('Remounts')?.observable_anchor!=='up to 6–7 reported')fail('Steppe remount row must preserve the bounded six-to-seven report');
+if(steppeWarIndex.get('Maneuver')?.observable_anchor!=='withdraw → surround')fail('Steppe maneuver row must preserve feigned retreat and encirclement');
+
 const mandalaRelationships=csv('public/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv');
 for(const[index,row]of mandalaRelationships.entries()){
   const context=`mandala-relationship-evidence.csv row ${index+2}`;

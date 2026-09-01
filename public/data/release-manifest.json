@@ -1,5 +1,5 @@
 {
-  "release_id": "20260901-divergence-incentives1",
+  "release_id": "20260901-steppe-war-system1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -84,6 +84,7 @@
     "/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv",
     "/data/oceanic-navigation/20260901-winds1/wind-shaped-routes.csv",
     "/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv",
-    "/data/great-divergence/20260901-incentives1/spinning-jenny-returns.csv"
+    "/data/great-divergence/20260901-incentives1/spinning-jenny-returns.csv",
+    "/data/steppe/20260901-war-system1/steppe-war-system.csv"
   ]
 }

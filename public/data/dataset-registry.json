@@ -803,5 +803,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "three place-specific central calculations for late-eighteenth-century conditions",
     "notes": "The comparison preserves published modeled private returns and their assumptions without constructing a national invention score adoption rate or causal share of industrialization."
+  },
+  {
+    "id": "steppe-war-system",
+    "title": "Four mechanisms that made mobile steppe warfare an operating system",
+    "path": "/data/steppe/20260901-war-system1/steppe-war-system.csv",
+    "schema": "observation",
+    "evidence_type": "academic_military_synthesis_and_contemporary_report",
+    "source_key_field": "source_keys",
+    "time_resolution": "one broad pre-firearm synthesis plus two thirteenth-century Mongol evidence windows",
+    "notes": "Weapons maneuver remounts and information remain unlike mechanisms and are not converted into range speed endurance army size or a military-power score."
   }
 ]
