@@ -673,5 +673,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "three asynchronous textual windows from about 54 to 155 CE",
     "notes": "Prescriptions and an apologetic account show institutional mechanisms but are not audited budgets observed compliance a congregation census or a measured survival rate."
+  },
+  {
+    "id": "caliphal-fiscal-transition",
+    "title": "Four evidence windows from inherited fiscal machinery to caliphal standardization",
+    "path": "/data/caliphates/20260831-tax1/caliphal-fiscal-transition.csv",
+    "schema": "observation",
+    "evidence_type": "primary_documents_coins_and_peer_reviewed_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four asynchronous windows from 643 through 703 CE",
+    "notes": "A papyrus regional administrative syntheses coin types and dated reforms answer different questions and are not one tax rate language share staff count or empire-wide switch date."
   }
 ]

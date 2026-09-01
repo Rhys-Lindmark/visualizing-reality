@@ -774,5 +774,16 @@
     "dataset_ids": ["christian-congregational-care-institutions"],
     "source_keys": ["PAUL_1COR16_COLLECTION", "NET_BIBLE_1TIM5", "OXFORD_BIBLIOGRAPHIES_PASTORALS", "JUSTIN_FIRST_APOLOGY_67", "OXFORD_CLASSICAL_DICTIONARY_JUSTIN"],
     "note": "Repeated contributions beneficiary rules and named roles are interpreted as organizational capacity; the sources do not measure spending compliance prevalence or survival effects."
+  },
+  {
+    "id": "caliphates-02-ruler-before-tax-office",
+    "page": "caliphates",
+    "insight": 2,
+    "claim": "Conquest changed the ruler before it changed the tax office.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_documents_coins_and_peer_reviewed_synthesis",
+    "dataset_ids": ["caliphal-fiscal-transition"],
+    "source_keys": ["DEMIRI_ROMER2009_EARLY_ISLAMIC_PAPYRI", "SIJPESTEIJN2013_MUSLIM_STATE", "FOSS2009_EGYPT_MUAWIYA_II", "IRANICA_COINS_COINAGE", "BRITISH_MUSEUM_ARAB_SASANIAN", "BENFEY2024_MIDDLE_PERSIAN_FISCAL"],
+    "note": "The four evidence windows preserve regional and medium differences without producing one imperial tax rate staffing series language share or administrative switch date."
   }
 ]

@@ -179,7 +179,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 11: The caliphates — ready
 
 1. **The first caliphates joined former Roman and Sasanian lands within twenty-two years** — alpha live; six dated endpoints and intervals preserve the 632–654 comparison without implying annual boundaries, uniform control, conversion, or replacement.
-2. **Conquest reused tax systems before it standardized them** — beta candidate; compare inherited and redesigned offices, taxes, documents, and mints.
+2. **Conquest changed the ruler before it changed the tax office** — live; four evidence windows compare a 643 bilingual Egyptian receipt, continuity and new levies under Muʿāwiya, Arab-Sasanian silver, and the 691–703 survey-and-coin standardization wave without inventing one tax rate, language share, staff count, or empire-wide switch date.
 3. **Arabic became an administrative interface over generations—not overnight** — beta candidate; compare administrative languages by region and medium.
 4. **Trade tied together seas that no caliph controlled alone** — beta candidate; connect ports, caravan cities, merchant institutions, and commodities without one caliphal trade map.
 5. **A shared scholarly world outlived political unity** — beta candidate; trace books, scholars, legal schools, scientific texts, and commercial practice after fragmentation.
@@ -282,14 +282,16 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Christianity insight 02: bishops, charity, and durable congregations.
-- Continue in atlas order, one beta insight per focused worktree.
+- Greek city-states insight 02: citizenship made armies and assemblies overlap.
+- Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
 
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed Caliphates insight 02, **Conquest changed the ruler before it changed the tax office**. Added four deliberately unlike evidence windows: PERF 558's bilingual Greek-Arabic tax receipt dated 25 April 643; papyrological continuity plus new levies and tighter control under Muʿāwiya; Arab-Sasanian silver retaining late-Sasanian standards and mints; and the 691–703 survey, coin, and mint-standardization wave. The visual keeps documents, regional administrative syntheses, coin types, and dated reforms separate rather than inventing one tax rate, language share, staff count, mint-output series, or empire-wide switch date. Added one public CSV, six sources, one dataset, one claim, release coverage, and automated guards. Verified 113 historical data files, 290 sources, 67 datasets, 58 claims, targeted lint, Rome client contract, the production build, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Greek city-states insight 02 on the overlap between citizenship, armies, and assemblies.
 
 - 2026-08-31 — Completed Christianity insight 02, **Recurring gifts and named offices made congregations durable**. Added three source-bounded textual windows: weekly contributions and appointed delegates in 1 Corinthians 16, a widow register with a sixty-year threshold in 1 Timothy 5, and Justin's c. 155 account of weekly pooled aid distributed by a named president. The visual treats schedule, rules, records, and roles as organizational capacity while preserving disputed authorship and dating, genre, compliance, budget, census, and survival-effect limits. Added one public CSV, five sources, one dataset, one claim, release coverage, and automated guards. Verified 112 historical data files, 284 sources, 66 datasets, 57 claims, targeted lint, Rome client contract, the production build, all three selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Caliphates insight 02 on inherited and redesigned tax systems.
 - 2026-08-31 — Completed Steppe insight 02, **Horse power became military reach in stages—not one revolution**. Added four unlike evidence windows separating Botai's local horse husbandry, reproductive control and expansion of the modern domestic lineage around 2200 BCE, a 1950–1880 BCE modeled Sintashta chariot grave, and mounted cavalry with soft saddles by the mid-first millennium BCE. The visual keeps genomes, graves, and surviving tack on separate evidentiary clocks and does not invent travel speeds, action radii, army sizes, or one adoption date. Added one public CSV, three sources, one dataset, one claim, release coverage, and automated guards. Verified 111 historical data files, 279 sources, 65 datasets, 56 claims, targeted lint, Rome client contract, the production build, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Christianity insight 02 on bishops, charity, and durable congregations.

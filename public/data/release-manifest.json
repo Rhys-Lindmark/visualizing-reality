@@ -1,5 +1,5 @@
 {
-  "release_id": "20260831-christian-charity1",
+  "release_id": "20260831-caliphates-tax1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -60,6 +60,7 @@
     "/data/christianity/20260831-alpha1/pauline-letter-network.csv",
     "/data/christianity/20260831-charity1/congregational-care-institutions.csv",
     "/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv",
+    "/data/caliphates/20260831-tax1/caliphal-fiscal-transition.csv",
     "/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv",
     "/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv",
     "/data/silk-roads/20260831-alpha1/turfan-money-forms.csv",

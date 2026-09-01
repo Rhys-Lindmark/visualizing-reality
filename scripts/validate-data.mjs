@@ -1259,6 +1259,22 @@ const caliphateBaseline=caliphatesAlpha.find(row=>row.event_type==='baseline');
 const iranEndpoint=caliphatesAlpha.find(row=>row.region==='Iran');
 if(Number(caliphateBaseline?.year_start)!==632||Number(iranEndpoint?.year_end)!==654||Number(iranEndpoint?.year_end)-Number(caliphateBaseline?.year_start)!==22)fail('Caliphates alpha must preserve the bounded 632–654 twenty-two-year comparison');
 
+const caliphalFiscal=csv('public/data/caliphates/20260831-tax1/caliphal-fiscal-transition.csv');
+const caliphalFiscalIndex=new Map();
+for(const[index,row]of caliphalFiscal.entries()){
+  const context=`caliphal-fiscal-transition.csv row ${index+2}`;
+  requireFields(row,['window_id','window_order','year_start','year_end','display_period','window_title','evidence','inherited_layer','new_layer','quantitative_anchor','source_keys','limits'],context);
+  numeric(row,['window_order','year_start','year_end'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(caliphalFiscalIndex.has(row.window_id))fail(`${context} duplicates ${row.window_id}`);caliphalFiscalIndex.set(row.window_id,row);
+  if(Number(row.year_start)>Number(row.year_end))fail(`${context} starts after it ends`);
+  if(Object.keys(row).some(field=>/tax_rate|revenue_total|language_share|staff_count|compliance|fiscal_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(caliphalFiscal.length!==4||caliphalFiscalIndex.size!==4)fail(`Caliphal fiscal transition requires four unique evidence windows; found ${caliphalFiscal.length}`);
+if(caliphalFiscalIndex.get('egypt_bilingual_receipt')?.display_period!=='25 April 643'||caliphalFiscalIndex.get('egypt_bilingual_receipt')?.quantitative_anchor!=='Greek + Arabic · 22 AH'||!/One surviving receipt/.test(caliphalFiscalIndex.get('egypt_bilingual_receipt')?.limits??''))fail('Egypt receipt window must preserve the dated PERF 558 anchor and one-document limit');
+if(!/administrative continuity/.test(caliphalFiscalIndex.get('egypt_muawiya')?.evidence??'')||!/new taxes, requisitions/.test(caliphalFiscalIndex.get('egypt_muawiya')?.evidence??''))fail('Muawiya window must preserve continuity and new levies');
+if(caliphalFiscalIndex.get('iran_inherited_mints')?.quantitative_anchor!=='late-Sasanian standard · about 4 g')fail('Iran mint window must preserve the late-Sasanian silver standard');
+if(caliphalFiscalIndex.get('abdalmalik_reforms')?.quantitative_anchor!=='survey 691–2 · coin 697 · mints by 703')fail('Standardization window must preserve the survey coin and mint anchors');
+
 const greekTerritories=csv('public/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv');
 for(const[index,row]of greekTerritories.entries()){
   const context=`polis-territory-distribution.csv row ${index+2}`;
