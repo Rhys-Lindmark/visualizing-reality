@@ -763,5 +763,16 @@
     "dataset_ids": ["steppe-horse-mobility-stages"],
     "source_keys": ["LIBRADO_ETAL2024_HORSE_MOBILITY", "LINDNER2020_STEPPE_CHARIOTS", "BAYARSAIKHAN_ETAL2023_SADDLES"],
     "note": "Local husbandry widespread breeding chariots and mounted cavalry are kept as separate stages without inferring travel speed action radius or one universal adoption date."
+  },
+  {
+    "id": "christianity-02-care-institutions",
+    "page": "christianity",
+    "insight": 2,
+    "claim": "Recurring gifts and named offices made congregations durable.",
+    "status": "working_synthesis",
+    "evidence_type": "primary_texts_plus_academic_dating_commentary",
+    "dataset_ids": ["christian-congregational-care-institutions"],
+    "source_keys": ["PAUL_1COR16_COLLECTION", "NET_BIBLE_1TIM5", "OXFORD_BIBLIOGRAPHIES_PASTORALS", "JUSTIN_FIRST_APOLOGY_67", "OXFORD_CLASSICAL_DICTIONARY_JUSTIN"],
+    "note": "Repeated contributions beneficiary rules and named roles are interpreted as organizational capacity; the sources do not measure spending compliance prevalence or survival effects."
   }
 ]

@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260831-steppe-mobility1';
+const releaseId='20260831-christian-charity1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -86,6 +86,7 @@ const assets=[
   ['csv','/data/steppe/20260831-alpha1/begash-pastoral-sequence.csv'],
   ['csv','/data/steppe/20260831-mobility1/horse-mobility-stages.csv'],
   ['csv','/data/christianity/20260831-alpha1/pauline-letter-network.csv'],
+  ['csv','/data/christianity/20260831-charity1/congregational-care-institutions.csv'],
   ['csv','/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv'],
   ['csv','/data/greek-city-states/20260831-alpha1/polis-territory-distribution.csv'],
   ['csv','/data/hellenistic-kingdoms/20260831-alpha1/raphia-contingents.csv'],

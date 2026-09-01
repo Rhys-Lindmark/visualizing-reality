@@ -1233,6 +1233,20 @@ for(const[index,row]of christianityAlpha.entries()){
 }
 if(christianityAlpha.length!==7||Math.min(...christianityAlpha.map(row=>Number(row.year_start)))!==51||Math.max(...christianityAlpha.map(row=>Number(row.year_end)))!==57)fail('Christianity alpha requires seven generally accepted Pauline letters bounded c. 51–57 CE');
 
+const christianCare=csv('public/data/christianity/20260831-charity1/congregational-care-institutions.csv');
+const christianCareIndex=new Map();
+for(const[index,row]of christianCare.entries()){
+  const context=`congregational-care-institutions.csv row ${index+2}`;
+  requireFields(row,['window_id','window_order','year_start','year_end','display_period','window_title','primary_evidence','recurring_practice','organizational_role','quantitative_anchor','source_keys','limits'],context);numeric(row,['window_order','year_start','year_end'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(christianCareIndex.has(row.window_id))fail(`${context} duplicates ${row.window_id}`);christianCareIndex.set(row.window_id,row);
+  if(Number(row.year_start)>Number(row.year_end))fail(`${context} starts after it ends`);
+  if(Object.keys(row).some(field=>/budget_total|beneficiary_count|survival_rate|compliance_rate|durability_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(christianCare.length!==3||christianCareIndex.size!==3)fail(`Christian care comparison requires three unique textual windows; found ${christianCare.length}`);
+if(!/first day of every week/.test(christianCareIndex.get('corinth_collection')?.primary_evidence??'')||!/delegates/.test(christianCareIndex.get('corinth_collection')?.organizational_role??''))fail('Corinth window must preserve weekly contributions and appointed transfer roles');
+if(christianCareIndex.get('widow_register')?.quantitative_anchor!=='60+ age rule'||!/Pauline authorship is disputed/.test(christianCareIndex.get('widow_register')?.limits??''))fail('Widow register must preserve the sixty-year rule and disputed-authorship limit');
+if(!/orphans, widows/.test(christianCareIndex.get('justin_rome')?.primary_evidence??'')||!/not an audited budget/.test(christianCareIndex.get('justin_rome')?.limits??''))fail('Justin window must preserve named care groups and the budget limit');
+
 const caliphatesAlpha=csv('public/data/caliphates/20260831-alpha1/early-caliphate-expansion.csv');
 for(const[index,row]of caliphatesAlpha.entries()){
   const context=`early-caliphate-expansion.csv row ${index+2}`;
