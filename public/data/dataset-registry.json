@@ -693,5 +693,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "one late-fourth-century-BCE comparative theory with modern contextual synthesis",
     "notes": "The four arms expose resource barriers and political tendencies but are not measured wealth thresholds population shares causal effects or a rule followed by every polis."
+  },
+  {
+    "id": "hellenistic-royal-capital-machines",
+    "title": "Four institutional mechanisms connecting royal capitals to resources and performed kingship",
+    "path": "/data/hellenistic-kingdoms/20260831-capitals1/royal-capital-machines.csv",
+    "schema": "observation",
+    "evidence_type": "ancient_description_archaeology_and_academic_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four asynchronous capital portraits across the third and second centuries BCE with one later ancient description",
+    "notes": "Ancient description court history and excavation answer different questions and are not converted into population revenue expenditure traffic or consent estimates."
   }
 ]

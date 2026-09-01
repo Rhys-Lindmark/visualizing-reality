@@ -796,5 +796,16 @@
     "dataset_ids": ["greek-military-political-constituencies"],
     "source_keys": ["ARISTOTLE_POLITICS6_MILITARY", "HUNT2009_WAR_SOCIETY"],
     "note": "Aristotle's typology and modern synthesis support a relationship between entry cost military constituency and political leverage without proving that hoplite tactics automatically caused democracy."
+  },
+  {
+    "id": "hellenistic-kingdoms-02-capitals-visible-kingship",
+    "page": "hellenistic-kingdoms",
+    "insight": 2,
+    "claim": "Hellenistic capitals turned imperial resources into visible kingship.",
+    "status": "working_synthesis",
+    "evidence_type": "ancient_description_archaeology_and_academic_synthesis",
+    "dataset_ids": ["hellenistic-royal-capital-machines"],
+    "source_keys": ["STRABO_GEOGRAPHY17_ALEXANDRIA", "STROOTMAN2014_ROYAL_PROCESSIONS", "IRANICA_SELEUCID_EMPIRE", "MET2016_PERGAMON_CAPITAL", "OCD_PERGAMUM"],
+    "note": "The four cases expose how resources court presence and political performance met in capitals without estimating their population budgets tax take traffic or political consent."
   }
 ]

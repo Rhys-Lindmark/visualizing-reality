@@ -1310,6 +1310,20 @@ if(raphia.length!==8||new Set(raphia.map(row=>row.side)).size!==2)fail(`Hellenis
 const egyptians=raphia.find(row=>row.side==='Ptolemaic'&&row.contingent==='Egyptians');
 if(Number(egyptians?.reported_number)!==20000||!/included in rather than additional/i.test(egyptians?.limits??''))fail('Hellenistic alpha must preserve the 20,000 Egyptian figure and its inclusion ambiguity');
 
+const hellenisticCapitals=csv('public/data/hellenistic-kingdoms/20260831-capitals1/royal-capital-machines.csv');
+const hellenisticCapitalIndex=new Map();
+for(const[index,row]of hellenisticCapitals.entries()){
+  const context=`royal-capital-machines.csv row ${index+2}`;
+  requireFields(row,['city','polity','court_pattern','resource_connection','performance','institutional_evidence','visual_anchor','source_keys','limits'],context);
+  validateKeys(sourceKeys(row.source_keys),context);
+  if(hellenisticCapitalIndex.has(row.city))fail(`${context} duplicates ${row.city}`);hellenisticCapitalIndex.set(row.city,row);
+  if(Object.keys(row).some(field=>/population_estimate|tax_total|revenue|expenditure|traffic|consent|capital_score/i.test(field)))fail(`${context} introduces a prohibited synthetic field`);
+}
+if(hellenisticCapitals.length!==4||hellenisticCapitalIndex.size!==4)fail(`Hellenistic capital comparison requires four unique cities; found ${hellenisticCapitals.length}`);
+if(hellenisticCapitalIndex.get('Alexandria')?.visual_anchor!=='harbour + palaces + Museum'||!/after the Ptolemaic dynasty/.test(hellenisticCapitalIndex.get('Alexandria')?.limits??''))fail('Alexandria row must preserve the harbour-palace anchor and later-source limit');
+if(hellenisticCapitalIndex.get('Seleucia on the Tigris')?.visual_anchor!=='regional core + moving court'||!/peripatetic/.test(hellenisticCapitalIndex.get('Seleucia on the Tigris')?.institutional_evidence??''))fail('Seleucia row must preserve the regional and peripatetic-court mechanism');
+if(hellenisticCapitalIndex.get('Pergamon')?.visual_anchor!=='fortress + palace + altar'||!/not a complete budget/.test(hellenisticCapitalIndex.get('Pergamon')?.limits??''))fail('Pergamon row must preserve monumentality and survival-bias limit');
+
 const turfanMoney=csv('public/data/silk-roads/20260831-alpha1/turfan-money-forms.csv');
 for(const[index,row]of turfanMoney.entries()){
   const context=`turfan-money-forms.csv row ${index+2}`;

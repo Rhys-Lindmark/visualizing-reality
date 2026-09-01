@@ -195,7 +195,7 @@ when the evidence supports independent urban/state formation.
 ## P2 — Page 13: Hellenistic kingdoms — alpha live
 
 1. **Hellenistic armies were multinational systems, not Macedonian replicas** — alpha live; selected Raphia contingents preserve ancient reported figures and the disputed Egyptian/phalanx total without recomputing a clean army total.
-2. **Royal capitals concentrated people, taxes, and spectacle** — beta candidate; compare Alexandria, Antioch, Seleucia, and other court-port systems with bounded estimates.
+2. **Hellenistic capitals turned imperial resources into visible kingship** — live; four unlike capital portraits compare Alexandria's harbour-palace complex, Seleucia's regional court role, Antioch's royal festivals, and Pergamon's monumental acropolis without inventing population, revenue, expenditure, traffic, or consent estimates.
 3. **Kings paid soldiers with land, cash, and privilege** — beta candidate; compare settlements, cleruchies, pay, tax privileges, and royal gifts.
 4. **Coinage made rival kingdoms legible to each other** — beta candidate; compare denominations, mints, portraits, and bullion zones without treating coin finds as GDP.
 5. **Greek institutions spread without making populations Greek** — beta candidate; map civic forms and language beside durable Egyptian, Babylonian, Iranian, Jewish, and other institutions.
@@ -282,7 +282,7 @@ when the evidence supports independent urban/state formation.
 
 ## Next beta queue
 
-- Hellenistic kingdoms insight 02: royal capitals concentrated people, taxes, and spectacle.
+- Silk Roads insight 02: no caravan crossed one permanent Silk Road.
 - Continue breadth-first in atlas order, one fast beta insight per focused worktree.
 
 ## Blocked
@@ -290,6 +290,8 @@ when the evidence supports independent urban/state formation.
 - None.
 
 ## Completed
+
+- 2026-08-31 — Completed Hellenistic kingdoms insight 02, **Hellenistic capitals turned imperial resources into visible kingship**. Added four deliberately unlike capital portraits: Alexandria's harbour-palace-Museum complex in Strabo's later description; Seleucia on the Tigris as one regional capital of a peripatetic Seleucid court; Antioch's festivals as political theater drawing civic representatives toward the king; and Pergamon's excavated palace, theater, library, sanctuaries, and Great Altar. The visual treats monumentality as observable political performance while refusing population, revenue, expenditure, traffic, consent, or capital-score estimates. Added one public CSV, five sources, one dataset, one claim, release coverage, and automated guards. Verified 115 historical data files, 297 sources, 69 datasets, 60 claims, targeted lint, Rome client contract, the production build, 135 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Silk Roads insight 02 on routes as changing chains rather than one permanent road.
 
 - 2026-08-31 — Completed Greek city-states insight 02, **Military necessity gave poorer citizens political leverage**. Added Aristotle's four-part comparison of cavalry, heavy infantry, light infantry, and naval forces, keeping each military role's resource barrier beside its political tendency. The visual treats Aristotle as an ancient comparative theory checked against modern synthesis: it does not claim that hoplite tactics automatically caused democracy, that soldiers and citizens were identical groups, or that every polis followed one constitutional rule. Added one public CSV, two sources, one dataset, one claim, release coverage, and automated guards. Verified 114 historical data files, 292 sources, 68 datasets, 59 claims, targeted lint, Rome client contract, the production build, 134 byte-identical built assets, all four selectors, exact claim-title parity, zero desktop or 390 × 844 overflow, 59–60 pixel mobile controls, and a clean browser console. Next: Hellenistic kingdoms insight 02 on royal capitals as demographic, fiscal, and theatrical systems.
 
