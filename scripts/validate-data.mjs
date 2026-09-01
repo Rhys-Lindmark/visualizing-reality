@@ -1599,6 +1599,19 @@ if(steppeWarSystem.length!==4||steppeWarIndex.size!==4)fail(`Steppe warfare syst
 if(steppeWarIndex.get('Remounts')?.observable_anchor!=='up to 6–7 reported')fail('Steppe remount row must preserve the bounded six-to-seven report');
 if(steppeWarIndex.get('Maneuver')?.observable_anchor!=='withdraw → surround')fail('Steppe maneuver row must preserve feigned retreat and encirclement');
 
+const steppeBargains=csv('public/data/steppe/20260901-bargains1/frontier-bargain-packages.csv');
+const steppeBargainIndex=new Map();
+for(const[index,row]of steppeBargains.entries()){
+  const context=`frontier-bargain-packages.csv row ${index+2}`;
+  requireFields(row,['case_id','case_order','period','polities','pressure','material_flow','political_terms','trade_access','visible_anchor','source_keys','limits'],context);numeric(row,['case_order'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(steppeBargainIndex.has(row.case_id))fail(`${context} duplicates ${row.case_id}`);steppeBargainIndex.set(row.case_id,row);
+  for(const field of ['tribute_value','confederation_strength','peace_duration','trade_volume','causal_score'])if(field in row)fail(`${context} must not include synthetic ${field}`);
+}
+if(steppeBargains.length!==4||steppeBargainIndex.size!==4)fail(`Steppe frontier comparison requires four unique bargains; found ${steppeBargains.length}`);
+if(steppeBargainIndex.get('han_xiongnu')?.visible_anchor!=='marriage + annual goods + boundary')fail('Han-Xiongnu bargain must preserve marriage annual goods and boundary terms');
+if(steppeBargainIndex.get('song_liao')?.visible_anchor!=='300k annual units + parity')fail('Song-Liao bargain must preserve the two original annual quantities and diplomatic parity');
+if(steppeBargainIndex.get('song_xixia')?.visible_anchor!=='250k annual units + 2 markets')fail('Song-Western Xia bargain must preserve the reported mixed-unit total and two markets');
+
 const mandalaRelationships=csv('public/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv');
 for(const[index,row]of mandalaRelationships.entries()){
   const context=`mandala-relationship-evidence.csv row ${index+2}`;

@@ -863,5 +863,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four bibliographic windows from the ninth through twelfth centuries",
     "notes": "Named composition and translation anchors show texts crossing political and linguistic boundaries without estimating manuscript counts readership curricular use textual fidelity or influence."
+  },
+  {
+    "id": "steppe-frontier-bargain-packages",
+    "title": "Four frontier bargains linking military pressure to recurring resources political terms and trade access",
+    "path": "/data/steppe/20260901-bargains1/frontier-bargain-packages.csv",
+    "schema": "observation",
+    "evidence_type": "academic_frontier_history_and_reference_synthesis",
+    "source_key_field": "source_keys",
+    "time_resolution": "four source-bounded agreements or diplomatic-commercial episodes from 200 BCE through 1044 CE",
+    "notes": "Original quantities and units remain attached to their source cases; the comparison does not create tribute value confederation strength treaty durability or one continuous frontier series."
   }
 ]

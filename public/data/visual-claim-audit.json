@@ -598,5 +598,13 @@
     "visual_answer": "Yes: visible lanes carry al-Khwarizmi from Baghdad to a 1145 Latin translation, al-Zahrawi from Cordoba to Toledo, Ibn Sina from Iranian courts to Toledo, and Gerard's broader Arabic-to-Latin portfolio.",
     "default_visual": "three_named_book_journeys_and_one_translation_portfolio",
     "status": "pass"
+  },
+  {
+    "claim_id": "steppe-04-frontier-bargains",
+    "claim": "Steppe states turned frontier pressure into recurring payments and markets.",
+    "visual_question": "Does the default visual show frontier pressure becoming recurring material flows political recognition and market access?",
+    "visual_answer": "Yes: all four visible case selectors name the bargain package, while the selected flow runs from pressure through recurring goods to political terms and trade access. Han-Xiongnu marriage and boundary terms, Türk tribute silk and market diplomacy, Song-Liao parity, and Western Xia markets remain distinct.",
+    "default_visual": "four_frontier_bargain_packages_from_pressure_to_resources_and_access",
+    "status": "pass"
   }
 ]

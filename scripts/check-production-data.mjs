@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260901-caliphates-books1';
+const releaseId='20260901-steppe-bargains1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -117,6 +117,7 @@ const assets=[
   ['csv','/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv'],
   ['csv','/data/great-divergence/20260901-incentives1/spinning-jenny-returns.csv'],
   ['csv','/data/steppe/20260901-war-system1/steppe-war-system.csv'],
+  ['csv','/data/steppe/20260901-bargains1/frontier-bargain-packages.csv'],
   ['csv','/data/christianity/20260901-constantine1/imperial-church-transition.csv'],
   ['csv','/data/rome/20260901-replacement1/roman-defeat-replacement.csv'],
   ['json','/data/visual-claim-audit.json'],

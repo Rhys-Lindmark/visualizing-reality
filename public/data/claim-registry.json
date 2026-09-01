@@ -972,5 +972,16 @@
     "dataset_ids": ["arabic-book-journeys"],
     "source_keys": ["BURNETT2001_TOLEDO", "OXFORD2021_ISLAMIC_ALGEBRA", "NLM_AVICENNA_CANON", "NLM_MEDICAL_ENCYCLOPEDIAS", "NLM_ALZAHRAWI_CHIRURGIA", "NLM_GERARD_BIO"],
     "note": "Three named works from Baghdad Cordoba and Iran plus Gerard's attributed portfolio show Arabic functioning as a bridge into Latin Toledo after political fragmentation. The evidence does not estimate copies readers curricular use textual fidelity or causal influence."
+  },
+  {
+    "id": "steppe-04-frontier-bargains",
+    "page": "steppe",
+    "insight": 4,
+    "claim": "Steppe states turned frontier pressure into recurring payments and markets.",
+    "status": "working_synthesis",
+    "evidence_type": "academic_frontier_history_and_reference_synthesis",
+    "dataset_ids": ["steppe-frontier-bargain-packages"],
+    "source_keys": ["BARFIELD2001_SHADOW_EMPIRES", "IRANICA_SOGDIAN_TRADE", "SMITH2023_CHANYUAN"],
+    "note": "Four bargains show military leverage converted into annual goods marriage or recognition fixed frontier terms diplomatic parity and market access without reducing unlike terms to one tribute value confederation-strength or peace-durability score."
   }
 ]
