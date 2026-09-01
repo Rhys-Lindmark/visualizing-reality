@@ -1519,6 +1519,16 @@ const ratioKey=row=>`${row.city}|${row.period}`;
 const ratios=new Map(urbanSubsistence.map(row=>[ratioKey(row),Number(row.subsistence_ratio)]));
 if(urbanSubsistence.length!==6||ratios.get('London|1700–1749')!==4.16||ratios.get('London|1750–1799')!==3.51||ratios.get('Amsterdam|1700–1749')!==4.2||ratios.get('Amsterdam|1750–1799')!==3.77||ratios.get('Beijing|1700–1749')!==1.25||ratios.get('Beijing|1750–1799')!==1.04)fail('Great Divergence alpha must preserve all six published London Amsterdam and Beijing subsistence ratios');
 
+const jennyReturns=csv('public/data/great-divergence/20260901-incentives1/spinning-jenny-returns.csv');
+const jennyReturnIndex=new Map();
+for(const[index,row]of jennyReturns.entries()){
+  const context=`spinning-jenny-returns.csv row ${index+2}`;
+  requireFields(row,['place','return_percent','wage_context','adoption_result','calculation_scope','source_keys','limits'],context);numeric(row,['return_percent'],context);validateKeys(sourceKeys(row.source_keys),context);
+  if(jennyReturnIndex.has(row.place))fail(`${context} duplicates ${row.place}`);jennyReturnIndex.set(row.place,Number(row.return_percent));
+  for(const field of ['invention_score','national_adoption_rate','causal_share','energy_price_index'])if(field in row)fail(`${context} must not include synthetic ${field}`);
+}
+if(jennyReturns.length!==3||jennyReturnIndex.get('England')!==38||jennyReturnIndex.get('France')!==2.5||jennyReturnIndex.get('India')!==-5.2)fail('Great Divergence incentive comparison must preserve Allen’s central 38% 2.5% and -5.2% spinning-jenny returns');
+
 const mandalaRelationships=csv('public/data/southeast-asia/20260831-mandala1/mandala-relationship-evidence.csv');
 for(const[index,row]of mandalaRelationships.entries()){
   const context=`mandala-relationship-evidence.csv row ${index+2}`;

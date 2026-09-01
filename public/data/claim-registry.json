@@ -906,5 +906,16 @@
     "dataset_ids": ["wind-shaped-ocean-routes"],
     "source_keys": ["NOAA2004_MANILA_GALLEON", "NOAA2024_TRADE_WINDS", "BEAUJARD2019_INDIAN_OCEAN_NAVIGATION", "MARCOCCI2025_SEASONALITY_EMPIRE"],
     "note": "Pacific westerlies and trades plus Indian Ocean monsoon calendars show why sailing routes were directional and seasonal without reconstructing exact tracks speeds traffic or a universal optimal route."
+  },
+  {
+    "id": "great-divergence-02-invention-incentives",
+    "page": "great-divergence",
+    "insight": 2,
+    "claim": "High wages and cheap energy made labor-saving invention unusually profitable.",
+    "status": "modeled_argument",
+    "evidence_type": "peer_reviewed_economic_history_adoption_model",
+    "dataset_ids": ["spinning-jenny-adoption-returns"],
+    "source_keys": ["ALLEN2009_SPINNING_JENNY"],
+    "note": "Allen's central calculation yields returns of 38% in England 2.5% in France and -5.2% in India for one spinning-jenny investment. It supports an influential incentive mechanism without making factor prices the sole cause of industrialization."
   }
 ]

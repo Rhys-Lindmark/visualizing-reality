@@ -1,6 +1,6 @@
 const base=(process.env.HEEV_SITE_URL??'https://visualizing-reality.rhyslindmark.chatgpt.site').replace(/\/$/,'');
 const mirror='https://raw.githubusercontent.com/Rhys-Lindmark/visualizing-reality/main/public';
-const releaseId='20260901-oceanic-winds1';
+const releaseId='20260901-divergence-incentives1';
 const routes=new Map([
   ['/','<title>How Everything Evolved</title>'],
   ['/rome','<title>Rome — How Everything Evolved</title>'],
@@ -112,6 +112,7 @@ const assets=[
   ['csv','/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv'],
   ['csv','/data/oceanic-navigation/20260901-winds1/wind-shaped-routes.csv'],
   ['csv','/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv'],
+  ['csv','/data/great-divergence/20260901-incentives1/spinning-jenny-returns.csv'],
   ['csv','/data/source-registry.csv'],
   ['json','/data/dataset-registry.json'],
   ['json','/data/claim-registry.json'],

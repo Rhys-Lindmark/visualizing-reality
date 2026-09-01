@@ -793,5 +793,15 @@
     "source_key_field": "source_keys",
     "time_resolution": "four route logics spanning pilot calendars through the early modern Pacific and Indian Oceans",
     "notes": "Wind regimes and preferred sailing windows are schematic mechanisms and are not converted into exact tracks distances speeds traffic shares or one route used by every voyage."
+  },
+  {
+    "id": "spinning-jenny-adoption-returns",
+    "title": "Allen's central modeled returns to adopting a spinning jenny in England France and India",
+    "path": "/data/great-divergence/20260901-incentives1/spinning-jenny-returns.csv",
+    "schema": "observation",
+    "evidence_type": "peer_reviewed_economic_history_adoption_model",
+    "source_key_field": "source_keys",
+    "time_resolution": "three place-specific central calculations for late-eighteenth-century conditions",
+    "notes": "The comparison preserves published modeled private returns and their assumptions without constructing a national invention score adoption rate or causal share of industrialization."
   }
 ]

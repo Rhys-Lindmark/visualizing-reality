@@ -1,5 +1,5 @@
 {
-  "release_id": "20260901-oceanic-winds1",
+  "release_id": "20260901-divergence-incentives1",
   "page_contract": "owid-key-insights-v4",
   "required_routes": [
     "/",
@@ -83,6 +83,7 @@
     "/data/gunpowder-empires/20260901-fortress1/artillery-fortress-adaptations.csv",
     "/data/oceanic-navigation/20260831-alpha1/manila-galleon-risk.csv",
     "/data/oceanic-navigation/20260901-winds1/wind-shaped-routes.csv",
-    "/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv"
+    "/data/great-divergence/20260831-alpha1/urban-subsistence-ratios.csv",
+    "/data/great-divergence/20260901-incentives1/spinning-jenny-returns.csv"
   ]
 }
