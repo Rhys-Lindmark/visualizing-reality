@@ -238,5 +238,85 @@
     "visual_answer": "Yes: five parallel timelines cross the 330 BCE break, and the selected province pathway shows retention, restaffing, reallocation, and redesign under Alexander and his successors.",
     "default_visual": "five_institutional_afterlife_timelines",
     "status": "pass"
+  },
+  {
+    "claim_id": "qin-han-01-mobilization-administrative",
+    "claim": "Qin's final conquests were enabled by generations of interstate administrative competition that linked household registration, ranked service, county reporting, and assigned transfers.",
+    "visual_question": "Does the default visual contrast the long administrative buildup with the short final conquest sequence and expose the linked capacities?",
+    "visual_answer": "Yes: five ordered capacities run from interstate pressure through registration, rewards, reporting, and supply beside the nine-year sequence in which six rival courts fell.",
+    "default_visual": "five_capacities_beside_final_conquest_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "qin-han-02-standard-interface",
+    "claim": "Qin standards made distant objects and records mutually legible through certification, official scripts, dimensions, and shared fields without making local practice identical.",
+    "visual_question": "Does the default visual show both a shared formal interface and variation in excavated practice?",
+    "visual_answer": "Yes: the certified scoop opens the norm-to-practice circuit, while four counted Qianling comparisons visibly range from 25 of 25 near a shared length to 0 of 25 inside the legal width tolerance.",
+    "default_visual": "norm_to_practice_circuit_with_four_compliance_features",
+    "status": "pass"
+  },
+  {
+    "claim_id": "qin-han-03-infrastructure-ecology",
+    "claim": "Qin and Han imperial reach depended on a maintained logistics ecology that linked productive landscapes records stores transport corridors and recurrent labor rather than on any one megaproject.",
+    "visual_question": "Does the default visual make a linked logistics system visible rather than spotlighting one monument?",
+    "visual_answer": "Yes: eight evidence windows surround a repeated input-to-interface-to-reach circuit and a chronology spanning irrigation, routes, ration auditing, storage, repair, and concentrated labor.",
+    "default_visual": "eight_window_logistics_ecology_and_flow",
+    "status": "pass"
+  },
+  {
+    "claim_id": "qin-han-04-governance-bargain",
+    "claim": "Han lasted by sharing rule with kingdoms and local partners, then progressively shrinking the space in which those partners could become rivals.",
+    "visual_question": "Does the default visual show delegation first and the later narrowing of rival kingdoms?",
+    "visual_answer": "Yes: the six-stage sequence opens on the founding compromise of roughly fifteen directly held commanderies, then visibly advances through dynastic binding, subdivision, rebellion, reduced royal offices, and expanded supervision.",
+    "default_visual": "six_stage_center_kingdom_bargain",
+    "status": "pass"
+  },
+  {
+    "claim_id": "qin-han-05-emergency-command",
+    "claim": "Han fell when repeated emergencies transferred soldiers, territory, revenue, and imperial legitimacy to regional commanders who became rival states.",
+    "visual_question": "Does the default visual expose the feedback loop from emergency response to rival territorial command?",
+    "visual_answer": "Yes: six dated steps repeatedly connect pressure to emergency response and the actor who gained command, ending with three competing imperial claims in 220–229 CE.",
+    "default_visual": "six_step_emergency_command_feedback_loop",
+    "status": "pass"
+  },
+  {
+    "claim_id": "india-01-coordination-without-monumental-rulers",
+    "claim": "Indus cities coordinated a shared weight system across Harappa and Mohenjo-daro without monumentalizing rulers in securely identified palaces, royal tombs, large temples, or ruler-aggrandizing monuments.",
+    "visual_question": "Does the default visual show both shared metrology across cities and the missing monumental ruler signals?",
+    "visual_answer": "Yes: three excavation series converge around the same small weight unit across eight ratios, directly paired with four archaeological categories not securely identified after a century of excavation.",
+    "default_visual": "three_weight_series_and_four_absent_monument_signals",
+    "status": "pass"
+  },
+  {
+    "claim_id": "india-02-regional-crop-calendars",
+    "claim": "Indus farmers answered rainfall risk with different crop calendars.",
+    "visual_question": "Does the default visual make regional seasonal strategies visibly different?",
+    "visual_answer": "Yes: Harappa, Khirsara, and Masudpur VII open as three distinct cases, and the selected Harappa panel separates winter wheat and barley from summer millets with its bounded 7% maximum anchor.",
+    "default_visual": "three_regional_winter_summer_crop_calendars",
+    "status": "pass"
+  },
+  {
+    "claim_id": "india-03-cities-before-empire",
+    "claim": "Cities returned before one empire united them.",
+    "visual_question": "Does the default visual put urban evidence before Mauryan political integration?",
+    "visual_answer": "Yes: the first of three chronological phases pairs rival Janapadas with seven fortified-site examples and an urban material toolkit before the next phase introduces Mauryan integration.",
+    "default_visual": "three_phase_urban_then_imperial_sequence",
+    "status": "pass"
+  },
+  {
+    "claim_id": "india-04-several-kinds-of-rule",
+    "claim": "One Mauryan empire contained several kinds of rule.",
+    "visual_question": "Does the default visual make the empire's political relationships visibly unlike?",
+    "visual_answer": "Yes: four selectable relationships distinguish direct court inspection, delegated regional centers, special Kalinga orders, and independent neighbors, with each opening into its own instrument and inscriptional window.",
+    "default_visual": "four_mauryan_relationship_types",
+    "status": "pass"
+  },
+  {
+    "claim_id": "india-05-networks-beyond-empires",
+    "claim": "Goods, production knowledge, and courtly language traveled farther than Indian empires.",
+    "visual_question": "Does the default visual show specific carriers crossing political boundaries without implying annexation?",
+    "visual_answer": "Yes: three cases pair a destination and carrier with observed evidence, what traveled, and what did not; the opening Khao Sam Kaeo case explicitly shows locally recombined technical traditions outside Indian political control.",
+    "default_visual": "three_cross_border_carriers_and_non_annexation_contexts",
+    "status": "pass"
   }
 ]

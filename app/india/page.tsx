@@ -15,7 +15,7 @@ const labels=[
   'Indus farmers answered rainfall risk with different crop calendars',
   'Cities returned before one empire united them',
   'One Mauryan empire contained several kinds of rule',
-  'Religions and trade traveled farther than Indian empires',
+  'Goods, production knowledge, and courtly language traveled farther than Indian empires',
 ];
 
 export default function IndiaPage(){return <HistoryPageShell
